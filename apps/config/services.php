@@ -30,6 +30,36 @@ $di->setShared('url', function () {
 /**
  * Setting up the view component
  */
+$view = new View();
+
+// Set options to view component
+// ...
+// Register the installed modules
+$application->registerModules(
+    [
+        "frontend" => function ($di) use ($view) {
+            $di->setShared(
+                "view",
+                function () use ($view) {
+                    $view->setViewsDir("../apps/frontend/views/");
+
+                    return $view;
+                }
+            );
+        },
+        "backend" => function ($di) use ($view) {
+            $di->setShared(
+                "view",
+                function () use ($view) {
+                    $view->setViewsDir("../apps/backend/views/");
+
+                    return $view;
+                }
+            );
+        }
+    ]
+);
+
 $di->setShared('view', function () {
     $config = $this->getConfig();
 

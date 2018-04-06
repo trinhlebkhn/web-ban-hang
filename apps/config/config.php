@@ -4,7 +4,7 @@
  * NOTE: please remove this comment.
  */
 defined('BASE_PATH') || define('BASE_PATH', getenv('BASE_PATH') ?: realpath(dirname(__FILE__) . '/../..'));
-defined('APP_PATH') || define('APP_PATH', BASE_PATH . '/app');
+defined('APP_PATH') || define('APP_PATH', BASE_PATH . '/apps');
 
 return new \Phalcon\Config([
     'database' => [

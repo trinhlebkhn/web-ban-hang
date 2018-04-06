@@ -4,7 +4,7 @@ use Phalcon\Di\FactoryDefault;
 error_reporting(E_ALL);
 
 define('BASE_PATH', dirname(__DIR__));
-define('APP_PATH', BASE_PATH . '/app');
+define('APP_PATH', BASE_PATH . '/apps');
 
 try {
 
@@ -13,6 +13,11 @@ try {
      * the services that provide a full stack framework.
      */
     $di = new FactoryDefault();
+
+    /**
+     * Include Autoloader
+     */
+    include APP_PATH . '/config/modules.php';
 
     /**
      * Handle routes
@@ -28,11 +33,6 @@ try {
      * Get config service for use in inline setup below
      */
     $config = $di->getConfig();
-
-    /**
-     * Include Autoloader
-     */
-    include APP_PATH . '/config/loader.php';
 
     /**
      * Handle the request
