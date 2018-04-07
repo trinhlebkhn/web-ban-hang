@@ -7,13 +7,14 @@
  */
 
 
-namespace Multiple\Frontend;
+namespace Graduate\Frontend;
 
 use Phalcon\Loader;
 use Phalcon\Mvc\View;
 use Phalcon\DiInterface;
 use Phalcon\Mvc\Dispatcher;
 use Phalcon\Mvc\ModuleDefinitionInterface;
+use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 
 class Module implements ModuleDefinitionInterface
 {
@@ -26,10 +27,14 @@ class Module implements ModuleDefinitionInterface
 
         $loader->registerNamespaces(
             [
-                "Multiple\Frontend\Controllers" => "../apps/frontend/controllers/",
-                "Multiple\Frontend\Models"      => "../apps/frontend/models/",
+                "Graduate\Frontend\Controllers" => __DIR__ . "/controllers/",
+                "Graduate\Frontend\Models"      => __DIR__ . "/models/",
             ]
         );
+        $loader->registerDirs([
+            __DIR__ . '/service/',
+            __DIR__.'/../library/'
+        ]);
 
         $loader->register();
     }
@@ -39,28 +44,38 @@ class Module implements ModuleDefinitionInterface
      */
     public function registerServices(DiInterface $di)
     {
-        // Registering a dispatcher
-        $di->set(
-            "dispatcher",
-            function () {
-                $dispatcher = new Dispatcher();
-
-                $dispatcher->setDefaultNamespace("Multiple\\Frontend\\Controllers");
-
-                return $dispatcher;
-            }
-        );
+        $config = include __DIR__ . "/config/config.php";
 
         // Registering the view component
-        $di->set(
-            "view",
-            function () {
-                $view = new View();
+        $di['view'] = function () use ($config) {
+            $view = new View();
+            $view->setViewsDir($config->get('application')->viewsDir);
+            $view->registerEngines(array(
+                '.volt' => function ($view, $di) use ($config) {
 
-                $view->setViewsDir("../apps/frontend/views/");
+                    $volt = new VoltEngine($view, $di);
 
-                return $view;
-            }
-        );
+                    $volt->setOptions(array(
+                        'compiledPath' => $config->application->cacheDir,
+                        'compiledSeparator' => '_',
+                        'stat' => true,
+                        'compileAlways' => true
+                    ));
+                    //load function php
+                    return $volt;
+                },
+                '.phtml' => 'Phalcon\Mvc\View\Engine\Php'
+            ));
+//            d($view);
+            return $view;
+        };
+
+
+        /**
+         * Database connection is created based in the parameters defined in the configuration file
+         */
+        $di['db'] = function () use ($config) {
+            return new DbAdapter($config->toArray());
+        };
     }
 }

@@ -1,8 +1,11 @@
 <?php
-namespace Multiple\Frontend\Controllers;
+namespace Graduate\Frontend\Controllers;
 use Phalcon\Mvc\Controller;
 
 class ControllerBase extends Controller
 {
+    public function initialize()
+    {
 
+    }
 }

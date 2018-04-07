@@ -1,6 +1,7 @@
 <?php
 use Phalcon\Di\FactoryDefault;
 
+ini_set('display_errors', true);
 error_reporting(E_ALL);
 
 define('BASE_PATH', dirname(__DIR__));
@@ -13,33 +14,37 @@ try {
      * the services that provide a full stack framework.
      */
     $di = new FactoryDefault();
+    $application = new \Phalcon\Mvc\Application($di);
+    $config = include APP_PATH . "/frontend/config/config.php";
+    /**
+     * Read buttin
+     */
+    include BASE_PATH . '/config/buitin.php';
 
     /**
      * Include Autoloader
      */
-    include APP_PATH . '/config/modules.php';
+    include APP_PATH . '/frontend/config/config.php';
 
     /**
      * Handle routes
      */
-    include APP_PATH . '/config/router.php';
 
     /**
      * Read services
      */
-    include APP_PATH . '/config/services.php';
+    include BASE_PATH . '/config/services.php';
 
-    /**
-     * Get config service for use in inline setup below
-     */
-    $config = $di->getConfig();
+    include BASE_PATH . '/config/modules.php';
+
+    include BASE_PATH . '/config/router.php';
 
     /**
      * Handle the request
      */
-    $application = new \Phalcon\Mvc\Application($di);
 
-    echo str_replace(["\n","\r","\t"], '', $application->handle()->getContent());
+
+    echo $application->handle()->getContent();
 
 } catch (\Exception $e) {
     echo $e->getMessage() . '<br>';

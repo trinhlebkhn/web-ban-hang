@@ -1,5 +1,5 @@
 <?php
-
+use Phalcon\Mvc\Router;
 use Phalcon\Mvc\View;
 use Phalcon\Mvc\View\Engine\Php as PhpEngine;
 use Phalcon\Mvc\Url as UrlResolver;
@@ -11,6 +11,20 @@ use Phalcon\Flash\Direct as Flash;
 /**
  * Shared configuration service
  */
+$di->setShared('router', function () {
+    $router = new Router();
+    $router->setDefaultModule('frontend');
+    $router->setDefaultNamespace('Graduate\Frontend\Controllers');
+    $router->add("/backend", [
+        'module' => 'backend',
+        'namespace' => 'Graduate\Backend\Controllers',
+        'controller' => 'index',
+        'action' => 'index',
+    ]);
+
+    return $router;
+});
+
 $di->setShared('config', function () {
     return include APP_PATH . "/config/config.php";
 });
@@ -31,48 +45,12 @@ $di->setShared('url', function () {
  * Setting up the view component
  */
 $view = new View();
-
-// Set options to view component
-// ...
-// Register the installed modules
-$application->registerModules(
-    [
-        "frontend" => function ($di) use ($view) {
-            $di->setShared(
-                "view",
-                function () use ($view) {
-                    $view->setViewsDir("../apps/frontend/views/");
-
-                    return $view;
-                }
-            );
-        },
-        "backend" => function ($di) use ($view) {
-            $di->setShared(
-                "view",
-                function () use ($view) {
-                    $view->setViewsDir("../apps/backend/views/");
-
-                    return $view;
-                }
-            );
-        }
-    ]
-);
-
-$di->setShared('view', function () {
-    $config = $this->getConfig();
-
+$di->setShared('view', function () use ($config) {
     $view = new View();
-    $view->setDI($this);
     $view->setViewsDir($config->application->viewsDir);
-
     $view->registerEngines([
-        '.volt' => function ($view) {
-            $config = $this->getConfig();
-
-            $volt = new VoltEngine($view, $this);
-
+        '.volt' => function ($view, $di) use ($config) {
+            $volt = new VoltEngine($view, $di);
             $volt->setOptions([
                 'compiledPath' => $config->application->cacheDir,
                 'compiledSeparator' => '_'
@@ -80,8 +58,7 @@ $di->setShared('view', function () {
 
             return $volt;
         },
-        '.phtml' => PhpEngine::class
-
+        '.phtml' => 'Phalcon\Mvc\View\Engine\Php'
     ]);
 
     return $view;
