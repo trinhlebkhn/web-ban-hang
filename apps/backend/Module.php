@@ -7,13 +7,14 @@
  */
 
 
-namespace Multiple\Backend;
+namespace Graduate\Backend;
 
 use Phalcon\Loader;
 use Phalcon\Mvc\View;
 use Phalcon\DiInterface;
 use Phalcon\Mvc\Dispatcher;
 use Phalcon\Mvc\ModuleDefinitionInterface;
+use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 
 class Module implements ModuleDefinitionInterface
 {
@@ -43,7 +44,6 @@ class Module implements ModuleDefinitionInterface
      */
     public function registerServices(DiInterface $di)
     {
-
         $config = include __DIR__ . "/config/config.php";
 
         // Registering the view component
@@ -56,17 +56,21 @@ class Module implements ModuleDefinitionInterface
                     $volt = new VoltEngine($view, $di);
 
                     $volt->setOptions(array(
-//                        'compiledPath' => $config->application->cacheDir,
+                        'compiledPath' => $config->application->cacheDir,
                         'compiledSeparator' => '_',
                         'stat' => true,
                         'compileAlways' => true
                     ));
+                    //load function php
                     return $volt;
                 },
                 '.phtml' => 'Phalcon\Mvc\View\Engine\Php'
             ));
+//            d($view);
             return $view;
         };
+
+
         /**
          * Database connection is created based in the parameters defined in the configuration file
          */

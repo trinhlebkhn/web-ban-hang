@@ -22,11 +22,6 @@ try {
     include BASE_PATH . '/config/buitin.php';
 
     /**
-     * Include Autoloader
-     */
-    include APP_PATH . '/frontend/config/config.php';
-
-    /**
      * Handle routes
      */
 
@@ -42,10 +37,7 @@ try {
     /**
      * Handle the request
      */
-
-
-    echo $application->handle()->getContent();
-
+    echo str_replace(["\n","\r","\t"], '', $application->handle()->getContent());
 } catch (\Exception $e) {
     echo $e->getMessage() . '<br>';
     echo '<pre>' . $e->getTraceAsString() . '</pre>';

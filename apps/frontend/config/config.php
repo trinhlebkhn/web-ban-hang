@@ -14,12 +14,8 @@ return new \Phalcon\Config([
         'host'        => 'localhost',
         'username'    => 'root',
         'password'    => 'dhbkhn657',
-        'dbname'      => 'project',
+        'dbname'      => 'graduate_project',
         'charset'     => 'utf8',
-    ],
-    'cache' => [
-        'lifetime' => 86400,
-        'adapter' => 'File',
     ],
     'application' => [
         'appDir'         => APP_PATH . '/',

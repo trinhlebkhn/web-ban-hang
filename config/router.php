@@ -3,6 +3,13 @@
 
 $router = $di->get ( "router" );
 
+$router->add("/backend", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'index',
+    'action' => 'index',
+]);
+
 foreach ( $application->getModules () as $key => $module ) {
     $namespace = str_replace ( 'Module', 'Controllers', $module ["className"] );
 //    d($namespace, $key, $module);

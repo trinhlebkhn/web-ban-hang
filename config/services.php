@@ -15,13 +15,6 @@ $di->setShared('router', function () {
     $router = new Router();
     $router->setDefaultModule('frontend');
     $router->setDefaultNamespace('Graduate\Frontend\Controllers');
-    $router->add("/backend", [
-        'module' => 'backend',
-        'namespace' => 'Graduate\Backend\Controllers',
-        'controller' => 'index',
-        'action' => 'index',
-    ]);
-
     return $router;
 });
 
