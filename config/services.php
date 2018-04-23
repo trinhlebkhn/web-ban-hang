@@ -18,10 +18,6 @@ $di->setShared('router', function () {
     return $router;
 });
 
-$di->setShared('config', function () {
-    return include APP_PATH . "/config/config.php";
-});
-
 /**
  * The URL component is used to generate all kind of urls in the application
  */
