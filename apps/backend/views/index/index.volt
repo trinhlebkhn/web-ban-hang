@@ -1,48 +1,103 @@
-{% include "/layouts/header.volt" %}
-<div class="login-page">
-    <div class="container">
-        <div class="card card-container">
-            {{ flash.output() }}
-            <div class="image-user">
-                <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+{% include "layouts/header.volt" %}
+<!-- Left side column. contains the logo and sidebar -->
+{% include "layouts/sidebar.volt" %}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    {#{{ partial('layouts/breadcrumb', ['PageInfo' : PageInfo]) }}#}
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-yellow">
+                    <div class="inner">
+                        {#<h3>{{ DashboardInfo['total_customer'] ? DashboardInfo['total_customer'] : "0" }}</h3>#}
+
+                        <p>Khách hàng đăng ký</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-person-add"></i>
+                    </div>
+                    <a href="/customer" class="small-box-footer">Xem thêm <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
             </div>
-            {% if isnt_active is empty %}
-                <form class="form-login" method="post">
-                    <span id="reauth-email" class="reauth-email"></span>
-                    <div class="form-group">
-                        <input type="text" name="dataLogin[username]" id="inputEmail" class="form-control" placeholder="Tên tài khoản" required autofocus>
+            <!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-aqua">
+                    <div class="inner">
+                        {#<h3>{{ DashboardInfo['total_contract'] ? DashboardInfo['total_contract'] : "0" }}</h3>#}
+
+                        <p>Hợp đồng</p>
                     </div>
-                    <div class="form-group">
-                        <input type="password" name="dataLogin[password]" id="inputPassword" class="form-control" placeholder="Mật khẩu" required>
+                    <div class="icon">
+                        <i class="ion ion-document-text"></i>
                     </div>
-                    <div id="remember" class="checkbox">
-                        <label>
-                            <input type="checkbox" value="remember-me"> Ghi nhớ tài khoản
-                        </label>
+                    <a href="/contract" class="small-box-footer">Xem thêm <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-green">
+                    <div class="inner">
+                        {#<h3>{{ uihelper.format_number(DashboardInfo['sum_contract_new']) }} VNĐ</h3>#}
+
+                        <p>Doanh thu hợp đồng mới</p>
                     </div>
-                    <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" style="margin-bottom: 10px">Đăng nhập</button>
-                </form>
-                <div class="account_login__social ">
-                    <div class="title text-center"><span>Đăng nhập với</span></div>
-                    <div class="list__buttons">
-                        <div class="row">
-                            <div class="col-sm-6 col-xs-12">
-                                <a href="/auth/facebook" class="btn btn-facebook" style="font-size: 13px; line-height: 2.4rem; width: 100%; margin-bottom: 10px">
-                                    Đăng nhập với Facebook
-                                </a>
-                            </div>
-                            <div class="col-sm-6 col-xs-12">
-                                <a href="/auth/google" class="btn btn-google" style="font-size: 13px; line-height: 2.4rem; width: 100%">
-                                    Đăng nhập với Google
-                                </a>
-                            </div>
+                    <div class="icon">
+                        <i class="ion ion-plus-round"></i>
+                    </div>
+                    <a href="/contract?type=new" class="small-box-footer">Xem thêm <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-red">
+                    <div class="inner">
+                        {#<h3>{{ uihelper.format_number(DashboardInfo['sum_contract_extend']) }} VNĐ</h3>#}
+
+                        <p>Doanh thu hợp đồng gia hạn thêm</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-ios-refresh-outline"></i>
+                    </div>
+                    <a href="/contract?type=extend" class="small-box-footer">Xem thêm <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+        </div>
+
+        {#THỐNG KÊ KHÁCH HÀNG#}
+        {#<div class="row">
+            <div class="col-md-6">
+                <!-- BAR CHART -->
+                <div class="box box-success">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Thống kê khách hàng</h3>
+
+                        #}{#<div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                        </div>#}{#
+                    </div>
+                    <div class="box-body">
+                        <div class="chart">
+                            <canvas id="barChart_Customer" style="height:230px"></canvas>
                         </div>
                     </div>
+                    <!-- /.box-body -->
                 </div>
-                <a href="/backend/auth/login" class="forgot-password">
-                Quên mật khẩu?
-                </a>
-            {% endif %}
-        </div>
-    </div>
+                <!-- /.box -->
+
+            </div>
+        </div>#}
+    </section>
+    <!-- /.content -->
 </div>
+<!-- /.content-wrapper -->
+{% include "layouts/footer.volt" %}
+<!-- ./wrapper -->

@@ -5,7 +5,7 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="../assets/img/logobiznet.png" class="img-circle" alt="logo đại lý">
+                <img src="/assets_backend/assets/img/logobiznet.png" class="img-circle" alt="logo đại lý">
             </div>
             <div class="pull-left info">
                 <p>{{ AgencyInfo.company_name }}</p>
@@ -27,26 +27,44 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
             <li>
-                <a href="/customer">
+                <a href="/">
                     <i class="fa fa-user-circle-o"></i>
-                    <span>Khách hàng</span>
+                    <span>Quản lý thành viên</span>
                     {#<span class="pull-right-container">#}
                     {#<i class="fa fa-angle-left pull-right"></i>#}
                     {#</span>#}
+                </a>
+            </li>
+            <li>
+                <a href="/quan-tri/san-pham">
+                    <i class="fa fa-product-hunt"></i>
+                    <span>Quản lý sản phẩm</span>
+                    {#<span class="pull-right-container">#}
+                    {#<i class="fa fa-angle-left pull-right"></i>#}
+                    {#</span>#}
+                </a>
+            </li>
+            <li class="treeview">
+                <a href="/contract">
+                    <i class="fa fa-edit"></i>
+                    <span>Quản lý bài viết</span>
                 </a>
             </li>
             <li>
                 <a href="/contract">
                     <i class="fa fa-briefcase"></i>
-                    <span>Hợp đồng</span>
-                    {#<span class="pull-right-container">#}
-                    {#<i class="fa fa-angle-left pull-right"></i>#}
-                    {#</span>#}
+                    <span>Quản lý hóa đơn</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
                 </a>
+                <ul class="treeview-menu" style="">
+                    <li><a href="general.html"><i class="fa fa-circle-o"></i> General</a></li>
+                </ul>
             </li>
             <li>
                 <a href="/agency">
-                    <i class="fa fa-globe"></i> <span>Cấu hình</span>
+                    <i class="fa fa-fw fa-cogs"></i> <span>Cấu hình</span>
                     {#<span class="pull-right-container">#}
                     {#<i class="fa fa-angle-left pull-right"></i>#}
                     {#</span>#}
