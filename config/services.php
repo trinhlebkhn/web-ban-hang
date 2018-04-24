@@ -6,7 +6,7 @@ use Phalcon\Mvc\Url as UrlResolver;
 use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 use Phalcon\Mvc\Model\Metadata\Memory as MetaDataAdapter;
 use Phalcon\Session\Adapter\Files as SessionAdapter;
-use Phalcon\Flash\Direct as Flash;
+use Phalcon\Flash\Session as Flash;
 
 /**
  * Shared configuration service
@@ -105,4 +105,9 @@ $di->setShared('session', function () {
     $session->start();
 
     return $session;
+});
+
+$di->setShared('user', function () {
+    $user = new User();
+    return $user;
 });

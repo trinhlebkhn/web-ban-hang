@@ -34,6 +34,7 @@ try {
 
     include BASE_PATH . '/config/router.php';
 
+    include BASE_PATH . "/config/loader.php";
     /**
      * Handle the request
      */

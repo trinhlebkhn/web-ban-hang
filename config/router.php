@@ -3,6 +3,20 @@
 
 $router = $di->get ( "router" );
 
+$router->add("/quan-tri/dang-nhap", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'auth',
+    'action' => 'login',
+]);
+
+$router->add("/quan-tri", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'index',
+    'action' => 'index',
+]);
+
 $router->add("/backend", [
     'module' => 'backend',
     'namespace' => 'Graduate\Backend\Controllers',

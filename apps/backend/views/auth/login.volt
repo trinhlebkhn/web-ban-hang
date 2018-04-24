@@ -39,9 +39,9 @@
                         </div>
                     </div>
                 </div>
-                <a href="/backend/auth/login" class="forgot-password">
-                Quên mật khẩu?
-                </a>
+                {#<a href="#" class="forgot-password">#}
+                {#Quên mật khẩu?#}
+                {#</a>#}
             {% endif %}
         </div>
     </div>
