@@ -9,5 +9,6 @@ $loader->registerDirs(
     [
         APP_PATH . '/service',
         APP_PATH . '/models',
+        APP_PATH . '/library',
     ]
 )->register();

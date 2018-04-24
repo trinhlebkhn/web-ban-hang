@@ -31,6 +31,20 @@ $router->add("/quan-tri/san-pham", [
     'action' => 'index',
 ]);
 
+$router->add("/quan-tri/danh-sach-san-pham", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'product',
+    'action' => 'getListProduct',
+]);
+
+$router->add("/quan-tri/danh-muc", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'category',
+    'action' => 'index',
+]);
+
 /* END BACKEND */
 
 foreach ($application->getModules() as $key => $module) {

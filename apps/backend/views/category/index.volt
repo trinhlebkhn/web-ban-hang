@@ -3,9 +3,8 @@
 {% include "layouts/sidebar.volt" %}
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-
-{% include "layouts/widget/product/widget-add-product.volt" %}
-{% include "layouts/widget/product/widget-list-product.volt" %}
+    {% include "layouts/widget/category/widget-add-category.volt" %}
+    {% include "layouts/widget/category/widget-list-category.volt" %}
 </div>
 <!-- /.content-wrapper -->
 {% include "layouts/footer.volt" %}

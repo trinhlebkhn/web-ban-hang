@@ -107,7 +107,12 @@ $di->setShared('session', function () {
     return $session;
 });
 
-$di->setShared('user', function () {
-    $user = new User();
-    return $user;
+$di->setShared('userObj', function () {
+    $obj = new User();
+    return $obj;
+});
+
+$di->setShared('categoryObj', function () {
+    $obj = new Category();
+    return $obj;
 });

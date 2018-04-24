@@ -9,6 +9,6 @@
 class User
 {
     public function createObj(){
-        d('Trinh');
+
     }
 }

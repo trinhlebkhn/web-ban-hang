@@ -16,20 +16,18 @@ class ProductController
     }
 
     public function getListProductAction(){
-
         $json_data = array(
             "draw" => intval($_REQUEST['draw']),
             "recordsTotal" => 10,
             "recordsFiltered" => 10,
-            'data' => [
-                ['id' => 1],
-                ['id' => 2],
-                ['id' => 3],
-                ['id' => 4],
-                ['id' => 5],
+            'data' => (object)[
+                'id' => 1,
+                'fullname' => 1,
+                'phone' => 1,
+                'email' => 1,
+                'address' => 1
             ]
         );
-
         return json_encode($json_data);
     }
 }
