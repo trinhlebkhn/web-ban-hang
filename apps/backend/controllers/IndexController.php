@@ -7,7 +7,6 @@ class IndexController extends AuthorizedControllerBase
     public function indexAction()
     {
 
-
     }
 
 }

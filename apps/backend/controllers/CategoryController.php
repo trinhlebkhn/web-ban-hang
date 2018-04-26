@@ -13,6 +13,7 @@ class CategoryController extends AuthorizedControllerBase
 {
     public function indexAction()
     {
-        $this->categoryObj->create();
+        $catObj = new \Category();
+        $listCat = $catObj->getListObj();
     }
 }

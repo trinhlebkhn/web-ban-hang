@@ -1,4 +1,7 @@
 <?php
+
+use Phalcon\Events\Event;
+use Phalcon\Mvc\Dispatcher;
 use Phalcon\Mvc\Router;
 use Phalcon\Mvc\View;
 use Phalcon\Mvc\View\Engine\Php as PhpEngine;
@@ -7,6 +10,7 @@ use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 use Phalcon\Mvc\Model\Metadata\Memory as MetaDataAdapter;
 use Phalcon\Session\Adapter\Files as SessionAdapter;
 use Phalcon\Flash\Session as Flash;
+use Phalcon\Events\Manager as EventsManager;
 
 /**
  * Shared configuration service
@@ -82,7 +86,8 @@ $di->setShared('db', function () {
  * If the configuration specify the use of metadata adapter use it or use memory otherwise
  */
 $di->setShared('modelsMetadata', function () {
-    return new MetaDataAdapter();
+    $metadata = new \Phalcon\Mvc\Model\MetaData\Memory();
+    return $metadata;
 });
 
 /**
@@ -116,3 +121,26 @@ $di->setShared('categoryObj', function () {
     $obj = new Category();
     return $obj;
 });
+
+/**
+ * @return Dispatcher
+ */
+$di['dispatcher'] = function () {
+
+    $events_manager = new EventsManager();
+
+    // Attach a listener
+    $events_manager->attach(
+        "dispatch:beforeException",
+        function (Event $event, \Phalcon\Dispatcher $dispatcher, Exception $exception) {
+//            die($exception); // dong` vua` nay~ la cua anh , proj nay k co
+        }
+    );
+
+    $dispatcher = new Dispatcher();
+
+    // Bind the EventsManager to the dispatcher
+    $dispatcher->setEventsManager($events_manager);
+
+    return $dispatcher;
+};

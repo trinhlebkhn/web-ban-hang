@@ -1,8 +1,8 @@
 <?php
 use Phalcon\Di\FactoryDefault;
 
-ini_set('display_errors', false);
-error_reporting(E_ALL);
+error_reporting(E_ALL); ini_set('display_errors', true);
+error_reporting(E_ERROR); ini_set('display_errors', true);
 
 define('BASE_PATH', dirname(__DIR__));
 define('APP_PATH', BASE_PATH . '/apps');
