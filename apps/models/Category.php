@@ -40,6 +40,13 @@ class Category extends DbModel
 
     /**
      *
+     * @var string
+     * @Column(type="text", length=500, nullable=true)
+     */
+    public $avatar;
+
+    /**
+     *
      * @var integer
      * @Column(type="integer", length=1, nullable=false)
      */
@@ -57,7 +64,46 @@ class Category extends DbModel
      * @var integer
      * @Column(type="integer", length=1, nullable=true)
      */
+    public $status;
+
+    /**
+     *
+     * @var integer
+     * @Column(type="integer", length=1, nullable=true)
+     */
     public $del_flag;
+
+    /**
+     * @return string
+     */
+    public function getAvatar()
+    {
+        return $this->avatar;
+    }
+
+    /**
+     * @param string $avatar
+     */
+    public function setAvatar($avatar)
+    {
+        $this->avatar = $avatar;
+    }
+
+    /**
+     * @return int
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param int $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
 
     /**
      * @return int
@@ -156,7 +202,6 @@ class Category extends DbModel
     }
 
 
-
     /**
      * Returns table name mapped in the model.
      *
@@ -169,13 +214,16 @@ class Category extends DbModel
 
     public function createObj($data)
     {
-        $rs = self::newInstance($data);
-        //d($data, $rs->toArray());//
-        $rs->save();
-        if (!empty($rs->getMessages())) {
-            return $this->manipulationError([], 'Có lỗi xảy ra');
-        } else {
-            return $this->manipulationSuccess($rs->toArray(), 'Thao tác thành công!');
+        try {
+            $rs = self::newInstance($data);
+            $rs->save();
+            if (!empty($rs->getMessages())) {
+                return $this->manipulationError([], 'Có lỗi xảy ra');
+            } else {
+                return $this->manipulationSuccess($rs->toArray(), 'Thao tác thành công!');
+            }
+        } catch (Exception $e) {
+            return $this->manipulationError([], $e->getMessage());
         }
     }
 
@@ -183,7 +231,14 @@ class Category extends DbModel
     {
         try {
             $rs = self::find();
-            return $rs;
+            $optional = [
+                'total' => sizeof($rs->toArray())
+            ];
+            if (empty($rs->getMessages())) {
+                return $this->manipulationSuccess($rs->toArray(), "Thao tác thành công!");
+            } else {
+                return $this->manipulationError([], 'Có lỗi xảy ra');
+            }
         } catch (Exception $e) {
             return $this->manipulationError([], $e->getMessage());
         }

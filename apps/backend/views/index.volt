@@ -7,7 +7,8 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="/assets_backend/source/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets_backend/source/bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/assets_backend/source/bower_components/bootstrap/dist/css/bootstrap-theme.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="/assets_backend/source/bower_components/font-awesome/css/font-awesome.min.css">
     <!-- DataTables -->
@@ -107,6 +108,7 @@
 <!-- Custom JS of Daily-Bizsale -->
 <script src="/assets_backend/assets/js/jquery.validate.min.js"></script>
 <script src="/assets_backend/assets/js/custom.js"></script>
+<script src="/assets_backend/assets/js/uploadImage.js"></script>
 <script src="/selectpicker/bootstrap-select.min.js"></script>
 <script src="/assets_backend/source/plugins/iCheck/icheck.min.js"></script>
 <script type="text/javascript">
@@ -302,5 +304,81 @@
         });
     });
 </script>
+<style>
+    @media (min-width: 320px) {
+        /* The snackbar - position it at the bottom and in the middle of the screen */
+        #snackbar {
+            visibility: hidden; /* Hidden by default. Visible on click */
+            min-width: 250px; /* Set a default minimum width */
+            max-width: 300px;
+            margin-left: -125px; /* Divide value of min-width by 2 */
+            background-color: #007b76; /* Black background color */
+            color: #fff; /* White text color */
+            text-align: center; /* Centered text */
+            border-radius: 2px; /* Rounded borders */
+            padding: 16px; /* Padding */
+            position: fixed; /* Sit on top of the screen */
+            z-index: 1000; /* Add a z-index if needed */
+            right: 30px; /* Center the snackbar */
+            top: 215px; /* 30px from the bottom */
+            color: #fff !important;
+        }
+
+        /* Show the snackbar when clicking on a button (class added with JavaScript) */
+        #snackbar.show {
+            visibility: visible; /* Show the snackbar */
+
+            /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+            However, delay the fade out process for 2.5 seconds */
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        /* Animations to fade the snackbar in and out */
+        @-webkit-keyframes fadein {
+            from {
+                top: 0;
+                opacity: 0;
+            }
+            to {
+                top: 215px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadein {
+            from {
+                top: 0;
+                opacity: 0;
+            }
+            to {
+                top: 215px;
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes fadeout {
+            from {
+                top: 215px;
+                opacity: 1;
+            }
+            to {
+                top: 0;
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeout {
+            from {
+                top: 215px;
+                opacity: 1;
+            }
+            to {
+                top: 0;
+                opacity: 0;
+            }
+        }
+    }
+</style>
 </body>
 </html>
