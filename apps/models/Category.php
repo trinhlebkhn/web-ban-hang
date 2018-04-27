@@ -185,7 +185,6 @@ class Category extends DbModel
             $rs = self::find();
             return $rs;
         } catch (Exception $e) {
-            d($e->getMessage());
             return $this->manipulationError([], $e->getMessage());
         }
     }

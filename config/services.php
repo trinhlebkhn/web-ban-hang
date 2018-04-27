@@ -81,15 +81,6 @@ $di->setShared('db', function () {
     return $connection;
 });
 
-
-/**
- * If the configuration specify the use of metadata adapter use it or use memory otherwise
- */
-$di->setShared('modelsMetadata', function () {
-    $metadata = new \Phalcon\Mvc\Model\MetaData\Memory();
-    return $metadata;
-});
-
 /**
  * Register the session flash service with the Twitter Bootstrap classes
  */
@@ -144,3 +135,5 @@ $di['dispatcher'] = function () {
 
     return $dispatcher;
 };
+
+return $di;

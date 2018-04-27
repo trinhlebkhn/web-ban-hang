@@ -7,15 +7,8 @@
  */
 defined('BASE_PATH') || define('BASE_PATH', getenv('BASE_PATH') ?: realpath(dirname(__FILE__) . '/../..'));
 defined('APP_PATH') || define('APP_PATH', BASE_PATH . '/apps');
-d(1);
-$config = array(
-    'adapter'     => 'Mysql',
-    'host'        => 'localhost',
-    'username'    => 'root',
-    'password'    => 'dhbkhn657',
-    'dbname'      => 'graduate_project',
-    'charset'     => 'utf8',
-);
+
+
 return new \Phalcon\Config([
     'database' => [
         'adapter'     => 'Mysql',
@@ -42,3 +35,4 @@ return new \Phalcon\Config([
         'baseUri'        => preg_replace('/public([\/\\\\])index.php$/', '', $_SERVER["PHP_SELF"]),
     ]
 ]);
+

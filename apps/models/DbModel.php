@@ -19,42 +19,42 @@ class DbModel extends Model
      *
      * @return array
      */
-    public function toArray($columns = null)
-    {
-        is_string($columns) && ($columns = preg_replace('/\s/', '', $columns)) && $columns = explode(',', $columns);
-        $fields = $columns == null ? static::getFieldProperties() : array_intersect(static::getFieldProperties(), (array)$columns);
-        $res = [];
-        foreach ($fields as $field) {
-            $getter = 'get' . str_replace('_', '', $field);
-            if (method_exists($this, $getter)) {
-                $value = call_user_func([
-                    $this,
-                    $getter
-                ]);
-                $res[$field] = $value;
-            } else {
-                $res[$field] = $this->$field;
-            }
-        }
-        return $res;
-    }
+//    public function toArray($columns = null)
+//    {
+//        is_string($columns) && ($columns = preg_replace('/\s/', '', $columns)) && $columns = explode(',', $columns);
+//        $fields = $columns == null ? static::getFieldProperties() : array_intersect(static::getFieldProperties(), (array)$columns);
+//        $res = [];
+//        foreach ($fields as $field) {
+//            $getter = 'get' . str_replace('_', '', $field);
+//            if (method_exists($this, $getter)) {
+//                $value = call_user_func([
+//                    $this,
+//                    $getter
+//                ]);
+//                $res[$field] = $value;
+//            } else {
+//                $res[$field] = $this->$field;
+//            }
+//        }
+//        return $res;
+//    }
     /**
      * @param array|string $ignore
      * @return array
      */
-    public static function getFieldProperties($ignore = '')
-    {
-
-        $props = array_keys(get_class_vars(static::class));
-        $props = array_filter($props, function ($item) {
-            return $item[0] === '_' ? null : $item;
-        });
-
-        is_string($ignore) && $ignore = explode(',', str_replace(' ', '', $ignore));
-        $ignore != null && $props = array_diff($props, $ignore);
-
-        return $props;
-    }
+//    public static function getFieldProperties($ignore = '')
+//    {
+//
+//        $props = array_keys(get_class_vars(static::class));
+//        $props = array_filter($props, function ($item) {
+//            return $item[0] === '_' ? null : $item;
+//        });
+//
+//        is_string($ignore) && $ignore = explode(',', str_replace(' ', '', $ignore));
+//        $ignore != null && $props = array_diff($props, $ignore);
+//
+//        return $props;
+//    }
 
 //    function beforeCreate()
 //    {

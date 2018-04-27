@@ -15,5 +15,6 @@ class CategoryController extends AuthorizedControllerBase
     {
         $catObj = new \Category();
         $listCat = $catObj->getListObj();
+        d($listCat->toArray());
     }
 }
