@@ -227,17 +227,84 @@ class Category extends DbModel
         }
     }
 
-    public function getListObj($type = null)
+    public function getListObj($optional = [])
     {
         try {
-            $rs = self::find();
-            $optional = [
-                'total' => sizeof($rs->toArray())
-            ];
-            if (empty($rs->getMessages())) {
-                return $this->manipulationSuccess($rs->toArray(), "Thao tác thành công!");
+            $arrObj = [];
+            $o = [];
+            $listObj = $this->modelsManager->createBuilder()
+                ->from(self::class)
+                ->where(isset($optional['q']) ? $optional['q'] : '1=1')
+                ->getQuery()
+                ->execute();
+            $page = $optional['p'] ? $optional['p'] : 1;
+            if(!empty($optional['limit'])){
+                $paginator = new PaginatorModel(
+                    [
+                        "data" => $listObj,
+                        "limit" => $optional['limit'],
+                        "page" => $page
+                    ]
+                );
+                $paginate = $paginator->getPaginate();
+                foreach ($paginate->items as &$item){
+                    $obj = $item->toArray();
+                    array_push($arrObj, $obj);
+                }
+                $o = [
+                    'limit' => $paginate->limit,
+                    'total_items' => $paginate->total_items,
+                    'curent_page' => $paginate->current,
+                    'total_page' => $paginate->total_pages
+                ];
             } else {
-                return $this->manipulationError([], 'Có lỗi xảy ra');
+                $arrObj = $listObj->toArray();
+                $o = [
+                    'total_items' => sizeof($arrObj),
+                    'curent_page' => 1,
+                    'total_page' => 1
+                ];
+            }
+            return $this->manipulationSuccess($arrObj, "Thao tác thành công!", $o);
+        } catch (Exception $e) {
+            return $this->manipulationError([], $e->getMessage());
+        }
+    }
+
+    public function getDetail($id)
+    {
+        try {
+            $obj = self::findFirst($id);
+            if (!empty($obj->toArray())) {
+                return $this->manipulationSuccess($obj->toArray(), 'Thao tác thành công');
+            } else {
+                return $this->manipulationError([], 'Có lỗi xảy ra. Vui lòng liên hệ nhà quản trị!');
+            }
+        } catch (Exception $e) {
+            return $this->manipulationError([], $e->getMessage());
+        }
+    }
+
+    public function updateCat($data)
+    {
+        try {
+            $obj = self::findFirst($data['id']);
+            if ($obj) {
+                $obj->update($data);
+                return $this->manipulationSuccess($obj->toArray(), 'Cập nhật thành công');
+            }
+        } catch (Exception $e) {
+            return $this->manipulationError([], $e->getMessage());
+        }
+    }
+
+    public function deleteCat($id)
+    {
+        try {
+            $obj = self::findFirst($id);
+            if ($obj) {
+                $obj->delete();
+                return $this->manipulationSuccess($obj->toArray(), 'Xóa thành công');
             }
         } catch (Exception $e) {
             return $this->manipulationError([], $e->getMessage());

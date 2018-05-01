@@ -40,4 +40,17 @@ class ApiClientController extends AuthorizedControllerBase
             return $this->response->setJsonContent($rs);
         }
     }
+
+    public function getDetailAction(){
+        $id = $this->request->getPost('id');
+        $model = $this->request->getPost('model');
+        $obj = new $model();
+        $rs = $obj->getDetail($id);
+        if($rs->status) {
+//            d($rs->data);
+            $render = $this->render_template('category', 'addCategory', ['data' => $rs->data]);
+            d($render);
+            return $this->response->setJsonContent($rs);
+        }
+    }
 }

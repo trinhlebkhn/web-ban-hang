@@ -23,7 +23,7 @@ $router->add("/quan-tri/dang-nhap", [
     'controller' => 'auth',
     'action' => 'login',
 ]);
-
+/* Quản trị sản phẩm */
 $router->add("/quan-tri/san-pham", [
     'module' => 'backend',
     'namespace' => 'Graduate\Backend\Controllers',
@@ -31,6 +31,15 @@ $router->add("/quan-tri/san-pham", [
     'action' => 'index',
 ]);
 
+$router->add("/quan-tri/them-moi-san-pham", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'product',
+    'action' => 'add',
+]);
+
+
+/* Quản trị danh mục */
 $router->add("/quan-tri/danh-sach-san-pham", [
     'module' => 'backend',
     'namespace' => 'Graduate\Backend\Controllers',
@@ -43,6 +52,20 @@ $router->add("/quan-tri/danh-muc", [
     'namespace' => 'Graduate\Backend\Controllers',
     'controller' => 'category',
     'action' => 'index',
+]);
+
+$router->add("/quan-tri/chinh-sua-danh-muc", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'category',
+    'action' => 'update',
+]);
+
+$router->add("/quan-tri/xoa-danh-muc", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'category',
+    'action' => 'deleteCategory',
 ]);
 
 /* END BACKEND */

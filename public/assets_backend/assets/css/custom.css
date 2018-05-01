@@ -199,7 +199,7 @@ button.actived, button.payed, button.waiting-active, button.trial {
     background: #ffffff;
 }
 
-.add-product {
+.add {
     padding: 15px;
 }
 
@@ -246,4 +246,24 @@ div.img-avatar {
 div.img-avatar img {
     width: 100%;
     height: 100%;
+}
+
+.manipulation {
+    width: 100%;
+}
+
+.btn-add, .btn-cancel {
+    float: right;
+}
+
+.btn-cancel {
+    margin-right: 5px;
+}
+
+span.icon-manipulation {
+    margin-right: 5px;
+}
+
+.content-wrapper{
+    min-height: auto !important;
 }
