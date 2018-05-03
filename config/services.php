@@ -103,13 +103,8 @@ $di->setShared('session', function () {
     return $session;
 });
 
-$di->setShared('userObj', function () {
-    $obj = new User();
-    return $obj;
-});
-
-$di->setShared('categoryObj', function () {
-    $obj = new Category();
+$di->setShared('uiHelper', function () {
+    $obj = new UIHelper();
     return $obj;
 });
 

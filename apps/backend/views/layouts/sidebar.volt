@@ -39,18 +39,18 @@
                 <a href="/quan-tri/danh-muc">
                     <i class="fa fa-list"></i>
                     <span>Quản lý danh mục</span>
-                    {#<span class="pull-right-container">#}
-                    {#<i class="fa fa-angle-left pull-right"></i>#}
-                    {#</span>#}
                 </a>
             </li>
             <li>
                 <a href="/quan-tri/san-pham">
                     <i class="fa fa-product-hunt"></i>
                     <span>Quản lý sản phẩm</span>
-                    {#<span class="pull-right-container">#}
-                    {#<i class="fa fa-angle-left pull-right"></i>#}
-                    {#</span>#}
+                </a>
+            </li>
+            <li>
+                <a href="/quan-tri/menu">
+                    <i class="fa fa-product-hunt"></i>
+                    <span>Quản lý menu</span>
                 </a>
             </li>
             <li class="treeview">

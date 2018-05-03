@@ -13,19 +13,35 @@ class ProductController extends AuthorizedControllerBase
 {
     public function indexAction()
     {
-
+        $productObj = new \Product();
+        $rs = $productObj->getListObj();
+        if (!$rs->status) {
+            $this->flash->error($rs->message);
+            return;
+        }
+        $this->view->listData = $rs->data;
     }
 
     public function addAction()
     {
+        $productObj = new \Product();
+        $id = $this->request->get('id');
+        if(!empty($id)){
+            $obj = $productObj->getDetail($id);
+            if(!$obj->status){
+                return $this->flash->error($obj->message);
+            }
+            $data = $obj->data;
+            $data['category_id'] = explode(',', $data['category_id']);
+            $this->view->data = $data;
+//            d($this->view->data);
+        }
         $catObj = new \Category();
         $listCats = $catObj->getListObj();
 //       d($listCats->data);
-        $this->view->setVars([
-            'listCats' => $listCats->data
-        ]);
+        $this->view->listCats = $listCats->data;
+
         if ($this->request->isPost()) {
-            $productObj = new \Product();
             $data = $this->request->get('product');
             if (empty($data['name'] || empty($data['price_sell'] || empty($data['price_import'])))) {
                 $this->flash->error('Vui lòng điền đầy đủ các trường bắt buộc');
@@ -48,13 +64,31 @@ class ProductController extends AuthorizedControllerBase
             $data['price_import'] = intval($data['price_import']);
             $data['discount'] = intval($data['discount']);
 
-            $rs = $productObj->createObj($data);
+            if(empty($id)){
+                $rs = $productObj->createObj($data);
+            } else{
+                $rs = $productObj->updateObj($data);
+            }
+
             if ($rs->status) {
-                $this->flash->success('Thêm mới sản phẩm thành công!');
                 $this->response->redirect(base_uri() . '/quan-tri/san-pham');
+                $this->flash->success($rs->message);
             } else {
                 $this->flash->error($rs->message);
             }
         }
+    }
+
+    public function deleteAction()
+    {
+        $id = $this->request->get('id');
+        $product = new \Product();
+        $rs = $product->deleteObj($id);
+        if ($rs->status) {
+            $this->flash->success($rs->message);
+        } else {
+            $this->flash->error($rs->message);
+        }
+        $this->response->redirect(base_uri() . '/quan-tri/san-pham');
     }
 }

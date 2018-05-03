@@ -23,6 +23,7 @@ $router->add("/quan-tri/dang-nhap", [
     'controller' => 'auth',
     'action' => 'login',
 ]);
+
 /* Quản trị sản phẩm */
 $router->add("/quan-tri/san-pham", [
     'module' => 'backend',
@@ -36,6 +37,28 @@ $router->add("/quan-tri/them-moi-san-pham", [
     'namespace' => 'Graduate\Backend\Controllers',
     'controller' => 'product',
     'action' => 'add',
+]);
+
+$router->add("/quan-tri/chinh-sua-san-pham", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'product',
+    'action' => 'add',
+]);
+
+/* QUẢN TRỊ MENU */
+$router->add("/quan-tri/menu", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'menu',
+    'action' => 'index',
+]);
+
+$router->add("/quan-tri/xoa-san-pham", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'product',
+    'action' => 'delete',
 ]);
 
 

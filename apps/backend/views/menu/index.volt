@@ -3,7 +3,7 @@
 {% include "layouts/sidebar.volt" %}
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-{% include "layouts/widget/product/widget-list-product.volt" %}
+
 </div>
 <!-- /.content-wrapper -->
 {% include "layouts/footer.volt" %}
