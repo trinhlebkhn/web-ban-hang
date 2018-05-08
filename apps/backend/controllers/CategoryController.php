@@ -73,7 +73,10 @@ class CategoryController extends AuthorizedControllerBase
     {
         $id = $this->request->get('id');
         $catObj = new \Category();
-        $rs = $catObj->deleteCat($id);
+        $data = $catObj->getDetail($id);
+        $obj = $data->data;
+        $obj['del_flag'] = 1;
+        $rs = $catObj->updateCat($obj);
         if ($rs->status) {
             $this->flash->success($rs->message);
         } else {

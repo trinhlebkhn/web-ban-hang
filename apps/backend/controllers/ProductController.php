@@ -83,7 +83,10 @@ class ProductController extends AuthorizedControllerBase
     {
         $id = $this->request->get('id');
         $product = new \Product();
-        $rs = $product->deleteObj($id);
+        $data = $product->getDetail($id);
+        $obj = $data->data;
+        $obj['del_flag'] = 1;
+        $rs = $product->updateObj($obj);
         if ($rs->status) {
             $this->flash->success($rs->message);
         } else {

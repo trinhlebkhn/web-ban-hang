@@ -48,7 +48,7 @@
                 </a>
             </li>
             <li>
-                <a href="/quan-tri/menu">
+                <a href="/quan-tri/menu-block">
                     <i class="fa fa-product-hunt"></i>
                     <span>Quản lý menu</span>
                 </a>

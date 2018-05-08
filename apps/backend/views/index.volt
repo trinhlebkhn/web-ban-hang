@@ -52,6 +52,12 @@
     {{ content() }}
     {% include "layouts/control-sidebar.volt" %}
     <div class="control-sidebar-bg"></div>
+    <div id="QuickView" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <button type="button" class="modal__close" data-dismiss="modal"><span class="icon -ap icon-ion-android-close"></span></button>
+            <div class="qcontent" data-product-id="" style="min-height: 400px;"></div>
+        </div>
+    </div>
 </div>
 
 <!-- jQuery 3 -->

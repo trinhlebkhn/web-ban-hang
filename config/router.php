@@ -46,20 +46,29 @@ $router->add("/quan-tri/chinh-sua-san-pham", [
     'action' => 'add',
 ]);
 
-/* QUẢN TRỊ MENU */
-$router->add("/quan-tri/menu", [
-    'module' => 'backend',
-    'namespace' => 'Graduate\Backend\Controllers',
-    'controller' => 'menu',
-    'action' => 'index',
-]);
-
 $router->add("/quan-tri/xoa-san-pham", [
     'module' => 'backend',
     'namespace' => 'Graduate\Backend\Controllers',
     'controller' => 'product',
     'action' => 'delete',
 ]);
+
+/* QUẢN TRỊ MENU */
+$router->add("/quan-tri/menu-block", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'menu',
+    'action' => 'index',
+]);
+
+$router->add("/quan-tri/xoa-menu-block", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'menu',
+    'action' => 'delete',
+]);
+
+
 
 
 /* Quản trị danh mục */
