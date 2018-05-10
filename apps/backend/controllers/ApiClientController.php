@@ -46,7 +46,6 @@ class ApiClientController extends AuthorizedControllerBase
         $obj = new $data['model']();
         $dt = $obj->getDetail($data['id']);
         if($dt->status) {
-//            d($rs->data);
             $render = $this->render_template($data['controller'], $data['action'], ['data' => $dt->data]);
             $rs = [
                 'status' => $dt->status,
@@ -56,5 +55,28 @@ class ApiClientController extends AuthorizedControllerBase
             ];
             return $this->response->setJsonContent($rs);
         }
+    }
+
+    public function getListMenuAction(){
+        $menu_block_id = $this->request->getPost('id');
+        $menuObj = new \Menu();
+        $rs = $menuObj->getListObj($menu_block_id);
+        if ($rs->status) {
+            $render = $this->render_template('menu', 'ajax_list_menu', ['data' => $rs->data, 'menu_block_id' => $menu_block_id]);
+            $data = [
+                'status' => $rs->status,
+                'data' => $rs->data,
+                'content' => $render,
+                'message' => $rs->message
+            ];
+            return $this->response->setJsonContent($data);
+        }
+    }
+
+    public function addMenuAction(){
+        $menu_block_id = $this->request->getPost('menu_block_id');
+        $render = $this->render_template('menu', 'add_menu', ['menu_block_id' => $menu_block_id]);
+        $data['content'] = $render;
+        return $this->response->setJsonContent($data);
     }
 }

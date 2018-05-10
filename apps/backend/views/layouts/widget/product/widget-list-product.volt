@@ -41,7 +41,7 @@
                                 </td>
                                 <td>
                                     <a href="/quan-tri/chinh-sua-san-pham?id={{ item['id'] }}"><span class="icon-manipulation pointer" id="edit-cat" title="Chỉnh sửa sản phẩm"><i class="fa fa-list"></i></span></a>
-                                    <a href="/quan-tri/xoa-san-pham?id={{ item['id'] }}" onclick="alert('Bạn có muốn xóa sản phẩm không?')"><span class="icon-manipulation pointer" id="trash-cat" title="Xóa sản phẩm" ><i class="fa fa-trash"></i></span></a>
+                                    <a href="/quan-tri/xoa-san-pham?id={{ item['id'] }}"><span class="icon-manipulation pointer delete-item"  id="trash-cat" title="Xóa sản phẩm" ><i class="fa fa-trash"></i></span></a>
                                 </td>
                             </tr>
                         {% endfor %}

@@ -32,7 +32,7 @@
                                 </td>
                                 <td>
                                     <a href="/quan-tri/chinh-sua-danh-muc?id={{ item['id'] }}"><span class="icon-manipulation pointer" id="edit-cat" title="Chỉnh sửa danh mục"><i class="fa fa-list"></i></span></a>
-                                    <span class="icon-manipulation pointer" id="trash-cat" title="Xóa danh mục"><i class="fa fa-trash"></i></span>
+                                    <span class="icon-manipulation pointer delete-item" id="trash-cat" title="Xóa danh mục"><i class="fa fa-trash"></i></span>
                                 </td>
                             </tr>
                         {% endfor %}

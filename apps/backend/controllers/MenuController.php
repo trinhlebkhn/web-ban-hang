@@ -13,17 +13,10 @@ class MenuController extends AuthorizedControllerBase
 {
     public function indexAction()
     {
-        $query = $this->request->getQuery();
-        $page = $query['p'] ? $query['p'] : 1;
         $menuBlockObj = new \MenuBlock();
-//        $optional = [
-//            'q' => 'del_flag = 1'
-//        ];
         $listData = $menuBlockObj->getListObj();
-//        d($listData);
         if ($listData->status) {
             $this->view->listData = $listData->data;
-//            d($this->view->listData);
         } else {
             return $this->flash->error('Có lỗi hệ thống xảy ra!');
         }
@@ -52,12 +45,8 @@ class MenuController extends AuthorizedControllerBase
             } else {
                 $this->flash->error($rs->message);
             }
-//            $listData = $menuBlockObj->getListObj();
-//            if ($listData->status) {
-//                $this->view->listData = $listData->data;
-//            } else {
-//                return $this->flash->error('Có lỗi hệ thống xảy ra!');
-//            }
+            $listData = $menuBlockObj->getListObj();
+            $this->view->listData = $listData->data;
         }
     }
 

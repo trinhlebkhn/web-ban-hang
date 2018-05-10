@@ -283,3 +283,24 @@ span.icon-manipulation {
     background: #fff;
     border: 1px solid #fff;
 }
+
+#menu ul li label {
+    margin-right: 20px;
+}
+
+#QuickView .modal-form-add {
+    background: #ffffff;
+    margin: auto;
+    margin-top: 20px;
+}
+#QuickView .modal-form-add .header-dialog{
+    background: #017d7d;
+    color: #fff;
+    padding-left: 25px;
+}
+#QuickView .form-add-menu{
+    width: 90%;
+}
+#QuickView .form-add-menu form {
+    padding: 25px;
+}

@@ -20,14 +20,14 @@
                             <tbody>
                             {% for item in listData %}
                                 {% if item['del_flag'] != 1 %}
-                                    <tr menuBlockJson= {{ item | json_encode }}>
+                                    <tr>
                                         <td width="70%">{{ item['name'] }}</td>
                                         <td width="30%">
-                                            <span class="pointer">Xem</span> |
+                                            <span class="pointer" onclick="showListMenu({{ item['id'] }})">Xem</span> |
                                             <span class="pointer" onclick="updateMenuBlock({{ item['id'] }})">Sửa</span>
                                             |
-                                            <a href="/quan-tri/xoa-menu-block?id={{ item['id'] }}"
-                                               onclick="deleteObj()"><span class="pointer">Xóa</span></a>
+                                            <a href="/quan-tri/xoa-menu-block?id={{ item['id'] }}" class="delete-item"><span class="pointer">Xóa</span>
+                                            </a>
                                         </td>
                                     </tr>
                                 {% endif %}
@@ -59,17 +59,7 @@
                         </form>
                     </div>
                     <div id="menu">
-                        <div class="box-header">
-                            <h3 class="box-title">Tắt |
-                                <span class="pointer" onclick="showModal()">Thêm menu</span>
-                            </h3>
-                        </div>
-                        <ul>
-                            <li>menu 1</li>
-                            <li>menu 2</li>
-                            <li>menu 3</li>
-                            <li>menu 4</li>
-                        </ul>
+
                     </div>
                 </div>
             </div>
@@ -78,3 +68,4 @@
 </div>
 
 {% include "layouts/footer.volt" %}
+<!-- ./wrapper -->
