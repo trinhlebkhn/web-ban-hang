@@ -58,9 +58,7 @@
                             </div>
                         </form>
                     </div>
-                    <div id="menu">
-
-                    </div>
+                    <div id="menu"></div>
                 </div>
             </div>
         </div>

@@ -55,8 +55,8 @@ class Menu extends DbModel
 
     /**
      *
-     * @var integer
-     * @Column(type="integer", length=50, nullable=true)
+     * @var string
+     * @Column(type="string", length=10, nullable=true)
      */
     public $sort;
 
@@ -125,7 +125,7 @@ class Menu extends DbModel
     }
 
     /**
-     * @return int
+     * @return string
      */
     public function getSort()
     {
@@ -133,7 +133,7 @@ class Menu extends DbModel
     }
 
     /**
-     * @param int $sort
+     * @param string $sort
      */
     public function setSort($sort)
     {
@@ -183,7 +183,20 @@ class Menu extends DbModel
     }
 
     public function createObj($data){
-
+        try {
+            if($data['type_link'] != 2){
+                $data['link'] = $data['type_link'];
+            }
+            $rs = self::newInstance($data);
+            $rs->save();
+            if (!empty($rs->getMessages())) {
+                return $this->manipulationError([], 'Có lỗi xảy ra');
+            } else {
+                return $this->manipulationSuccess($rs->toArray(), 'Thao tác thành công!');
+            }
+        } catch (Exception $e) {
+            return $this->manipulationError([], $e->getMessage());
+        }
     }
 
     public function getListObj($menu_block_id){

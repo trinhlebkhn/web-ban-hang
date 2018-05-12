@@ -41,11 +41,12 @@ class ApiClientController extends AuthorizedControllerBase
         }
     }
 
-    public function getDetailAction(){
+    public function getDetailAction()
+    {
         $data = $this->request->getPost('data');
         $obj = new $data['model']();
         $dt = $obj->getDetail($data['id']);
-        if($dt->status) {
+        if ($dt->status) {
             $render = $this->render_template($data['controller'], $data['action'], ['data' => $dt->data]);
             $rs = [
                 'status' => $dt->status,
@@ -57,10 +58,12 @@ class ApiClientController extends AuthorizedControllerBase
         }
     }
 
-    public function getListMenuAction(){
-        $menu_block_id = $this->request->getPost('id');
+    public function getListMenuAction()
+    {
+        $menu_block_id = $this->request->get('id');
         $menuObj = new \Menu();
         $rs = $menuObj->getListObj($menu_block_id);
+        d($rs->datak);
         if ($rs->status) {
             $render = $this->render_template('menu', 'ajax_list_menu', ['data' => $rs->data, 'menu_block_id' => $menu_block_id]);
             $data = [
@@ -73,10 +76,30 @@ class ApiClientController extends AuthorizedControllerBase
         }
     }
 
-    public function addMenuAction(){
+    public function addMenuAction()
+    {
         $menu_block_id = $this->request->getPost('menu_block_id');
-        $render = $this->render_template('menu', 'add_menu', ['menu_block_id' => $menu_block_id]);
+        $parent_id = $this->request->getPost('parent_id');
+        $render = $this->render_template('menu', 'add_menu', ['menu_block_id' => $menu_block_id, 'parent_id' => $parent_id]);
         $data['content'] = $render;
         return $this->response->setJsonContent($data);
+    }
+
+    public function creatMenuAction()
+    {
+        $data = $this->request->getPost('data');
+        $menuObj = new \Menu();
+        $rs = $menuObj->createObj($data);
+        if ($rs->status) {
+            $listData = $menuObj->getListObj($data['menu_block_id']);
+            $render = $this->render_template('menu', 'ajax_list_menu', ['data' => $listData->data, 'menu_block_id' => $data['menu_block_id']]);
+            $last_result = [
+                'status' => $rs->status,
+                'data' => $rs->data,
+                'content' => $render,
+                'message' => $rs->message
+            ];
+            return $this->response->setJsonContent($last_result);
+        }
     }
 }
