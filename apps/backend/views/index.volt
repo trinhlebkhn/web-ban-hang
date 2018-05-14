@@ -117,6 +117,11 @@
 <script src="/assets_backend/assets/js/uploadImage.js"></script>
 <script src="/selectpicker/bootstrap-select.min.js"></script>
 <script src="/assets_backend/source/plugins/iCheck/icheck.min.js"></script>
+<script src="/ckeditor/ckeditor.js"></script>
+
+<script>
+    CKEDITOR.replace('desc');
+</script>
 <style>
     @media (min-width: 320px) {
         /* The snackbar - position it at the bottom and in the middle of the screen */

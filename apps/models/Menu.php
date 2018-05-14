@@ -182,9 +182,10 @@ class Menu extends DbModel
         return 'mode_menu';
     }
 
-    public function createObj($data){
+    public function createObj($data)
+    {
         try {
-            if($data['type_link'] != 2){
+            if ($data['type_link'] != 2) {
                 $data['link'] = $data['type_link'];
             }
             $rs = self::newInstance($data);
@@ -199,16 +200,21 @@ class Menu extends DbModel
         }
     }
 
-    public function getListObj($menu_block_id){
-        try{
+    public function getListObj($menu_block_id)
+    {
+        try {
             $listData = self::find([
                 'conditions' => 'menu_block_id = :menu_block_id:',
                 'bind' => [
                     'menu_block_id' => $menu_block_id
                 ],
             ]);
-            if(empty($listData->getMessages())){
-                return $this->manipulationSuccess($listData->toArray(), 'Thao tác thành công!');
+            if (empty($listData->getMessages())) {
+                $arrayData = $listData->toArray();
+                $result = [];
+                $this->recursive($arrayData, 0, $result);
+//                $this->recursiveLevel($result, $result[0]['id']);
+                return $this->manipulationSuccess($result, 'Thao tác thành công!');
             } else {
                 return $this->manipulationError([], 'Có lỗi xảy ra!');
             }
@@ -216,4 +222,40 @@ class Menu extends DbModel
             return $this->manipulationError([], $e->getMessage());
         }
     }
+
+    public function recursive($menu, $parent_id = 0, &$array)
+    {
+        foreach ($menu as $key => $item) {
+            if ($item['parent_id'] == $parent_id) {
+                if ($item['parent_id'] == 0) {
+                    $array[] = $item;
+                }
+                foreach ($array as $v => $value) {
+                    if ($array[$v]['id'] == $parent_id) {
+                        if (empty($array[$v]['child'])) {
+                            $array[$v]['child'] = [];
+                        }
+                        array_push($array[$v]['child'], $item);
+                    }
+                }
+                unset($menu[$key]);
+                $this->recursive($menu, $item['id'], $array);
+            }
+        }
+    }
+
+    public function recursiveLevel(&$data, $parent_id)
+    {
+        foreach ($data as $v => $value) {
+            if($data[$v+1]['parent_id'] == $parent_id){
+                if(empty($data[$v]['child'])) $data[$v]['child'] = [];
+                array_push($data[$v]['child'], $data[$v+1]);
+                $this->recursiveLevel($data[$v]['child'], $data[$v]['child'][0]['id']);
+//                unset($data[$v]);
+            }
+
+        }
+    }
+
+
 }

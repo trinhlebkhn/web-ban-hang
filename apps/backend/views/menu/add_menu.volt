@@ -6,7 +6,7 @@
     </div>
     <div class="row">
         <input type="text"  class="form-control hidden" id="menu_block_id" value="{{ menu_block_id }}" placeholder="Tên Menu">
-        <input type="text"  class="form-control hidden" id="prent_id" value="{{ parent_id }}" placeholder="Tên Menu">
+        <input type="text"  class="form-control hidden" id="parent_id" value="{{ parent_id }}" placeholder="Tên Menu">
         <div class="form-group col-md-2 col-sm-6 col-xs-12">
             <label style="font-size: 20px; padding-top: 5px; font-weight: 100">Tên menu</label>
             <input type="text" name="data[name]" class="form-control" id="name_menu" placeholder="Tên Menu" onchange="$(this).removeClass('error')">

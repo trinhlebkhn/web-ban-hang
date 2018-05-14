@@ -1,7 +1,7 @@
 {% include "layouts/header.volt" %}
 <!-- Left side column. contains the logo and sidebar -->
 {% include "layouts/sidebar.volt" %}
-{{ data | json_encode }}
+
 <div class="content-wrapper">
     <section id="add" class="content">
         <div class="row">
@@ -78,7 +78,7 @@
                         </div>
                     </div>
                     <div class="box-footer pull-right manipulation">
-                        <button type="submit" class="btn btn-primary btn-add">Cập nhật</button>
+                        <button type="submit" class="btn btn-primary btn-add">{{ data ? 'Cập nhật' : 'Tạo mới' }}</button>
                         <a href="/quan-tri/danh-muc" class="btn btn-danger btn-cancel">Quay lại</a>
                     </div>
                 </form>

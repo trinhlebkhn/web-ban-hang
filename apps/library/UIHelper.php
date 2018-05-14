@@ -1,5 +1,8 @@
 <?php
 
+use Phalcon\Mvc\User\Component;
+use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
+
 /**
  * Created by PhpStorm.
  * User: admin
@@ -19,8 +22,9 @@ class UIHelper
 //        return number_format($number);
     }
 
-    public function check_in_array($obj, $array = []){
-        if(in_array($obj, $array)) return true;
+    public function check_in_array($obj, $array = [])
+    {
+        if (in_array($obj, $array)) return true;
         else return false;
     }
 
@@ -33,5 +37,10 @@ class UIHelper
         $number = trim(preg_replace('/([^0-9\.])/i', '', $number));
 //        return number_format($number, 2, '.', ',');
         return number_format($number);
+    }
+
+    public function drawRecursiveMenu($layout, $listmenu)
+    {
+        return $this->view->getPartial($layout, ["data" => $listmenu]);
     }
 }

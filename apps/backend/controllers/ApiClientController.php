@@ -63,7 +63,6 @@ class ApiClientController extends AuthorizedControllerBase
         $menu_block_id = $this->request->get('id');
         $menuObj = new \Menu();
         $rs = $menuObj->getListObj($menu_block_id);
-        d($rs->datak);
         if ($rs->status) {
             $render = $this->render_template('menu', 'ajax_list_menu', ['data' => $rs->data, 'menu_block_id' => $menu_block_id]);
             $data = [

@@ -20,16 +20,7 @@ class CategoryController extends AuthorizedControllerBase
             'p' => $page,
             'limit' => 10
         ];
-        $rs = $catObj->getListObj($optional);
-        if ($rs->status) {
-            $this->view->setVars([
-                'listCat' => $rs->data,
-                'Paginginfo' => $rs->optional,
-                'Current_link' => $query['_url']
-            ]);
-        } else {
-            return $this->flash->error('Có lỗi hệ thống xảy ra!');
-        }
+
         if ($this->request->getPost()) {
             $data = $this->request->get('category');
             if (empty($data['name'])) {
@@ -41,30 +32,47 @@ class CategoryController extends AuthorizedControllerBase
                 }
             }
         }
+        $rs = $catObj->getListObj($optional);
+//        d($rs);
+        if ($rs->status) {
+            $this->view->setVars([
+                'listCat' => $rs->data,
+                'Paginginfo' => $rs->optional,
+                'Current_link' => $query['_url']
+            ]);
+        } else {
+            return $this->flash->error('Có lỗi hệ thống xảy ra!');
+        }
     }
 
     public function updateAction()
     {
         $id = $this->request->get('id');
         $catObj = new \Category();
-        $rs = $catObj->getDetail($id);
+        if ($id != null) {
+            $rs = $catObj->getDetail($id);
+            if ($rs->status) {
+                $this->view->data = $rs->data;
+            }
+        }
         $listData = $catObj->getListObj($id);
         if ($listData->status) {
             $this->view->listCat = $listData->data;
         }
-        if ($rs->status) {
-            $this->view->data = $rs->data;
-        }
 
         if ($this->request->isPost()) {
             $data = $this->request->get('category');
-            $data['id'] = $id;
-            $rs_update = $catObj->updateCat($data);
-            if ($rs_update->status) {
-                $this->view->data = $rs_update->data;
-                $this->flash->success($rs_update->message);
+            if ($id != null) {
+                $data['id'] = $id;
+                $rs = $catObj->updateCat($data);
             } else {
-                $this->flash->error($rs_update->message);
+                $rs = $catObj->createObj($data);
+            }
+            if ($rs->status) {
+                $this->response->redirect(base_uri() . '/quan-tri/danh-muc');
+                $this->flash->success($rs->message);
+            } else {
+                $this->flash->error($rs->message);
             }
         }
     }

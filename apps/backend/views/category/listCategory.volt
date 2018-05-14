@@ -5,7 +5,7 @@
                 <div class="box-header">
                     <h3 class="box-title">Danh sách danh mục</h3>
                     <div class="pull-right">
-                        <button type="button" class="btn btn-primary pointer" onclick="addCat()">Thêm mới danh mục</button>
+                        <a href="/quan-tri/tao-moi-danh-muc" class="btn btn-primary pointer">Thêm mới danh mục</a>
                     </div>
                 </div>
                 <div class="table-responsive">

@@ -2,8 +2,17 @@
 $(document).ready(function () {
     $('.delete-item').on('click', function () {
         return confirm('Bạn có chắc chắn muốn xóa hay không?');
-    })
+    });
+
+    $('input#name_menu').on('keyup', function () {
+        console.log(11111);
+        if($(this).hasClass('error')){
+            $(this).removeClass('error');
+        }
+    });
+
 });
+
 
 function check_discount(value) {
     if (value) {
@@ -15,6 +24,7 @@ function check_discount(value) {
 
 function addFormAdd() {
     $('div#add').removeClass('hidden');
+    $('section#add').removeClass('hidden');
 }
 
 function updateMenuBlock(id) {
@@ -67,12 +77,12 @@ function showListMenu(menu_block_id) {
     });
 }
 
-function addMenu(menu_block_id) {
+function addMenu(menu_block_id, parent_id) {
     $.ajax({
         url: '/backend/api_client/addMenu',
         method: 'post',
         dataType: 'json',
-        data: {menu_block_id: menu_block_id}
+        data: {menu_block_id: menu_block_id, parent_id: parent_id}
     }).fail(function (ui, status) {
         snackbar(2, 'Có lỗi  xảy ra!');
     }).done(function (data, status) {
@@ -92,10 +102,47 @@ function checkTypeLinkMenu() {
 function removeFormAdd(event) {
     event.preventDefault();
     $('div#add').addClass('hidden');
+    $('section#add').addClass('hidden');
 }
 
-function addMenu() {
-
+function ajaxAddMenu() {
+    var data = {};
+    var menu_block_id = $('#menu_block_id').val();
+    var parent_id = $('#parent_id').val();
+    var name = $('#name_menu').val();
+    var target = $('#target').val();
+    var sort = $('#sort').val();
+    var type_link = $('#type_link').val();
+    var link = $('#link').val();
+    if(name == ''){
+        snackbar(2, 'Vui lòng điền tên menu!');
+        $('#name_menu').addClass('error');
+        return;
+    }
+    data['menu_block_id'] = menu_block_id;
+    data['parent_id'] = parent_id;
+    data['name'] = name;
+    data['target'] = target;
+    data['sort'] = sort;
+    data['type_link'] = type_link;
+    data['link'] = link;
+    $.ajax({
+        url: '/backend/api_client/creatMenu',
+        method: 'post',
+        dataType: 'json',
+        data: {data: data}
+    }).fail(function (ui, status) {
+        snackbar(2, 'Có lỗi  xảy ra!');
+    }).done(function (data, status) {
+        $('#QuickView').modal('hide');
+        if (data.status) {
+            $('div.add-menu div#menu').html(data.content);
+            snackbar(2, 'Thao tác thành công!');
+        }
+        else {
+            snackbar(2, 'Có lỗi hệ thống xảy ra!');
+        }
+    });
 }
 
 //

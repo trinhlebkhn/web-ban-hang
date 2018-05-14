@@ -80,25 +80,34 @@
                             </div>
                         </div>
                     </div>
-                    <div class="product-image col-md-6">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">Ảnh đại diện</h3>
-                            <small><i>Ảnh phải có định dạng *.jpg, *.png, *.bmp</i></small>
+                    <div class="col-md-6">
+                        <div class="product-image">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Ảnh đại diện</h3>
+                                <small><i>Ảnh phải có định dạng *.jpg, *.png, *.bmp</i></small>
+                            </div>
+                            <div class="{{ data['avatar'] == null  ? '' : 'hidden' }} blog-avatar boxborder text-center d-flex justify-content-center align-items-center pointer"
+                                 onclick="avatar.click()">
+                                <div class="d-inline-block">
+                                    <p>Ảnh đại diện</p>
+                                </div>
+                            </div>
+                            <div class="img-avatar {{ data['avatar'] == null  ? 'hidden' : '' }}" style="position: relative">
+                                <img id="blog_avatar" src="{{ data['avatar'] }}" alt="">
+                                <i class="fa fa-trash text-danger pointer" style="position: absolute;top: 10px;right: 15px"
+                                   onclick="removeImage()"></i>
+                            </div>
+                            <input #avatar class="hidden" type="file" id="avatar"
+                                   onchange="uploadImage(avatar,avatar.files[0])">
+                            <input class="hidden" name="product[avatar]" value="{{ data['avatar'] }}" id="src_avatar" type="text">
                         </div>
-                        <div class="{{ data['avatar'] == null  ? '' : 'hidden' }} blog-avatar boxborder text-center d-flex justify-content-center align-items-center pointer"
-                             onclick="avatar.click()">
-                            <div class="d-inline-block">
-                                <p>Ảnh đại diện</p>
+                        <div class="product-description">
+                            <div class="form-group">
+                                <label>Mô tả</label>
+                                <textarea type="text" name="product[weight]" style="max-width: 100%; min-height: 100px" class="form-control" id="desc"
+                                          placeholder="Mô tả sản phẩm"></textarea>
                             </div>
                         </div>
-                        <div class="img-avatar {{ data['avatar'] == null  ? 'hidden' : '' }}" style="position: relative">
-                            <img id="blog_avatar" src="{{ data['avatar'] }}" alt="">
-                            <i class="fa fa-trash text-danger pointer" style="position: absolute;top: 10px;right: 15px"
-                               onclick="removeImage()"></i>
-                        </div>
-                        <input #avatar class="hidden" type="file" id="avatar"
-                               onchange="uploadImage(avatar,avatar.files[0])">
-                        <input class="hidden" name="product[avatar]" value="{{ data['avatar'] }}" id="src_avatar" type="text">
                     </div>
                 </div>
                 <div class="box-footer pull-right manipulation">
