@@ -74,6 +74,8 @@ class ProductController extends AuthorizedControllerBase
                 $this->response->redirect(base_uri() . '/quan-tri/san-pham');
                 $this->flash->success($rs->message);
             } else {
+                $data['category_id'] = explode(',', $data['category_id']);
+                $this->view->data = $data;
                 $this->flash->error($rs->message);
             }
         }

@@ -17,6 +17,11 @@
                                        placeholder="Tên sản phẩm">
                             </div>
                             <div class="form-group">
+                                <label>Mô tả</label>
+                                <textarea type="text" name="product[descript]" class="form-control" style="min-width: 100%; max-width: 100%; min-height: 80px" id="descript"
+                                          placeholder="Mô tả sản phẩm">{{ data['descript'] }}</textarea>
+                            </div>
+                            <div class="form-group">
                                 <label>Danh mục</label>
                                 <select id="cat_product" name="product[category_id][]" class="selectpicker form-control"
                                         multiple>
@@ -50,12 +55,12 @@
                                 <label>Giảm giá: </label>
                                 <label>
                                     <input type="radio" name="discount" id="discount" onclick="check_discount(1)" {{ data['type_discount'] != null ? 'checked' : '' }}
-                                    value="1">
+                                           value="1">
                                     <span>Có</span>
                                 </label>
                                 <label>
                                     <input type="radio" name="discount" id="discount" onclick="check_discount(0)" {{ data['type_discount'] == null ? 'checked' : '' }}
-                                    value="0">
+                                           value="0">
                                     <span>Không</span>
                                 </label>
                             </div>
@@ -103,16 +108,16 @@
                         </div>
                         <div class="product-description">
                             <div class="form-group">
-                                <label>Mô tả</label>
-                                <textarea type="text" name="product[weight]" style="max-width: 100%; min-height: 100px" class="form-control" id="desc"
-                                          placeholder="Mô tả sản phẩm"></textarea>
+                                <label>Nội dung</label>
+                                <textarea type="text" name="product[content]" style="max-width: 100%; min-height: 100px" class="form-control" id="product-content"
+                                          placeholder="Mô tả sản phẩm">{{ data['content'] }}</textarea>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="box-footer pull-right manipulation">
                     <button type="submit" class="btn btn-primary btn-add">{{ data['id'] != null ? 'Cập nhật' : 'Tạo mới' }} </button>
-                    <button class="btn btn-danger btn-cancel" onclick="removeAddCat(event)">Hủy</button>
+                    <a href="/quan-tri/san-pham" class="btn btn-danger btn-cancel">Hủy</a>
                 </div>
             </form>
         </div>

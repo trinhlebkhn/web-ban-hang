@@ -77,7 +77,7 @@ class CategoryController extends AuthorizedControllerBase
         }
     }
 
-    public function deleteCategoryAction()
+    public function deleteAction()
     {
         $id = $this->request->get('id');
         $catObj = new \Category();

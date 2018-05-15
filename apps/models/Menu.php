@@ -213,6 +213,7 @@ class Menu extends DbModel
                 $arrayData = $listData->toArray();
                 $result = [];
                 $this->recursive($arrayData, 0, $result);
+                d($result);
 //                $this->recursiveLevel($result, $result[0]['id']);
                 return $this->manipulationSuccess($result, 'Thao tác thành công!');
             } else {
@@ -227,35 +228,25 @@ class Menu extends DbModel
     {
         foreach ($menu as $key => $item) {
             if ($item['parent_id'] == $parent_id) {
-                if ($item['parent_id'] == 0) {
-                    $array[] = $item;
-                }
-                foreach ($array as $v => $value) {
-                    if ($array[$v]['id'] == $parent_id) {
-                        if (empty($array[$v]['child'])) {
-                            $array[$v]['child'] = [];
-                        }
-                        array_push($array[$v]['child'], $item);
-                    }
-                }
+                $array[] = $item;
                 unset($menu[$key]);
                 $this->recursive($menu, $item['id'], $array);
             }
         }
     }
 
-    public function recursiveLevel(&$data, $parent_id)
-    {
-        foreach ($data as $v => $value) {
-            if($data[$v+1]['parent_id'] == $parent_id){
-                if(empty($data[$v]['child'])) $data[$v]['child'] = [];
-                array_push($data[$v]['child'], $data[$v+1]);
-                $this->recursiveLevel($data[$v]['child'], $data[$v]['child'][0]['id']);
+//    public function recursiveLevel(&$data, $parent_id)
+//    {
+//        foreach ($data as $v => $value) {
+//            if($data[$v+1]['parent_id'] == $parent_id){
+//                if(empty($data[$v]['child'])) $data[$v]['child'] = [];
+//                array_push($data[$v]['child'], $data[$v+1]);
+//                $this->recursiveLevel($data[$v]['child'], $data[$v]['child'][0]['id']);
 //                unset($data[$v]);
-            }
-
-        }
-    }
+//            }
+//
+//        }
+//    }
 
 
 }

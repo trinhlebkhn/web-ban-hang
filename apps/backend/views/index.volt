@@ -120,7 +120,7 @@
 <script src="/ckeditor/ckeditor.js"></script>
 
 <script>
-    CKEDITOR.replace('desc');
+    CKEDITOR.replace('product-content');
 </script>
 <style>
     @media (min-width: 320px) {

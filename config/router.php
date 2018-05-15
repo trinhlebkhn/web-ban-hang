@@ -103,7 +103,7 @@ $router->add("/quan-tri/xoa-danh-muc", [
     'module' => 'backend',
     'namespace' => 'Graduate\Backend\Controllers',
     'controller' => 'category',
-    'action' => 'deleteCategory',
+    'action' => 'delete',
 ]);
 
 /* END BACKEND */

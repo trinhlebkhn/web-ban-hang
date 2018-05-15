@@ -27,6 +27,13 @@ class Product extends DbModel
     /**
      *
      * @var string
+     * @Column(type="text", length=5000, nullable=true)
+     */
+    public $content;
+
+    /**
+     *
+     * @var string
      * @Column(type="text", length=500, nullable=true)
      */
     public $avatar;
@@ -448,10 +455,27 @@ class Product extends DbModel
     }
 
     /**
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->content;
+    }
+
+    /**
+     * @param string $content
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+    }
+
+    /**
      * Returns table name mapped in the model.
      *
      * @return string
      */
+
     public function getSource()
     {
         return 'mod_product';
@@ -484,7 +508,7 @@ class Product extends DbModel
                 ->getQuery()
                 ->execute();
             $page = $optional['p'] ? $optional['p'] : 1;
-            if(!empty($optional['limit'])){
+            if (!empty($optional['limit'])) {
                 $paginator = new PaginatorModel(
                     [
                         "data" => $listObj,
@@ -493,7 +517,7 @@ class Product extends DbModel
                     ]
                 );
                 $paginate = $paginator->getPaginate();
-                foreach ($paginate->items as &$item){
+                foreach ($paginate->items as &$item) {
                     $obj = $item->toArray();
                     array_push($arrObj, $obj);
                 }

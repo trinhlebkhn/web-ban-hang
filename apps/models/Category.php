@@ -291,7 +291,7 @@ class Category extends DbModel
             $obj = self::findFirst($data['id']);
             if ($obj) {
                 $obj->update($data);
-                return $this->manipulationSuccess($obj->toArray(), 'Cập nhật thành công');
+                return $this->manipulationSuccess($obj->toArray(), 'Thao tác thành công!');
             }
         } catch (Exception $e) {
             return $this->manipulationError([], $e->getMessage());
