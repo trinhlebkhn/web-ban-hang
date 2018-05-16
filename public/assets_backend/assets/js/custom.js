@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
     $('.delete-item').on('click', function () {
         return confirm('Bạn có chắc chắn muốn xóa hay không?');
@@ -6,7 +5,7 @@ $(document).ready(function () {
 
     $('input#name_menu').on('keyup', function () {
         console.log(11111);
-        if($(this).hasClass('error')){
+        if ($(this).hasClass('error')) {
             $(this).removeClass('error');
         }
     });
@@ -92,7 +91,7 @@ function addMenu(menu_block_id, parent_id) {
 }
 
 function checkTypeLinkMenu() {
-    if ($('#type_link').val() != 2) {
+    if ($('#type_link').val() != 4) {
         $('div.link_menu').addClass('hidden');
     } else {
         $('div.link_menu').removeClass('hidden');
@@ -107,6 +106,7 @@ function removeFormAdd(event) {
 
 function ajaxAddMenu() {
     var data = {};
+    var id = $('#menu_id').val();
     var menu_block_id = $('#menu_block_id').val();
     var parent_id = $('#parent_id').val();
     var name = $('#name_menu').val();
@@ -114,11 +114,12 @@ function ajaxAddMenu() {
     var sort = $('#sort').val();
     var type_link = $('#type_link').val();
     var link = $('#link').val();
-    if(name == ''){
+    if (name == '') {
         snackbar(2, 'Vui lòng điền tên menu!');
         $('#name_menu').addClass('error');
         return;
     }
+    data['id'] = id;
     data['menu_block_id'] = menu_block_id;
     data['parent_id'] = parent_id;
     data['name'] = name;
@@ -143,6 +144,29 @@ function ajaxAddMenu() {
             snackbar(2, 'Có lỗi hệ thống xảy ra!');
         }
     });
+}
+
+function ajaxEditMenu(menu_id) {
+    $.ajax({
+        url: '/backend/api_client/editMenu',
+        method: 'post',
+        dataType: 'json',
+        data: {id: menu_id}
+    }).fail(function (ui, status) {
+        snackbar(2, 'Có lỗi  xảy ra!');
+    }).done(function (data, status) {
+        $('#QuickView').html(data.content);
+    });
+    $('#QuickView').modal('show');
+}
+
+function deleteMenu(menu_id) {
+    var check = confirm('Bạn có chắc chắn muốn xóa hay không?');
+    if (check) {
+        console.log(11111);
+    } else {
+        return false;
+    }
 }
 
 //
