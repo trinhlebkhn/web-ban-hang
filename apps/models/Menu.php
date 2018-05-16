@@ -56,6 +56,13 @@ class Menu extends DbModel
     /**
      *
      * @var string
+     * @Column(type="string", length=11, nullable=true)
+     */
+    public $type_link;
+
+    /**
+     *
+     * @var string
      * @Column(type="string", length=10, nullable=true)
      */
     public $sort;
@@ -173,6 +180,22 @@ class Menu extends DbModel
     }
 
     /**
+     * @return string
+     */
+    public function getTypeLink()
+    {
+        return $this->type_link;
+    }
+
+    /**
+     * @param string $type_link
+     */
+    public function setTypeLink($type_link)
+    {
+        $this->type_link = $type_link;
+    }
+
+    /**
      * Returns table name mapped in the model.
      *
      * @return string
@@ -185,8 +208,12 @@ class Menu extends DbModel
     public function createObj($data)
     {
         try {
-            if ($data['type_link'] != 2) {
-                $data['link'] = $data['type_link'];
+            if ($data['type_link'] == 1) {
+                $data['link'] = '/san-pham';
+            } else if ($data['type_link'] == 2) {
+                $data['link'] = '/tin-tuc';
+            } else if ($data['type_link'] == 3) {
+                $data['link'] = '/lien-he';
             }
             $rs = self::newInstance($data);
             $rs->save();
@@ -213,8 +240,6 @@ class Menu extends DbModel
                 $arrayData = $listData->toArray();
                 $result = [];
                 $this->recursive($arrayData, 0, $result);
-                d($result);
-//                $this->recursiveLevel($result, $result[0]['id']);
                 return $this->manipulationSuccess($result, 'Thao tác thành công!');
             } else {
                 return $this->manipulationError([], 'Có lỗi xảy ra!');
@@ -228,25 +253,61 @@ class Menu extends DbModel
     {
         foreach ($menu as $key => $item) {
             if ($item['parent_id'] == $parent_id) {
-                $array[] = $item;
+                if ($item['parent_id'] == 0) {
+                    $array[] = $item;
+                }
+                foreach ($array as $v => $value) {
+                    if ($array[$v]['id'] == $parent_id) {
+                        if (empty($array[$v]['child'])) {
+                            $array[$v]['child'] = [];
+                        }
+                        array_push($array[$v]['child'], $item);
+                        $this->recursive($menu, $item['id'], $array[$v]['child']);
+                    }
+                }
                 unset($menu[$key]);
                 $this->recursive($menu, $item['id'], $array);
             }
         }
     }
 
-//    public function recursiveLevel(&$data, $parent_id)
-//    {
-//        foreach ($data as $v => $value) {
-//            if($data[$v+1]['parent_id'] == $parent_id){
-//                if(empty($data[$v]['child'])) $data[$v]['child'] = [];
-//                array_push($data[$v]['child'], $data[$v+1]);
-//                $this->recursiveLevel($data[$v]['child'], $data[$v]['child'][0]['id']);
-//                unset($data[$v]);
-//            }
-//
-//        }
-//    }
+    public function getDetail($id)
+    {
+        try {
+            $obj = self::findFirst($id);
+            if (!empty($obj->toArray())) {
+                return $this->manipulationSuccess($obj->toArray(), 'Thao tác thành công');
+            } else {
+                return $this->manipulationError([], 'Có lỗi xảy ra. Vui lòng liên hệ nhà quản trị!');
+            }
+        } catch (Exception $e) {
+            return $this->manipulationError([], $e->getMessage());
+        }
+    }
 
+    public function updateObj($data)
+    {
+        try {
+            $obj = self::findFirst($data['id']);
+            if ($obj) {
+                $obj->update($data);
+                return $this->manipulationSuccess($obj->toArray(), 'Thao tác thành công!');
+            }
+        } catch (Exception $e) {
+            return $this->manipulationError([], $e->getMessage());
+        }
+    }
 
+    public function deleteObj($id)
+    {
+        try {
+            $obj = self::findFirst($id);
+            if ($obj) {
+                $obj->delete();
+                return $this->manipulationSuccess($obj->toArray(), 'Xóa thành công');
+            }
+        } catch (Exception $e) {
+            return $this->manipulationError([], $e->getMessage());
+        }
+    }
 }

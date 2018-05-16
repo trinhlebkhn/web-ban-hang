@@ -3,7 +3,7 @@
 {% include "layouts/sidebar.volt" %}
 
 <div class="content-wrapper">
-    <section id="add" class="content">
+    <section class="content">
         <div class="row add-menu">
             <div class="col-md-12">
                 <div class="col-md-6">

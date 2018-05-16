@@ -3,13 +3,7 @@
 use Phalcon\Mvc\User\Component;
 use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 
-/**
- * Created by PhpStorm.
- * User: admin
- * Date: 1/27/2018
- * Time: 12:08 PM
- */
-class UIHelper
+class UIHelper extends Component
 {
     public function format_number($number = '')
     {
@@ -39,8 +33,8 @@ class UIHelper
         return number_format($number);
     }
 
-    public function drawRecursiveMenu($layout, $listmenu)
+    public function drawRecursiveMenuAdmin($layout, $data, $menu_block_id)
     {
-        return $this->view->getPartial($layout, ["data" => $listmenu]);
+        return $this->view->getPartial($layout, ["data" => $data, 'menuBlockId' => $menu_block_id]);
     }
 }

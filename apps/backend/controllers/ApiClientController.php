@@ -88,10 +88,33 @@ class ApiClientController extends AuthorizedControllerBase
     {
         $data = $this->request->getPost('data');
         $menuObj = new \Menu();
-        $rs = $menuObj->createObj($data);
+        if(empty($data['id'])){
+            $rs = $menuObj->createObj($data);
+        } else {
+            $rs = $menuObj->updateObj($data);
+        }
         if ($rs->status) {
             $listData = $menuObj->getListObj($data['menu_block_id']);
             $render = $this->render_template('menu', 'ajax_list_menu', ['data' => $listData->data, 'menu_block_id' => $data['menu_block_id']]);
+            $last_result = [
+                'status' => $rs->status,
+                'data' => $rs->data,
+                'content' => $render,
+                'message' => $rs->message
+            ];
+            return $this->response->setJsonContent($last_result);
+        }
+    }
+
+    public function editMenuAction()
+    {
+
+        $id = $this->request->getPost('id');
+        $menuObj = new \Menu();
+        $rs = $menuObj->getDetail($id);
+        if ($rs->status) {
+            $obj = $rs->data;
+            $render = $this->render_template('menu', 'add_menu', ['menu_block_id' => $obj['menu_block_id'], 'parent_id' => $obj['parent_id'], 'data' => $obj]);
             $last_result = [
                 'status' => $rs->status,
                 'data' => $rs->data,

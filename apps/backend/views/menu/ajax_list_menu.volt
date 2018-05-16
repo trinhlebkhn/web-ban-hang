@@ -7,25 +7,5 @@
     </h3>
 </div>
 <ul>
-    {% for item in listData %}
-        <li>
-            <label class="name">{{ item['name'] }}</label>
-            <span class="add-menu pointer" onclick="addMenu({{ menuBlockId }}, {{ item['id'] }})">Thêm menu</span> |
-            <span class="edit-menu pointer"> Sửa</span> |
-            <span class="trash-menu pointer"> Xóa</span>
-        </li>
-        {% if item['child'] | length > 0 %}
-            <ul>
-                {% for child in item['child'] %}
-                    <li>
-                        <label class="name">{{ child['name'] }}</label>
-                        <span class="add-menu pointer" onclick="addMenu({{ menuBlockId }}, {{ child['id'] }})">Thêm menu</span> |
-                        <span class="edit-menu pointer"> Sửa</span> |
-                        <span class="trash-menu pointer"> Xóa</span>
-                    </li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-
-    {% endfor %}
+    {{ uiHelper.drawRecursiveMenuAdmin('layouts/recursive/list-menu', listData, menuBlockId) }}
 </ul>
