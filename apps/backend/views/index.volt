@@ -115,7 +115,7 @@
 <script src="/assets_backend/assets/js/jquery.validate.min.js"></script>
 <script src="/assets_backend/assets/js/custom.js"></script>
 <script src="/assets_backend/assets/js/uploadImage.js"></script>
-<script src="/selectpicker/bootstrap-select.min.js"></script>
+<script src="/selectpicker/bootstrap-select.js"></script>
 <script src="/assets_backend/source/plugins/iCheck/icheck.min.js"></script>
 <script src="/ckeditor/ckeditor.js"></script>
 

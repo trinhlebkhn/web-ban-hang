@@ -33,6 +33,13 @@ class Category extends DbModel
 
     /**
      *
+     * @var string
+     * @Column(type="text", length=1000, nullable=false)
+     */
+    public $slug;
+
+    /**
+     *
      * @var integer
      * @Column(type="integer", length=11, nullable=true)
      */
@@ -138,6 +145,23 @@ class Category extends DbModel
     }
 
     /**
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param string $slug
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+    }
+
+
+    /**
      * @return int
      */
     public function getParentId()
@@ -234,11 +258,12 @@ class Category extends DbModel
             $o = [];
             $listObj = $this->modelsManager->createBuilder()
                 ->from(self::class)
-                ->where(isset($optional['q']) ? $optional['q'] : '1=1')
+                ->where(isset($optional['q']) ? $optional['q'] . ' and del_flag != 1' : 'del_flag != 1')
                 ->getQuery()
+//                ->getSql();
                 ->execute();
             $page = $optional['p'] ? $optional['p'] : 1;
-            if(!empty($optional['limit'])){
+            if (!empty($optional['limit'])) {
                 $paginator = new PaginatorModel(
                     [
                         "data" => $listObj,
@@ -247,7 +272,7 @@ class Category extends DbModel
                     ]
                 );
                 $paginate = $paginator->getPaginate();
-                foreach ($paginate->items as &$item){
+                foreach ($paginate->items as &$item) {
                     $obj = $item->toArray();
                     array_push($arrObj, $obj);
                 }

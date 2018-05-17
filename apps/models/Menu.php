@@ -249,27 +249,6 @@ class Menu extends DbModel
         }
     }
 
-    public function recursive($menu, $parent_id = 0, &$array)
-    {
-        foreach ($menu as $key => $item) {
-            if ($item['parent_id'] == $parent_id) {
-                if ($item['parent_id'] == 0) {
-                    $array[] = $item;
-                }
-                foreach ($array as $v => $value) {
-                    if ($array[$v]['id'] == $parent_id) {
-                        if (empty($array[$v]['child'])) {
-                            $array[$v]['child'] = [];
-                        }
-                        array_push($array[$v]['child'], $item);
-                        $this->recursive($menu, $item['id'], $array[$v]['child']);
-                    }
-                }
-                unset($menu[$key]);
-                $this->recursive($menu, $item['id'], $array);
-            }
-        }
-    }
 
     public function getDetail($id)
     {

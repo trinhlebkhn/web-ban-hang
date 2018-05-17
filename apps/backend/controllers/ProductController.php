@@ -13,22 +13,33 @@ class ProductController extends AuthorizedControllerBase
 {
     public function indexAction()
     {
+        $query = $this->request->getQuery();
+        $page = $query['p'] ? $query['p'] : 1;
+
         $productObj = new \Product();
-        $rs = $productObj->getListObj();
+        $optional = [
+            'limit' => 10,
+            'p' => $page,
+        ];
+        $rs = $productObj->getListObj($optional);
         if (!$rs->status) {
             $this->flash->error($rs->message);
             return;
         }
-        $this->view->listData = $rs->data;
+        $this->view->setVars([
+            'listData' => $rs->data,
+            'Paginginfo' => $rs->optional,
+            'Current_link' => $query['_url']
+        ]);
     }
 
     public function addAction()
     {
         $productObj = new \Product();
         $id = $this->request->get('id');
-        if(!empty($id)){
+        if (!empty($id)) {
             $obj = $productObj->getDetail($id);
-            if(!$obj->status){
+            if (!$obj->status) {
                 return $this->flash->error($obj->message);
             }
             $data = $obj->data;
@@ -37,13 +48,18 @@ class ProductController extends AuthorizedControllerBase
 //            d($this->view->data);
         }
         $catObj = new \Category();
-        $listCats = $catObj->getListObj();
-//       d($listCats->data);
-        $this->view->listCats = $listCats->data;
+        $query_cat = [
+            'q' => 'type = 1'
+        ];
+        $listCats = $catObj->getListObj($query_cat);
+        $dataListCats = [];
+        $this->recursiveCat($listCats->data, 0, $dataListCats);
+        $this->view->listCats = $dataListCats;
 
         if ($this->request->isPost()) {
             $data = $this->request->get('product');
             if (empty($data['name'] || empty($data['price_sell'] || empty($data['price_import'])))) {
+                $this->view->data = $data;
                 $this->flash->error('Vui lòng điền đầy đủ các trường bắt buộc');
                 return;
             }
@@ -64,9 +80,11 @@ class ProductController extends AuthorizedControllerBase
             $data['price_import'] = intval($data['price_import']);
             $data['discount'] = intval($data['discount']);
 
-            if(empty($id)){
+            if (empty($id)) {
+                $data['slug'] = $this->create_url_slug($data['name']);
                 $rs = $productObj->createObj($data);
-            } else{
+            } else {
+                $data['slug'] = $this->create_url_slug($data['name']);
                 $rs = $productObj->updateObj($data);
             }
 
@@ -95,5 +113,17 @@ class ProductController extends AuthorizedControllerBase
             $this->flash->error($rs->message);
         }
         $this->response->redirect(base_uri() . '/quan-tri/san-pham');
+    }
+
+    public function recursiveCat($data, $parent_id = 0, &$array, $char = '')
+    {
+        foreach ($data as $key => $item) {
+            if ($item['parent_id'] == $parent_id) {
+                $item['name'] = $char .'|-- '.  $item['name'];
+                $array[] = $item;
+                unset($data[$key]);
+                $this->recursiveCat($data, $item['id'], $array, $char.'&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp');
+            }
+        }
     }
 }

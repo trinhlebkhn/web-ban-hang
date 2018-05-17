@@ -9,10 +9,16 @@
 namespace Graduate\Backend\Controllers;
 
 
+use function GuzzleHttp\Psr7\str;
+
 class CategoryController extends AuthorizedControllerBase
 {
     public function indexAction()
     {
+        $strSeach = $this->request->get('q');
+        $sttSeach = $this->request->get('stt');
+        $typeSeach = $this->request->get('type');
+
         $query = $this->request->getQuery();
         $page = $query['p'] ? $query['p'] : 1;
         $catObj = new \Category();
@@ -22,18 +28,28 @@ class CategoryController extends AuthorizedControllerBase
         ];
 
         if ($this->request->getPost()) {
-            $data = $this->request->get('category');
-            if (empty($data['name'])) {
-                return $this->flash->error('Tên danh mục không được để trống');
-            } else {
-                $rs = $catObj->createObj($data);
-                if ($rs->status) {
-                    $this->flash->success('Thêm mới danh mục thành công');
-                }
+            $strSeach = $this->request->getPost('q');
+            $sttSeach = $this->request->getPost('stt');
+            $typeSeach = $this->request->getPost('type');
+        }
+        $filter = [];
+        if (!empty($strSeach) || !empty($sttSeach) || !empty($typeSeach)) {
+            $filter = $this->checkQuery($strSeach, $sttSeach, $typeSeach);
+        }
+        if(!empty($filter)){
+            $optional['q'] = $filter['query'];
+            $this->view->paramSearch = $filter['paramSearch'];
+            if(!empty($strSeach)) {
+                $this->view->StrSearch = $strSeach;
+            }
+            if(!empty($sttSeach)) {
+                $this->view->SttSearch = $sttSeach;
+            }
+            if(!empty($typeSeach)) {
+                $this->view->TypeSearch = $typeSeach;
             }
         }
         $rs = $catObj->getListObj($optional);
-//        d($rs);
         if ($rs->status) {
             $this->view->setVars([
                 'listCat' => $rs->data,
@@ -44,6 +60,7 @@ class CategoryController extends AuthorizedControllerBase
             return $this->flash->error('Có lỗi hệ thống xảy ra!');
         }
     }
+
 
     public function updateAction()
     {
@@ -64,8 +81,11 @@ class CategoryController extends AuthorizedControllerBase
             $data = $this->request->get('category');
             if ($id != null) {
                 $data['id'] = $id;
+                $data['slug'] = $this->create_url_slug($data['name']);
                 $rs = $catObj->updateCat($data);
             } else {
+                $data['slug'] = $this->create_url_slug($data['name']);
+                $data['del_flag'] = 0;
                 $rs = $catObj->createObj($data);
             }
             if ($rs->status) {

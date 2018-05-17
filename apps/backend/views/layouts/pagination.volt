@@ -1,10 +1,3 @@
-{% if StrSearch|length > 0  and SttSearch|length == 0 %}
-    {% set paramSearch = '&q='~StrSearch %}
-{% elseif StrSearch|length == 0  and SttSearch|length > 0 %}
-    {% set paramSearch = '&stt='~SttSearch %}
-{% elseif StrSearch|length > 0  and SttSearch|length > 0 %}
-    {% set paramSearch =  '&q='~StrSearch~'&stt='~SttSearch %}
-{% endif %}
 {% if Paginginfo['total_page'] > 1 and Paginginfo['total_page'] <=5 %}
     <nav aria-label="...">
         <ul class="pagination">

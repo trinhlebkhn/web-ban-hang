@@ -5,6 +5,7 @@
  * Date: 5/1/2018
  * Time: 8:53 PM
  */
+use Phalcon\Paginator\Adapter\Model as PaginatorModel;
 
 class Product extends DbModel
 {
@@ -23,6 +24,13 @@ class Product extends DbModel
      * @Column(type="string", length=80, nullable=false)
      */
     public $name;
+
+    /**
+     *
+     * @var string
+     * @Column(type="text", length=1000, nullable=false)
+     */
+    public $slug;
 
     /**
      *
@@ -180,6 +188,22 @@ class Product extends DbModel
     public function setName($name)
     {
         $this->name = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param string $slug
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
     }
 
     /**

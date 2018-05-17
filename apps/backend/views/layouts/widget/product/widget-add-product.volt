@@ -23,8 +23,9 @@
                             </div>
                             <div class="form-group">
                                 <label>Danh mục</label>
-                                <select id="cat_product" name="product[category_id][]" class="selectpicker form-control"
+                                <select id="cat_product" name="product[category_id][]" class="selectpicker form-control" data-live-search="true"
                                         multiple>
+                                    <option>Chọn danh mục</option>
                                     {% for cat in listCats %}
                                         <option value="{{ cat['id'] }}"
                                                 {{ uiHelper.check_in_array(cat['id'], data['category_id']) ? 'selected' : '' }} >{{ cat['name'] }}</option>

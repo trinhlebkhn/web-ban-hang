@@ -160,10 +160,25 @@ function ajaxEditMenu(menu_id) {
     $('#QuickView').modal('show');
 }
 
-function deleteMenu(menu_id) {
+function deleteMenu(menu_id, menu_block_id) {
     var check = confirm('Bạn có chắc chắn muốn xóa hay không?');
     if (check) {
-        console.log(11111);
+        $.ajax({
+            url: '/backend/api_client/deleteMenu',
+            method: 'post',
+            dataType: 'json',
+            data: {id: menu_id, menu_block_id: menu_block_id}
+        }).fail(function (ui, status) {
+            snackbar(2, 'Có lỗi  xảy ra!');
+        }).done(function (data, status) {
+            if (data.status) {
+                $('div.add-menu div#menu').html(data.content);
+                snackbar(2, 'Thao tác thành công!');
+            }
+            else {
+                snackbar(2, 'Có lỗi hệ thống xảy ra!');
+            }
+        });
     } else {
         return false;
     }

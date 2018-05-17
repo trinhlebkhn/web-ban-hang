@@ -4,10 +4,10 @@
 
 <div class="content-wrapper">
     <section id="add" class="content">
-        <div class="row">
+        <div class="row" style="background-color: #fff;">
             <div class="add">
                 <form role="form" method="post">
-                    <div style="overflow-y: auto; background-color: #fff;">
+                    <div style="background-color: #fff;">
                         <div class="col-md-12">
                             {{ this.flash.output() }}
                         </div>
@@ -25,7 +25,7 @@
                                 <div class="form-group">
                                     <label>Danh mục cha</label>
                                     <select id="selectpicker" name="category[parent_id]"
-                                            class="selectpicker form-control" title="Chọn danh mục" multiple>
+                                            class="selectpicker form-control" title="Chọn danh mục" data-live-search = 'true'>
                                         {% for item in listCat %}
                                             <option value="{{ item['id'] }}"  {{ data['parent_id'] == item['id'] ? 'selected' : ''  }}>{{ item['name'] }}</option>
                                         {% endfor %}
