@@ -21,7 +21,7 @@ class BillController extends AuthorizedControllerBase {
         $billObj = new \Bill();
         $optional = [
             'p' => $page,
-//            'limit' => 10
+            'limit' => 10
         ];
 
         if ($this->request->getPost()) {
@@ -61,6 +61,16 @@ class BillController extends AuthorizedControllerBase {
     public function detailAction($id){
         $billObj = new \Bill();
         $rs = $billObj->getDetail($id);
+        if ($this->request->isPost()){
+            $data = $rs->data;
+            $payment = $this->request->getPost('payment');
+            $data['date_create'] = time($data['date_create']);
+            $data['date_payment'] = time();
+            $data['payment'] = $payment;
+            $data['status'] = 3;
+            $billObj->updateObj($data);
+            $rs = $billObj->getDetail($id);
+        }
         if(!$rs->status) {
             $this->flash->error($rs->message);
             return;

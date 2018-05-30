@@ -69,6 +69,13 @@ class Bill extends DbModel {
     /**
      *
      * @var integer
+     * @Column(type="integer", length=11, nullable=true)
+     */
+    public $payment;
+
+    /**
+     *
+     * @var integer
      * @Column(type="integer", length=11, nullable=false)
      */
     public $total_price;
@@ -285,6 +292,24 @@ class Bill extends DbModel {
     }
 
     /**
+     * @return int
+     */
+    public function getPayment()
+    {
+        return $this->payment;
+    }
+
+    /**
+     * @param int $payment
+     */
+    public function setPayment($payment)
+    {
+        $this->payment = $payment;
+    }
+
+
+
+    /**
      * Returns table name mapped in the model.
      *
      * @return string
@@ -350,12 +375,26 @@ class Bill extends DbModel {
             if (!empty($obj->toArray())) {
                 $rs = $obj->toArray();
                 $rs['date_create'] = date("d/m/Y H:i:s", intval($rs['date_create']));
+                $rs['date_payment'] = date("d/m/Y H:i:s", intval($rs['date_payment']));
                 $productBillObj = new ProductBill();
                 $listProduct  = $productBillObj->getListObj($rs['id']);
                 $rs['list_product'] = $listProduct;
                 return $this->manipulationSuccess($rs, 'Thao tác thành công');
             } else {
                 return $this->manipulationError([], 'Có lỗi xảy ra. Vui lòng liên hệ nhà quản trị!');
+            }
+        } catch (Exception $e) {
+            return $this->manipulationError([], $e->getMessage());
+        }
+    }
+
+    public function updateObj($data)
+    {
+        try {
+            $obj = self::findFirst($data['id']);
+            if ($obj) {
+                $obj->update($data);
+                return $this->manipulationSuccess($obj->toArray(), 'Cập nhật thành công');
             }
         } catch (Exception $e) {
             return $this->manipulationError([], $e->getMessage());

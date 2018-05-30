@@ -13,6 +13,8 @@ class ProductController extends AuthorizedControllerBase
 {
     public function indexAction()
     {
+        $strSeach = $this->request->get('q');
+        $sttSeach = $this->request->get('stt');
         $query = $this->request->getQuery();
         $page = $query['p'] ? $query['p'] : 1;
 
@@ -21,6 +23,26 @@ class ProductController extends AuthorizedControllerBase
             'limit' => 10,
             'p' => $page,
         ];
+        if ($this->request->getPost()) {
+            $strSeach = $this->request->getPost('q');
+            $sttSeach = $this->request->getPost('stt');
+        }
+
+        if(!empty($strSeach) || !empty($sttSeach)){
+            $filter = $this->checkQuery($strSeach, $sttSeach, null);
+        }
+
+        if(!empty($filter)){
+            $optional['q'] = $filter['query'];
+            $this->view->paramSearch = $filter['paramSearch'];
+            if(!empty($strSeach)) {
+                $this->view->StrSearch = $strSeach;
+            }
+            if(!empty($sttSeach)) {
+                $this->view->SttSearch = $sttSeach;
+            }
+        }
+
         $rs = $productObj->getListObj($optional);
         if (!$rs->status) {
             $this->flash->error($rs->message);

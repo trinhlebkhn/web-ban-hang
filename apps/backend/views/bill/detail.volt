@@ -5,31 +5,24 @@
 <div class="content-wrapper">
     <section class="invoice">
         <div class="row" style="background: #ffffff; padding-bottom: 20px">
-            <div class="row">
-                <div class="col-xs-12">
-                    <h2 class="page-header">
-                        Chi tiết đơn hàng DH1
-                        <small class="pull-right">Ngày tạo đơn: {{ data['date_create'] }}</small>
-                    </h2>
-                </div>
-                <!-- /.col -->
+            <div class="col-xs-12">
+                <h2 class="page-header">
+                    Chi tiết đơn hàng DH1
+                    <small class="pull-right">Ngày tạo đơn: {{ data['date_create'] }}</small>
+                </h2>
             </div>
             <!-- info row -->
             <div class="row invoice-info">
                 <div class="col-sm-4 invoice-col">
-                    <address>
-                        Tên khách hàng: {{ data['customer_name'] }}<br>
-                        Địa chỉ: {{ data['address'] }}<br>
-                        Điện thoại: {{ data['phone'] }}<br>
-                        Email: {{ data['email'] }}
+                    <address style="line-height: 26px;">
+                        <b>Tên khách hàng:</b> {{ data['customer_name'] }}<br>
+                        <b>Địa chỉ:</b> {{ data['address'] }}<br>
+                        <b>Điện thoại:</b> {{ data['phone'] }}<br>
+                        <b>Email:</b> {{ data['email'] }}
                     </address>
                 </div>
-                <div class="col-sm-4 invoice-col">
-                    <b>Invoice #007612</b><br>
-                    <br>
-                    <b>Order ID:</b> 4F3S8J<br>
-                    <b>Payment Due:</b> 2/22/2014<br>
-                    <b>Account:</b> 968-34567
+                <div class="col-sm-4 invoice-col" style="line-height: 26px;">
+                    <b>Ngày chuyển tiền:</b> {{ data['date_payment'] }}<br>
                 </div>
             </div>
             <!-- /.row -->
@@ -43,66 +36,85 @@
                             <th>Số lượng</th>
                             <th>Sản phẩm</th>
                             <th>Mã sản phẩm</th>
-                            <th>Mô tả</th>
-                            <th>Giá</th>
+                            <th>Giá (/1 sản phẩm - VNĐ)</th>
+                            <th>Giá tạm tính (VNĐ)</th>
                         </tr>
                         </thead>
                         <tbody>
-                        {% for item in data['list_product']%}
+                        {% for item in data['list_product'] %}
                             <tr>
                                 <td>{{ item['quantity'] }}</td>
                                 <td>{{ item['product_name'] }}</td>
                                 <td>SP{{ item['product_id'] }}</td>
-                                <td>{{ item['price'] }}</td>
-                                <td>{{ item['subtotal'] }}</td>
+                                <td>{{ uiHelper.formatNumber(item['price']) }}</td>
+                                <td>{{ uiHelper.formatNumber(item['subtotal']) }}</td>
                             </tr>
                         {% endfor %}
                         </tbody>
                     </table>
                 </div>
-                <!-- /.col -->
             </div>
-            <!-- /.row -->
 
             <div class="row">
-                <!-- accepted payments column -->
+                {% if data['status'] == 1 %}
+                    <div class="col-xs-6"></div>
+                {% endif %}
                 <div class="col-xs-6">
-                    <p class="lead">Payment Methods:</p>
-                    <img src="../../dist/img/credit/visa.png" alt="Visa">
-                    <img src="../../dist/img/credit/mastercard.png" alt="Mastercard">
-                    <img src="../../dist/img/credit/american-express.png" alt="American Express">
-                    <img src="../../dist/img/credit/paypal2.png" alt="Paypal">
-
-                    <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
-                        Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem plugg
-                        dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
-                    </p>
-                </div>
-                <!-- /.col -->
-                <div class="col-xs-6">
-                    <p class="lead">Amount Due 2/22/2014</p>
-
                     <div class="table-responsive">
                         <table class="table">
                             <tr>
-                                <th style="width:50%">Subtotal:</th>
-                                <td>$250.30</td>
+                                <th style="width:50%">Tạm tính:</th>
+                                <td>{{ uiHelper.formatNumber(data['price']) }} <b>VNĐ</b></td>
                             </tr>
                             <tr>
-                                <th>Tax (9.3%)</th>
-                                <td>$10.34</td>
+                                <th>Phí ship:</th>
+                                <td>{{ uiHelper.formatNumber(data['ship_price']) }} <b>VNĐ</b></td>
                             </tr>
                             <tr>
-                                <th>Shipping:</th>
-                                <td>$5.80</td>
-                            </tr>
-                            <tr>
-                                <th>Total:</th>
-                                <td>$265.24</td>
+                                <th>Tổng tiền:</th>
+                                <td>{{ uiHelper.formatNumber(data['total_price']) }} <b>VNĐ</b></td>
                             </tr>
                         </table>
                     </div>
                 </div>
+                {% if data['status'] != 1 %}
+                    <div class="col-xs-6">
+                        <div class="table-responsive">
+                            <table class="table">
+                                {% if data['status'] == 2 %}
+                                    <form method="post">
+                                        <tr>
+                                            <th>Số tiền đã thanh toán:</th>
+                                            <td>
+                                                <input class="form-control" name="payment" type="text">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>
+                                                <button type="submit" class="form-control btn-primary">Cập nhật</button>
+                                            </td>
+                                        </tr>
+                                    </form>
+                                {% elseif data['status'] != 2 %}
+                                    <tr>
+                                        <th>Số tiền đã thanh toán:</th>
+                                        <td>
+                                            {{ uiHelper.formatNumber(data['payment']) }} <b>VNĐ</b>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Còn lại:</th>
+                                        <td>
+                                            {{ uiHelper.formatNumber(data['total_price'] - data['payment']) }} <b>VNĐ</b>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                            </table>
+                        </div>
+                    </div>
+                {% endif %}
+
                 <!-- /.col -->
             </div>
         </div>

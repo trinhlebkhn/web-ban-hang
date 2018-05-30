@@ -13,7 +13,7 @@
                 </div>
                 <div class="table-responsive">
                     {{ this.flash.output() }}
-                    <table class="table table-striped table-bordered table-bill">
+                    <table class="table  table-bill">
                         <thead>
                         <tr>
                             <th style="width: 5%">Đơn hàng</th>
@@ -26,8 +26,10 @@
                         {% for item in listBill %}
                             <tr>
                                 <td class="code-bill" width="20%">
-                                    <div><a href="/quan-tri/chi-tiet-hoa-don-hd{{ item['id'] }}">HD{{ item['id'] }}</a></div>
-                                    <div><i class="fa fa fa-clock-o color-gray-icon"></i> {{ item['date_create'] }}</div>
+                                    <div><a href="/quan-tri/chi-tiet-hoa-don-hd{{ item['id'] }}">HD{{ item['id'] }}</a>
+                                    </div>
+                                    <div><i class="fa fa fa-clock-o color-gray-icon"></i> {{ item['date_create'] }}
+                                    </div>
                                     <div><i class="fa fa fa-envelope"></i>{{ item['email'] }}</div>
                                 </td>
                                 <td class="customer-bill">
@@ -35,20 +37,94 @@
                                     <div><i class="fa fa-user color-gray-icon"></i>{{ item['customer_name'] }}</div>
                                     <div><i class="fa fa-map-marker color-gray-icon"></i>{{ item['address'] }}</div>
                                 </td>
-                                <td>
+                                <td class="bill-status">
+                                    {% if item['status'] == 1 %}
+                                        <div class="d-flex">
+                                            <div class="circle bg-yellow"></div>
+                                            <smal>Mới</smal>
+                                        </div>
+                                    {% elseif item['status'] == 2 %}
+                                        <div class="d-flex">
+                                            <div class="circle bg-skype"></div>
+                                            <smal>Xác nhận</smal>
+                                        </div>
+                                    {% elseif item['status'] == 3 %}
+                                        <div class="d-flex">
+                                            <div class="circle bg-primary"></div>
+                                            <smal>Đã chuyển khoản</smal>
+                                        </div>
+                                    {% elseif item['status'] == 4 %}
+                                        <div class="d-flex">
+                                            <div class="circle bg-light-green"></div>
+                                            <smal>Đang chuyển</smal>
+                                        </div>
+                                    {% elseif item['status'] == 5 %}
+                                        <div class="d-flex">
+                                            <div class="circle bg-success"></div>
+                                            <smal>Thành công</smal>
+                                        </div>
+                                    {% elseif item['status'] == 6 %}
+                                        <div class="d-flex">
+                                            <div class="circle bg-amber"></div>
+                                            <smal>Gọi lại</smal>
+                                        </div>
+                                    {% elseif item['status'] == 7 %}
+                                        <div class="d-flex">
+                                            <div class="circle bg-gray"></div>
+                                            <smal>Hủy</smal>
+                                        </div>
+                                    {% endif %}
 
-                                    <button type="button" class="btn btn-success pointer">Hoạt động</button>
                                 </td>
                                 <td class="communication">
-                                    <a href="">
-                                        <button class="pointer bg-green" title="Xác nhận"><i class="fa fa-check"></i></button>
-                                    </a>
-                                    <a href="">
-                                        <button class="pointer bg-red" title="Hủy"><i class="fa fa-times"></i></button>
-                                    </a>
-                                    <a href="">
-                                        <button class="pointer bg-yellow" title="Gọi lại"><i class="fa fa-phone"></i></button>
-                                    </a>
+                                    {% if item['status'] == 1 %}
+                                        <a href="">
+                                            <button class="pointer bg-green" title="Xác nhận"><i
+                                                        class="fa fa-check"></i></button>
+                                        </a>
+                                        <a href="">
+                                            <button class="pointer bg-gray" title="Hủy"><i class="fa fa-times"></i>
+                                            </button>
+                                        </a>
+                                        <a href="">
+                                            <button class="pointer bg-yellow" title="Gọi lại"><i
+                                                        class="fa fa-phone"></i></button>
+                                        </a>
+                                    {% endif %}
+                                    {% if item['status'] == 7 %}
+                                        <a href="">
+                                            <button class="pointer bg-green" title="Xác nhận"><i
+                                                        class="fa fa-check"></i></button>
+                                        </a>
+                                        <a href="">
+                                            <button class="pointer bg-amber" title="Gọi lại"><i
+                                                        class="fa fa-phone"></i></button>
+                                        </a>
+                                        <a href="">
+                                            <button class="pointer bg-yellow" title="Mới"><i class="fa fa-times"></i>
+                                            </button>
+                                        </a>
+                                    {% endif %}
+                                    {% if item['status'] != 1 and item['status'] != 7 %}
+                                        {% if item['status'] != 4 %}
+                                            <a href="">
+                                                <button class="pointer bg-light-green" title="Đang chuyển"><i
+                                                            class="fa fa-truck"></i></button>
+                                            </a>
+                                        {% endif %}
+                                        {% if item['status'] != 6 %}
+                                            <a href="">
+                                                <button class="pointer bg-yellow" title="Gọi lại"><i
+                                                            class="fa fa-phone"></i></button>
+                                            </a>
+                                        {% endif %}
+                                        {% if item['status'] != 5 %}
+                                            <a href="">
+                                                <button class="pointer bg-success" title="Thành công"><i
+                                                            class="fa fa-check"></i></button>
+                                            </a>
+                                        {% endif %}
+                                    {% endif %}
                                 </td>
                             </tr>
                         {% endfor %}
