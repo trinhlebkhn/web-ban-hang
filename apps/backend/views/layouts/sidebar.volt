@@ -60,16 +60,10 @@
                 </a>
             </li>
             <li>
-                <a href="/contract">
+                <a href="/quan-tri/hoa-don">
                     <i class="fa fa-briefcase"></i>
                     <span>Quản lý hóa đơn</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
                 </a>
-                <ul class="treeview-menu" style="">
-                    <li><a href="general.html"><i class="fa fa-circle-o"></i> General</a></li>
-                </ul>
             </li>
             <li>
                 <a href="/agency">

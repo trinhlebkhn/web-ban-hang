@@ -1,6 +1,4 @@
 <?php
-
-
 $router = $di->get("router");
 /* BACKEND */
 $router->add("/backend", [
@@ -23,6 +21,7 @@ $router->add("/quan-tri/dang-nhap", [
     'controller' => 'auth',
     'action' => 'login',
 ]);
+
 
 /* Quản trị sản phẩm */
 $router->add("/quan-tri/san-pham", [
@@ -60,6 +59,7 @@ $router->add("/quan-tri/danh-sach-san-pham", [
     'action' => 'getListProduct',
 ]);
 
+
 /* QUẢN TRỊ MENU */
 $router->add("/quan-tri/menu-block", [
     'module' => 'backend',
@@ -74,7 +74,6 @@ $router->add("/quan-tri/xoa-menu-block", [
     'controller' => 'menu',
     'action' => 'delete',
 ]);
-
 
 
 /* Quản trị danh mục */
@@ -106,32 +105,51 @@ $router->add("/quan-tri/xoa-danh-muc", [
     'action' => 'delete',
 ]);
 
+
+/* Quản trị hóa đơn */
+$router->add("/quan-tri/hoa-don", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'bill',
+    'action' => 'index',
+]);
+
+
+$router->add("/quan-tri/chi-tiet-hoa-don-hd{id:[0-9]+}", [
+        'module' => 'backend',
+        'namespace' => 'Graduate\Backend\Controllers',
+        'controller' => 'bill',
+        'action' => 'detail',
+        'id' => 2,
+    ]);
+
+
 /* END BACKEND */
+
 
 foreach ($application->getModules() as $key => $module) {
     $namespace = str_replace('Module', 'Controllers', $module ["className"]);
 //    d($namespace, $key, $module);
-    $router->add('/' . $key . '/:params', array(
+    $router->add('/' . $key . '/:params', [
         'namespace' => $namespace,
         'module' => $key,
         'controller' => 'index',
         'action' => 'index',
         'params' => 1
-    ))->setName($key);
-    $router->add('/' . $key . '/:controller/:params', array(
+    ])->setName($key);
+    $router->add('/' . $key . '/:controller/:params', [
         'namespace' => $namespace,
         'module' => $key,
         'controller' => 1,
         'action' => 'index',
         'params' => 2
-    ));
-    $router->add('/' . $key . '/:controller/:action/:params', array(
+    ]);
+    $router->add('/' . $key . '/:controller/:action/:params', [
         'namespace' => $namespace,
         'module' => $key,
         'controller' => 1,
         'action' => 2,
         'params' => 3
-    ));
+    ]);
 }
-
 $di->set("router", $router);

@@ -324,3 +324,31 @@ div.search label {
     width: 30%;
     padding-top: 5px;
 }
+
+.communication button {
+    margin-right: 5px;
+    color: #ffffff;
+    border: none;
+}
+
+.code-bill i, .customer-bill i {
+    margin-right: 5px;
+}
+
+.color-gray-icon {
+    color: #8b93a9 !important;
+}
+
+.table-bill tr td div {
+    line-height: 23px;
+}
+
+.invoice {
+    margin: 0px 25px;
+    padding-top: 15px;
+    background: none;
+}
+
+.bg-gray {
+    background: #f4f4f4;
+}
