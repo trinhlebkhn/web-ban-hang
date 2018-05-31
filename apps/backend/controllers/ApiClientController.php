@@ -57,7 +57,7 @@ class ApiClientController extends AuthorizedControllerBase
         $img = json_decode($upload_img);
         array_push($listImg, $img->data);
         $this->session->set('listImg', $listImg);
-        $render = $this->render_template('product', 'list_img', ['data' => $listImg, 'data_json' => json_encode($listImg)]);
+        $render = $this->render_template('product', 'list_img', ['data' => $listImg]);
         $last_result = [
             'status' => 1,
             'content' => $render,
@@ -69,7 +69,13 @@ class ApiClientController extends AuthorizedControllerBase
         $index = $this->request->get('index');
         $listImg = $this->session->get('listImg');
         unset($listImg[$index]);
-        d($listImg);
+        $this->session->set('listImg', $listImg);
+        $render = $this->render_template('product', 'list_img', ['data' => $listImg]);
+        $last_result = [
+            'status' => 1,
+            'content' => $render,
+        ];
+        return $this->response->setJsonContent($last_result);
     }
 
     public function getDetailAction()

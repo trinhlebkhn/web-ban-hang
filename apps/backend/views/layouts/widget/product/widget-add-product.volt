@@ -93,7 +93,7 @@
                                 <small><i>Ảnh phải có định dạng *.jpg, *.png, *.bmp</i></small>
                             </div>
                             <div class="row">
-                                <div class="col-md-5">
+                                <div class="col-md-5 col-sm-12">
                                     <div class="{{ data['avatar'] == null  ? '' : 'hidden' }} blog-avatar boxborder text-center d-flex justify-content-center align-items-center pointer"
                                          onclick="avatar.click()">
                                         <div class="d-inline-block" style="margin: auto">
@@ -109,24 +109,29 @@
                                            onchange="uploadImage(avatar,avatar.files[0])">
                                     <input class="hidden" name="product[avatar]" value="{{ data['avatar'] }}" id="src_avatar" type="text">
                                 </div>
-                                <div class="col-md-7 img-slide-product">
-                                    <div class="col-md-4">
-                                        <div class="boxborder text-center d-flex justify-content-center align-items-center pointer img-product-single"
-                                             onclick="img_product.click()">
-                                            <div class="d-inline-block" style="margin: auto">
-                                                <p>Ảnh slide</p>
+                                <div class="col-md-7 col-sm-12 img-slide-product">
+                                    {% for index, item in data['image'] %}
+                                        <div class="col-md-4 col-sm-3 col-xs-6">
+                                            <div class="img-product-single" style="position: relative">
+                                                <img id="blog_avatar" src="{{ item }}" alt="" style="width: 100%; height: 100%;">
+                                                <i class="fa fa-trash text-danger pointer" style="position: absolute;top: 10px;right: 15px"
+                                                   onclick="removeImgProduct({{ index }})"></i>
+                                            </div>
+                                            <input class="hidden" name="product[image][{{ index }}]" value="{{ item }}" id="list_img" type="text">
+                                        </div>
+                                    {% endfor %}
+                                    {% if data['image'] | length < 9 %}
+                                        <div class="col-md-4 col-sm-3 col-xs-6">
+                                            <div class="boxborder text-center d-flex justify-content-center align-items-center pointer img-product-single"
+                                                 onclick="img_product.click()">
+                                                <div class="d-inline-block" style="margin: auto">
+                                                    <p>Ảnh slide</p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <div class="img-avatar hidden" style="position: relative">
-                                        <img id="blog_avatar" src="{{ data['avatar'] }}" alt="">
-                                        <i class="fa fa-trash text-danger pointer" style="position: absolute;top: 10px;right: 15px"
-                                           onclick="removeImage()"></i>
-                                    </div>
-                                    <input #img_product class="hidden" type="file" id="img_product"
-                                           onchange="uploadImgProduct(img_product,img_product.files[0], {{ data['id'] }})">
-                                    <input class="hidden" name="product[image]" value="{{ data['image'] }}" id="list_img" type="text">
+                                        <input #img_product class="hidden" type="file" id="img_product"
+                                               onchange="uploadImgProduct(img_product,img_product.files[0], {{ data['id'] }})">
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>

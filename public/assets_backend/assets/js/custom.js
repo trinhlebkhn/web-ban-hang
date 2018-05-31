@@ -56,7 +56,6 @@ function closeMenu() {
 }
 
 function showListMenu(menu_block_id) {
-    console.log("menu_block_id", menu_block_id);
     $.ajax({
         url: '/backend/api_client/getListMenu',
         method: 'post',

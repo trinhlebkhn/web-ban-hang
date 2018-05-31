@@ -57,6 +57,7 @@ class ProductController extends AuthorizedControllerBase
 
     public function addAction()
     {
+        unset($_SESSION['listImg']);
         $productObj = new \Product();
         $id = $this->request->get('id');
         if (!empty($id)) {
@@ -66,6 +67,8 @@ class ProductController extends AuthorizedControllerBase
             }
             $data = $obj->data;
             $data['category_id'] = explode(',', $data['category_id']);
+            $data['image'] = json_decode( $data['image']);
+            $this->session->set('listImg', $data['image']);
             $this->view->data = $data;
 //            d($this->view->data);
         }
@@ -80,6 +83,7 @@ class ProductController extends AuthorizedControllerBase
 
         if ($this->request->isPost()) {
             $data = $this->request->get('product');
+            $data['image'] = json_encode($data['image']);
             if (empty($data['name'] || empty($data['price_sell'] || empty($data['price_import'])))) {
                 $this->view->data = $data;
                 $this->flash->error('Vui lòng điền đầy đủ các trường bắt buộc');

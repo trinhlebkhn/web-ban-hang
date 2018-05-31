@@ -76,16 +76,13 @@ function removeImgProduct(index) {
     $.ajax({
         url: '/backend/api_client/removeImgProduct',
         method: 'post',
-        cache: false,
-        contentType: false,
-        processData: false,
         dataType: 'json',
-        data: {index: index},
+        data: {index: index}
     }).fail(function (ui, status) {
         snackbar(2, 'Có lỗi xảy ra!');
     }).done(function (data, status) {
-        if (data.status) {
-
+        if (data.status){
+            $('div.img-slide-product').html(data.content);
         }
         else {
             snackbar(2, 'Có lỗi xảy ra!');
