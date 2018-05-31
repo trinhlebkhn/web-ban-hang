@@ -24,7 +24,6 @@ function uploadImage(input, image) {
                 $('div.blog-avatar').addClass('hidden');
                 $('img#blog_avatar').attr('src', data.data);
                 $('input#src_avatar').val(data.data);
-                console.log("222222", $('input#src_avatar').val());
                 $('div.img-avatar').removeClass('hidden');
             }
             else {
@@ -37,6 +36,63 @@ function uploadImage(input, image) {
         snackbar(2, 'Ảnh không tồn tại! Vui lòng chọn lại!');
     }
 }
+
+function uploadImgProduct(input, image, product_id) {
+    if (image != undefined) {
+        var valid = check_image(image);
+        if (!valid) {
+            snackbar(2, get_check_message());
+            input.value = '';
+            return;
+        }
+        var formData = new FormData();
+        formData.append('file', image);
+        $.ajax({
+            url: '/backend/api_client/uploadSlideProduct?id='+product_id,
+            method: 'post',
+            cache: false,
+            contentType: false,
+            processData: false,
+            dataType: 'json',
+            data: formData,
+        }).fail(function (ui, status) {
+            snackbar(2, 'Có lỗi xảy ra!');
+        }).done(function (data, status) {
+            if (data.status){
+                $('div.img-slide-product').html(data.content);
+            }
+            else {
+                snackbar(2, 'Có lỗi xảy ra!');
+            }
+        });
+        input.value = '';
+    }
+    else {
+        snackbar(2, 'Ảnh không tồn tại! Vui lòng chọn lại!');
+    }
+}
+
+function removeImgProduct(index) {
+    $.ajax({
+        url: '/backend/api_client/removeImgProduct',
+        method: 'post',
+        cache: false,
+        contentType: false,
+        processData: false,
+        dataType: 'json',
+        data: {index: index},
+    }).fail(function (ui, status) {
+        snackbar(2, 'Có lỗi xảy ra!');
+    }).done(function (data, status) {
+        if (data.status) {
+
+        }
+        else {
+            snackbar(2, 'Có lỗi xảy ra!');
+        }
+    });
+}
+
 var fileType = ['image/png', 'image/jpeg'];
 var message;
 var ImageSize = 5242880;

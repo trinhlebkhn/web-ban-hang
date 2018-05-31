@@ -47,6 +47,24 @@ class AuthorizedControllerBase extends ControllerBase
         ];
     }
 
+    public function checkQueryBill($strSeach, $sttSearch)
+    {
+        if (!empty($strSeach) && empty($sttSearch)) {
+            $query = 'email like "%' . $strSeach . '%"';
+            $paramSearch = '&q=' . $strSeach;
+        } elseif (empty($strSeach) && !empty($sttSearch)) {
+            $query = 'status = ' . $sttSearch;
+            $paramSearch = '&stt=' . $sttSearch;
+        } elseif (!empty($strSeach) && !empty($sttSearch)) {
+            $query = 'email like "%' . $strSeach . '%" and status = ' . $sttSearch;
+            $paramSearch = '&q=' . $strSeach . '&status=' . $sttSearch;
+        }
+        return [
+            'query' => $query,
+            'paramSearch' => $paramSearch
+        ];
+    }
+
     public function create_url_slug($string)
     {
         $slug = preg_replace('/[^A-Za-z0-9-]+/', '-', $string);

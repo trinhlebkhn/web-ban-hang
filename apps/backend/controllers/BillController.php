@@ -27,11 +27,10 @@ class BillController extends AuthorizedControllerBase {
         if ($this->request->getPost()) {
             $strSeach = $this->request->getPost('q');
             $sttSeach = $this->request->getPost('stt');
-            $typeSeach = $this->request->getPost('type');
         }
         $filter = [];
         if (!empty($strSeach) || !empty($sttSeach) || !empty($typeSeach)) {
-            $filter = $this->checkQuery($strSeach, $sttSeach, $typeSeach);
+            $filter = $this->checkQueryBill($strSeach, $sttSeach, $typeSeach);
         }
         if(!empty($filter)){
             $optional['q'] = $filter['query'];
@@ -42,10 +41,8 @@ class BillController extends AuthorizedControllerBase {
             if(!empty($sttSeach)) {
                 $this->view->SttSearch = $sttSeach;
             }
-            if(!empty($typeSeach)) {
-                $this->view->TypeSearch = $typeSeach;
-            }
         }
+//        d($optional['q']);
         $rs = $billObj->getListObj($optional);
         if ($rs->status) {
             $this->view->setVars([
@@ -76,5 +73,15 @@ class BillController extends AuthorizedControllerBase {
             return;
         }
         $this->view->data = $rs->data;
+    }
+
+    public function changeStatusAction($status, $id){
+        $billObj = new \Bill();
+        $data = [
+            'id' => $id,
+            'status' => $status
+        ];
+        $billObj->updateObj($data);
+        $this->response->redirect(base_uri() . '/quan-tri/hoa-don');
     }
 }

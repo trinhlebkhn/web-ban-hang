@@ -1,6 +1,7 @@
 body, html {
     /*height: inherit !important;*/
 }
+
 @media (max-width: 1024px) {
     .table {
         min-width: 1024px;
@@ -330,6 +331,7 @@ div.search label {
     color: #ffffff;
     border: none;
 }
+
 .bill-status button {
     width: 75%;
 }
@@ -359,22 +361,35 @@ div.search label {
 .bg-skype {
     background: #017d7d;
 }
+
 .bg-light-green {
     background: #8bc24a;
 }
+
 .bg-amber {
-    background: #ff6600 ;
+    background: #ff6600;
 }
 
 .bg-success {
-    background: teal ;
+    background: teal;
 }
+
 div.circle {
     width: 18px;
     height: 18px;
     border-radius: 50%;
     margin-right: 5px;
 }
+
 .d-flex {
     display: inline-flex;
+}
+
+.img-product-single {
+    border: 1px dashed #2196F3;
+    border-radius: 2px;
+    height: 80px;
+    width: 80px;
+    background: #f2f2f2;
+    align-items: center;
 }

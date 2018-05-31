@@ -16,8 +16,13 @@
             <div class="form-group search ">
                 <select class="form-control" name="stt" id="stt" onchange="this.form.submit()">
                     <option value="">Chọn trạng thái</option>
-                    <option value="1" {{ SttSearch == 1 ? 'selected' : '' }} >Hoạt động</option>
-                    <option value="2" {{ SttSearch == 2 ? 'selected'  : '' }}>Không hoạt động</option>
+                    <option value="1" {{ SttSearch == 1 ? 'selected' : '' }} >Mới</option>
+                    <option value="2" {{ SttSearch == 2 ? 'selected' : '' }} >Xác nhận</option>
+                    <option value="3" {{ SttSearch == 3 ? 'selected' : '' }} >Đã chuyển khoản</option>
+                    <option value="4" {{ SttSearch == 4 ? 'selected' : '' }} >Đang chuyển</option>
+                    <option value="5" {{ SttSearch == 5 ? 'selected' : '' }} >Thành công</option>
+                    <option value="6" {{ SttSearch == 6 ? 'selected'  : '' }}>Gọi lại</option>
+                    <option value="7" {{ SttSearch == 7 ? 'selected'  : '' }}>Hủy</option>
                 </select>
             </div>
         </div>

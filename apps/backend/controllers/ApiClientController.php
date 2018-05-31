@@ -41,6 +41,37 @@ class ApiClientController extends AuthorizedControllerBase
         }
     }
 
+    public function uploadSlideProductAction(){
+        $listImg = $this->session->get('listImg');
+        if (empty($listImg)) {
+            $id = $this->request->get('id');
+            $productObj = new \Product();
+            $pr_detail = $productObj->getDetail($id)->data;
+            $listImg = json_decode($pr_detail['image']);
+            if (empty($listImg)){
+                $listImg = [];
+            }
+        }
+
+        $upload_img = $this->uploadImageAction()->getContent();
+        $img = json_decode($upload_img);
+        array_push($listImg, $img->data);
+        $this->session->set('listImg', $listImg);
+        $render = $this->render_template('product', 'list_img', ['data' => $listImg, 'data_json' => json_encode($listImg)]);
+        $last_result = [
+            'status' => 1,
+            'content' => $render,
+        ];
+        return $this->response->setJsonContent($last_result);
+    }
+
+    public function removeImgProductAction(){
+        $index = $this->request->get('index');
+        $listImg = $this->session->get('listImg');
+        unset($listImg[$index]);
+        d($listImg);
+    }
+
     public function getDetailAction()
     {
         $data = $this->request->getPost('data');

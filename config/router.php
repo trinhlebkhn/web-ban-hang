@@ -116,12 +116,22 @@ $router->add("/quan-tri/hoa-don", [
 
 
 $router->add("/quan-tri/chi-tiet-hoa-don-hd{id:[0-9]+}", [
-        'module' => 'backend',
-        'namespace' => 'Graduate\Backend\Controllers',
-        'controller' => 'bill',
-        'action' => 'detail',
-        'id' => 2,
-    ]);
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'bill',
+    'action' => 'detail',
+    'id' => 2,
+]);
+
+$router->add("/doi-trang-thai-don-hang-b{status:[0-9]}{id:[0-9]+}", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'bill',
+    'action' => 'changeStatus',
+    'status' => 1,
+    'id' => 1,
+]);
+
 
 
 /* END BACKEND */
