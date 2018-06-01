@@ -58,11 +58,11 @@ trait SessionExt
     /*
      *  Check Login
     */
-    function isLoggedIn()
+    function isLogIn()
     {
         /** @var \Phalcon\Session\Adapter $session */
         $session = provider('session');
-        return $session->has('auth');
+        return $session->has('auth_admin');
     }
 
 

@@ -178,4 +178,15 @@ class ApiClientController extends AuthorizedControllerBase
             return $this->response->setJsonContent($last_result);
         }
     }
+
+    public function addCatHomePageAction(){
+        $render = $this->render_template('confighome', 'ajaxcat');
+        $rs = [
+            'status' => 1,
+            'data' => [],
+            'content' => $render,
+            'message' => 'Thao tác thành công!'
+        ];
+        return $this->response->setJsonContent($rs);
+    }
 }

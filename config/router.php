@@ -114,7 +114,6 @@ $router->add("/quan-tri/hoa-don", [
     'action' => 'index',
 ]);
 
-
 $router->add("/quan-tri/chi-tiet-hoa-don-hd{id:[0-9]+}", [
     'module' => 'backend',
     'namespace' => 'Graduate\Backend\Controllers',
@@ -132,7 +131,44 @@ $router->add("/doi-trang-thai-don-hang-b{status:[0-9]}{id:[0-9]+}", [
     'id' => 1,
 ]);
 
+/* Quản trị User */
+$router->add("/quan-tri/dang-nhap", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'auth',
+    'action' => 'login',
+]);
 
+$router->add("/quan-tri/dang-xuat", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'auth',
+    'action' => 'logout',
+]);
+
+
+$router->add("/quan-tri/thanh-vien", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'auth',
+    'action' => 'list_user',
+]);
+
+$router->add("/quan-tri/chi-tiet-thanh-vien-id{id:[0-9]+}", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'auth',
+    'action' => 'detail',
+    'id' => 1,
+]);
+
+/* Cấu hình trang chủ */
+$router->add("/quan-tri/cau-hinh-trang-chu", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'confighome',
+    'action' => 'index',
+]);
 
 /* END BACKEND */
 

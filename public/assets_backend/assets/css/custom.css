@@ -302,6 +302,11 @@ span.icon-manipulation {
     background: #017d7d;
     color: #fff;
     padding-left: 25px;
+    height: 50px;
+}
+
+#QuickView .modal-form-add .header-dialog h3{
+    padding-top: 12px;
 }
 
 #QuickView .form-add-menu {
@@ -393,6 +398,12 @@ div.circle {
     background: #f2f2f2;
     align-items: center;
     margin-bottom: 5px;
+}
+
+.img-user img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
 }
 
 

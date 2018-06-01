@@ -12,7 +12,6 @@
                 <a href="#"><i class="fa fa-user-circle"></i> {{ AgencyInfo.name }}</a>
             </div>
         </div>
-        <!-- search form -->
         <form action="#" method="get" class="sidebar-form">
             <div class="input-group">
                 <input type="text" name="q" class="form-control" placeholder="Tìm kiếm...">
@@ -23,16 +22,11 @@
                     </span>
             </div>
         </form>
-        <!-- /.search form -->
-        <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
             <li>
-                <a href="/">
+                <a href="/quan-tri/thanh-vien">
                     <i class="fa fa-user-circle-o"></i>
                     <span>Quản lý thành viên</span>
-                    {#<span class="pull-right-container">#}
-                    {#<i class="fa fa-angle-left pull-right"></i>#}
-                    {#</span>#}
                 </a>
             </li>
             <li>
@@ -49,7 +43,7 @@
             </li>
             <li>
                 <a href="/quan-tri/menu-block">
-                    <i class="fa fa-product-hunt"></i>
+                    <i class="fa fa-tags"></i>
                     <span>Quản lý menu</span>
                 </a>
             </li>
@@ -63,6 +57,12 @@
                 <a href="/quan-tri/hoa-don">
                     <i class="fa fa-briefcase"></i>
                     <span>Quản lý hóa đơn</span>
+                </a>
+            </li>
+            <li>
+                <a href="/quan-tri/cau-hinh-trang-chu">
+                    <i class="fa fa-window-maximize"></i>
+                    <span>Cấu hình trang chủ</span>
                 </a>
             </li>
             <li>

@@ -183,6 +183,19 @@ function deleteMenu(menu_id, menu_block_id) {
     }
 }
 
+function ajaxAddCatHomePage() {
+    $.ajax({
+        url: '/backend/api_client/addCatHomePage',
+        method: 'post',
+        dataType: 'json',
+    }).fail(function (ui, status) {
+        snackbar(2, 'Có lỗi  xảy ra!');
+    }).done(function (data, status) {
+        $('#QuickView').html(data.content);
+    });
+    $('#QuickView').modal('show');
+}
+
 //
 // $('#edit-cat').on('click', function () {
 //     var parent = $(this).parent();

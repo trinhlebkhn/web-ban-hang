@@ -18,4 +18,12 @@ class ControllerBase extends Controller
         });
         return $content;
     }
+
+    public function setAdmin($data){
+        $this->session->set('auth_admin', $data);
+    }
+
+    public function getAdmin() {
+        return $this->session->get('auth_admin');
+    }
 }

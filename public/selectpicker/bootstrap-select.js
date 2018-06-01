@@ -268,7 +268,7 @@
     "'": '&#x27;',
     '`': '&#x60;'
   };
-  
+
   var unescapeMap = {
     '&amp;': '&',
     '&lt;': '<',
@@ -719,7 +719,7 @@
             if (prevHiddenIndex !== undefined) {
               // select the element **before** the first hidden element in the group
               var prevHidden = $selectOptions.eq(prevHiddenIndex)[0].previousElementSibling;
-              
+
               if (prevHidden && prevHidden.tagName === 'OPTGROUP' && !prevHidden.disabled) {
                 showDivider = true;
               }
@@ -794,6 +794,23 @@
         }
       }).toArray();
 
+      /* Sửa tên danh mục */
+      for(var index in selectedItems){
+          var i = selectedItems[index].lastIndexOf('&nbsp;');
+          if(i > 0){
+              var str = selectedItems[index].substr(i+6, 3);
+              if(str == '|--') {
+                  selectedItems[index] = selectedItems[index].substr(i+9);
+              }
+          } else {
+            var str = selectedItems[index].substr(0, 3);
+              if(str == '|--') {
+                  selectedItems[index] = selectedItems[index].substr(3);
+              }
+          }
+      }
+      /* End sửa tên danh muc */
+
       //Fixes issue in IE10 occurring when no default option is selected and at least one option is disabled
       //Convert all the values into a comma delimited string
       var title = !this.multiple ? selectedItems[0] : selectedItems.join(this.options.multipleSeparator);
@@ -821,7 +838,7 @@
       if (!title) {
         title = typeof this.options.title !== 'undefined' ? this.options.title : this.options.noneSelectedText;
       }
-
+      // console.log(title);
       //strip all HTML tags and trim the result, then unescape any escaped tags
       this.$button.attr('title', htmlUnescape($.trim(title.replace(/<[^>]*>?/g, ''))));
       this.$button.children('.filter-option').html(title);
@@ -1230,7 +1247,7 @@
     },
 
     tabIndex: function () {
-      if (this.$element.data('tabindex') !== this.$element.attr('tabindex') && 
+      if (this.$element.data('tabindex') !== this.$element.attr('tabindex') &&
         (this.$element.attr('tabindex') !== -98 && this.$element.attr('tabindex') !== '-98')) {
         this.$element.data('tabindex', this.$element.attr('tabindex'));
         this.$button.attr('tabindex', this.$element.data('tabindex'));
@@ -1534,13 +1551,13 @@
           $lisVisible = this.$lis.not('.divider, .dropdown-header, .disabled, .hidden'),
           lisVisLen = $lisVisible.length,
           selectedOptions = [];
-          
+
       if (status) {
         if ($lisVisible.filter('.selected').length === $lisVisible.length) return;
       } else {
         if ($lisVisible.filter('.selected').length === 0) return;
       }
-          
+
       $lisVisible.toggleClass('selected', status);
 
       for (var i = 0; i < lisVisLen; i++) {
