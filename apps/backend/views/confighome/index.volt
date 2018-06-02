@@ -11,7 +11,7 @@
                         <div class="row title">
                             <h3 class="box-title">Cấu hình hiển thị trang chủ</h3>
                             <div class="pull-right">
-                                <span class="btn btn-primary pointer" onclick="ajaxAddCatHomePage()">Thêm mới danh mục</span>
+                                <span class="btn btn-primary pointer" onclick="ajaxCatHomePage()">Thêm mới danh mục</span>
                             </div>
                         </div>
                     </div>
@@ -22,25 +22,22 @@
                             <tr>
                                 <th style="width: 5%">#</th>
                                 <th>Tên danh mục</th>
+                                <th>Mô tả</th>
                                 <th>Vị trí</th>
                                 <th>Thao tác</th>
                             </tr>
                             </thead>
-                            <tbody>
-                            {% for item in listCat %}
+                            <tbody class="list-cat-home-page">
+                            {% for index, item in listCat %}
                                 <tr>
-                                    <td scope="row">{{ item['id'] }}</td>
+                                    <td scope="row">{{ index + 1 }}</td>
                                     <td>{{ item['name'] }}</td>
-                                    <td>{{ item['slug'] }}</td>
+                                    <td>{{ item['desc'] }}</td>
                                     <td>
-                                        {% if item['status'] == 1 %}
-                                            <button type="button" class="btn btn-success pointer">Hoạt động</button>
-                                        {% elseif item['status'] == 2 %}
-                                            <button type="button" class="btn btn-danger pointer">Không hoạt động</button>
-                                        {% endif %}
+                                        {{ item['sort'] }}
                                     </td>
                                     <td>
-                                        <a href="/quan-tri/chinh-sua-danh-muc?id={{ item['id'] }}"><span class="icon-manipulation pointer" id="edit-cat" title="Chỉnh sửa danh mục"><i class="fa fa-list"></i></span></a>
+                                        <span class="icon-manipulation pointer" id="edit-cat" title="Chỉnh sửa vị trí danh mục" onclick="editCatHome({{ item['id'] }})"><i class="fa fa-list"></i></span>
                                         <a href="/quan-tri/xoa-danh-muc?id={{ item['id'] }}"><span class="icon-manipulation pointer delete-item" id="trash-cat" title="Xóa danh mục"><i class="fa fa-trash"></i></span></a>
                                     </td>
                                 </tr>

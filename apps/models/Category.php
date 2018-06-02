@@ -69,9 +69,23 @@ class Category extends DbModel
     /**
      *
      * @var integer
+     * @Column(type="integer", length=11, nullable=true)
+     */
+    public $sort;
+
+    /**
+     *
+     * @var integer
      * @Column(type="integer", length=1, nullable=true)
      */
     public $status;
+
+    /**
+     *
+     * @var string
+     * @Column(type="string", length=255, nullable=true)
+     */
+    public $desc;
 
     /**
      *
@@ -170,6 +184,20 @@ class Category extends DbModel
     }
 
     /**
+     * @return int
+     */
+    public function getSort() {
+        return $this->sort;
+    }
+
+    /**
+     * @param int $sort
+     */
+    public function setSort($sort) {
+        $this->sort = $sort;
+    }
+
+    /**
      * @param int $parent_id
      */
     public function setParentId($parent_id)
@@ -225,6 +253,22 @@ class Category extends DbModel
         $this->del_flag = $del_flag;
     }
 
+    /**
+     * @return string
+     */
+    public function getDesc() {
+        return $this->desc;
+    }
+
+    /**
+     * @param string $desc
+     */
+    public function setDesc($desc) {
+        $this->desc = $desc;
+    }
+
+
+
 
     /**
      * Returns table name mapped in the model.
@@ -259,6 +303,7 @@ class Category extends DbModel
             $listObj = $this->modelsManager->createBuilder()
                 ->from(self::class)
                 ->where(isset($optional['q']) ? $optional['q'] . ' and del_flag != 1' : 'del_flag != 1')
+                ->orderBy(isset($optional['o']) ? 'sort' : '1=1')
                 ->getQuery()
 //                ->getSql();
                 ->execute();

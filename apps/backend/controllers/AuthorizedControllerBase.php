@@ -77,4 +77,16 @@ class AuthorizedControllerBase extends ControllerBase {
         $slug = preg_replace('/[^A-Za-z0-9-]+/', '-', $string);
         return '/' . $slug;
     }
+
+    public function recursiveCat($data, $parent_id = 0, &$array, $char = '')
+    {
+        foreach ($data as $key => $item) {
+            if ($item['parent_id'] == $parent_id) {
+                $item['name'] = $char .'|-- '.  $item['name'];
+                $array[] = $item;
+                unset($data[$key]);
+                $this->recursiveCat($data, $item['id'], $array, $char.'&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp');
+            }
+        }
+    }
 }

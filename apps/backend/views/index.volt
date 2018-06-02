@@ -69,7 +69,7 @@
     $.widget.bridge('uibutton', $.ui.button);
 </script>
 <!-- Bootstrap 3.3.7 -->
-<script src="/assets_backend/source/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/assets_backend/source/bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <!-- DataTables -->
 <script src="/assets_backend/source/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="/assets_backend/source/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
@@ -154,7 +154,7 @@
             border-radius: 2px; /* Rounded borders */
             padding: 16px; /* Padding */
             position: fixed; /* Sit on top of the screen */
-            z-index: 1000; /* Add a z-index if needed */
+            z-index: 11111; /* Add a z-index if needed */
             right: 30px; /* Center the snackbar */
             top: 215px; /* 30px from the bottom */
             color: #fff !important;

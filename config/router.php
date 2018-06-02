@@ -170,6 +170,13 @@ $router->add("/quan-tri/cau-hinh-trang-chu", [
     'action' => 'index',
 ]);
 
+$router->add("/quan-tri/xoa-danh-muc-trang-chu", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'confighome',
+    'action' => 'delete',
+]);
+
 /* END BACKEND */
 
 

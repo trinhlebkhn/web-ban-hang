@@ -7,12 +7,8 @@
  */
 
 namespace Graduate\Backend\Controllers;
-
-
-class ApiClientController extends AuthorizedControllerBase
-{
-    public function uploadImageAction()
-    {
+class ApiClientController extends AuthorizedControllerBase {
+    public function uploadImageAction() {
         $image = $this->request->getUploadedFiles()[0];
         if (!isset($image)) {
             $rs = [
@@ -41,18 +37,17 @@ class ApiClientController extends AuthorizedControllerBase
         }
     }
 
-    public function uploadSlideProductAction(){
+    public function uploadSlideProductAction() {
         $listImg = $this->session->get('listImg');
         if (empty($listImg)) {
             $id = $this->request->get('id');
             $productObj = new \Product();
             $pr_detail = $productObj->getDetail($id)->data;
             $listImg = json_decode($pr_detail['image']);
-            if (empty($listImg)){
+            if (empty($listImg)) {
                 $listImg = [];
             }
         }
-
         $upload_img = $this->uploadImageAction()->getContent();
         $img = json_decode($upload_img);
         array_push($listImg, $img->data);
@@ -65,7 +60,7 @@ class ApiClientController extends AuthorizedControllerBase
         return $this->response->setJsonContent($last_result);
     }
 
-    public function removeImgProductAction(){
+    public function removeImgProductAction() {
         $index = $this->request->get('index');
         $listImg = $this->session->get('listImg');
         unset($listImg[$index]);
@@ -78,8 +73,7 @@ class ApiClientController extends AuthorizedControllerBase
         return $this->response->setJsonContent($last_result);
     }
 
-    public function getDetailAction()
-    {
+    public function getDetailAction() {
         $data = $this->request->getPost('data');
         $obj = new $data['model']();
         $dt = $obj->getDetail($data['id']);
@@ -95,13 +89,15 @@ class ApiClientController extends AuthorizedControllerBase
         }
     }
 
-    public function getListMenuAction()
-    {
+    public function getListMenuAction() {
         $menu_block_id = $this->request->get('id');
         $menuObj = new \Menu();
         $rs = $menuObj->getListObj($menu_block_id);
         if ($rs->status) {
-            $render = $this->render_template('menu', 'ajax_list_menu', ['data' => $rs->data, 'menu_block_id' => $menu_block_id]);
+            $render = $this->render_template('menu', 'ajax_list_menu', [
+                'data' => $rs->data,
+                'menu_block_id' => $menu_block_id
+            ]);
             $data = [
                 'status' => $rs->status,
                 'data' => $rs->data,
@@ -112,27 +108,32 @@ class ApiClientController extends AuthorizedControllerBase
         }
     }
 
-    public function addMenuAction()
-    {
+    public function addMenuAction() {
         $menu_block_id = $this->request->getPost('menu_block_id');
         $parent_id = $this->request->getPost('parent_id');
-        $render = $this->render_template('menu', 'add_menu', ['menu_block_id' => $menu_block_id, 'parent_id' => $parent_id]);
+        $render = $this->render_template('menu', 'add_menu', [
+            'menu_block_id' => $menu_block_id,
+            'parent_id' => $parent_id
+        ]);
         $data['content'] = $render;
         return $this->response->setJsonContent($data);
     }
 
-    public function creatMenuAction()
-    {
+    public function creatMenuAction() {
         $data = $this->request->getPost('data');
         $menuObj = new \Menu();
-        if(empty($data['id'])){
+        if (empty($data['id'])) {
             $rs = $menuObj->createObj($data);
-        } else {
+        }
+        else {
             $rs = $menuObj->updateObj($data);
         }
         if ($rs->status) {
             $listData = $menuObj->getListObj($data['menu_block_id']);
-            $render = $this->render_template('menu', 'ajax_list_menu', ['data' => $listData->data, 'menu_block_id' => $data['menu_block_id']]);
+            $render = $this->render_template('menu', 'ajax_list_menu', [
+                'data' => $listData->data,
+                'menu_block_id' => $data['menu_block_id']
+            ]);
             $last_result = [
                 'status' => $rs->status,
                 'data' => $rs->data,
@@ -143,14 +144,17 @@ class ApiClientController extends AuthorizedControllerBase
         }
     }
 
-    public function editMenuAction()
-    {
+    public function editMenuAction() {
         $id = $this->request->getPost('id');
         $menuObj = new \Menu();
         $rs = $menuObj->getDetail($id);
         if ($rs->status) {
             $obj = $rs->data;
-            $render = $this->render_template('menu', 'add_menu', ['menu_block_id' => $obj['menu_block_id'], 'parent_id' => $obj['parent_id'], 'data' => $obj]);
+            $render = $this->render_template('menu', 'add_menu', [
+                'menu_block_id' => $obj['menu_block_id'],
+                'parent_id' => $obj['parent_id'],
+                'data' => $obj
+            ]);
             $last_result = [
                 'status' => $rs->status,
                 'data' => $rs->data,
@@ -161,14 +165,17 @@ class ApiClientController extends AuthorizedControllerBase
         }
     }
 
-    public function deleteMenuAction(){
+    public function deleteMenuAction() {
         $id = $this->request->getPost('id');
         $menu_block_id = $this->request->getPost('menu_block_id');
         $menuObj = new \Menu();
         $rs = $menuObj->deleteObj($id);
-        if($rs->status) {
+        if ($rs->status) {
             $listData = $menuObj->getListObj($menu_block_id);
-            $render = $this->render_template('menu', 'ajax_list_menu', ['data' => $listData->data, 'menu_block_id' => $menu_block_id]);
+            $render = $this->render_template('menu', 'ajax_list_menu', [
+                'data' => $listData->data,
+                'menu_block_id' => $menu_block_id
+            ]);
             $last_result = [
                 'status' => $rs->status,
                 'data' => $rs->data,
@@ -179,8 +186,18 @@ class ApiClientController extends AuthorizedControllerBase
         }
     }
 
-    public function addCatHomePageAction(){
-        $render = $this->render_template('confighome', 'ajaxcat');
+    public function ajaxCatHomePageAction() {
+        $id = $this->request->getPost('id');
+        $catObj = new \Category();
+        $rs_detail = [];
+        if (!empty($id)) {
+            $rs_detail = $catObj->getDetail($id);
+        }
+        $listCat = $catObj->getListObj();
+        $render = $this->render_template('confighome', 'ajaxcat', [
+            'listCat' => $listCat->data,
+            'obj' => $rs_detail->data
+        ]);
         $rs = [
             'status' => 1,
             'data' => [],
@@ -188,5 +205,25 @@ class ApiClientController extends AuthorizedControllerBase
             'message' => 'Thao tác thành công!'
         ];
         return $this->response->setJsonContent($rs);
+    }
+
+    public function addCatHomeAction() {
+        $data = $this->request->getPost('data');
+        $data['position'] = 'home';
+        $catObj = new \Category();
+        $rs = $catObj->updateCat($data);
+        if ($rs->status) {
+            $optional['q'] = 'position like "home" ';
+            $optional['o'] = 1;
+            $listCatHome = $catObj->getListObj($optional);
+            $render = $this->render_template('confighome', 'ajaxListCat', ['listCat' => $listCatHome->data]);
+            $result = [
+                'status' => $listCatHome->status,
+                'data' => $listCatHome->data,
+                'content' => $render,
+                'message' => $listCatHome->message
+            ];
+            return $this->response->setJsonContent($result);
+        }
     }
 }

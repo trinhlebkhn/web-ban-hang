@@ -141,15 +141,5 @@ class ProductController extends AuthorizedControllerBase
         $this->response->redirect(base_uri() . '/quan-tri/san-pham');
     }
 
-    public function recursiveCat($data, $parent_id = 0, &$array, $char = '')
-    {
-        foreach ($data as $key => $item) {
-            if ($item['parent_id'] == $parent_id) {
-                $item['name'] = $char .'|-- '.  $item['name'];
-                $array[] = $item;
-                unset($data[$key]);
-                $this->recursiveCat($data, $item['id'], $array, $char.'&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp');
-            }
-        }
-    }
+
 }

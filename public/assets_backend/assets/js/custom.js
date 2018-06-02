@@ -183,11 +183,53 @@ function deleteMenu(menu_id, menu_block_id) {
     }
 }
 
-function ajaxAddCatHomePage() {
+function ajaxCatHomePage() {
     $.ajax({
-        url: '/backend/api_client/addCatHomePage',
+        url: '/backend/api_client/ajaxCatHomePage',
         method: 'post',
         dataType: 'json',
+    }).fail(function (ui, status) {
+        snackbar(2, 'Có lỗi  xảy ra!');
+    }).done(function (data, status) {
+        $('#QuickView').html(data.content);
+    });
+    $('#QuickView').modal('show');
+}
+
+function ajaxCatHome() {
+    var id = $('#cat_home_id').val();
+    var desc = $('#cat_home_desc').val();
+    var sort = $('#cat_home_sort').val();
+
+    if(id == '') {
+        snackbar(2, 'Vui lòng chọn danh mục!');
+        return;
+    }
+
+    var data = {};
+    data['id'] = id;
+    data['desc'] = desc;
+    data['sort'] = sort;
+
+    $.ajax({
+        url: '/backend/api_client/addCatHome',
+        method: 'post',
+        dataType: 'json',
+        data: {data: data}
+    }).fail(function (ui, status) {
+        snackbar(2, 'Có lỗi  xảy ra!');
+    }).done(function (data, status) {
+        $('.list-cat-home-page').html(data.content);
+    });
+    $('#QuickView').modal('hide');
+}
+
+function editCatHome(id){
+    $.ajax({
+        url: '/backend/api_client/ajaxCatHomePage',
+        method: 'post',
+        dataType: 'json',
+        data: {id: id}
     }).fail(function (ui, status) {
         snackbar(2, 'Có lỗi  xảy ra!');
     }).done(function (data, status) {
