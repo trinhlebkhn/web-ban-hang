@@ -4,16 +4,23 @@
 
 <div class="form-add-menu modal-form-add">
     <div class="header-dialog">
-        <h3>Thêm danh mục trang chủ</h3>
+        <h3>Thêm danh mục trang chủ {{ obj['id'] }}</h3>
     </div>
     <div class="row">
         <div class="form-group col-md-4 col-sm-6 col-xs-12">
             <label style="font-size: 20px; padding-top: 5px; font-weight: 100">Chọn danh mục</label>
             <select name="data[id]" class="form-control" id="cat_home_id">
                 <option value="">Chọn danh mục</option>
-                {% for item in listCat %}
-                    <option value="{{ item['id'] }}" {{ item['id'] == obj['id'] ? 'selected' : 'disabled' }}>{{ item['name'] }}</option>
-                {% endfor %}
+                {% if obj is not empty %}
+                    {% for item in listCat %}
+                        <option value="{{ item['id'] }}" {{ item['id'] == obj['id'] ? 'selected' : 'disabled' }}>{{ item['name'] }}</option>
+                    {% endfor %}
+                {% else %}
+                    {% for item in listCat %}
+                        <option value="{{ item['id'] }}" {{ item['position'] == 'home' ? 'disabled' : '' }}>{{ item['name'] }}</option>
+                    {% endfor %}
+                {% endif %}
+
             </select>
         </div>
         <div class="form-group col-md-4 col-sm-6 col-xs-12">
