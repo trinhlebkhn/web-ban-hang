@@ -305,7 +305,7 @@ span.icon-manipulation {
     height: 50px;
 }
 
-#QuickView .modal-form-add .header-dialog h3{
+#QuickView .modal-form-add .header-dialog h3 {
     padding-top: 12px;
 }
 
@@ -404,6 +404,10 @@ div.circle {
     width: 35px;
     height: 35px;
     border-radius: 50%;
+}
+
+aside.control-sidebar.control-sidebar-dark {
+    display: none !important;
 }
 
 

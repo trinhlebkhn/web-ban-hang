@@ -342,6 +342,7 @@ class Bill extends DbModel {
                 $paginate = $paginator->getPaginate();
                 foreach ($paginate->items as &$item) {
                     $obj = $item->toArray();
+                    $obj = $this->updateStatusObj($obj);
                     $obj['date_create'] = date("d/m/Y H:i:s", intval($obj['date_create']));
                     array_push($arrObj, $obj);
                 }
@@ -354,6 +355,7 @@ class Bill extends DbModel {
             } else {
                 $arrObj = $listObj->toArray();
                 foreach ($arrObj as &$item) {
+                    $item = $this->updateStatusObj($item);
                     $item['date_create'] = date("d/m/Y H:i:s", intval($item['date_create']));
                 }
                 $o = [
@@ -401,5 +403,14 @@ class Bill extends DbModel {
         }
     }
 
+    public function updateStatusObj($obj){
+        $check = round((time() - $obj['date_create'])/86400);
+        if($check >= 1 && $obj['status'] == 1) {
+            $obj['status'] = 6;
+            $rs = $this->updateObj($obj);
+            $obj = $rs->data;
+        }
+        return $obj;
+    }
 
 }

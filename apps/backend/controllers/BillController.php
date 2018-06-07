@@ -64,7 +64,7 @@ class BillController extends AuthorizedControllerBase {
             $data['date_create'] = time($data['date_create']);
             $data['date_payment'] = time();
             $data['payment'] = $payment;
-            $data['status'] = 3;
+            $data['status'] = 2;
             $billObj->updateObj($data);
             $rs = $billObj->getDetail($id);
         }

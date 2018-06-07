@@ -56,65 +56,86 @@
             </div>
 
             <div class="row">
+
                 {% if data['status'] == 1 %}
-                    <div class="col-xs-6"></div>
-                {% endif %}
-                <div class="col-xs-6">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <tr>
-                                <th style="width:50%">Tạm tính:</th>
-                                <td>{{ uiHelper.formatNumber(data['price']) }} <b>VNĐ</b></td>
-                            </tr>
-                            <tr>
-                                <th>Phí ship:</th>
-                                <td>{{ uiHelper.formatNumber(data['ship_price']) }} <b>VNĐ</b></td>
-                            </tr>
-                            <tr>
-                                <th>Tổng tiền:</th>
-                                <td>{{ uiHelper.formatNumber(data['total_price']) }} <b>VNĐ</b></td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-                {% if data['status'] != 1 %}
                     <div class="col-xs-6">
                         <div class="table-responsive">
                             <table class="table">
-                                {% if data['status'] == 2 %}
-                                    <form method="post">
-                                        <tr>
-                                            <th>Số tiền đã thanh toán:</th>
-                                            <td>
-                                                <input class="form-control" name="payment" type="text">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td>
-                                                <button type="submit" class="form-control btn-primary">Cập nhật</button>
-                                            </td>
-                                        </tr>
-                                    </form>
-                                {% elseif data['status'] != 2 %}
+                                <tr>
+                                    <th style="width:50%">Tạm tính:</th>
+                                    <td>{{ uiHelper.formatNumber(data['price']) }} <b>VNĐ</b></td>
+                                </tr>
+                                <tr>
+                                    <th>Phí ship:</th>
+                                    <td>{{ uiHelper.formatNumber(data['ship_price']) }} <b>VNĐ</b></td>
+                                </tr>
+                                <tr>
+                                    <th>Tổng tiền:</th>
+                                    <td>{{ uiHelper.formatNumber(data['total_price']) }} <b>VNĐ</b></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <form method="post">
                                     <tr>
                                         <th>Số tiền đã thanh toán:</th>
                                         <td>
-                                            {{ uiHelper.formatNumber(data['payment']) }} <b>VNĐ</b>
+                                            <input class="form-control" name="payment" type="text">
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th>Còn lại:</th>
+                                        <td></td>
                                         <td>
-                                            {{ uiHelper.formatNumber(data['total_price'] - data['payment']) }} <b>VNĐ</b>
+                                            <button type="submit" class="form-control btn-primary">Cập nhật</button>
                                         </td>
                                     </tr>
-                                {% endif %}
+                                </form>
                             </table>
                         </div>
                     </div>
                 {% endif %}
-
+                {% if data['status'] != 1 %}
+                    <div class="col-xs-6">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <tr>
+                                    <th style="width:50%">Tạm tính:</th>
+                                    <td>{{ uiHelper.formatNumber(data['price']) }} <b>VNĐ</b></td>
+                                </tr>
+                                <tr>
+                                    <th>Phí ship:</th>
+                                    <td>{{ uiHelper.formatNumber(data['ship_price']) }} <b>VNĐ</b></td>
+                                </tr>
+                                <tr>
+                                    <th>Tổng tiền:</th>
+                                    <td>{{ uiHelper.formatNumber(data['total_price']) }} <b>VNĐ</b></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <tr>
+                                    <th>Số tiền đã thanh toán:</th>
+                                    <td>
+                                        {{ uiHelper.formatNumber(data['payment']) }} <b>VNĐ</b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Còn lại:</th>
+                                    <td>
+                                        {{ uiHelper.formatNumber(data['total_price'] - data['payment']) }}
+                                        <b>VNĐ</b>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                {% endif %}
                 <!-- /.col -->
             </div>
         </div>

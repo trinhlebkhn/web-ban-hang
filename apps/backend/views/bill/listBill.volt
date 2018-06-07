@@ -99,7 +99,7 @@
                                             </button>
                                         </a>
                                     {% endif %}
-                                    {% if item['status'] != 1 and item['status'] != 7 %}
+                                    {% if item['status'] != 1 and item['status'] != 6 %}
                                         {% if item['status'] != 3 %}
                                             <a href="/doi-trang-thai-don-hang-b4{{ item['id'] }}">
                                                 <button class="pointer bg-light-green" title="Đang chuyển"><i
