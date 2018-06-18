@@ -368,4 +368,32 @@ class Category extends DbModel
         }
     }
 
+    public function getDataListCatPageHome(){
+        try{
+            $listObj = $this->modelsManager->createBuilder()
+                        ->from(self::class)
+                        ->join(Product::class)
+                        ->where('Category.id = Product.category_id')
+                        ->columns(['Category.id','Category.name', 'Category.slug', 'Category.parent_id', 'Category.type', 'Category.position', 'Category.sort', 'Product.*'])
+                        ->getQuery()
+        //                ->getSql();
+                        ->execute();
+            $arrListObj = $listObj->toArray();
+            $rs = [];
+            foreach ($arrListObj as &$item) {
+                $item->product = $item->product->toArray();
+                $key = $this->getKeyInArray($rs, $item);
+                d($key);
+            }
+            d($arrListObj);
+        } catch (Exception $e) {
+            return $this->manipulationError([], $e->getMessage());
+        }
+    }
+
+    function getKeyInArray($array = [], $id){
+        $array = [1, 2];
+        $key = array_keys($array, $id);
+        return $key;
+    }
 }

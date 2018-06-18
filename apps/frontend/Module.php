@@ -9,6 +9,7 @@
 
 namespace Graduate\Frontend;
 
+use Phalcon\Db\Adapter\Pdo\Mysql;
 use Phalcon\Loader;
 use Phalcon\Mvc\View;
 use Phalcon\DiInterface;
@@ -75,7 +76,8 @@ class Module implements ModuleDefinitionInterface
          * Database connection is created based in the parameters defined in the configuration file
          */
         $di['db'] = function () use ($config) {
-            return new DbAdapter($config->toArray());
+            $sql = new Mysql($config->database->toArray());
+            return $sql;
         };
     }
 }

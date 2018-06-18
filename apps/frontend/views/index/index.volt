@@ -1,7 +1,18 @@
-<div class="page-header">
-    <h1>Congratulations!</h1>
+{% include "layouts/header.volt" %}
+<!-- End menu -->
+
+{# Banner Popup quảng cáo #}
+<script>
+    $(document).ready(function () {
+        //        $("#popup").click();
+    });
+</script>
+<div id="content" role="main">
+    <article>
+        {#{% include "layouts/component/banner-advertisement.volt" %}#}
+        {#{% include "layouts/widget/widget-list-cat-product-home.volt" %}#}
+        {#{% include "layouts/component/slide-brand.volt" %}#}
+    </article>
 </div>
+{#{% include "layouts/footer.volt" %}#}
 
-<p>You're now flying with Phalcon. Great things are about to happen!</p>
-
-<p>This page is located at <code>views/index/index.volt</code></p>

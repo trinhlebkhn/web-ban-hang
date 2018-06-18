@@ -5,6 +5,7 @@
  * Date: 5/1/2018
  * Time: 8:53 PM
  */
+
 use Phalcon\Paginator\Adapter\Model as PaginatorModel;
 
 class Product extends DbModel
@@ -56,7 +57,7 @@ class Product extends DbModel
     /**
      *
      * @var string
-     * @Column(type="text", length=100, nullable=true)
+     * @Column(type="json", length=100, nullable=true)
      */
     public $category_id;
 
@@ -600,6 +601,21 @@ class Product extends DbModel
                 $obj->delete();
                 return $this->manipulationSuccess($obj->toArray(), 'Xóa thành công');
             }
+        } catch (Exception $e) {
+            return $this->manipulationError([], $e->getMessage());
+        }
+    }
+
+    public function findObj()
+    {
+        try {
+            $obj = self::find([
+                'conditions' => 'JSON_CONTAINS(category_id, ":category_id:"',
+                'bind' => [
+                    'category_id' => [1, 16]
+                ]
+            ]);
+            d($obj);
         } catch (Exception $e) {
             return $this->manipulationError([], $e->getMessage());
         }
