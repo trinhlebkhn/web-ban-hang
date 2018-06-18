@@ -180,6 +180,27 @@ $router->add("/quan-tri/xoa-danh-muc-trang-chu", [
 /* END BACKEND */
 
 
+/* START FRONTEND */
+
+/* Category */
+$router->add("/{slug}-pc{id:[0-9]+}.html", [
+    'module' => 'frontend',
+    'namespace' => 'Graduate\Frontend\Controllers',
+    'controller' => 'category',
+    'action' => 'product',
+]);
+
+$router->add("/{slug}-ac{id:[0-9]+}.html", [
+    'module' => 'frontend',
+    'namespace' => 'Graduate\Frontend\Controllers',
+    'controller' => 'category',
+    'action' => 'article',
+]);
+
+
+/* END FRONTEND */
+
+
 foreach ($application->getModules() as $key => $module) {
     $namespace = str_replace('Module', 'Controllers', $module ["className"]);
 //    d($namespace, $key, $module);

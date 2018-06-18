@@ -6,15 +6,16 @@ class IndexController extends ControllerBase
 
     public function indexAction()
     {
-        $obj = new \Product();
-        $obj->findObj();
-        $listCatHome = $this->getCatHome();
+        $homeData = $this->getCatHome();
+        $this->view->setVars([
+           'cat_home_data' => $homeData
+        ]);
     }
 
     public function getCatHome(){
         $catObj = new \Category();
-        $rsCatHome = $catObj->getDataListCatPageHome();
-
+        $rsDataHome = $catObj->getDataListCatPageHome();
+        if($rsDataHome->status) return $rsDataHome->data;
     }
 }
 

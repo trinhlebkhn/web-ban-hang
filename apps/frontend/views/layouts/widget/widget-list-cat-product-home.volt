@@ -1,11 +1,10 @@
-{% set categoryProductPosition = uihelper.getProductCategoryList('home', 8) %}
-{% for index, item in categoryProductPosition %}
+{% for item in cat_home_data %}
     <section class="section">
         <div class="container container-vertical-middle">
             <div class="row vertical-middle">
                 <div class="col-md-3">
                     <h2 class="text-left element-top-20 element-bottom-20 text-normal os-animation normal default" data-os-animation="fadeIn" data-os-animation-delay="0s">
-                        <a class="category_home" href="{{ uihelper.makeLink_Category(item) }}">{{ item.name }}</a>
+                        <a class="category_home" href="{{ uiHelper.makeLinkCategory(item) }}">{{ item.name }}</a>
                     </h2>
                 </div>
                 <div class="col-md-9">
@@ -27,7 +26,7 @@
                     <div class="woocommerce columns-4">
                         <div class="row">
                             <ul class="products">
-                                {% set arrayListProduct = array_chunk(item.list_content, 4) %}
+                                {% set arrayListProduct = array_chunk(item.product, 4) %}
                                 {% for product in arrayListProduct[0] %}
                                     {{ partial('layouts/template-part/product-item', ['product': product]) }}
                                 {% endfor %}

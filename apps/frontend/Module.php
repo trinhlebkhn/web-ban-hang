@@ -62,6 +62,13 @@ class Module implements ModuleDefinitionInterface
                         'stat' => true,
                         'compileAlways' => true
                     ));
+
+                    $compiler = $volt->getCompiler();
+                    $compiler->addFunction('in_array', 'in_array');
+                    $compiler->addFunction('number_format', 'number_format');
+                    $compiler->addFunction('str_replace', 'str_replace');
+                    $compiler->addFunction('array_chunk', 'array_chunk');
+
                     //load function php
                     return $volt;
                 },

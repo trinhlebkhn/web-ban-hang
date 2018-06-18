@@ -10,7 +10,7 @@
 <div id="content" role="main">
     <article>
         {#{% include "layouts/component/banner-advertisement.volt" %}#}
-        {#{% include "layouts/widget/widget-list-cat-product-home.volt" %}#}
+        {% include "layouts/widget/widget-list-cat-product-home.volt" %}
         {#{% include "layouts/component/slide-brand.volt" %}#}
     </article>
 </div>

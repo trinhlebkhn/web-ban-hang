@@ -1,4 +1,4 @@
 <ol class="breadcrumb">
-    <li><a class="home" href="shop-index.html">Trang chủ</a></li>
-    <li>{{ DataItem.name }}</li>
+    <li><a class="home" href="/">Trang chủ</a></li>
+    <li>{{ catInfo['name'] }}</li>
 </ol>

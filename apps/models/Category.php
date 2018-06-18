@@ -186,14 +186,16 @@ class Category extends DbModel
     /**
      * @return int
      */
-    public function getSort() {
+    public function getSort()
+    {
         return $this->sort;
     }
 
     /**
      * @param int $sort
      */
-    public function setSort($sort) {
+    public function setSort($sort)
+    {
         $this->sort = $sort;
     }
 
@@ -256,18 +258,18 @@ class Category extends DbModel
     /**
      * @return string
      */
-    public function getDesc() {
+    public function getDesc()
+    {
         return $this->desc;
     }
 
     /**
      * @param string $desc
      */
-    public function setDesc($desc) {
+    public function setDesc($desc)
+    {
         $this->desc = $desc;
     }
-
-
 
 
     /**
@@ -368,32 +370,43 @@ class Category extends DbModel
         }
     }
 
-    public function getDataListCatPageHome(){
-        try{
+    public function getDataListCatPageHome()
+    {
+        try {
             $listObj = $this->modelsManager->createBuilder()
-                        ->from(self::class)
-                        ->join(Product::class)
-                        ->where('Category.id = Product.category_id')
-                        ->columns(['Category.id','Category.name', 'Category.slug', 'Category.parent_id', 'Category.type', 'Category.position', 'Category.sort', 'Product.*'])
-                        ->getQuery()
-        //                ->getSql();
-                        ->execute();
+                ->from(self::class)
+                ->where('Category.position like "home"')
+                ->join(Product::class)
+                ->andwhere('Category.id = Product.category_id')
+                ->columns(['Category.id', 'Category.name', 'Category.slug', 'Category.parent_id', 'Category.type', 'Category.position', 'Category.sort', 'Product.*'])
+                ->getQuery()
+                ->execute();
             $arrListObj = $listObj->toArray();
             $rs = [];
             foreach ($arrListObj as &$item) {
                 $item->product = $item->product->toArray();
-                $key = $this->getKeyInArray($rs, $item);
-                d($key);
+                $listCatId = array_column($rs, 'id');
+                $key = array_keys($listCatId, $item['id']);
+                if (!empty($key)) {
+                    array_push($rs[$key[0]]->product, $item->product);
+                } else {
+                    $obj = [];
+                    $obj['id'] = $item->id;
+                    $obj['name'] = $item->name;
+                    $obj['slug'] = $item->slug;
+                    $obj['parent_id'] = $item->parent_id;
+                    $obj['type'] = $item->type;
+                    $obj['position'] = $item->position;
+                    $obj['sort'] = $item->sort;
+                    $obj['product'] = [];
+                    array_push($obj['product'], $item->product);
+                    $obj = (object)$obj;
+                    array_push($rs, $obj);
+                }
             }
-            d($arrListObj);
+            return $this->manipulationSuccess($rs, 'Thao tác thành công!');
         } catch (Exception $e) {
             return $this->manipulationError([], $e->getMessage());
         }
-    }
-
-    function getKeyInArray($array = [], $id){
-        $array = [1, 2];
-        $key = array_keys($array, $id);
-        return $key;
     }
 }

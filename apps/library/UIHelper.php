@@ -38,7 +38,14 @@ class UIHelper extends Component
         return $this->view->getPartial($layout, ["data" => $data, 'menuBlockId' => $menu_block_id]);
     }
 
-    public function drawRecursiveMenu($layout, $data){
+    public function drawRecursiveMenu($layout, $data)
+    {
         return $this->view->getPartial($layout, ["data" => $data]);
+    }
+
+    public function makeLinkCategory($item)
+    {
+        if ($item->type == 1) return base_uri() . "/$item->slug-pc" . $item->id . '.html';
+        if ($item->type == 2) return base_uri() . "/$item->slug-ac" . $item->id . '.html';
     }
 }

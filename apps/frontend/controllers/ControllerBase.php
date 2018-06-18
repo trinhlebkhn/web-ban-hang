@@ -14,7 +14,6 @@ class ControllerBase extends Controller
 
     public function getMainMenu(){
         $menuBlockObj = new \MenuBlock();
-
         $optional = [
             'q' => 'is_main=1'
         ];
@@ -23,4 +22,5 @@ class ControllerBase extends Controller
         $rsMainMenu = $menuObj->getListObj($rsMainBlock->data[0]['id']);
         return $rsMainMenu->data;
     }
+
 }
