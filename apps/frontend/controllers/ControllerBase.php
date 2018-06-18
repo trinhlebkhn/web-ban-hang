@@ -14,6 +14,7 @@ class ControllerBase extends Controller
 
     public function getMainMenu(){
         $menuBlockObj = new \MenuBlock();
+
         $optional = [
             'q' => 'is_main=1'
         ];

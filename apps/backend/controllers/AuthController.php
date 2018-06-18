@@ -30,11 +30,9 @@ class AuthController extends ControllerBase {
                 } else {
                     $this->flash->error('Bạn không có quyền thực hiện chức năng này!');
                 }
-
             } else {
                 $this->flash->error($rs->message);
             }
-
         }
     }
 

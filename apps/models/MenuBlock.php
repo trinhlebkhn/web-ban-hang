@@ -212,4 +212,16 @@ class MenuBlock extends DbModel
             return $this->manipulationError([], $e->getMessage());
         }
     }
+
+    public function getMainMenu(){
+        $listObj = $this->modelsManager->createBuilder()
+                    ->from(self::class)
+                    ->where('MenuBlock.is_main = 1')
+                    ->join(Menu::class)
+                    ->andwhere('MenuBlock.id = Menu.menu_block_id')
+                    ->columns(['MenuBlock.*', 'Menu.*'])
+                    ->getQuery()
+                    ->execute();
+        d($listObj);
+    }
 }
