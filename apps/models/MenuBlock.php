@@ -5,36 +5,27 @@
  * Date: 5/5/2018
  * Time: 10:47 PM
  */
-
 use Phalcon\Paginator\Adapter\Model as PaginatorModel;
 
-class MenuBlock extends DbModel
-{
+class MenuBlock extends DbModel {
     /**
-     *
      * @var integer
      * @Primary
      * @Identity
      * @Column(type="integer", length=11, nullable=false)
      */
     public $id;
-
     /**
-     *
      * @var string
      * @Column(type="string", length=50, nullable=false)
      */
     public $name;
-
     /**
-     *
      * @var integer
      * @Column(type="int", length=1, nullable=true)
      */
     public $is_main;
-
     /**
-     *
      * @var integer
      * @Column(type="int", length=1, nullable=true)
      */
@@ -42,86 +33,76 @@ class MenuBlock extends DbModel
 
     /**
      * Returns table name mapped in the model.
-     *
      * @return string
      */
-    public function getSource()
-    {
+    public function getSource() {
         return 'mod_menu_block';
     }
 
     /**
      * @return int
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
     /**
      * @param int $id
      */
-    public function setId($id)
-    {
+    public function setId($id) {
         $this->id = $id;
     }
 
     /**
      * @return string
      */
-    public function getName()
-    {
+    public function getName() {
         return $this->name;
     }
 
     /**
      * @param string $name
      */
-    public function setName($name)
-    {
+    public function setName($name) {
         $this->name = $name;
     }
 
     /**
      * @return int
      */
-    public function getisMain()
-    {
+    public function getisMain() {
         return $this->is_main;
     }
 
     /**
      * @param int $is_main
      */
-    public function setIsMain($is_main)
-    {
+    public function setIsMain($is_main) {
         $this->is_main = $is_main;
     }
 
     /**
      * @return int
      */
-    public function getDelFlag()
-    {
+    public function getDelFlag() {
         return $this->del_flag;
     }
 
     /**
      * @param int $del_flag
      */
-    public function setDelFlag($del_flag)
-    {
+    public function setDelFlag($del_flag) {
         $this->del_flag = $del_flag;
     }
 
-    public function createObj($data)
-    {
+    public function createObj($data) {
         try {
             $rs = self::newInstance($data);
             $rs->save();
             if (!empty($rs->getMessages())) {
                 return $this->manipulationError([], 'Có lỗi xảy ra');
-            } else {
+            }
+            else {
                 return $this->manipulationSuccess($rs->toArray(), 'Thao tác thành công!');
             }
         } catch (Exception $e) {
@@ -129,25 +110,18 @@ class MenuBlock extends DbModel
         }
     }
 
-    public function getListObj($optional = [])
-    {
+    public function getListObj($optional = []) {
         try {
             $arrObj = [];
             $o = [];
-            $listObj = $this->modelsManager->createBuilder()
-                ->from(self::class)
-                ->where(isset($optional['q']) ? $optional['q'] : '1=1')
-                ->getQuery()
-                ->execute();
+            $listObj = $this->modelsManager->createBuilder()->from(self::class)->where(isset($optional['q']) ? $optional['q'] : '1=1')->getQuery()->execute();
             $page = $optional['p'] ? $optional['p'] : 1;
             if (!empty($optional['limit'])) {
-                $paginator = new PaginatorModel(
-                    [
+                $paginator = new PaginatorModel([
                         "data" => $listObj,
                         "limit" => $optional['limit'],
                         "page" => $page
-                    ]
-                );
+                    ]);
                 $paginate = $paginator->getPaginate();
                 foreach ($paginate->items as &$item) {
                     $obj = $item->toArray();
@@ -159,7 +133,8 @@ class MenuBlock extends DbModel
                     'curent_page' => $paginate->current,
                     'total_page' => $paginate->total_pages
                 ];
-            } else {
+            }
+            else {
                 $arrObj = $listObj->toArray();
                 $o = [
                     'total_items' => sizeof($arrObj),
@@ -173,13 +148,13 @@ class MenuBlock extends DbModel
         }
     }
 
-    public function getDetail($id)
-    {
+    public function getDetail($id) {
         try {
             $obj = self::findFirst($id);
             if (!empty($obj->toArray())) {
                 return $this->manipulationSuccess($obj->toArray(), 'Thao tác thành công');
-            } else {
+            }
+            else {
                 return $this->manipulationError([], 'Có lỗi xảy ra. Vui lòng liên hệ nhà quản trị!');
             }
         } catch (Exception $e) {
@@ -187,8 +162,7 @@ class MenuBlock extends DbModel
         }
     }
 
-    public function updateObj($data)
-    {
+    public function updateObj($data) {
         try {
             $obj = self::findFirst($data['id']);
             if ($obj) {
@@ -200,8 +174,7 @@ class MenuBlock extends DbModel
         }
     }
 
-    public function deleteObj($id)
-    {
+    public function deleteObj($id) {
         try {
             $obj = self::findFirst($id);
             if ($obj) {
@@ -213,15 +186,27 @@ class MenuBlock extends DbModel
         }
     }
 
-    public function getMainMenu(){
-        $listObj = $this->modelsManager->createBuilder()
-                    ->from(self::class)
-                    ->where('MenuBlock.is_main = 1')
-                    ->join(Menu::class)
-                    ->andwhere('MenuBlock.id = Menu.menu_block_id')
-                    ->columns(['MenuBlock.*', 'Menu.*'])
-                    ->getQuery()
-                    ->execute();
-        d($listObj);
+    public function getMainMenu() {
+        try {
+            $listObj = $this->modelsManager->createBuilder()->from(self::class)->join(Menu::class)->where('MenuBlock.id = Menu.menu_block_id')->where('MenuBlock.is_main = 1')->columns([
+                    'MenuBlock.id',
+                    'MenuBlock.name',
+                    'MenuBlock.is_main',
+                    'Menu.*'
+                ])->getQuery()->execute();
+            $arrData = $listObj->toArray();
+            $rs = [];
+            $rs['id'] = $arrData[0]['id'];
+            $rs['name'] = $arrData[0]['name'];
+            $rs['is_main'] = $arrData[0]['is_main'];
+            $rs['menu'] = [];
+            foreach ($arrData as &$item) {
+                $item->menu = $item->menu->toArray();
+                array_push($rs['menu'], $item);
+            }
+            return $this->manipulationSuccess($rs, 'Thao tác thành công!');
+        } catch (Exception $e) {
+            return $this->manipulationError([], $e->getMessage());
+        }
     }
 }

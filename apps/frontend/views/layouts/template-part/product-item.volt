@@ -1,9 +1,8 @@
-{#{% set link = uihelper.makeLink_Product(product) %}#}
+{% set link = uiHelper.makeLinkProduct(product) %}
 {% set images = product['image']|json_decode %}
 <li class="product col-md-3 product__price__view productJson" data-product="{{ product|json_encode|escape_attr }}">
     <div class="w">
-        {#<a href="{{ link }}">#}
-        <a href="">
+        <a href="{{ link }}">
             {% if (product['price']> product['price_sel']) %}
                 <span class="onsale">Sale!</span>
             {% endif %}
@@ -15,12 +14,12 @@
                     <div class="product-image-back"><img alt="{{ product['name']}}" src="{{ images[0] }}"></div>
                 {% endif %}
                 <div class="product-image-overlay">
-                    <a href=""><h4>Xem chi tiết</h4></a>
+                    <a href="{{ link }}"><h4>Xem chi tiết</h4></a>
                 </div>
             </div>
         </a>
         <div class="product-info">
-            <h3 class="product-title"><a href="">{{ product['name']}}</a></h3> <span class="product-categories"></span>
+            <h3 class="product-title"><a href="{{ link }}">{{ product['name']}}</a></h3> <span class="product-categories"></span>
             <h3 class="price">
                 {% set price_sell = product['price_sell']%}
                 {% set price = product['price']%}

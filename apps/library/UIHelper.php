@@ -1,12 +1,9 @@
 <?php
-
 use Phalcon\Mvc\User\Component;
 use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 
-class UIHelper extends Component
-{
-    public function format_number($number = '')
-    {
+class UIHelper extends Component {
+    public function format_number($number = '') {
         if ($number == '') {
             return 0;
         }
@@ -16,14 +13,12 @@ class UIHelper extends Component
 //        return number_format($number);
     }
 
-    public function check_in_array($obj, $array = [])
-    {
+    public function check_in_array($obj, $array = []) {
         if (in_array($obj, $array)) return true;
         else return false;
     }
 
-    public function formatNumber($number = '')
-    {
+    public function formatNumber($number = '') {
         if ($number == '') {
             return '';
         }
@@ -33,19 +28,23 @@ class UIHelper extends Component
         return number_format($number);
     }
 
-    public function drawRecursiveMenuAdmin($layout, $data, $menu_block_id)
-    {
-        return $this->view->getPartial($layout, ["data" => $data, 'menuBlockId' => $menu_block_id]);
+    public function drawRecursiveMenuAdmin($layout, $data, $menu_block_id) {
+        return $this->view->getPartial($layout, [
+            "data" => $data,
+            'menuBlockId' => $menu_block_id
+        ]);
     }
 
-    public function drawRecursiveMenu($layout, $data)
-    {
+    public function drawRecursiveMenu($layout, $data) {
         return $this->view->getPartial($layout, ["data" => $data]);
     }
 
-    public function makeLinkCategory($item)
-    {
+    public function makeLinkCategory($item) {
         if ($item->type == 1) return base_uri() . "/$item->slug-pc" . $item->id . '.html';
         if ($item->type == 2) return base_uri() . "/$item->slug-ac" . $item->id . '.html';
+    }
+
+    public function makeLinkProduct($item) {
+        return base_uri() . "/" . $item['slug'] . '-p' . $item['id'] . '.html';
     }
 }

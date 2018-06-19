@@ -4,7 +4,7 @@
         <section class="section section-commerce">
             <div class="container element-top-50 element-bottom-50">
                 <div class="row">
-                    {{ partial('layouts/breadcrumb', ['DataItem': product]) }}
+                    {{ partial('layouts/breadcrumb', ['catInfo': product]) }}
                     <div class="product">
                         {{ partial('product/product_detail', ['product': product]) }}
                         <div class="row single-product-extras">
@@ -15,7 +15,7 @@
                                     </ul>
                                     <div class="tab-content">
                                         <div class="tab-pane active" id="tab-description">
-                                            {{ product.content }}
+                                            {{ product['content'] }}
                                         </div>
                                     </div>
                                 </div>
@@ -33,7 +33,7 @@
         shopping.renderAttribute($(".ct-detail-pr").find('.productJson'));
     })
 </script>
-{% include "layouts/footer.volt" %}
+{#{% include "layouts/footer.volt" %}#}
 <script>
     function share_fb(url) {
         window.open('https://www.facebook.com/sharer/sharer.php?u=' + url, 'facebook-share-dialog', "width=626, height=436")

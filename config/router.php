@@ -197,6 +197,14 @@ $router->add("/{slug}-ac{id:[0-9]+}.html", [
     'action' => 'article',
 ]);
 
+/* chi tiết sản phẩm */
+$router->add("/{slug}-p{id:[0-9]+}.html", [
+    'module' => 'frontend',
+    'namespace' => 'Graduate\Frontend\Controllers',
+    'controller' => 'product',
+    'action' => 'detail',
+]);
+
 
 /* END FRONTEND */
 
