@@ -40,25 +40,6 @@
                         <ins><span class="amount price_sell">{{ number_format(price_sell) }} </span>đ</ins>
                     </p>
                 </div>
-                {#{% if (product['Brand']) %}#}
-                    {#<div class="product__view__info">#}
-                        {#<p class="info">Thương hiệu : <a href="/shop?filter_brand={{ product.Brand.id }}" target="_blank">{{ product.Brand.name }}</a></p>#}
-                        {#<p class="info">Thương hiệu : <a href="#">{{ product.Brand.name }}</a></p>#}
-                    {#</div>#}
-                {#{% endif %}#}
-                {#{% if product.attribute_group|length > 0 %}#}
-                    {#<div class="product_view_attribute">#}
-                        {#{% for group in product.attribute_group %}#}
-                            {#<div class="product__view__color" data-group="{{ group.attribute_group_id }}">#}
-                                {#<span class="name">{{ group.attribute_group_name }}: </span>#}
-                                {#{% for attr in group.attribute %}#}
-                                    {#<div class="item" data-attr="{{ attr.attribute_id }}" style="background: #ffffff;">{{ attr.attribute_name }}</div>#}
-                                {#{% endfor %}#}
-                            {#</div>#}
-                        {#{% endfor %}#}
-                    {#</div>#}
-                {#{% endif %}#}
-
                 <div class="description">
                     <p>{{ product['caption'] }}</p>
                 </div>

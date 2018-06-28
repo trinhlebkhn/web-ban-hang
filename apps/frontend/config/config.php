@@ -13,7 +13,7 @@ return new \Phalcon\Config([
         'adapter'     => 'Mysql',
         'host'        => 'localhost',
         'username'    => 'root',
-        'password'    => 'dhbkhn657',
+        'password'    => 'root',
         'dbname'      => 'graduate_project',
         'charset'     => 'utf8',
     ],
