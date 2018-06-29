@@ -6,6 +6,7 @@ class ControllerBase extends Controller
 {
     public function initialize()
     {
+
         $mainMenu = $this->getMainMenu();
         $this->view->setVars([
            'mainMenu' => $mainMenu
@@ -23,4 +24,17 @@ class ControllerBase extends Controller
         return $rsMainMenu->data;
     }
 
+    public function getCart(){
+        $cart = $this->session->get('cart');
+//        d($cart);
+    }
+
+    public function render_template($controller, $action, $data = null)
+    {
+        $view = $this->view;
+        $content = $view->getRender($controller, $action, ["object" => $data], function ($view) {
+            $view->setRenderLevel(\Phalcon\Mvc\View::LEVEL_LAYOUT);
+        });
+        return $content;
+    }
 }

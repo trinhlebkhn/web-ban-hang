@@ -112,6 +112,11 @@ $di->setShared('uiHelper', function () {
     return $obj;
 });
 
+$di->setShared('cart', function () {
+    $obj = new CartService();
+    return $obj;
+});
+
 /**
  * @return Dispatcher
  */

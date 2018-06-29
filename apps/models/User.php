@@ -7,89 +7,65 @@
  */
 use Phalcon\Paginator\Adapter\Model as PaginatorModel;
 
-class User extends DbModel
-{
+class User extends DbModel {
     /**
-     *
      * @var integer
      * @Primary
      * @Identity
      * @Column(type="integer", length=11, nullable=false)
      */
     public $id;
-
     /**
-     *
      * @var string
      * @Column(type="string", length=50, nullable=false)
      */
     public $fullname;
-
     /**
-     *
      * @var string
      * @Column(type="string", length=40, nullable=false)
      */
     public $email;
-
     /**
-     *
      * @var string
      * @Column(type="string", length=50, nullable=false)
      */
     public $password;
-
     /**
-     *
      * @var string
      * @Column(type="text", length=1000, nullable=true)
      */
     public $avatar;
-
     /**
-     *
      * @var integer
      * @Column(type="integer", length=1, nullable=false)
      */
     public $role;
-
     /**
-     *
      * @var integer
      * @Column(type="integer", length=1, nullable=true)
      */
     public $gender;
-
     /**
-     *
      * @var string
      * @Column(type="string", length=14, nullable=false)
      */
     public $phone;
-
     /**
-     *
      * @var integer
      * @Column(type="integer", length=11, nullable=true)
      */
     public $dob;
-
     /**
-     *
      * @var string
      * @Column(type="string", length=200, nullable=true)
      */
     public $address;
-
     /**
-     *
      * @var integer
      * @Column(type="integer", length=11, nullable=true)
      */
     public $datecreate;
-
     /**
-     *
      * @var integer
      * @Column(type="integer", length=1, nullable=true)
      */
@@ -263,43 +239,68 @@ class User extends DbModel
         $this->avatar = $avatar;
     }
 
-
     /**
      * Returns table name mapped in the model.
-     *
      * @return string
      */
-
-    public function getSource()
-    {
+    public function getSource() {
         return 'mod_user';
     }
 
-    public function createObj(){
-
+    public function createObj($data) {
+        try {
+            $obj = self::find([
+                'conditions' => 'email = :email: or phone = :phone:',
+                'bind' => [
+                    'email' => $data['email'],
+                    'phone' => $data['phone']
+                ],
+            ]);
+            d($obj->toArray());
+            if (empty($obj->toArray())) {
+                $data['datecreate'] = time();
+                $rs = self::newInstance($data);
+                $rs->save();
+                if (!empty($rs->getMessages())) {
+                    return $this->manipulationError([], 'Có lỗi xảy ra');
+                }
+                else {
+                    return $this->manipulationSuccess($rs->toArray(), 'Thêm mới người dùng!');
+                }
+            } else {
+                $obj = $obj->toArray();
+                d($obj);
+            }
+        } catch (Exception $e) {
+            return $this->manipulationError([], $e->getMessage());
+        }
     }
 
-    public function getListObj($optional = [])
-    {
+    public function getListObj($optional = []) {
         try {
             $arrObj = [];
             $o = [];
-            $listObj = $this->modelsManager->createBuilder()
-                ->columns(['id', 'fullname', 'email', 'avatar', 'role', 'gender', 'phone', 'dob', 'address', 'datecreate', 'status'])
-                ->from(self::class)
-                ->where(isset($optional['q']) ? $optional['q'] : '1=1')
-                ->getQuery()
-//                ->getSql();
+            $listObj = $this->modelsManager->createBuilder()->columns([
+                    'id',
+                    'fullname',
+                    'email',
+                    'avatar',
+                    'role',
+                    'gender',
+                    'phone',
+                    'dob',
+                    'address',
+                    'datecreate',
+                    'status'
+                ])->from(self::class)->where(isset($optional['q']) ? $optional['q'] : '1=1')->getQuery()//                ->getSql();
                 ->execute();
             $page = $optional['p'] ? $optional['p'] : 1;
             if (!empty($optional['limit'])) {
-                $paginator = new PaginatorModel(
-                    [
+                $paginator = new PaginatorModel([
                         "data" => $listObj,
                         "limit" => $optional['limit'],
                         "page" => $page
-                    ]
-                );
+                    ]);
                 $paginate = $paginator->getPaginate();
                 foreach ($paginate->items as &$item) {
                     $obj = $item->toArray();
@@ -311,7 +312,8 @@ class User extends DbModel
                     'curent_page' => $paginate->current,
                     'total_page' => $paginate->total_pages
                 ];
-            } else {
+            }
+            else {
                 $arrObj = $listObj->toArray();
                 $o = [
                     'total_items' => sizeof($arrObj),
@@ -325,8 +327,7 @@ class User extends DbModel
         }
     }
 
-    public function checkLogin($data)
-    {
+    public function checkLogin($data) {
         try {
             $obj = self::findFirst([
                 'conditions' => 'email like :email:',
@@ -338,13 +339,15 @@ class User extends DbModel
                 $user = $obj->toArray();
                 $security = provider('security');
                 $check_pass = md5($data['password']);
-                if($check_pass == $user['password']){
+                if ($check_pass == $user['password']) {
                     unset($user['password']);
                     return $this->manipulationSuccess($user, 'Thao tác thành công');
-                } else {
+                }
+                else {
                     return $this->manipulationError([], 'Sai mật khẩu!');
                 }
-            } else {
+            }
+            else {
                 return $this->manipulationError([], 'Tài khoản không tồn tại');
             }
         } catch (Exception $e) {
@@ -352,8 +355,7 @@ class User extends DbModel
         }
     }
 
-    public function getDetail($id)
-    {
+    public function getDetail($id) {
         try {
             $obj = self::findFirst($id);
             if (!empty($obj->toArray())) {
@@ -361,7 +363,8 @@ class User extends DbModel
                 $data['date_create'] = date("d/m/Y H:i:s", intval($data['date_create']));
                 $data['dob'] = date("d/m/Y H:i:s", intval($data['dob']));
                 return $this->manipulationSuccess($data, 'Thao tác thành công');
-            } else {
+            }
+            else {
                 return $this->manipulationError([], 'Có lỗi xảy ra. Vui lòng liên hệ nhà quản trị!');
             }
         } catch (Exception $e) {

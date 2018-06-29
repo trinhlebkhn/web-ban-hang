@@ -2,7 +2,7 @@
 <div id="content" role="main">
     <div id="page-register" role="dialog">
         <form id="form-register" method="post">
-            <input type="hidden" name="{{ csrf.getTokenName() }}" value="{{ csrf.getToken() }}" />
+            {#<input type="hidden" name="{{ csrf.getTokenName() }}" value="{{ csrf.getToken() }}" />#}
             <div class="modal-dialog">
                 <!-- Modal content-->
                 <div class="modal-content">
@@ -163,4 +163,4 @@
         </form>
     </div>
 </div>
-{% include "layouts/footer.volt" %}
+{#{% include "layouts/footer.volt" %}#}

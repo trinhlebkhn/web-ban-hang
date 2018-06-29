@@ -92,6 +92,7 @@
         siteLoader: 'on'
     };
 </script>
+<script type="text/javascript" src="/assets_frontend/vendor/js/jquery.validate.min.js"></script>
 <script src="/assets_frontend/vendor/js/theme.min.js"></script>
 <script src="/assets_frontend/vendor/js/slick.min.js"></script>
 <div class="hidden" id="loading">

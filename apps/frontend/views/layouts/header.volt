@@ -22,7 +22,7 @@
                     </ul>
                 </div>
                 <div class="menu-sidebar">
-                    {#{% include "layouts/widget/widget-cart.volt" %}#}
+                    {% include "layouts/widget/widget-cart.volt" %}
                 </div>
             </nav>
         </div>
