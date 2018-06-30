@@ -205,6 +205,57 @@ $router->add("/{slug}-p{id:[0-9]+}.html", [
     'action' => 'detail',
 ]);
 
+/* Khách hàng*/
+$router->add("/dang-ki.html", [
+    'module' => 'frontend',
+    'namespace' => 'Graduate\Frontend\Controllers',
+    'controller' => 'auth',
+    'action' => 'register',
+]);
+
+$router->add("/dang-nhap.html", [
+    'module' => 'frontend',
+    'namespace' => 'Graduate\Frontend\Controllers',
+    'controller' => 'auth',
+    'action' => 'login',
+]);
+
+$router->add("/dang-xuat", [
+    'module' => 'frontend',
+    'namespace' => 'Graduate\Frontend\Controllers',
+    'controller' => 'auth',
+    'action' => 'logout',
+]);
+
+$router->add("/thong-tin-khach-hang.html", [
+    'module' => 'frontend',
+    'namespace' => 'Graduate\Frontend\Controllers',
+    'controller' => 'customer',
+    'action' => 'index',
+]);
+
+$router->add("/thay-doi-mat-khau.html", [
+    'module' => 'frontend',
+    'namespace' => 'Graduate\Frontend\Controllers',
+    'controller' => 'customer',
+    'action' => 'update_password',
+]);
+
+$router->add("/don-hang.html", [
+    'module' => 'frontend',
+    'namespace' => 'Graduate\Frontend\Controllers',
+    'controller' => 'customer',
+    'action' => 'order',
+]);
+
+$router->add("/chi-tiet-don-hang-p{id:[0-9]+}.html", [
+    'module' => 'frontend',
+    'namespace' => 'Graduate\Frontend\Controllers',
+    'controller' => 'customer',
+    'action' => 'order_detail',
+]);
+
+
 
 /* END FRONTEND */
 

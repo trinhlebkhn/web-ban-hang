@@ -10,13 +10,13 @@
                 <div class="menu-top-bar-menu-container">
                     {% if auth %}
                         <ul class="menu">
-                            <li><a href="/customer">{{ auth.email }}</a></li>
-                            <li><a href="/auth/logout">Thoát </a></li>
+                            <li><a href="/thong-tin-khach-hang.html">{{ auth['email'] }}</a></li>
+                            <li><a href="/dang-xuat">Thoát </a></li>
                         </ul>
                     {% else %}
                         <ul class="menu">
-                            <li><a href="/auth/login">Đăng nhập</a></li>
-                            <li><a href="/auth/register">Đăng ký </a></li>
+                            <li><a href="/dang-nhap.html">Đăng nhập</a></li>
+                            <li><a href="/dang-ki.html">Đăng ký </a></li>
                         </ul>
                     {% endif %}
                 </div>
@@ -27,7 +27,8 @@
                             <button class="btn btn-primary" type="submit" id="searchsubmit" value="Search">
                                 <i class="fa fa-search"></i>
                             </button>
-                        </span></div>
+                        </span>
+                    </div>
                 </form>
             </div>
         </div>

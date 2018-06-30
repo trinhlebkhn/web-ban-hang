@@ -249,15 +249,17 @@ class User extends DbModel {
 
     public function createObj($data) {
         try {
-            $obj = self::find([
+            $obj = self::findFirst([
                 'conditions' => 'email = :email: or phone = :phone:',
                 'bind' => [
                     'email' => $data['email'],
                     'phone' => $data['phone']
                 ],
             ]);
-            d($obj->toArray());
-            if (empty($obj->toArray())) {
+            if (!$obj) {
+                $current_password = $data['password'];
+                $data['password'] = md5($data['password']);
+                $data['dob'] = strtotime($data['dob']);
                 $data['datecreate'] = time();
                 $rs = self::newInstance($data);
                 $rs->save();
@@ -265,11 +267,19 @@ class User extends DbModel {
                     return $this->manipulationError([], 'Có lỗi xảy ra');
                 }
                 else {
-                    return $this->manipulationSuccess($rs->toArray(), 'Thêm mới người dùng!');
+                    $obj = $rs->toArray();
+                    $obj['password'] = $current_password;
+                    $login = $this->checkLogin($obj);
+                    if(!$login->status) return $this->manipulationError([], 'Có lỗi xảy ra khi đăng nhập!');
+                    return $login;
                 }
             } else {
                 $obj = $obj->toArray();
-                d($obj);
+                if($obj['email'] == $data['email']) {
+                    return $this->manipulationError([], 'Email đã được sử dụng!');
+                } else {
+                    return $this->manipulationError([], 'Số điện thoại đã được sử dụng!');
+                }
             }
         } catch (Exception $e) {
             return $this->manipulationError([], $e->getMessage());
@@ -341,6 +351,7 @@ class User extends DbModel {
                 $check_pass = md5($data['password']);
                 if ($check_pass == $user['password']) {
                     unset($user['password']);
+                    $user['dob'] = date("d/m/Y", intval($user['dob']));
                     return $this->manipulationSuccess($user, 'Thao tác thành công');
                 }
                 else {
@@ -366,6 +377,42 @@ class User extends DbModel {
             }
             else {
                 return $this->manipulationError([], 'Có lỗi xảy ra. Vui lòng liên hệ nhà quản trị!');
+            }
+        } catch (Exception $e) {
+            return $this->manipulationError([], $e->getMessage());
+        }
+    }
+
+    public function updateObj($data)
+    {
+        try {
+            $obj = self::findFirst([
+                'conditions' => 'email = :email: or phone = :phone:',
+                'bind' => [
+                    'email' => $data['email'],
+                    'phone' => $data['phone']
+                ],
+            ]);
+            if (!$obj || ($obj->toArray()['id'] == $data['id'])) {
+                if(!empty($data['password'])) $data['password'] = md5($data['password']);
+                $data['dob'] = strtotime($data['dob']);
+                $objUpdate = self::findFirst($data['id']);
+                if ($objUpdate) {
+                    $objUpdate->update($data);
+                    $rs = $objUpdate->toArray();
+                    unset($rs['password']);
+                    $rs['dob'] = date("d/m/Y", intval($rs['dob']));
+                    return $this->manipulationSuccess($rs, 'Cập nhật thành công');
+                } else {
+                    return $this->manipulationError([], 'Tài khoản không tồn tại!');
+                }
+            } else {
+                $obj = $obj->toArray();
+                if($obj['email'] == $data['email']) {
+                    return $this->manipulationError([], 'Email đã được sử dụng!');
+                } else {
+                    return $this->manipulationError([], 'Số điện thoại đã được sử dụng!');
+                }
             }
         } catch (Exception $e) {
             return $this->manipulationError([], $e->getMessage());

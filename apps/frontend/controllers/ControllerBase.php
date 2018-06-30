@@ -6,10 +6,12 @@ class ControllerBase extends Controller
 {
     public function initialize()
     {
-
+        $this->session->start();
         $mainMenu = $this->getMainMenu();
+        $auth = $this->getAuth();
         $this->view->setVars([
-           'mainMenu' => $mainMenu
+           'mainMenu' => $mainMenu,
+           'auth' => $auth
         ]);
     }
 
@@ -36,5 +38,21 @@ class ControllerBase extends Controller
             $view->setRenderLevel(\Phalcon\Mvc\View::LEVEL_LAYOUT);
         });
         return $content;
+    }
+
+    public function setAuth($data){
+        $this->session->set('auth', $data);
+    }
+
+    public function getAuth(){
+        return $this->session->get('auth');
+    }
+
+    public function setPay($data){
+        $this->session->set('pay', $data);
+    }
+
+    public function getPay(){
+        return $this->session->get('pay');
     }
 }

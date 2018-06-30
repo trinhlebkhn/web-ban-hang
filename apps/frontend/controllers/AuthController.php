@@ -15,16 +15,27 @@ class AuthController extends ControllerBase {
     public function registerAction(){
         if($this->request->isPost()) {
             $data = $this->request->getPost('pageRegister');
-            $data['password'] = md5($data['password']);
+            $dataDob = $this->request->getPost('pageRegister_birth');
             $data['role'] = 1;
+            $data['dob'] = $dataDob['year'] . '-' . $dataDob['month'] . '-' . $dataDob['day'];
             $userObj = new \User();
             $rs = $userObj->createObj($data);
             if($rs->status) {
-
+                $this->setAuth($rs->data);
+                if(!$this->getPay()) {
+                    $this->response->redirect(base_uri());
+                } else {
+                    $this->response->redirect(base_uri() . '/thanh-toan.html');
+                }
             } else {
                 $this->flash->error($rs->message);
                 $this->view->data = $data;
             }
         }
+    }
+
+    public function logoutAction(){
+        $this->session->destroy();
+        $this->response->redirect(base_uri());
     }
 }

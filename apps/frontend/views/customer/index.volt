@@ -20,7 +20,9 @@
 
                     <h2 class="title-profile">Thông tin tài khoản</h2>
                     <form method="post" id="customer_info" class="profile-content">
-                        <input type="hidden" name="{{ csrf.getTokenName() }}" value="{{ csrf.getToken() }}" />
+                        {#<input type="hidden" name="{{ csrf.getTokenName() }}" value="{{ csrf.getToken() }}" />#}
+                        <input type="hidden" class="form-control" name="data[id]" placeholder="Họ Tên"
+                               value="{{ data['id']? data['id'] : auth['id'] }}">
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-sm-12">{{ this.flash.output() }}</div>
@@ -39,8 +41,8 @@
                                 </div>
                                 <div class="input__wrap">
 
-                                    <input type="text" class="form-control" name="fullname" placeholder="Họ Tên"
-                                           value="{{ data['fullname']? data['fullname'] : userInfo.fullname }}">
+                                    <input type="text" class="form-control" name="data[fullname]" placeholder="Họ Tên"
+                                           value="{{ data['fullname']? data['fullname'] : auth['fullname'] }}">
                                 </div>
                             </div>
                         </div>
@@ -50,8 +52,8 @@
                                     <div class="label">Email</div>
                                 </div>
                                 <div class="input__wrap">
-                                    <input type="text" class="form-control" name="email" placeholder="Email..."
-                                           value="{{ data['email']? data['email'] : userInfo.email }}">
+                                    <input type="text" class="form-control" name="data[email]" placeholder="Email..."
+                                           value="{{ data['email']? data['email'] : auth['email'] }}">
                                 </div>
                             </div>
                         </div>
@@ -64,16 +66,16 @@
                                     <div class="row">
                                         <div class="col-xs-4">
                                             <div class="check__action -radio">
-                                                <input type="radio" {{ userInfo.gender == 1 ? 'checked="checked"':'' }}
-                                                       class="checkbox" name="gender" value="1">
+                                                <input type="radio" {{ auth['gender'] == 1 ? 'checked="checked"':'' }}
+                                                       class="checkbox" name="data[gender]" value="1">
                                                 <span class="icon"></span>
                                                 Nam
                                             </div>
                                         </div>
                                         <div class="col-xs-4">
                                             <div class="check__action -radio">
-                                                <input type="radio" {{ userInfo.gender == 2 ? 'checked="checked"':'' }}
-                                                       class="checkbox" name="gender" value="2">
+                                                <input type="radio" {{ auth['gender'] == 2 ? 'checked="checked"':'' }}
+                                                       class="checkbox" name="data[gender]" value="2">
                                                 <span class="icon"></span>
                                                 Nữ
                                             </div>
@@ -89,19 +91,19 @@
                                 </div>
 
                                 <div class="input__wrap birthday-picker">
-                                    <select class="birth-day form-control" name="birth[day]">
+                                    <select class="birth-day form-control" name="dob[day]">
                                         {% for i in 1..31 %}
                                             <option {{ date == i ? 'selected':'' }}
                                                     value="{{ i }}">{{ i }}</option>
                                         {% endfor %}
                                     </select>
-                                    <select class="birth-month form-control" name="birth[month]">
+                                    <select class="birth-month form-control" name="dob[month]">
                                         {% for i in 1..12 %}
                                             <option {{ month == i ? 'selected':'' }}
                                                     value="{{ i }}">{{ i }}</option>
                                         {% endfor %}
                                     </select>
-                                    <select class="birth-year form-control" name="birth[year]">
+                                    <select class="birth-year form-control" name="dob[year]">
                                         {% set yearCurrent = date('Y') %}
                                         {% set maxYear = yearCurrent - 14 %}
                                         {% for i in maxYear..1990 %}
@@ -119,8 +121,8 @@
                                     <div class="label">Số điện thoại</div>
                                 </div>
                                 <div class="input__wrap">
-                                    <input type="text" name="phone" class="form-control" placeholder="Số điện thoại..."
-                                           value="{{ data['phone']? data['phone'] : userInfo.phone }}" >
+                                    <input type="text" name="data[phone]" class="form-control" placeholder="Số điện thoại..."
+                                           value="{{ data['phone']? data['phone'] : auth['phone'] }}" >
                                 </div>
                             </div>
                         </div>
@@ -134,7 +136,7 @@
     </div>
 </div>
 
-{% include "layouts/footer.volt" %}
+{#{% include "layouts/footer.volt" %}#}
 
 <script>
     function checkCheckbook(obj) {

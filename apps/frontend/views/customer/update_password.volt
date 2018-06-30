@@ -19,7 +19,7 @@
                 <div class="wrap__profile__info">
                     <h2 class="title-profile">Thay đổi mật khẩu</h2>
                     <form method="post" id="change_pass" class="profile-content">
-                        <input type="hidden" name="{{ csrf.getTokenName() }}" value="{{ csrf.getToken() }}" />
+                        {#<input type="hidden" name="{{ csrf.getTokenName() }}" value="{{ csrf.getToken() }}" />#}
                         <div id="change_password_account">
                             <div class="form-group">
                                 <div class="row">
@@ -63,7 +63,7 @@
     </div>
 </div>
 
-{% include "layouts/footer.volt" %}
+{#{% include "layouts/footer.volt" %}#}
 
 <script>
     function checkCheckbook(obj) {

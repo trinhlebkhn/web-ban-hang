@@ -7,7 +7,7 @@
             <div class="col-sm-3"></div>
             <div class="form-contact col-md-7 col-sm-6 col-xs-12 {{ changePassSuccess==1?'hidden':'' }}">
                 <form id="reset_password" method="post" class="reset_pass">
-                    <input type="hidden" name="{{ csrf.getTokenName() }}" value="{{ csrf.getToken() }}" />
+                    {#<input type="hidden" name="{{ csrf.getTokenName() }}" value="{{ csrf.getToken() }}" />#}
                     <div class="form-group">
                         <div class="label">Nhập email</div>
                         <input id="email" type="text" name="email" class="form-control" placeholder="Nhập email" required>
@@ -32,7 +32,7 @@
         </div>
     </div>
 </div>
-{% include "layouts/footer.volt" %}
+{#{% include "layouts/footer.volt" %}#}
 <script>
     $(document).ready(function () {
         $("#reset_password").validate({
