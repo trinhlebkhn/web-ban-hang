@@ -28,7 +28,7 @@
                                         <div class="label">Mật khẩu cũ</div>
                                     </div>
                                     <div class="input__wrap">
-                                        <input name="password[current_password]" type="password" class="form-control" required placeholder="Mật khẩu cũ" value="{{ current_password? current_password : "" }}">
+                                        <input name="password[current_password]" type="password" class="form-control" placeholder="Mật khẩu cũ" value="{{ current_password? current_password : "" }}">
                                     </div>
                                 </div>
                             </div>
@@ -38,7 +38,7 @@
                                         <div class="label">Mật khẩu mới</div>
                                     </div>
                                     <div class="input__wrap">
-                                        <input name="password[password]" type="password" class="form-control" required placeholder="Mật khẩu mới" value="">
+                                        <input name="password[password]" type="password" id="new_password" class="form-control" placeholder="Mật khẩu mới" value="">
                                     </div>
                                 </div>
                             </div>
@@ -48,7 +48,7 @@
                                         <div class="label">Nhập lại mật khẩu</div>
                                     </div>
                                     <div class="input__wrap">
-                                        <input name="password[password_again]" type="password" class="form-control" required placeholder="Mật khẩu mới" value="">
+                                        <input name="password[password_again]" type="password" class="form-control" placeholder="Mật khẩu mới" value="">
                                     </div>
                                 </div>
                             </div>
@@ -66,14 +66,21 @@
 {#{% include "layouts/footer.volt" %}#}
 
 <script>
-    function checkCheckbook(obj) {
-        $("#change_password_account").toggle();
-    }
+//    function checkCheckbook(obj) {
+//        $("#change_password_account").toggle();
+//    }
 
     $(document).ready(function () {
         $("#change_pass").validate({
             rules : {
                 'password[current_password]' : {
+                    required : true
+                },
+                'password[password]' : {
+                    required : true
+                },
+                'password[password_again]' : {
+                    equalTo: '#new_password',
                     required : true
                 }
             },
@@ -81,6 +88,13 @@
             messages: {
                 'password[current_password]' : {
                     required : "Bạn chưa nhập mật khẩu hiện tại."
+                },
+                'password[password]' : {
+                    required : "Vui lòng nhập mật khẩu mới."
+                },
+                'password[current_password]' : {
+                    equalTo : "Mật khẩu nhập lại chưa khớp.",
+                    required : "Vui lòng nhập lại mật khẩu mới."
                 }
             }
         });

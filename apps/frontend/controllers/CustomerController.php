@@ -35,7 +35,16 @@ class CustomerController extends ControllerBase {
     }
 
     public function update_passwordAction(){
-
+        if ($this->request->isPost()) {
+            $userObj = new \User();
+            $auth = $this->getAuth();
+            $data = $this->request->getPost('password');
+            $data['email'] = $auth['email'];
+            $data['phone'] = $auth['phone'];
+            $rsUpdate = $userObj->updateObj($data);
+            if ($rsUpdate->status) $this->flash->success($rsUpdate->message);
+            else $this->flash->error($rsUpdate->message);
+        }
     }
 
     public function orderAction(){

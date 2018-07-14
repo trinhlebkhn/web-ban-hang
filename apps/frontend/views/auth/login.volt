@@ -21,11 +21,11 @@
                                 {#</div>#}
                                 <div class="form-group form-icon-group">
                                     <i class="fa fa-user"></i>
-                                    <input class="form-control" id="name" name="login_username" placeholder="Email *" type="text" required="" maxlength="40">
+                                    <input class="form-control" id="name" name="data[email]" placeholder="Email *" type="text" required="" maxlength="40" value="{{ data['email'] }}">
                                 </div>
                                 <div class="form-group form-icon-group">
                                     <i class="fa fa-key"></i>
-                                    <input class="form-control" name="login_password" placeholder="Mật khẩu từ 6 đến 32 ký tự *" type="password" required="" maxlength="32">
+                                    <input class="form-control" name="data[password]" placeholder="Mật khẩu từ 6 đến 32 ký tự *" type="password" required="" maxlength="32">
                                 </div>
                                 {% if loginAttempts > 2 %}
                                     <div id="myCaptcha" class="g-recaptcha" data-sitekey="{{ google_captcha.site_key }}"></div>

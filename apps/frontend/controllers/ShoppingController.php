@@ -8,4 +8,7 @@
 
 namespace Graduate\Frontend\Controllers;
 class ShoppingController {
+    public function cartAction(){
+
+    }
 }

@@ -407,11 +407,22 @@ class User extends DbModel {
                     return $this->manipulationError([], 'Tài khoản không tồn tại!');
                 }
             } else {
-                $obj = $obj->toArray();
-                if($obj['email'] == $data['email']) {
-                    return $this->manipulationError([], 'Email đã được sử dụng!');
+                $dataObj = $obj->toArray();
+                if(!empty($data['password'])) {
+                    if(md5($data['current_password'] == $dataObj['password'])){
+                        $data['password'] = md5($data['password']);
+                        $obj->update($data);
+                        $dataObj['dob'] = date("d/m/Y", intval($dataObj['dob']));
+                        return $this->manipulationSuccess($dataObj, 'Cập nhật thành công');
+                    } else {
+                        return $this->manipulationError([], 'Mật khẩu hiện tại của bạn không đúng! Vui lòng nhập lại');
+                    }
                 } else {
-                    return $this->manipulationError([], 'Số điện thoại đã được sử dụng!');
+                    if($dataObj['email'] == $data['email']) {
+                        return $this->manipulationError([], 'Email đã được sử dụng!');
+                    } else {
+                        return $this->manipulationError([], 'Số điện thoại đã được sử dụng!');
+                    }
                 }
             }
         } catch (Exception $e) {

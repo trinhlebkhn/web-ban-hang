@@ -9,7 +9,18 @@
 namespace Graduate\Frontend\Controllers;
 class AuthController extends ControllerBase {
     public function loginAction(){
-
+        if($this->request->isPost()) {
+            $data = $this->request->getPost('data');
+            $userObj = new \User();
+            $rs = $userObj->checkLogin($data);
+            if($rs->status) {
+                $this->setAuth($rs->data);
+                $this->response->redirect(base_uri() . '/');
+            } else {
+                $this->view->data = $data;
+                $this->flash->error($rs->message);
+            }
+        }
     }
 
     public function registerAction(){

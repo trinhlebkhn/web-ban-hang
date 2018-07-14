@@ -4,7 +4,7 @@
         <div class="mini-cart-overview dropdown navbar-right">
             <a data-toggle="dropdown" href="/shopping/cart">
                 <i class="icon icon-bag animated pulse-two"></i>
-                <span class="mini-cart-count total-item-cart">{{ cart.getTotalProduct() }}</span>
+                <span class="mini-cart-count total-item-cart">{{ cart.getTotalProduct() > 0 ? cart.getTotalProduct() : 0 }}</span>
                 <span class="amount total_price total">{{ number_format(cart.getTotalPrice()) }} ₫</span>
             </a>
             <div class="product__shopcart">
