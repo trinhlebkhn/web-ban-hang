@@ -12,7 +12,8 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="/assets_backend/source/bower_components/font-awesome/css/font-awesome.min.css">
     <!-- DataTables -->
-    <link rel="stylesheet" href="/assets_backend/source/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet"
+          href="/assets_backend/source/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="/assets_backend/source/bower_components/Ionicons/css/ionicons.min.css">
     <!-- Theme style -->
@@ -31,7 +32,8 @@
     <!-- jvectormap -->
     <link rel="stylesheet" href="/assets_backend/source/bower_components/jvectormap/jquery-jvectormap.css">
     <!-- Date Picker -->
-    <link rel="stylesheet" href="/assets_backend/source/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet"
+          href="/assets_backend/source/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
     <!-- Daterange picker -->
     <link rel="stylesheet" href="/assets_backend/source/bower_components/bootstrap-daterangepicker/daterangepicker.css">
     <!-- bootstrap wysihtml5 - text editor -->
@@ -45,16 +47,19 @@
     <![endif]-->
 
     <!-- Google Font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition skin-bizsale sidebar-mini">
 <div class="wrapper">
     {{ content() }}
     {% include "layouts/control-sidebar.volt" %}
     <div class="control-sidebar-bg"></div>
-    <div id="QuickView" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div id="QuickView" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myLargeModalLabel"
+         aria-hidden="true">
         <div class="modal-dialog">
-            <button type="button" class="modal__close" data-dismiss="modal"><span class="icon -ap icon-ion-android-close"></span></button>
+            <button type="button" class="modal__close" data-dismiss="modal"><span
+                        class="icon -ap icon-ion-android-close"></span></button>
             <div class="qcontent" data-product-id="" style="min-height: 400px;"></div>
         </div>
     </div>
@@ -124,16 +129,16 @@
 
     $('#daterange-btn').daterangepicker(
         {
-            ranges   : {
-                'Today'       : [moment(), moment()],
-                'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
+            ranges: {
+                'Today': [moment(), moment()],
+                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
                 'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-                'This Month'  : [moment().startOf('month'), moment().endOf('month')],
-                'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
             },
             startDate: moment().subtract(29, 'days'),
-            endDate  : moment()
+            endDate: moment()
         },
         function (start, end) {
             $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))

@@ -1,0 +1,393 @@
+.list ul li {
+    word-wrap: break-word;
+    list-style: none;
+}
+.list ul{
+    padding: 0px;
+}
+.clear-fix{
+    clear: both;
+}
+.category_home{
+    color: #000;
+}
+.pagination{
+    float: right;
+}
+.product__view__color {
+    margin-bottom: 20px;
+}
+.product__view__color .name {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+.product__view__color .item {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+    width: auto;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    min-width: 30px;
+    border: 1px solid #ddd;
+    padding: 0 5px;
+    cursor: pointer;
+}
+.product__view__color .item.active {
+    border: 1px solid #ed1c24;
+}
+.order_add button{
+    min-width: 123px;
+}
+form.product__quantity{
+    margin-bottom: 5px;
+}
+.mini-cart-overview .total{
+    line-height: inherit !important;
+}
+@media (min-width: 768px){
+    .modal-dialog {
+        width: 600px !important;
+        margin: 30px auto;
+    }
+    .modal-dialog {
+        position: relative;
+        width: auto;
+        margin: 10px;
+    }
+    .modal-content {
+        -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);
+        box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    }
+    .modal-content {
+        position: relative;
+        background-color: #fff;
+        -webkit-background-clip: padding-box;
+        background-clip: padding-box;
+        border: 1px solid #999;
+        border: 1px solid rgba(0,0,0,.2);
+        border-radius: 6px;
+        outline: 0;
+        -webkit-box-shadow: 0 3px 9px rgba(0,0,0,.5);
+        box-shadow: 0 3px 9px rgba(0,0,0,.5);
+    }
+}
+/* LOGIN */
+.modal-header {
+    min-height: 16.43px;
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.modal-title {
+    margin: 0;
+    line-height: 1.42857143;
+}
+.modal-body {
+    position: relative;
+    padding: 15px;
+}
+.account__input .label {
+    display: block;
+    padding: 0px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #888;
+    text-align: left;
+    font-weight: normal;
+}
+.account__input .btn-submit {
+    background: #333;
+    display: block;
+    color: white;
+    padding: 7px 20px;
+    text-align: center;
+    width: 100%;
+}
+.account_login__social .title span {
+    display: inline-block;
+    padding: 5px 10px;
+    background: #fff;
+    position: relative;
+}
+.account_login__social .title {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #aaa;
+    position: relative;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.account_login__social .btn.btn-facebook {
+    background: #3b5999;
+}
+.modal-dialog{
+    margin: 0 auto;
+}
+.account_login__social .title:before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    margin: auto;
+    height: 1px;
+    width: 100%;
+    border-top: 1px solid #ccc;
+}
+.account_login__social .btn.btn-google {
+    margin-top: 5px;
+    background: #dd4b39;
+}
+.account_login__social .btn.btn-facebook, .account_login__social .btn.btn-google {
+    width: 100%;
+    border-radius: 0px;
+    color: #ffffff;
+}
+.account_login__social .list__buttons a{
+    margin-bottom: 10px;
+    padding: 6px 0px;
+}
+.account_login__social .btn .icon {
+    float: left;
+    width: 40px;
+    text-align: center;
+    top: 0px;
+    bottom: 0px;
+    margin: auto;
+    left: 0px;
+    padding: 6px 0px;
+    border-right: 1px solid  #fff;
+}
+
+.-ap {
+    font-family: 'ap' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.account_login__social .list__buttons p{
+    padding-top: 5px;
+}
+.register.error input[type="checkbox"] + label::before{
+    border: 1px solid #ff0000;
+}
+/* END LOGIN*/
+
+/* REGISTER */
+#form-register .modal-content {
+    width: 130%;
+}
+.account__input .form-control {
+    box-shadow: none;
+    padding: 8px;
+    height: 42px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+.wrap__profile__info select.form-control {
+    width: 30%;
+    display: inline;
+}
+
+.pageBirthday-picker select {
+    display: inline-block;
+    margin-right: 5px;
+}
+.input__label .label {
+    padding-top: 20px;
+}
+.input__label {
+    width: 120px;
+    float: left;
+    padding: 0px 15px;
+}
+.input__wrap {
+    float: left;
+    padding: 0px 15px;
+    width: calc(100% - 120px);
+}
+
+input[type=checkbox], input[type=radio] {
+    margin: 4px 0 0;
+    margin-top: 1px\9;
+    line-height: normal;
+}
+input[type=checkbox], input[type=radio] {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+}
+.pageBirthday-picker .select-wrap{
+    width: 30%;
+    display: -webkit-inline-box;
+}
+.user_info .select-wrap{
+    width: 30%;
+    margin-right: 5px;
+}
+.user_info .select-wrap select{
+    width: 100%;
+}
+.birthday-picker select {
+    width: 30%;
+    display: inline-block;
+    margin-right: 5px;
+}
+.user_info {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.user_info ul li{
+    list-style: none;
+}
+/* END REGISTER*/
+
+/* BEGIN PAGE CUSTOMER */
+.sidebar-profile .profiles .avatar img {
+    width: 100%;
+}
+.sidebar-profile .profiles {
+    padding-left: 50px;
+    position: relative;
+    margin-bottom: 20px;
+}
+.sidebar-profile .profiles .avatar {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.sidebar-profile .profiles .headline {
+    font-size: 13px;
+    font-weight: 300;
+    color: #242424;
+}
+.sidebar-profile .profiles .username {
+    font-weight: 700;
+    color: #242424;
+}
+.sidebar-profile .user-profile__menu .user-profile__item:hover, .sidebar-profile .user-profile__menu .user-profile__item.active {
+    background: #ededed;
+}
+.sidebar-profile .user-profile__menu ul li {
+    border-bottom: 1px solid #f1f1f1;
+}
+.breadcrumb{
+    background: none;
+}
+.sidebar-profile .user-profile__menu .user-profile__item .user-profile__link {
+    padding: 10px 20px;
+    display: inline-block;
+    width: 100%;
+    font-size: 13px;
+    color: #242424;
+}
+.user-profile__wrap .wrap__profile__info {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background: #fff;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    width: 100%;
+}
+.user-profile__wrap .title-profile {
+    font-size: 24px;
+    display: block;
+    font-weight: 300;
+    padding: 10px;
+}
+.user-profile__wrap .profile-content {
+    padding: 20px;
+}
+.user-profile__wrap .wrap__profile__info .input__wrap {
+    float: left;
+    padding: 0px 15px;
+    width: 50%;
+}
+.user-profile__wrap .wrap__profile__info .form-control {
+    box-shadow: none;
+    height: 42px;
+}
+.user-profile__wrap .wrap__profile__info .input__label .label {
+    padding-top: 20px;
+}
+.user-profile__wrap .wrap__profile__info .label {
+    display: block;
+    padding: 0px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #888;
+    text-align: left;
+    font-weight: normal;
+}
+.wrap__profile__info table .child_1 th{
+    background: #ffffff;
+}
+.wrap__profile__info table .child_1{
+    border-top: 1px solid #eaeaea;
+}
+.user_info .input__wrap.birthday-picker{
+    display: -webkit-inline-box;
+}
+/* END PAGE CUSTOMER */
+#page-register, .page-login{
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+.label{
+    color: #000 !important;
+}
+.icon-facebook:before {
+    content: "\e7f7";
+}
+.icon-google:before {
+    content: "\e7fd";
+}
+input.error{
+    border: 1px solid red!important;
+}
+.check__action.error{
+    color: red;
+}
+.alert{
+    padding: 5px !important;
+}
+
+/* PAGE FORGET PASSWORD */
+.sec__contact .form-contact {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+}
+/* END PAGE FORGET PASSWORN */
+.pointer{
+    cursor: pointer;
+}
+.disabled{
+    cursor: no-drop !important;
+}
+.input-number{
+    padding: 0px !important;
+}
+.pagination>li span{
+    padding: 0px;
+}
+.google-map iframe{
+    z-index: 2;
+    width: 100% !important;
+    height: 400px !important;
+}

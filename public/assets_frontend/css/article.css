@@ -1,0 +1,104 @@
+ul, ol {
+    list-style: none;
+}
+.list_of_entries > li:first-child .entry {
+    border-radius: 3px 3px 0 0;
+}
+.list_of_entries > li:not(:last-child) .entry {
+    border-bottom: none;
+}
+.list_of_entries .entry, .list_of_entries.grid_view .entry, .top_box + .list_of_entries > li:first-child .entry {
+    border-radius: 0px;
+}
+.entry {
+    overflow: hidden;
+    position: relative;
+    padding: 19px;
+    background: #fff;
+    border: 1px solid #eaeaea;
+    background-clip: padding-box;
+    border-radius: 3px;
+}
+.entry_image {
+    display: block;
+    margin-bottom: 17px;
+}
+.thumbnail {
+    display: block;
+    overflow: hidden;
+}
+.thumbnail {
+    display: block;
+    padding: 4px;
+    margin-bottom: 20px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-transition: border .2s ease-in-out;
+    -o-transition: border .2s ease-in-out;
+    transition: border .2s ease-in-out;
+}
+.entry_title {
+    line-height: 18px;
+    margin-bottom: 7px;
+}
+.entry_meta {
+    overflow: hidden;
+    font-size: 13px;
+    line-height: 18px;
+    color: #b2b2b2;
+    margin-bottom: 10px;
+}
+p:last-of-type + [class*="button"]:last-child {
+    margin-top: 15px;
+}
+.button_grey {
+    color: #018bc8;
+    background: #f8f8f8;
+}
+.middle_btn {
+    padding: 8px 20px 9px;
+    font-size: 16px;
+}
+#content.list_of_entries li{
+    border-bottom: 1px solid #adadad;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+.news-action a:hover {
+    color: #ffffff !important;
+    background: #199788 !important;
+}
+.news__title a{
+    color: #000;
+}
+/* Sidebar */
+ul{
+    margin: 0;
+    padding: 0;
+}
+.theme_menu > li {
+    position: relative;
+}
+.theme_menu > li a{
+    color: #000;
+}
+.theme_menu > li:hover a{
+    background: #199788;
+    color: #ffffff;
+}
+.theme_menu > li:first-child > a {
+    border-radius: 3px 3px 0 0;
+}
+.theme_menu > li > a {
+    position: relative;
+    display: block;
+    background: #fff;
+    border: 1px solid #eaeaea;
+    padding: 11px 40px 10px 19px;
+}
+a, button {
+    -webkit-transition: color .7s ease, border-color .7s ease, background-color .7s ease;
+    transition: color .7s ease, border-color .7s ease, background-color .7s ease;
+}

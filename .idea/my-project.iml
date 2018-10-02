@@ -12,6 +12,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/promises" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/psr7" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/monolog/monolog" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phalcon/ide-stubs" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpseclib/phpseclib" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/cache" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-message" />
@@ -19,17 +20,5 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
-      <library name="PHP" type="php">
-        <CLASSES>
-          <root url="file://D:/phalcon-devtools-master" />
-          <root url="file://D:/phalcon-devtools-master-ini" />
-        </CLASSES>
-        <SOURCES>
-          <root url="file://D:/phalcon-devtools-master" />
-          <root url="file://D:/phalcon-devtools-master-ini" />
-        </SOURCES>
-      </library>
-    </orderEntry>
   </component>
 </module>

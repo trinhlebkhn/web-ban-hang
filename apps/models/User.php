@@ -345,7 +345,7 @@ class User extends DbModel {
                     'email' => $data['email']
                 ],
             ]);
-            if (!empty($obj->toArray())) {
+            if (!empty($obj)) {
                 $user = $obj->toArray();
                 $security = provider('security');
                 $check_pass = md5($data['password']);

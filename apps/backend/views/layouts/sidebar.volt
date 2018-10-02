@@ -65,17 +65,39 @@
                     <span>Cấu hình trang chủ</span>
                 </a>
             </li>
-            <li>
-                <a href="/agency">
-                    <i class="fa fa-fw fa-cogs"></i> <span>Cấu hình</span>
-                    {#<span class="pull-right-container">#}
-                    {#<i class="fa fa-angle-left pull-right"></i>#}
-                    {#</span>#}
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-cogs" aria-hidden="true"></i> <span>Cấu hình</span>
+                    <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                         </span>
                 </a>
-                {#<ul class="treeview-menu">#}
-                {#<li><a href="pages/examples/invoice.html"><i class="fa fa-circle-o"></i>Blog</a>#}
-                {#</li>#}
-                {#</ul>#}
+                <ul class="treeview-menu">
+                    <li>
+                        <a href="/quan-tri/slider">
+                            <i class="fa fa-arrows" aria-hidden="true"></i>
+                            <span>Cấu hình slide</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/ket-cau">
+                            <i class="fa fa-cog" aria-hidden="true"></i>
+                            <span>Cấu hình banner quảng cáo</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/danh-gia">
+                            <i class="fa fa-line-chart" aria-hidden="true"></i>
+                            <span>Quản lý đánh giá</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/duong">
+                            <i class="fa fa-road" aria-hidden="true"></i>
+                            <span>Quản lý danh sách đường</span>
+                        </a>
+                    </li>
+                </ul>
             </li>
         </ul>
     </section>

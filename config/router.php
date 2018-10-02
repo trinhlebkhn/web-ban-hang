@@ -177,7 +177,18 @@ $router->add("/quan-tri/xoa-danh-muc-trang-chu", [
     'action' => 'delete',
 ]);
 
+$router->add("/quan-tri/slider", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'config',
+    'action' => 'slider',
+]);
+
 /* END BACKEND */
+
+
+
+
 
 
 /* START FRONTEND */

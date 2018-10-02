@@ -2,8 +2,6 @@
 <project version="4">
   <component name="PhpIncludePathManager">
     <include_path>
-      <path value="D:\phalcon-devtools-master" />
-      <path value="D:\phalcon-devtools-master-ini" />
       <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
       <path value="$PROJECT_DIR$/vendor/google/apiclient-services" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
@@ -18,6 +16,9 @@
       <path value="$PROJECT_DIR$/vendor/firebase/php-jwt" />
       <path value="$PROJECT_DIR$/vendor/psr/cache" />
       <path value="$PROJECT_DIR$/vendor/phpseclib/phpseclib" />
+      <path value="D:/Workspace/phalcon-devtools-master" />
+      <path value="D:/Workspace/phalcon-devtools-master-ini" />
+      <path value="$PROJECT_DIR$/vendor/phalcon/ide-stubs" />
     </include_path>
   </component>
 </project>

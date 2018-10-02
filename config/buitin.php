@@ -76,25 +76,25 @@ if (!function_exists('config')) {
 
 if (!function_exists('d')) {
     /**
-     * Dump function, replace var_dump() => for debug
+     * Dump the passed variables without end the script.
      *
-     * @param array $input
+     * @param  mixed
+     *
+     * @return void
      */
-    function d(...$input)
+    function d(...$ags)
     {
         $trace = debug_backtrace();
         $rootPath = dirname(dirname(__FILE__));
-        $file = str_replace($rootPath, '', $trace[0]['file']);
-        $line = $trace[0]['line'];
+        $index = ($trace[1]['function'] == 'd') ? 1 : 0;
+        $file = str_replace($rootPath, '', $trace[$index]['file']);
+        $line = $trace[$index]['line'];
         echo $file . ' ' . $line;
 
-        $args = func_get_args();
-        if ($args) {
-            echo "<br/>\n";
-        }
-        header('Content-type: text/html; charset=UTF-8');
-        call_user_func_array('var_dump', $args);
-        die;
+        array_map(function ($x) {
+            $string = (new Phalcon\Debug\Dump(null, true))->variable($x);
+            echo(PHP_SAPI == 'cli' ? strip_tags($string) . PHP_EOL : $string); die;
+        }, func_get_args());
     }
 }
 
