@@ -184,6 +184,20 @@ $router->add("/quan-tri/slider", [
     'action' => 'slider',
 ]);
 
+$router->add("/quan-tri/chinh-sua-slider", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'config',
+    'action' => 'slider',
+]);
+
+$router->add("/quan-tri/xoa-slider", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'config',
+    'action' => 'delete_slider',
+]);
+
 /* END BACKEND */
 
 
