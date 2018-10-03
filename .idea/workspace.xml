@@ -2,22 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7282ae4a-8215-4ede-8761-43fe8af4a01f" name="Default" comment="update">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/my-project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/my-project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/backend/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/config/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/backend/controllers/ConfigController.php" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/controllers/ConfigController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/backend/views/config/slider.volt" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/views/config/slider.volt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/backend/views/index.volt" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/views/index.volt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/backend/views/layouts/sidebar.volt" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/views/layouts/sidebar.volt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/frontend/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/config/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/models/Config.php" beforeDir="false" afterPath="$PROJECT_DIR$/apps/models/Config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/apps/models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/buitin.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/buitin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/router.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/router.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets_backend/assets/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets_backend/assets/css/custom.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -38,7 +24,7 @@
         <entry file="file://$PROJECT_DIR$/apps/backend/controllers/ConfigController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="441">
-              <caret line="26" column="21" lean-forward="true" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+              <caret line="26" column="21" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -46,8 +32,8 @@
       <file leaf-file-name="slider.volt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/backend/views/config/slider.volt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+            <state relative-caret-position="126">
+              <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -56,7 +42,25 @@
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="42">
-              <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+              <caret line="2" column="12" lean-forward="true" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="custom.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/assets_backend/assets/js/custom.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="d__datn_code_web-ban-hang_apps_backend_views_config_slider.volt.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/backend/cache/d__datn_code_web-ban-hang_apps_backend_views_config_slider.volt.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4074">
+              <caret line="194" column="46" selection-start-line="194" selection-start-column="46" selection-end-line="194" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -64,7 +68,7 @@
       <file leaf-file-name="custom.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assets_backend/assets/css/custom.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
+            <state relative-caret-position="8778">
               <caret line="418" column="17" selection-start-line="418" selection-start-column="17" selection-end-line="418" selection-end-column="17" />
             </state>
           </provider>
@@ -73,7 +77,7 @@
       <file leaf-file-name="Category.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/models/Category.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7147">
+            <state relative-caret-position="7476">
               <caret line="364" column="28" selection-start-line="364" selection-start-column="22" selection-end-line="364" selection-end-column="28" />
               <folding>
                 <element signature="e#90#112#0#PHP" expanded="true" />
@@ -141,8 +145,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/assets_backend/assets/js/custom.js" />
-        <option value="$PROJECT_DIR$/public/assets_backend/assets/js/uploadImage.js" />
         <option value="$PROJECT_DIR$/public/ckeditor/skins/moono-lisa/editor.css" />
         <option value="$PROJECT_DIR$/apps/backend/controllers/ProductController.php" />
         <option value="$PROJECT_DIR$/apps/backend/views/product/list_img.volt" />
@@ -191,6 +193,8 @@
         <option value="$PROJECT_DIR$/public/assets_backend/assets/css/custom.css" />
         <option value="$PROJECT_DIR$/apps/backend/controllers/ConfigController.php" />
         <option value="$PROJECT_DIR$/apps/backend/views/config/slider.volt" />
+        <option value="$PROJECT_DIR$/public/assets_backend/assets/js/custom.js" />
+        <option value="$PROJECT_DIR$/apps/backend/cache/d__datn_code_web-ban-hang_apps_backend_views_config_slider.volt.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
@@ -277,7 +281,55 @@
               <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
               <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="cache" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="assets_backend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="assets_backend" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="assets_backend" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="assets_backend" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
@@ -299,18 +351,18 @@
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\DATN\Code\web-ban-hang\apps\backend\views\layouts\widget\product" />
+      <recent name="D:\DATN\Code\web-ban-hang\public\assets_backend\source" />
+      <recent name="D:\Workspace\my-project" />
+      <recent name="D:\Workspace\my-project\app\frontend" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\DATN\Code\web-ban-hang\apps\frontend\views\layouts" />
       <recent name="D:\DATN\Code\web-ban-hang\public\assets_backend\upload" />
       <recent name="D:\DATN\Code\web-ban-hang\apps\backend\views\category" />
       <recent name="D:\DATN\Code\web-ban-hang\apps\backend\views\layouts" />
       <recent name="D:\DATN\Code\web-ban-hang\public\assets_backend\source\bower_components\bootstrap\dist\css" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\DATN\Code\web-ban-hang\apps\backend\views\layouts\widget\product" />
-      <recent name="D:\DATN\Code\web-ban-hang\public\assets_backend\source" />
-      <recent name="D:\Workspace\my-project" />
-      <recent name="D:\Workspace\my-project\app\frontend" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -428,7 +480,8 @@
       <workItem from="1537597081476" duration="1230000" />
       <workItem from="1538057912138" duration="8587000" />
       <workItem from="1538195079456" duration="286000" />
-      <workItem from="1538493285842" duration="7768000" />
+      <workItem from="1538493285842" duration="8465000" />
+      <workItem from="1538579823091" duration="602000" />
     </task>
     <task id="LOCAL-00001" summary="updat">
       <created>1523011072130</created>
@@ -539,7 +592,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="275975000" />
+    <option name="totallyTimeSpent" value="277274000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -551,10 +604,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49386504" visible="true" weight="0.2685325" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49386504" visible="true" weight="0.27231467" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32894737" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5030257" side_tool="true" weight="0.3256579" />
@@ -802,13 +855,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets_backend/assets/js/custom.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/backend/views/index.volt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
@@ -898,7 +944,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/models/Category.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7147">
+        <state relative-caret-position="7476">
           <caret line="364" column="28" selection-start-line="364" selection-start-column="22" selection-end-line="364" selection-end-column="28" />
           <folding>
             <element signature="e#90#112#0#PHP" expanded="true" />
@@ -909,38 +955,16 @@
     <entry file="file://$PROJECT_DIR$/apps/backend/cache/d__datn_code_web-ban-hang_apps_backend_views_layouts_sidebar.volt.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/backend/cache/d__datn_code_web-ban-hang_apps_backend_views_config_slider.volt.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="192" selection-start-line="192" selection-end-line="192" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/models/Config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="651">
           <caret line="73" column="23" selection-start-line="73" selection-start-column="23" selection-end-line="73" selection-end-column="23" />
-          <folding>
-            <element signature="e#138#267#0#PHP" />
-            <element signature="e#289#384#0#PHP" />
-            <element signature="e#415#445#0#PHP" />
-            <element signature="n#getId#0;n#Config#0;n#!!top" />
-            <element signature="e#517#550#0#PHP" />
-            <element signature="n#setId#0;n#Config#0;n#!!top" />
-            <element signature="e#624#657#0#PHP" />
-            <element signature="n#getDataConfig#0;n#Config#0;n#!!top" />
-            <element signature="e#746#791#0#PHP" />
-            <element signature="n#setDataConfig#0;n#Config#0;n#!!top" />
-            <element signature="e#904#991#0#PHP" />
-            <element signature="n#getSource#0;n#Config#0;n#!!top" />
-            <element signature="e#1965#2072#0#PHP" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets_backend/assets/css/custom.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
+        <state relative-caret-position="8778">
           <caret line="418" column="17" selection-start-line="418" selection-start-column="17" selection-end-line="418" selection-end-column="17" />
         </state>
       </provider>
@@ -948,21 +972,35 @@
     <entry file="file://$PROJECT_DIR$/apps/backend/controllers/ConfigController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
-          <caret line="26" column="21" lean-forward="true" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+          <caret line="26" column="21" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/backend/views/config/slider.volt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+        <state relative-caret-position="126">
+          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets_backend/assets/js/custom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/backend/cache/d__datn_code_web-ban-hang_apps_backend_views_config_slider.volt.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4074">
+          <caret line="194" column="46" selection-start-line="194" selection-start-column="46" selection-end-line="194" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
-          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+          <caret line="2" column="12" lean-forward="true" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
         </state>
       </provider>
     </entry>
