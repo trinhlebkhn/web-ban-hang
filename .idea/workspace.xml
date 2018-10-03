@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7282ae4a-8215-4ede-8761-43fe8af4a01f" name="Default" comment="update">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -52,15 +51,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="252">
               <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="d__datn_code_web-ban-hang_apps_backend_views_config_slider.volt.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/backend/cache/d__datn_code_web-ban-hang_apps_backend_views_config_slider.volt.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4074">
-              <caret line="194" column="46" selection-start-line="194" selection-start-column="46" selection-end-line="194" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -282,13 +272,6 @@
               <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
               <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="cache" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -296,40 +279,6 @@
               <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="assets_backend" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="assets_backend" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="assets_backend" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="assets_backend" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
@@ -481,7 +430,7 @@
       <workItem from="1538057912138" duration="8587000" />
       <workItem from="1538195079456" duration="286000" />
       <workItem from="1538493285842" duration="8465000" />
-      <workItem from="1538579823091" duration="602000" />
+      <workItem from="1538579823091" duration="750000" />
     </task>
     <task id="LOCAL-00001" summary="updat">
       <created>1523011072130</created>
@@ -592,7 +541,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="277274000" />
+    <option name="totallyTimeSpent" value="277422000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -604,7 +553,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49386504" visible="true" weight="0.27231467" />
