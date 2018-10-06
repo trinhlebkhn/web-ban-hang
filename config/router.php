@@ -170,39 +170,82 @@ $router->add("/quan-tri/cau-hinh-trang-chu", [
     'action' => 'index',
 ]);
 
-$router->add("/quan-tri/xoa-danh-muc-trang-chu", [
-    'module' => 'backend',
-    'namespace' => 'Graduate\Backend\Controllers',
-    'controller' => 'confighome',
-    'action' => 'delete',
-]);
-
+/* slider*/
 $router->add("/quan-tri/slider", [
     'module' => 'backend',
     'namespace' => 'Graduate\Backend\Controllers',
     'controller' => 'config',
-    'action' => 'slider',
+    'action' => 'box_images',
+    'type' => '1'
 ]);
 
 $router->add("/quan-tri/chinh-sua-slider", [
     'module' => 'backend',
     'namespace' => 'Graduate\Backend\Controllers',
     'controller' => 'config',
-    'action' => 'slider',
+    'action' => 'box_images',
+    'type' => '1'
 ]);
 
 $router->add("/quan-tri/xoa-slider", [
     'module' => 'backend',
     'namespace' => 'Graduate\Backend\Controllers',
     'controller' => 'config',
-    'action' => 'delete_slider',
+    'action' => 'delete_image',
+    'type' => '1'
+]);
+
+/* Banner quảng cáo */
+$router->add("/quan-tri/banner-quang-cao", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'config',
+    'action' => 'box_images',
+    'type' => '2'
+]);
+
+$router->add("/quan-tri/chinh-sua-banner", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'config',
+    'action' => 'box_images',
+    'type' => '2'
+]);
+
+$router->add("/quan-tri/xoa-banner", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'config',
+    'action' => 'delete_image',
+    'type' => '2'
+]);
+
+/* Khối thương hiệu */
+$router->add("/quan-tri/khoi-thuong-hieu", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'config',
+    'action' => 'box_images',
+    'type' => '3'
+]);
+
+$router->add("/quan-tri/chinh-sua-thuong-hieu", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'config',
+    'action' => 'box_images',
+    'type' => '3'
+]);
+
+$router->add("/quan-tri/xoa-thuong-hieu", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'config',
+    'action' => 'delete_image',
+    'type' => '3'
 ]);
 
 /* END BACKEND */
-
-
-
-
 
 
 /* START FRONTEND */

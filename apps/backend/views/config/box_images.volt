@@ -9,7 +9,16 @@
                 <div class="box">
                     <div class="box-header">
                         <div class="row title">
-                            <h3 class="col-md-12 box-title">Cấu hình slider</h3>
+                            <h3 class="col-md-12 box-title">
+                                Cấu hình
+                                {% if type == 1 %}
+                                    slider
+                                {% elseif type == 2 %}
+                                    khối quảng cáo
+                                {% elseif type == 3 %}
+                                    khối thương hiệu
+                                {% endif %}
+                            </h3>
                         </div>
                         <form action="" method="post">
                             <div class="row add-slider">
@@ -35,11 +44,13 @@
                                 <div class="col-md-9">
                                     <div class="form-gorup">
                                         <label>Đường dẫn</label>
-                                        <input type="text" class="form-control" name="data[link]" value="{{ data['link'] }}"
+                                        <input type="text" class="form-control" name="data[link]"
+                                               value="{{ data['link'] }}"
                                                placeholder="Đường dẫn">
                                     </div>
                                     <div class="form-group btn-add-slider">
-                                        <button type="submit" class="btn btn-primary pointer">{{ data['id'] is empty ? 'Thêm slider' : 'Chỉnh sửa' }}
+                                        <button type="submit"
+                                                class="btn btn-primary pointer">{{ data['id'] is empty ? 'Thêm slider' : 'Chỉnh sửa' }}
                                         </button>
                                     </div>
                                 </div>
@@ -52,13 +63,13 @@
                             <thead>
                             <tr>
                                 <th style="width: 5%">#</th>
-                                <th>Slider</th>
+                                <th>Ảnh</th>
                                 <th>Link</th>
                                 <th>Thao tác</th>
                             </tr>
                             </thead>
                             <tbody class="list-cat-home-page">
-                            {% for index, item in listSliders %}
+                            {% for index, item in listImages %}
                                 <tr>
                                     <td>{{ index + 1 }}</td>
                                     <td width="20%">
@@ -68,8 +79,40 @@
                                     </td>
                                     <td>{{ item['link'] }}</td>
                                     <td>
-                                        <a href="/quan-tri/chinh-sua-slider?id={{ item['id'] }}"><span class="icon-manipulation pointer" id="edit-cat" title="Chỉnh sửa slider"><i class="fa fa-list"></i></span></a>
-                                        <a href="/quan-tri/xoa-slider?id={{ item['id'] }}"><span class="icon-manipulation pointer delete-item"  id="trash-cat" title="Xóa slider" ><i class="fa fa-trash"></i></span></a>
+                                        {% if type == 1 %}
+                                            <a href="/quan-tri/chinh-sua-slider?id={{ item['id'] }}">
+                                                <span class="icon-manipulation pointer" id="edit-cat"
+                                                      title="Chỉnh sửa slider">
+                                                    <i class="fa fa-list"></i>
+                                                </span>
+                                            </a>
+                                            <a href="/quan-tri/xoa-slider?id={{ item['id'] }}">
+                                                <span class="icon-manipulation pointer delete-item" id="trash-cat"
+                                                        title="Xóa slider"><i class="fa fa-trash"></i>
+                                                </span>
+                                            </a>
+                                        {% elseif type == 2 %}
+                                            <a href="/quan-tri/chinh-sua-banner?id={{ item['id'] }}">
+                                                <span class="icon-manipulation pointer" id="edit-cat"
+                                                      title="Chỉnh sửa slider"><i class="fa fa-list"></i></span>
+                                                </a>
+                                            <a href="/quan-tri/xoa-banner?id={{ item['id'] }}">
+                                                <span class="icon-manipulation pointer delete-item" id="trash-cat"
+                                                        title="Xóa slider"><i class="fa fa-trash"></i>
+                                                </span>
+                                            </a>
+                                        {% elseif type == 3 %}
+                                            <a href="/quan-tri/chinh-sua-thuong-hieu?id={{ item['id'] }}">
+                                                <span class="icon-manipulation pointer" id="edit-cat"
+                                                      title="Chỉnh sửa slider"><i class="fa fa-list"></i></span>
+                                            </a>
+                                            <a href="/quan-tri/xoa-thuong-hieu?id={{ item['id'] }}">
+                                                <span class="icon-manipulation pointer delete-item" id="trash-cat"
+                                                      title="Xóa slider"><i class="fa fa-trash"></i>
+                                                </span>
+                                            </a>
+                                        {% endif %}
+
                                     </td>
                                 </tr>
                             {% endfor %}

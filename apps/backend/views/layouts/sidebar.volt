@@ -80,21 +80,21 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/ket-cau">
+                        <a href="/quan-tri/thong-tin-trang-chu">
                             <i class="fa fa-cog" aria-hidden="true"></i>
+                            <span>Thông tin website</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/quan-tri/banner-quang-cao">
+                            <i class="fa fa-line-chart" aria-hidden="true"></i>
                             <span>Cấu hình banner quảng cáo</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/danh-gia">
-                            <i class="fa fa-line-chart" aria-hidden="true"></i>
-                            <span>Quản lý đánh giá</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/duong">
+                        <a href="/quan-tri/khoi-thuong-hieu">
                             <i class="fa fa-road" aria-hidden="true"></i>
-                            <span>Quản lý danh sách đường</span>
+                            <span>Cấu hình khối thương hiệu</span>
                         </a>
                     </li>
                 </ul>

@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7282ae4a-8215-4ede-8761-43fe8af4a01f" name="Default" comment="update">
+      <change afterPath="$PROJECT_DIR$/apps/backend/views/config/info.volt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/backend/controllers/ConfigController.php" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/controllers/ConfigController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/backend/views/config/slider.volt" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/views/config/slider.volt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/backend/views/config/slider.volt" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/views/config/box_images.volt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/backend/views/layouts/sidebar.volt" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/views/layouts/sidebar.volt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/models/Config.php" beforeDir="false" afterPath="$PROJECT_DIR$/apps/models/Config.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/router.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/router.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/assets/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets_backend/assets/css/custom.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/assets/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets_backend/assets/js/custom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/assets/js/uploadImage.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets_backend/assets/js/uploadImage.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,29 +28,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ConfigController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ConfigController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/backend/controllers/ConfigController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+            <state relative-caret-position="126">
+              <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+              <folding>
+                <element signature="e#2835#2917#0#PHP" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="router.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="router.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/router.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="197" column="32" lean-forward="true" selection-start-line="197" selection-start-column="32" selection-end-line="197" selection-end-column="32" />
+            <state relative-caret-position="232">
+              <caret line="234" column="29" lean-forward="true" selection-start-line="239" selection-start-column="24" selection-end-line="239" selection-end-column="39" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="slider.volt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/backend/views/config/slider.volt">
+      <file leaf-file-name="box_images.volt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/backend/views/config/box_images.volt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="71" column="69" selection-start-line="71" selection-start-column="59" selection-end-line="71" selection-end-column="69" />
+            <state relative-caret-position="169">
+              <caret line="65" column="39" selection-start-line="65" selection-start-column="39" selection-end-line="65" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="indext.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/assets_frontend/indext.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -61,12 +79,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>.cke_top{border-bottom:1px solid #d1d1d1;background:#f8f8f8;padding:6px 8px 2px;white-space:normal}</find>
-      <find>.cke_top</find>
-      <find>control-sidebar control-sidebar-dark</find>
-      <find>top-bar</find>
-      <find>drawRecursiveMenuAdmin</find>
-      <find>drawRecursiveMenu</find>
       <find>{% include 'layouts/paging.volt' %}</find>
       <find>MENS CLOTHING</find>
       <find>container element-top-50 element-bottom-50</find>
@@ -91,6 +103,12 @@
       <find>danh-muc</find>
       <find>Thêm</find>
       <find>setVars</find>
+      <find>uploadImage</find>
+      <find>blog-avatar</find>
+      <find>blog_avatar</find>
+      <find>img-avatar</find>
+      <find>$url</find>
+      <find>cấu hình</find>
     </findStrings>
     <replaceStrings>
       <replace>public</replace>
@@ -108,9 +126,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/ckeditor/skins/moono-lisa/editor.css" />
-        <option value="$PROJECT_DIR$/apps/backend/controllers/ProductController.php" />
-        <option value="$PROJECT_DIR$/apps/backend/views/product/list_img.volt" />
         <option value="$PROJECT_DIR$/apps/backend/views/layouts/widget/product/widget-add-product.volt" />
         <option value="$PROJECT_DIR$/apps/backend/views/bill/detail.volt" />
         <option value="$PROJECT_DIR$/apps/backend/controllers/BillController.php" />
@@ -149,16 +164,19 @@
         <option value="$PROJECT_DIR$/apps/models/Category.php" />
         <option value="$PROJECT_DIR$/apps/backend/views/index.volt" />
         <option value="$PROJECT_DIR$/apps/backend/views/menu/add_menu.volt" />
-        <option value="$PROJECT_DIR$/apps/backend/views/layouts/sidebar.volt" />
         <option value="$PROJECT_DIR$/apps/backend/controllers/CategoryController.php" />
-        <option value="$PROJECT_DIR$/apps/models/Config.php" />
-        <option value="$PROJECT_DIR$/public/assets_backend/assets/css/custom.css" />
-        <option value="$PROJECT_DIR$/public/assets_backend/assets/js/custom.js" />
         <option value="$PROJECT_DIR$/apps/backend/cache/d__datn_code_web-ban-hang_apps_backend_views_config_slider.volt.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/public/assets_backend/assets/js/custom.js" />
+        <option value="$PROJECT_DIR$/public/assets_backend/assets/js/uploadImage.js" />
+        <option value="$PROJECT_DIR$/public/assets_backend/assets/css/custom.css" />
+        <option value="$PROJECT_DIR$/apps/models/Config.php" />
+        <option value="$PROJECT_DIR$/apps/backend/views/config/info.volt" />
         <option value="$PROJECT_DIR$/apps/backend/views/config/slider.volt" />
-        <option value="$PROJECT_DIR$/config/router.php" />
         <option value="$PROJECT_DIR$/apps/backend/controllers/ConfigController.php" />
+        <option value="$PROJECT_DIR$/apps/backend/views/layouts/sidebar.volt" />
+        <option value="$PROJECT_DIR$/apps/backend/views/config/box_images.volt" />
+        <option value="$PROJECT_DIR$/config/router.php" />
       </list>
     </option>
   </component>
@@ -245,21 +263,7 @@
               <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
               <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="cache" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
@@ -267,6 +271,7 @@
               <item name="apps" type="462c0819:PsiDirectoryNode" />
               <item name="backend" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="category" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
@@ -292,16 +297,6 @@
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="layouts" type="462c0819:PsiDirectoryNode" />
               <item name="widget" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-              <item name="widget" type="462c0819:PsiDirectoryNode" />
-              <item name="product" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
@@ -313,6 +308,17 @@
               <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
               <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="assets_frontend" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
@@ -328,7 +334,7 @@
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="ser&#9;FILE&#9;file://D:/DATN/Code/web-ban-hang/config/services.php&#10;introspection&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/Workspace/RIKKEI/trinh_frontend" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
@@ -464,7 +470,9 @@
       <workItem from="1538057912138" duration="8587000" />
       <workItem from="1538195079456" duration="286000" />
       <workItem from="1538493285842" duration="8465000" />
-      <workItem from="1538579823091" duration="9290000" />
+      <workItem from="1538579823091" duration="9482000" />
+      <workItem from="1538620209361" duration="2583000" />
+      <workItem from="1538788790916" duration="16843000" />
     </task>
     <task id="LOCAL-00001" summary="updat">
       <created>1523011072130</created>
@@ -575,7 +583,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="285962000" />
+    <option name="totallyTimeSpent" value="305580000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -588,15 +596,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32894737" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5030257" side_tool="true" weight="0.3256579" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50075644" side_tool="true" weight="0.39448053" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="11" weight="0.39448053" />
+      <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.49924356" weight="0.39448053" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4969743" weight="0.32467532" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49386504" visible="true" weight="0.27231467" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49386504" visible="true" weight="0.2806354" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32894737" />
@@ -661,34 +668,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="9" />
+      <option name="time" value="10" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apps/frontend/controllers/AuthController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="819">
-          <caret line="44" column="9" selection-start-line="26" selection-start-column="8" selection-end-line="44" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/views/auth/register.volt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2352">
-          <caret line="112" column="95" selection-start-line="112" selection-start-column="95" selection-end-line="112" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Workspace/phalcon-devtools-master-ini/phalcon-devtools-master-ini/ide/stubs/Phalcon/http/Response.php" />
-    <entry file="file://D:/Workspace/phalcon-devtools-master-ini/phalcon-devtools-master-ini/ide/stubs/Phalcon/http/ResponseInterface.php" />
-    <entry file="file://D:/Workspace/phalcon-devtools-master-ini/phalcon-devtools-master-ini/ide/stubs/Phalcon/di/Injectable.php" />
-    <entry file="file://$PROJECT_DIR$/public/assets_backend/assets/js/uploadImage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="46" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/controllers/ApiClientController.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -828,20 +811,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/backend/views/layouts/sidebar.volt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="79" column="28" lean-forward="true" selection-start-line="79" selection-start-column="28" selection-end-line="79" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets_frontend/indext.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/backend/controllers/AuthController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
@@ -898,50 +867,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7476">
           <caret line="364" column="28" selection-start-line="364" selection-start-column="22" selection-end-line="364" selection-end-column="28" />
-          <folding>
-            <element signature="e#90#112#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/backend/cache/d__datn_code_web-ban-hang_apps_backend_views_layouts_sidebar.volt.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/models/Config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="651">
-          <caret line="73" column="23" selection-start-line="73" selection-start-column="23" selection-end-line="73" selection-end-column="23" />
-          <folding>
-            <element signature="e#138#267#0#PHP" />
-            <element signature="e#289#384#0#PHP" />
-            <element signature="e#415#445#0#PHP" />
-            <element signature="n#getId#0;n#Config#0;n#!!top" />
-            <element signature="e#517#550#0#PHP" />
-            <element signature="n#setId#0;n#Config#0;n#!!top" />
-            <element signature="e#624#657#0#PHP" />
-            <element signature="n#getDataConfig#0;n#Config#0;n#!!top" />
-            <element signature="e#746#791#0#PHP" />
-            <element signature="n#setDataConfig#0;n#Config#0;n#!!top" />
-            <element signature="e#904#991#0#PHP" />
-            <element signature="n#getSource#0;n#Config#0;n#!!top" />
-            <element signature="e#1965#2072#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets_backend/assets/css/custom.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8778">
-          <caret line="418" column="17" selection-start-line="418" selection-start-column="17" selection-end-line="418" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets_backend/assets/js/custom.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/backend/cache/d__datn_code_web-ban-hang_apps_backend_views_config_slider.volt.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -985,24 +915,254 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/backend/views/config/slider.volt">
+    <entry file="file://$PROJECT_DIR$/apps/backend/views/layouts/widget/categoy/widget-add-product.volt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="71" column="69" selection-start-line="71" selection-start-column="59" selection-end-line="71" selection-end-column="69" />
+        <state relative-caret-position="-958" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/backend/views/category/update.volt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="428">
+          <caret line="82" column="26" lean-forward="true" selection-start-line="79" selection-start-column="20" selection-end-line="82" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/router.php">
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/web-forms.rnc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="197" column="32" lean-forward="true" selection-start-line="197" selection-start-column="32" selection-end-line="197" selection-end-column="32" />
+        <state relative-caret-position="-13">
+          <caret line="4" column="53" selection-start-line="4" selection-start-column="53" selection-end-line="4" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets_backend/assets/js/custom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="238" column="1" lean-forward="true" selection-start-line="238" selection-start-column="1" selection-end-line="238" selection-end-column="1" />
+          <folding>
+            <element signature="e#30#335#0" />
+            <element signature="e#78#149#0" />
+            <element signature="e#202#330#0" />
+            <element signature="e#271#324#0" />
+            <element signature="n#!!block;n#check_discount#0" />
+            <element signature="e#388#446#0" />
+            <element signature="e#452#507#0" />
+            <element signature="n#!!block;n#addFormAdd#0" />
+            <element signature="n#!!block;n#updateMenuBlock#0" />
+            <element signature="e#799#929#0" />
+            <element signature="e#958#1005#0" />
+            <element signature="e#1036#1318#0" />
+            <element signature="e#1063#1235#0" />
+            <element signature="e#1249#1312#0" />
+            <element signature="n#!!block;n#closeMenu#0" />
+            <element signature="n#!!block;n#showListMenu#0" />
+            <element signature="e#1451#1590#0" />
+            <element signature="e#1619#1666#0" />
+            <element signature="e#1697#1981#0" />
+            <element signature="e#1724#1898#0" />
+            <element signature="e#1912#1975#0" />
+            <element signature="n#!!block;n#addMenu#0" />
+            <element signature="e#2043#2211#0" />
+            <element signature="e#2240#2287#0" />
+            <element signature="e#2318#2369#0" />
+            <element signature="n#!!block;n#checkTypeLinkMenu#0" />
+            <element signature="e#2477#2531#0" />
+            <element signature="e#2537#2594#0" />
+            <element signature="n#!!block;n#removeFormAdd#0" />
+            <element signature="n#!!block;n#ajaxAddMenu#0" />
+            <element signature="e#3115#3229#0" />
+            <element signature="e#3479#3609#0" />
+            <element signature="e#3638#3685#0" />
+            <element signature="e#3716#3984#0" />
+            <element signature="e#3782#3901#0" />
+            <element signature="e#3915#3978#0" />
+            <element signature="n#!!block;n#ajaxEditMenu#0" />
+            <element signature="e#4034#4164#0" />
+            <element signature="e#4193#4240#0" />
+            <element signature="e#4271#4322#0" />
+            <element signature="n#!!block;n#deleteMenu#0" />
+            <element signature="e#4489#5072#0" />
+            <element signature="e#4506#4688#0" />
+            <element signature="e#4717#4772#0" />
+            <element signature="e#4803#5064#0" />
+            <element signature="e#4834#4965#0" />
+            <element signature="e#4983#5054#0" />
+            <element signature="e#5078#5107#0" />
+            <element signature="n#!!block;n#ajaxCatHomePage#0" />
+            <element signature="e#5151#5260#0" />
+            <element signature="e#5289#5336#0" />
+            <element signature="e#5367#5418#0" />
+            <element signature="n#!!block;n#ajaxCatHome#0" />
+            <element signature="e#5624#5695#0" />
+            <element signature="e#5799#5930#0" />
+            <element signature="e#5959#6006#0" />
+            <element signature="e#6037#6097#0" />
+            <element signature="n#!!block;n#editCatHome#0" />
+            <element signature="e#6175#6307#0" />
+            <element signature="e#6336#6383#0" />
+            <element signature="e#6414#6465#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets_backend/assets/js/uploadImage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="155" column="1" lean-forward="true" selection-start-line="155" selection-start-column="1" selection-end-line="155" selection-end-column="1" />
+          <folding>
+            <element signature="n#!!block;n#uploadImage#0" />
+            <element signature="n#!!block;n#uploadImgProduct#0" />
+            <element signature="e#1265#2136#0" />
+            <element signature="e#1327#1434#0" />
+            <element signature="e#1529#1790#0" />
+            <element signature="e#1819#1873#0" />
+            <element signature="e#1904#2102#0" />
+            <element signature="e#1934#2012#0" />
+            <element signature="e#2030#2092#0" />
+            <element signature="e#2146#2215#0" />
+            <element signature="n#!!block;n#removeImgProduct#0" />
+            <element signature="n#!!block;n#check_image#0" />
+            <element signature="n#!!block;n#get_check_message#0" />
+            <element signature="n#!!block;n#snackbar#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets_backend/assets/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="243" column="1" lean-forward="true" selection-start-line="243" selection-start-column="1" selection-end-line="243" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/models/Config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1">
+          <caret line="32" column="15" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="15" />
+          <folding>
+            <element signature="e#138#267#0#PHP" />
+            <element signature="e#289#383#0#PHP" />
+            <element signature="e#415#510#0#PHP" />
+            <element signature="e#536#631#0#PHP" />
+            <element signature="e#658#753#0#PHP" />
+            <element signature="e#1026#1121#0#PHP" />
+            <element signature="e#1149#1244#0#PHP" />
+            <element signature="e#1270#1365#0#PHP" />
+            <element signature="e#1396#1491#0#PHP" />
+            <element signature="e#1528#1623#0#PHP" />
+            <element signature="e#1651#1746#0#PHP" />
+            <element signature="e#1780#1875#0#PHP" />
+            <element signature="e#1392#1422#0#PHP" />
+            <element signature="n#getId#0;n#Config#0;n#!!top" />
+            <element signature="e#1494#1527#0#PHP" />
+            <element signature="n#setId#0;n#Config#0;n#!!top" />
+            <element signature="e#1601#1634#0#PHP" />
+            <element signature="n#getWebsiteName#0;n#Config#0;n#!!top" />
+            <element signature="e#1725#1771#0#PHP" />
+            <element signature="n#setWebsiteName#0;n#Config#0;n#!!top" />
+            <element signature="e#1884#1917#0#PHP" />
+            <element signature="n#getAvatar#0;n#Config#0;n#!!top" />
+            <element signature="e#1997#2037#0#PHP" />
+            <element signature="n#setAvatar#0;n#Config#0;n#!!top" />
+            <element signature="e#2127#2160#0#PHP" />
+            <element signature="n#getFavicon#0;n#Config#0;n#!!top" />
+            <element signature="e#2242#2283#0#PHP" />
+            <element signature="n#setFavicon#0;n#Config#0;n#!!top" />
+            <element signature="e#2377#2410#0#PHP" />
+            <element signature="n#getSliders#0;n#Config#0;n#!!top" />
+            <element signature="e#2492#2533#0#PHP" />
+            <element signature="n#setSliders#0;n#Config#0;n#!!top" />
+            <element signature="e#2627#2660#0#PHP" />
+            <element signature="n#getSeoKey#0;n#Config#0;n#!!top" />
+            <element signature="e#2741#2782#0#PHP" />
+            <element signature="n#setSeoKey#0;n#Config#0;n#!!top" />
+            <element signature="e#2875#2908#0#PHP" />
+            <element signature="n#getSeoTitle#0;n#Config#0;n#!!top" />
+            <element signature="e#2993#3036#0#PHP" />
+            <element signature="n#setSeoTitle#0;n#Config#0;n#!!top" />
+            <element signature="e#3137#3170#0#PHP" />
+            <element signature="n#getAdvances#0;n#Config#0;n#!!top" />
+            <element signature="e#3254#3296#0#PHP" />
+            <element signature="n#setAdvances#0;n#Config#0;n#!!top" />
+            <element signature="e#3394#3427#0#PHP" />
+            <element signature="n#getBranch#0;n#Config#0;n#!!top" />
+            <element signature="e#3507#3547#0#PHP" />
+            <element signature="n#setBranch#0;n#Config#0;n#!!top" />
+            <element signature="e#4152#4185#0#PHP" />
+            <element signature="n#getFacebookLink#0;n#Config#0;n#!!top" />
+            <element signature="e#4278#4325#0#PHP" />
+            <element signature="n#setFacebookLink#0;n#Config#0;n#!!top" />
+            <element signature="e#4442#4475#0#PHP" />
+            <element signature="n#getGoogleLink#0;n#Config#0;n#!!top" />
+            <element signature="e#4564#4609#0#PHP" />
+            <element signature="n#setGoogleLink#0;n#Config#0;n#!!top" />
+            <element signature="e#4718#4751#0#PHP" />
+            <element signature="n#getTwitterLink#0;n#Config#0;n#!!top" />
+            <element signature="e#4842#4888#0#PHP" />
+            <element signature="n#setTwitterLink#0;n#Config#0;n#!!top" />
+            <element signature="e#5001#5034#0#PHP" />
+            <element signature="n#getLinkedinLink#0;n#Config#0;n#!!top" />
+            <element signature="e#5127#5174#0#PHP" />
+            <element signature="n#setLinkedinLink#0;n#Config#0;n#!!top" />
+            <element signature="e#5291#5324#0#PHP" />
+            <element signature="n#getYoutubeLink#0;n#Config#0;n#!!top" />
+            <element signature="e#5415#5461#0#PHP" />
+            <element signature="n#setYoutubeLink#0;n#Config#0;n#!!top" />
+            <element signature="e#3889#3976#0#PHP" />
+            <element signature="n#getSource#0;n#Config#0;n#!!top" />
+            <element signature="n#getConfig#0;n#Config#0;n#!!top" />
+            <element signature="e#4502#4965#0#PHP" />
+            <element signature="e#4569#4843#0#PHP" />
+            <element signature="e#4713#4843#0#PHP" />
+            <element signature="e#4858#4965#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/backend/views/layouts/data-filter.volt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/backend/views/config/info.volt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="81" selection-start-line="12" selection-start-column="74" selection-end-line="12" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/backend/views/layouts/sidebar.volt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="94" column="59" selection-start-line="94" selection-start-column="43" selection-end-line="94" selection-end-column="59" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/backend/controllers/ConfigController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+        <state relative-caret-position="126">
+          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+          <folding>
+            <element signature="e#2835#2917#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/backend/views/config/box_images.volt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="65" column="39" selection-start-line="65" selection-start-column="39" selection-end-line="65" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets_frontend/indext.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/router.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="234" column="29" lean-forward="true" selection-start-line="239" selection-start-column="24" selection-end-line="239" selection-end-column="39" />
         </state>
       </provider>
     </entry>

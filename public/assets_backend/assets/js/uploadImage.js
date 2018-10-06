@@ -72,6 +72,44 @@ function uploadImgProduct(input, image, product_id) {
     }
 }
 
+function uploadFavicon(input, image) {
+    if (image != undefined) {
+        var valid = check_image(image);
+        if (!valid) {
+            snackbar(2, get_check_message());
+            input.value = '';
+            return;
+        }
+        var formData = new FormData();
+        formData.append('file', image);
+        $.ajax({
+            url: '/backend/api_client/uploadImage',
+            method: 'post',
+            cache: false,
+            contentType: false,
+            processData: false,
+            dataType: 'json',
+            data: formData,
+        }).fail(function (ui, status) {
+            snackbar(2, 'Có lỗi xảy ra!');
+        }).done(function (data, status) {
+            if (data.status) {
+                $('div.blog-favicon').addClass('hidden');
+                $('img#favicon_img').attr('src', data.data);
+                $('input#src_favicon').val(data.data);
+                $('div.img-favicon').removeClass('hidden');
+            }
+            else {
+                snackbar(2, 'Có lỗi xảy ra!');
+            }
+        });
+        input.value = '';
+    }
+    else {
+        snackbar(2, 'Ảnh không tồn tại! Vui lòng chọn lại!');
+    }
+}
+
 function removeImgProduct(index) {
     $.ajax({
         url: '/backend/api_client/removeImgProduct',
@@ -116,6 +154,13 @@ function removeImage() {
     $('div.img-avatar').addClass('hidden');
     $('div.blog-avatar').removeClass('hidden');
 }
+
+function removeFavicon() {
+    $('input#src_favicon').value = '';
+    $('div.img-favicon').addClass('hidden');
+    $('div.blog-favicon').removeClass('hidden');
+}
+
 /* KẾT THÚC UPLOAD ẢNH */
 // type = 1 là success
 // type = 2 là error

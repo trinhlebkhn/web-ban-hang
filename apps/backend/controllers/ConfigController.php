@@ -11,30 +11,44 @@ namespace Graduate\Backend\Controllers;
 
 class ConfigController extends ControllerBase
 {
-    public function sliderAction()
+    public function box_imagesAction($type)
     {
+        $query = $this->request->getQuery();
         $id = $this->request->get('id');
         $configObj = new \Config();
         $rsGetData = $configObj->getConfig(1);
-        $configData = json_decode($rsGetData->data['data_config']);
-        $configData->slider = (array)  $configData->slider;
-        foreach ($configData->slider as &$value) {
+        /*
+            type = 1 => Quản lý slider
+            type = 2 => Quản lý advance
+            type = 3 => Quản lý branch
+         */
+        $field = '';
+        if($type == 1) {
+            $field = 'sliders';
+        } else if($type == 2) {
+            $field = 'advances';
+        } else if($type == 3) {
+            $field = 'branch';
+        }
+
+        $listImgData = json_decode($rsGetData->data[$field]);
+        $listImgData = (array)$listImgData;
+        foreach ($listImgData as &$value) {
             $value = (array)$value;
             if (!empty($id) && $value['id'] == $id) {
                 $this->view->data = $value;
-//                d($this->view->data);
             }
         }
         if ($this->request->isPost()) {
             $data_post = $this->request->get('data');
-
-            if(empty($id)) {  // create
-                if (empty($configData->slider)) $configData->slider = [];
-                $count_slider = count($configData->slider);
-                $data_post['id'] = $configData->slider[$count_slider]['id'] + 1;
-                array_push($configData->slider, $data_post);
+            if (empty($id)) {  // create
+                $listKey = array_keys($listImgData);
+                $countListKey = count($listKey);
+                $id = $listImgData[$listKey[$countListKey - 1]]['id'] ? $listImgData[$listKey[$countListKey - 1]]['id'] : 0;
+                $data_post['id'] = $id + 1;
+                array_push($listImgData, $data_post);
             } else {    // Update
-                foreach ($configData->slider as &$value) {
+                foreach ($listImgData as &$value) {
                     if ($value['id'] == $id) {
                         $data_post['id'] = $id;
                         $value = $data_post;
@@ -43,50 +57,84 @@ class ConfigController extends ControllerBase
                 }
             }
 
-            $data_create['slider'] = $configData->slider;
             $data = [
                 'id' => 1,
-                'data_config' => json_encode($data_create),
+                $field => json_encode($listImgData),
             ];
             $rs = $configObj->updateConfig($data);
             if ($rs->status) {
-                if(!empty($id)) $this->response->redirect(base_uri() . '/quan-tri/slider');
+                if (!empty($id)) $this->response->redirect(base_uri() . $query['_url']);
                 $this->flash->success($rs->message);
             } else {
                 $this->flash->error("Có lỗi xảy ra!");
             }
         }
         $this->view->setVars([
-            'listSliders' => $configData->slider,
+            'listImages' => $listImgData,
+            'type' => $type
         ]);
     }
 
-    public function delete_sliderAction(){
+    public function delete_imageAction($type)
+    {
         $id = $this->request->get('id');
 
         $configObj = new \Config();
         $rsGetData = $configObj->getConfig(1);
-        $configData = json_decode($rsGetData->data['data_config']);
-        $configData->slider = (array) $configData->slider;
-        foreach ($configData->slider as $key => $value) {
+        /*
+            type = 1 => Quản lý slider
+            type = 2 => Quản lý advance
+            type = 3 => Quản lý branch
+         */
+        $field = '';
+        if($type == 1) {
+            $field = 'sliders';
+        } else if($type == 2) {
+            $field = 'advances';
+        } else if($type == 3) {
+            $field = 'branch';
+        }
+        $listImgData = json_decode($rsGetData->data[$field]);
+        $listImgData = (array)$listImgData;
+        foreach ($listImgData as $key => $value) {
             if ($value->id == $id) {
-                unset($configData->slider[$key]);
+                unset($listImgData[$key]);
                 break;
             }
         }
-
-
-
         $data = [
             'id' => 1,
-            'data_config' => json_encode($configData),
+            $field => json_encode($listImgData),
         ];
         $rs = $configObj->updateConfig($data);
         if ($rs->status) {
-            $this->response->redirect(base_uri() . '/quan-tri/slider');
             $this->flash->success($rs->message);
         } else {
             $this->flash->error("Có lỗi xảy ra!");
         }
+        if($type == 1) $this->response->redirect(base_uri() . '/quan-tri/slider');
+        elseif ($type == 2) $this->response->redirect(base_uri() . '/quan-tri/khoi-quang-cao');
+        elseif ($type == 3) $this->response->redirect(base_uri() . '/quan-tri/khoi-thuong-hieu');
+    }
+
+    public function infoAction()
+    {
+        $configObj = new \Config();
+        $rs = $configObj->getConfig(1);
+        if ($this->request->isPost()) {
+            $data = $this->request->getPost('data');
+            $data['id'] = 1;
+//            d($data);
+            $rs = $configObj->updateConfig($data);
+            if ($rs->status) {
+                if (!empty($id)) $this->response->redirect(base_uri() . '/quan-tri/slider');
+                $this->flash->success($rs->message);
+            } else {
+                $this->flash->error("Có lỗi xảy ra!");
+            }
+        }
+        $this->view->setVars([
+            'data' => $rs->data
+        ]);
     }
 }
