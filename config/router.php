@@ -170,6 +170,14 @@ $router->add("/quan-tri/cau-hinh-trang-chu", [
     'action' => 'index',
 ]);
 
+/* Thông tin trang chủ */
+$router->add("/quan-tri/thong-tin-trang-chu", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'config',
+    'action' => 'info',
+]);
+
 /* slider*/
 $router->add("/quan-tri/slider", [
     'module' => 'backend',

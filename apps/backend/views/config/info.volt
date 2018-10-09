@@ -28,7 +28,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="row form-group bd-bt-dashed pd-bt-10">
                                     <div class="col-md-3">
                                         <label>Avatar</label>
@@ -75,6 +74,39 @@
                                                onchange="uploadFavicon(favicon,favicon.files[0])">
                                         <input class="hidden" name="data[favicon]" value="{{ data['favicon'] }}"
                                                id="src_favicon" type="text">
+                                    </div>
+                                </div>
+                                <div class="bd-bt-dashed pd-bt-10 box-seo">
+                                    <div class="row form-group">
+                                        <div class="col-md-3">
+                                            <label>Chọn khối menu chân trang</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <select id="menu_footer" name="data[list_block_menu_footer][]" class="selectpicker form-control" data-live-search="true"
+                                                    multiple>
+                                                <option disabled>Chọn khối menu</option>
+                                                {% for item in listBoxMenu %}
+                                                    <option value="{{ item['id'] }}"
+                                                            {{ uiHelper.check_in_array(item['id'], data['list_block_menu_footer']) ? 'selected' : '' }} >{{ item['name'] }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bd-bt-dashed pd-bt-10 box-seo">
+                                    <div class="row form-group">
+                                        <div class="col-md-3">
+                                            <label>Chọn menu chân trang</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <select id="menu_footer" name="data[block_menu_bottom_footer]" class="selectpicker form-control" data-live-search="true">
+                                                <option disabled>Chọn khối menu</option>
+                                                {% for item in listBoxMenu %}
+                                                    <option value="{{ item['id'] }}"
+                                                            {{ item['id'] == data['block_menu_bottom_footer'] ? 'selected' : '' }} >{{ item['name'] }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="bd-bt-dashed pd-bt-10 box-seo">

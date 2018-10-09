@@ -8,7 +8,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="shop-index.html"> <img alt="Lambda Theme - Shop" src="{{ websiteConfig.logo_file is not empty? websiteConfig.logo_file : resourcePAth~'assets/images/shop/lambda-shop.png' }}"> </a>
+                <a class="navbar-brand" href="shop-index.html"> <img alt="Lambda Theme - Shop" src="{{ websiteConfig['avatar'] is not empty? websiteConfig['avatar'] : resourcePAth~'assets/images/shop/lambda-shop.png' }}"> </a>
                 <div class="logo-sidebar"></div>
             </div>
         </div>

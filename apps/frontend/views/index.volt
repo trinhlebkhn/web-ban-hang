@@ -17,7 +17,7 @@
     <meta http-equiv="Content-Language" content="vi"/>
     <meta name="revisit-after" content="1 days"/>
     <meta content="{{ header.desc }}" name='author'/>
-    <link rel="shortcut icon" type="{{ websiteConfig.logo_file }}" href="{{ websiteConfig.favicon }}"/>
+    <link rel="shortcut icon" type="{{ websiteConfig['favicon'] }}" href="{{ websiteConfig['favicon'] }}"/>
     <link rel="canonical" href="{{ header.canonial }}"/>
     <meta name="description" content="{{ header.desc }}"/>
     <meta name="keywords" content="{{ header.key }}"/>

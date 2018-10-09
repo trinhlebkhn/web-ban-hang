@@ -9,10 +9,11 @@
 </script>
 <div id="content" role="main">
     <article>
-        {#{% include "layouts/component/banner-advertisement.volt" %}#}
+        {% include "layouts/component/slider.volt" %}
         {% include "layouts/widget/widget-list-cat-product-home.volt" %}
-        {#{% include "layouts/component/slide-brand.volt" %}#}
+        {#{% include "layouts/widget/widget-banner-advance.volt" %}#}
+        {% include "layouts/component/slide-brand.volt" %}
     </article>
 </div>
-{#{% include "layouts/footer.volt" %}#}
+{% include "layouts/footer.volt" %}
 

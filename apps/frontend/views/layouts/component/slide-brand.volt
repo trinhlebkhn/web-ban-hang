@@ -7,9 +7,9 @@
                      data-flex-controlsvertical="bottom" data-flex-directions="hide" data-flex-duration="600" data-flex-itemwidth="165" data-flex-sliderdirection="horizontal" data-flex-slideshow="true" data-flex-speed="7000" data-os-animation="fadeIn"
                      data-os-animation-delay="0s" id="flexslider-100">
                     <ul class="slides">
-                        {% for item in websiteConfig.brand_slide.images %}
+                        {% for item in websiteConfig['branch'] %}
                             <li>
-                                <a href="{{ item.link }}"><figure> <img alt="{{ item.name }}" class="attachment-full wp-post-image" height="200" src="{{ item.image }}" width="200"> </figure></a>
+                                <a href="{{ item.link }}"><figure> <img alt="{{ item.link }}" class="attachment-full wp-post-image" height="200" src="{{ item.avatar }}" width="200"> </figure></a>
                             </li>
                         {% endfor %}
                     </ul>

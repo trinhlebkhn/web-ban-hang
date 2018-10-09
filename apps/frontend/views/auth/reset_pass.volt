@@ -32,7 +32,7 @@
         </div>
     </div>
 </div>
-{#{% include "layouts/footer.volt" %}#}
+{% include "layouts/footer.volt" %}
 <script>
     $(document).ready(function () {
         $("#reset_password").validate({

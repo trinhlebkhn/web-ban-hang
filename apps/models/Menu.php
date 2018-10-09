@@ -249,6 +249,24 @@ class Menu extends DbModel
         }
     }
 
+    public function getMenuInArrayBoxMenu($arrayBoxMenu)
+    {
+        try {
+            $listData = $this->modelsManager->createBuilder()
+                ->from(self::class)
+                ->where('menu_block_id in ' . $arrayBoxMenu . 'and parent_id = 0')
+                ->getQuery()
+                ->execute();
+            if (empty($listData->getMessages())) {
+                $arrayData = $listData->toArray();
+                return $this->manipulationSuccess($arrayData, 'Thao tác thành công!');
+            } else {
+                return $this->manipulationError([], 'Có lỗi xảy ra!');
+            }
+        } catch (Exception $e) {
+            return $this->manipulationError([], $e->getMessage());
+        }
+    }
 
     public function getDetail($id)
     {

@@ -378,7 +378,7 @@ class Category extends DbModel
                 ->where('Category.position like "home"')
                 ->join(Product::class)
                 ->andwhere('Category.id = Product.category_id')
-                ->columns(['Category.id', 'Category.name', 'Category.slug', 'Category.parent_id', 'Category.type', 'Category.position', 'Category.sort', 'Product.*'])
+                ->columns(['Category.id', 'Category.avatar', 'Category.name', 'Category.slug', 'Category.parent_id', 'Category.type', 'Category.position', 'Category.sort', 'Product.*'])
                 ->getQuery()
                 ->execute();
             $arrListObj = $listObj->toArray();
@@ -394,6 +394,7 @@ class Category extends DbModel
                     $obj['id'] = $item->id;
                     $obj['name'] = $item->name;
                     $obj['slug'] = $item->slug;
+                    $obj['avatar'] = $item->avatar;
                     $obj['parent_id'] = $item->parent_id;
                     $obj['type'] = $item->type;
                     $obj['position'] = $item->position;

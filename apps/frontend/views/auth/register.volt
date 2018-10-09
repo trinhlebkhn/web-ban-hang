@@ -163,4 +163,4 @@
         </form>
     </div>
 </div>
-{#{% include "layouts/footer.volt" %}#}
+{% include "layouts/footer.volt" %}

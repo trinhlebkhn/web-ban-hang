@@ -109,6 +109,19 @@ class Config extends DbModel
      */
     public $youtube_link;
 
+    /**
+     *
+     * @var string
+     * @Column(type="string", length=1000, nullable=true)
+     */
+    public $list_block_menu_footer;
+
+    /**
+     *
+     * @var integer
+     * @Column(type="integer", length=11, nullable=true)
+     */
+    public $block_menu_bottom_footer;
 
     /**
      * @return int
@@ -332,6 +345,38 @@ class Config extends DbModel
     public function setYoutubeLink($youtube_link)
     {
         $this->youtube_link = $youtube_link;
+    }
+
+    /**
+     * @return string
+     */
+    public function getListBlockMenuFooter()
+    {
+        return $this->list_block_menu_footer;
+    }
+
+    /**
+     * @param string $list_block_menu_footer
+     */
+    public function setListBlockMenuFooter($list_block_menu_footer)
+    {
+        $this->list_block_menu_footer = $list_block_menu_footer;
+    }
+
+    /**
+     * @return int
+     */
+    public function getBlockMenuBottomFooter()
+    {
+        return $this->block_menu_bottom_footer;
+    }
+
+    /**
+     * @param int $block_menu_bottom_footer
+     */
+    public function setBlockMenuBottomFooter($block_menu_bottom_footer)
+    {
+        $this->block_menu_bottom_footer = $block_menu_bottom_footer;
     }
 
     /**

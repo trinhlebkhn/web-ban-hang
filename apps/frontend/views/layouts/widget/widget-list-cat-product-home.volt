@@ -37,31 +37,19 @@
             </div>
         </div>
     </section>
-    {% if index == 0 %}
+    {% if item.avatar | length > 0 %}
         <section class="section">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="figure element-top-30 element-bottom-30 os-animation" data-os-animation="fadeIn" data-os-animation-delay="0s">
-                            <a class="figure-image" href="shop-mens-category.html" target="_self"> <img alt="box_feature_1" src="{{ websiteConfig.box_feature.images[0].image }}"> </a>
+                        <div class="figure element-top-30 element-bottom-30 os-animation" data-os-animation="fadeIn"
+                             data-os-animation-delay="0s">
+                            <a class="figure-image"
+                               href="shop-mens-category.html" target="_self"> <img
+                                        alt="womans-full"
+                                        src="{{ item.avatar }}"> </a>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-    {% elseif index == 1 %}
-        <section class="section">
-            <div class="container">
-                <div class="row">
-                    {% for i, v in websiteConfig.box_feature.images %}
-                        {% if i > 0 %}
-                            <div class="col-md-4 text-center">
-                                <div class="figure element-top-20 element-bottom-20 image-effect-zoom-in os-animation" data-os-animation="fadeIn" data-os-animation-delay="0s">
-                                    <a class="figure-image" href="shop-mens-category.html" target="_self"> <img alt="" src="{{ v.image }}"> </a>
-                                </div>
-                            </div>
-                        {% endif %}
-                    {% endfor %}
                 </div>
             </div>
         </section>

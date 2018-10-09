@@ -120,12 +120,11 @@ class ConfigController extends ControllerBase
     public function infoAction()
     {
         $configObj = new \Config();
-        $rs = $configObj->getConfig(1);
         if ($this->request->isPost()) {
-            $data = $this->request->getPost('data');
-            $data['id'] = 1;
-//            d($data);
-            $rs = $configObj->updateConfig($data);
+            $dataPost = $this->request->getPost('data');
+            $dataPost['id'] = 1;
+            $dataPost['list_block_menu_footer'] = json_encode($dataPost['list_block_menu_footer']);
+            $rs = $configObj->updateConfig($dataPost);
             if ($rs->status) {
                 if (!empty($id)) $this->response->redirect(base_uri() . '/quan-tri/slider');
                 $this->flash->success($rs->message);
@@ -133,8 +132,14 @@ class ConfigController extends ControllerBase
                 $this->flash->error("Có lỗi xảy ra!");
             }
         }
+        $rs = $configObj->getConfig(1);
+        $data = $rs->data;
+        $data['list_block_menu_footer'] = json_decode($data['list_block_menu_footer']);
+        $menuBlockObj = new \MenuBlock();
+        $rsGetBoxMenu = $menuBlockObj->getListObj();
         $this->view->setVars([
-            'data' => $rs->data
+            'data' => $data,
+            'listBoxMenu' => $rsGetBoxMenu->data
         ]);
     }
 }
