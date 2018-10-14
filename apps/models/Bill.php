@@ -307,8 +307,6 @@ class Bill extends DbModel {
         $this->payment = $payment;
     }
 
-
-
     /**
      * Returns table name mapped in the model.
      *

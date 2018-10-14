@@ -442,3 +442,36 @@ aside.control-sidebar.control-sidebar-dark {
 .box-seo {
     margin-bottom: 15px;
 }
+
+/* dialog attribute */
+.form-add-attr {
+    width: 40%;
+}
+
+.box-add-attribute {
+    margin-top: 15px;
+}
+
+.box-attr {
+    padding-bottom: 20px;
+}
+
+.list-attribute .attribute {
+    width: 100%;
+}
+
+.attribute .btn {
+    margin-left: 5px;
+}
+
+.value-attribute .btn {
+    margin-left: 5px;
+}
+
+.list-attribute .item {
+    margin-bottom: 15px;
+}
+
+.list-attribute .first-item .value-attribute {
+    padding-right: 56px;
+}

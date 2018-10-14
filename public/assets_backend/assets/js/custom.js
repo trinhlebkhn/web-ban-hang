@@ -201,7 +201,7 @@ function ajaxCatHome() {
     var desc = $('#cat_home_desc').val();
     var sort = $('#cat_home_sort').val();
 
-    if(id == '') {
+    if (id == '') {
         snackbar(2, 'Vui lòng chọn danh mục!');
         return;
     }
@@ -224,7 +224,7 @@ function ajaxCatHome() {
     $('#QuickView').modal('hide');
 }
 
-function editCatHome(id){
+function editCatHome(id) {
     $.ajax({
         url: '/backend/api_client/ajaxCatHomePage',
         method: 'post',
@@ -238,5 +238,93 @@ function editCatHome(id){
     $('#QuickView').modal('show');
 }
 
+/* Thêm thuộc loại tính */
+function ajaxAddAttrProduct() {
+    $.ajax({
+        url: '/backend/api_client/addAttr',
+        method: 'post',
+        dataType: 'json',
+        data: {}
+    }).fail(function (ui, status) {
+        snackbar(2, 'Có lỗi  xảy ra!');
+    }).done(function (data, status) {
+        $('#QuickView').html(data.content);
+    });
+    $('#QuickView').modal('show');
+}
 
+/* Thuộc tính sản phẩm */
+function ajaxAddAttribute() {
+    var name = $('#name_attr').val();
+    if (name == '') {
+        snackbar(2, 'Vui lòng điền tên thuộc tính!');
+        $('#name_attr').addClass('error');
+        return;
+    }
+    var data = {};
+    data['name'] = name;
+    $.ajax({
+        url: '/backend/api_client/createAttr',
+        method: 'post',
+        dataType: 'json',
+        data: {data: data}
+    }).fail(function (ui, status) {
+        snackbar(2, 'Có lỗi  xảy ra!');
+    }).done(function (data, status) {
+        if (data.status) {
+            $('#attribute').html(data.content);
+            snackbar(2, 'Thao tác thành công!');
+            $('#QuickView').modal('hide');
+        }
+        else return snackbar(2, data.message);
+    });
+}
 
+function addAttrProduct() {
+    $.ajax({
+        url: '/backend/api_client/addAttrProduct',
+        method: 'post',
+        dataType: 'json',
+        data: {}
+    }).fail(function (ui, status) {
+        snackbar(2, 'Có lỗi  xảy ra!');
+    }).done(function (data, status) {
+        if (data.status) {
+            $('#list-attribute').append(data.content);
+        }
+    });
+}
+
+function removeAttrProduct(item) {
+    var attrProductItem = item.closest('.item');
+    console.log(attrProductItem);
+    attrProductItem.remove();
+}
+
+function disableAttr(e, attrItem) {
+    var value = e.target.value;
+    var arrAttrDisable = JSON.parse($('#arr_attr_disable').val());
+    var index = arrAttrDisable.indexOf(parseInt(value));
+    if (index === -1) {
+        arrAttrDisable.push(parseInt(value));
+    } else {
+        arrAttrDisable.splice(index, 1);
+    }
+    $.ajax({
+        url: '/backend/api_client/disableAttr',
+        method: 'post',
+        dataType: 'json',
+        data: {arrDisable: arrAttrDisable}
+    }).fail(function (ui, status) {
+        snackbar(2, 'Có lỗi  xảy ra!');
+    }).done(function (data, status) {
+        if (data.status) {
+            $('#arr_attr_disable').val(JSON.stringify(arrAttrDisable));
+            $('div.list-attribute .item').each(function (i) {
+                var attribute = this.querySelector('select');
+                $(attribute).html(data.content);
+            });
+            $(attrItem).val(value);
+        }
+    });
+}

@@ -68,9 +68,17 @@ class ProductController extends AuthorizedControllerBase
             $data = $obj->data;
             $data['category_id'] = explode(',', $data['category_id']);
             $data['image'] = json_decode( $data['image']);
+            $data['attribute'] = json_decode($data['attribute']);
+            $data['attribute_id'] = [];
+            $data['attribute_value'] = [];
+            foreach ($data['attribute'] as $key => $obj) {
+                array_push($data['attribute_id'], $obj->id);
+                array_push($data['attribute_value'], $obj->value);
+            }
+            unset($data['attribute']);
+//            d($data);
             $this->session->set('listImg', $data['image']);
             $this->view->data = $data;
-//            d($this->view->data);
         }
         $catObj = new \Category();
         $query_cat = [
@@ -81,9 +89,26 @@ class ProductController extends AuthorizedControllerBase
         $this->recursiveCat($listCats->data, 0, $dataListCats);
         $this->view->listCats = $dataListCats;
 
+        /* Thuộc tính sản phẩm */
+        $attrObj = new \Attribute();
+        $rsGetListAttr = $attrObj->getListObj();
+        $this->view->listAttr = $rsGetListAttr->data;
+
         if ($this->request->isPost()) {
             $data = $this->request->get('product');
             $data['image'] = json_encode($data['image']);
+
+            /* Thuộc tính sản phẩm */
+            $data['attribute'] = [];
+            foreach ($data['attribute_id'] as $key => $value) {
+                $obj = [];
+                $obj['id'] = $value;
+                $obj['value'] = $data['attribute_value'][$key];
+                array_push($data['attribute'], $obj);
+            }
+            unset($data['attribute_id']);
+            unset($data['attribute_value']);
+            $data['attribute'] = json_encode($data['attribute']);
             if (empty($data['name'] || empty($data['price_sell'] || empty($data['price_import'])))) {
                 $this->view->data = $data;
                 $this->flash->error('Vui lòng điền đầy đủ các trường bắt buộc');

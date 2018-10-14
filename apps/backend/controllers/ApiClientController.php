@@ -226,4 +226,72 @@ class ApiClientController extends AuthorizedControllerBase {
             return $this->response->setJsonContent($result);
         }
     }
+
+    public function addAttrAction() {
+        $render = $this->render_template('product', 'ajax_attr', []);
+        $result = [
+            'status' => 1,
+            'content' => $render,
+            'message' => "Thao tác thành công!"
+        ];
+        return $this->response->setJsonContent($result);
+    }
+
+    public function createAttrAction() {
+        $data = $this->request->getPost('data');
+        $attrObj = new \Attribute();
+        if (empty($data['id'])) {
+            $rs = $attrObj->createObj($data);
+        }
+        else {
+            $rs = $attrObj->updateAttr($data);
+        }
+        if ($rs->status) {
+            $listData = $attrObj->getListObj();
+            $render = $this->render_template('product', 'ajax_list_attr', [
+                'data' => $listData->data,
+                'item' => $rs->data
+            ]);
+            $last_result = [
+                'status' => $rs->status,
+                'data' => $rs->data,
+                'content' => $render,
+                'message' => $rs->message
+            ];
+            return $this->response->setJsonContent($last_result);
+        } else {
+            return $this->response->setJsonContent((array) $rs);
+        }
+    }
+
+    public function addAttrProductAction(){
+        $attrObj = new \Attribute();
+        $rsGetListData = $attrObj->getListObj();
+        $render = $this->render_template('product', 'ajax_add_attr_product', [
+            'listAttr' => $rsGetListData->data
+        ]);
+        $last_result = [
+            'status' => $rsGetListData->status,
+            'data' => $rsGetListData->data,
+            'content' => $render,
+            'message' => $rsGetListData->message
+        ];
+        return $this->response->setJsonContent($last_result);
+    }
+
+    public function disableAttrAction(){
+        $arrDisable = $this->request->getPost('arrDisable');
+        $data = $this->request->getPost('data');
+        $attrObj = new \Attribute();
+        $listData = $attrObj->getListObj();
+        $render = $this->render_template('product', 'ajax_list_attr', [
+            'data' => $listData->data,
+            'arrDisable' => $arrDisable,
+        ]);
+        $last_result = [
+            'status' => '1',
+            'content' => $render,
+        ];
+        return $this->response->setJsonContent($last_result);
+    }
 }
