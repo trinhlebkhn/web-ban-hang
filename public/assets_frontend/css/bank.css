@@ -1,0 +1,227 @@
+ul.bankList {
+    clear: both;
+    height: 202px;
+    width: 636px;
+}
+
+ul.bankList li {
+    list-style-position: outside;
+    list-style-type: none;
+    cursor: pointer;
+    float: left;
+    margin-right: 0;
+    padding: 5px 2px;
+    text-align: center;
+    width: 90px;
+}
+
+.list-content li {
+    list-style: none outside none;
+    margin: 0 0 10px;
+}
+
+.list-content li .boxContent {
+    display: none;
+    max-width: 700px;
+    border: 1px solid #cccccc;
+    padding: 10px;
+}
+
+.list-content li.active .boxContent {
+    display: block;
+}
+
+.list-content li .boxContent ul {
+    height: 280px;
+}
+
+i.VISA, i.MASTE, i.AMREX, i.JCB, i.VCB, i.TCB, i.MB, i.VIB, i.ICB, i.EXB, i.ACB, i.HDB, i.MSB, i.NVB, i.DAB, i.SHB, i.OJB, i.SEA, i.TPB, i.PGB, i.BIDV, i.AGB, i.SCB, i.VPB, i.VAB, i.GPB, i.SGB, i.NAB, i.BAB {
+    width: 80px;
+    height: 30px;
+    display: block;
+    background: url(https://www.nganluong.vn/webskins/skins/nganluong/checkout/version3/images/bank_logo.png) no-repeat;
+}
+
+i.MASTE {
+    background-position: 0px -31px
+}
+
+i.AMREX {
+    background-position: 0px -62px
+}
+
+i.JCB {
+    background-position: 0px -93px;
+}
+
+i.VCB {
+    background-position: 0px -124px;
+}
+
+i.TCB {
+    background-position: 0px -155px;
+}
+
+i.MB {
+    background-position: 0px -186px;
+}
+
+i.VIB {
+    background-position: 0px -217px;
+}
+
+i.ICB {
+    background-position: 0px -248px;
+}
+
+i.EXB {
+    background-position: 0px -279px;
+}
+
+i.ACB {
+    background-position: 0px -310px;
+}
+
+i.HDB {
+    background-position: 0px -341px;
+}
+
+i.MSB {
+    background-position: 0px -372px;
+}
+
+i.NVB {
+    background-position: 0px -403px;
+}
+
+i.DAB {
+    background-position: 0px -434px;
+}
+
+i.SHB {
+    background-position: 0px -465px;
+}
+
+i.OJB {
+    background-position: 0px -496px;
+}
+
+i.SEA {
+    background-position: 0px -527px;
+}
+
+i.TPB {
+    background-position: 0px -558px;
+}
+
+i.PGB {
+    background-position: 0px -589px;
+}
+
+i.BIDV {
+    background-position: 0px -620px;
+}
+
+i.AGB {
+    background-position: 0px -651px;
+}
+
+i.SCB {
+    background-position: 0px -682px;
+}
+
+i.VPB {
+    background-position: 0px -713px;
+}
+
+i.VAB {
+    background-position: 0px -744px;
+}
+
+i.GPB {
+    background-position: 0px -775px;
+}
+
+i.SGB {
+    background-position: 0px -806px;
+}
+
+i.NAB {
+    background-position: 0px -837px;
+}
+
+i.BAB {
+    background-position: 0px -868px;
+}
+
+ul.cardList li {
+    cursor: pointer;
+    float: left;
+    margin-right: 0;
+    padding: 5px 4px;
+    text-align: center;
+    width: 90px;
+}
+
+.checkout{
+    margin: 0px auto;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #999;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 6px;
+    outline: 0;
+    -webkit-box-shadow: 0 3px 9px rgba(0,0,0,.5);
+    box-shadow: 0 3px 9px rgba(0,0,0,.5);
+    padding-bottom: 20px;
+}
+
+.imgFlip {
+    float: left;
+    margin-right: 15px;
+    padding-left: 10px;
+    margin-top: 0px;
+    width: 80px;
+    text-align: center;
+}
+.imgFlip img{
+    height: 60px;
+}
+
+.flip {
+    padding: 10px 0px;
+    border: solid 1px #d7d7d7;
+    position: relative;
+    background: #e7e7e7 url(/assets_frontend/images/bghttt.192f5b7bc2d602c98691866f8b7c66c5.jpg?) repeat-x;
+}
+.display-none{
+    display: none;
+}
+.arraw {
+    background: url(/assets_frontend/images/moreHttt.18062a4d2c14147bdd0e767e28f3076e.png?) no-repeat center center;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    z-index: 10;
+}
+.arraw.tickArrow {
+    background: url(/assets_frontend/images/tick.3341ae8cb6a74ffb0cf1e98ba9ac4f28.png?) no-repeat center center;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    z-index: 1;
+}
+.choose_payment label{
+    font-weight: 100;
+}
+.choose_payment{
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+.choose_payment .pay{
+    padding-left: 40px;
+}

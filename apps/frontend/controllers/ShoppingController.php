@@ -7,8 +7,40 @@
  */
 
 namespace Graduate\Frontend\Controllers;
-class ShoppingController {
+class ShoppingController extends ControllerBase {
     public function cartAction(){
+//        d($this->cart->getContent());
+    }
 
+    public function order_infoAction(){
+        $total_product = $this->cart->getTotalProduct();
+        if($total_product == 0){
+            $this->response->redirect(base_uri() . '/');
+        }
+        $cityObj = new \City();
+        $rsCities = $cityObj->getListObj();
+        $this->view->setVars([
+           'listCity' => $rsCities->data
+        ]);
+
+        if($this->request->isPost()) {
+            $data = $this->request->getPost('info_payment');
+            if($data['payment']  == 2 ) {
+                $this->session->set('info_order', $data);
+                $this->response->redirect(base_uri() . '/shopping/nlCheckout');
+            }
+        }
+    }
+
+    public function nlCheckoutAction(){
+        $info = $this->session->get('info_order');
+//        d($info);
+        $cart_data = $this->session->get('cart');
+        $money = $this->cart->getTotalPrice() / 2;
+
+        $this->view->setVars([
+            'user_info' => $info,
+            'money' => $money
+        ]);
     }
 }

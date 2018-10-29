@@ -7,6 +7,8 @@ error_reporting(E_ERROR); ini_set('display_errors', true);
 define('BASE_PATH', dirname(__DIR__));
 define('APP_PATH', BASE_PATH . '/apps');
 
+(require __DIR__ . '/../vendor/autoload.php');
+
 try {
 
     /**

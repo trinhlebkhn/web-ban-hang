@@ -47,8 +47,8 @@
                     <span>Quản lý menu</span>
                 </a>
             </li>
-            <li class="treeview">
-                <a href="/contract">
+            <li>
+                <a href="/quan-tri/quan-ly-bai-viet">
                     <i class="fa fa-edit"></i>
                     <span>Quản lý bài viết</span>
                 </a>

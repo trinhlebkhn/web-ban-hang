@@ -8,13 +8,15 @@
                 {% if price > price_sell %}
                     <span class="onsale">Sale!</span>
                 {% endif %}
-                <div class="flexslider" data-flex-animation="slide" data-flex-controls="thumbnails" data-flex-controlsalign="left" data-flex-controlsposition="outside" data-flex-directions="hide" data-flex-directions-type="simple"
+                <div class="flexslider" data-flex-animation="slide" data-flex-controls="thumbnails"
+                     data-flex-controlsalign="left" data-flex-controlsposition="outside" data-flex-directions="hide"
+                     data-flex-directions-type="simple"
                      data-flex-duration="600" data-flex-slideshow="true" data-flex-speed="7000" id="product-images">
                     <ul class="slides product-gallery product__view__image--list">
-                        <li data-thumb="{{ product['avatar']}}">
-                            <figure><img alt="Top Fancy" src="{{ product['avatar']}}">
+                        <li data-thumb="{{ product['avatar'] }}">
+                            <figure><img alt="Top Fancy" src="{{ product['avatar'] }}">
                                 <figcaption>
-                                    <h4><a href="{{ product['avatar']}}">Zoom</a></h4>
+                                    <h4><a href="{{ product['avatar'] }}">Zoom</a></h4>
                                 </figcaption>
                             </figure>
                         </li>
@@ -31,36 +33,51 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 product__view__content detail_product_view productJson" data-product="{{ product|json_encode|escape_attr }}">
+        <div class="col-md-6 product__view__content detail_product_view productJson"
+             data-product="{{ product|json_encode|escape_attr }}">
             <div class="summary entry-summary">
                 <h1 class="product-title bordered">{{ product['name'] }}</h1>
                 <div>
                     <p class="price price-big">
-                        <del><span class="amount product__price__old {{ price == 0 or price <= price_sell   ? 'hidden' : '' }}">{{ number_format(price) }} </span>đ</del>
+                        <del>
+                            <span class="amount product__price__old {{ price == 0 or price <= price_sell   ? 'hidden' : '' }}">{{ number_format(price) }} </span>đ
+                        </del>
                         <ins><span class="amount price_sell">{{ number_format(price_sell) }} </span>đ</ins>
                     </p>
                 </div>
                 <div class="description">
-                    <p>{{ product['caption'] }}</p>
+                    <p>{{ product['descript'] }}</p>
                 </div>
                 <form class="tr product__quantity product__view__quantity">
                     <div class="quantity">
                         <input type="button" value="-" class="minus btn-minus btn">
-                        <input class="input-text qty input-number text" min="1" name="quantity" step="1" title="Qty" type="number" value="1">
+                        <input class="input-text qty input-number text" min="1" name="quantity" step="1" title="Qty"
+                               type="number" value="1">
                         <input type="button" value="+" class="plus btn-plus btn">
                     </div>
                     <input name="add-to-cart" type="hidden" value="60">
-                    <button class="single_add_to_cart_button button alt product__view__button__cart">Thêm vào giỏ hàng</button>
+                    <button type="button" class="single_add_to_cart_button button alt product__view__button__cart">Thêm vào giỏ hàng
+                    </button>
                     {% if auth %}
-                        <a href="/shopping/order_info" class="product__view__button__cart_order order_add" style="min-width: 200px;">
-                            <button class="single_add_to_cart_button button alt">Mua ngay</button>
+                        <a href="/dat-hang.html" class="product__view__button__cart_order order_add"
+                           style="min-width: 200px;">
+                            <button type="button" class="single_add_to_cart_button button alt">Mua ngay</button>
                         </a>
                     {% else %}
-                        <a href="/auth/pay" class="product__view__button__cart_order  order_add" style="min-width: 200px;">
-                            <button class="single_add_to_cart_button button alt">Mua ngay</button>
+                        <a href="/auth/pay" class="product__view__button__cart_order  order_add"
+                           style="min-width: 200px;">
+                            <button type="button" class="single_add_to_cart_button button alt">Mua ngay</button>
                         </a>
                     {% endif %}
                 </form>
+
+                <div class="product_meta">
+                    {% for attr in product['attribute'] %}
+                        <span class="posted_in">
+                            {{ attr.name }}: <a href="shop-mens-category.html" rel="tag">{{ attr.value }}</a>,
+                        </span>
+                    {% endfor %}
+                </div>
                 <div>
                     <ul class="social-icons social-sm social-background social-rect">
                         <li>

@@ -62,7 +62,7 @@
                             </div>
                             <div class="{{ data['avatar'] == null  ? '' : 'hidden' }} blog-avatar boxborder text-center d-flex justify-content-center align-items-center pointer"
                                  onclick="avatar.click()">
-                                <div class="d-inline-block">
+                                <div class="d-inline-block text-center" style="width: 100%">
                                     <p>Ảnh đại diện</p>
                                 </div>
                             </div>

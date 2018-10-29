@@ -15,6 +15,10 @@ class AuthController extends ControllerBase {
             $rs = $userObj->checkLogin($data);
             if($rs->status) {
                 $this->setAuth($rs->data);
+                $check_redirect = $this->session->get('pay');
+                if($check_redirect == 1) {
+                    $this->response->redirect(base_uri() . '/dat-hang.html');
+                }
                 $this->response->redirect(base_uri() . '/');
             } else {
                 $this->view->data = $data;
@@ -48,5 +52,18 @@ class AuthController extends ControllerBase {
     public function logoutAction(){
         $this->session->destroy();
         $this->response->redirect(base_uri());
+    }
+
+    /**
+     * Điều hướng khi người dùng chưa đăng nhập mà muốn thanh toán
+     */
+    public function payAction()
+    {
+        $this->session->set('pay', '1');
+        if ($this->cart->getTotalProduct() > 0) {
+            $this->response->redirect("/auth/login");
+        } else {
+            $this->response->redirect('/');
+        }
     }
 }

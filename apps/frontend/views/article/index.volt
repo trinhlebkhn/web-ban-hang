@@ -2,7 +2,7 @@
 <div class="secondary_page_wrapper">
     <div class="container">
         <ol class="breadcrumb">
-            <li><a class="home" href="shop-index.html">Trang chủ</a></li>
+            <li><a class="home" href="/">Trang chủ</a></li>
             <li>Tin tức</li>
         </ol>
         <div class="row">

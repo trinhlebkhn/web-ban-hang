@@ -106,7 +106,7 @@
                                     <select class="birth-year form-control" name="dob[year]">
                                         {% set yearCurrent = date('Y') %}
                                         {% set maxYear = yearCurrent - 14 %}
-                                        {% for i in maxYear..1990 %}
+                                        {% for i in maxYear..1900 %}
                                             <option {{ year == i ? 'selected':'' }}
                                                     value="{{ i }}">{{ i }}</option>
                                         {% endfor %}

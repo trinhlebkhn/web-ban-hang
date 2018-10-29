@@ -1,4 +1,4 @@
-<a data-toggle="dropdown" href="/shopping/cart">
+<a data-toggle="dropdown" href="/gio-hang.html">
     <i class="icon icon-bag animated pulse-two"></i>
     <span class="mini-cart-count total-item-cart">{{ cart.getTotalProduct() }}</span>
     <span class="amount total_price total">{{ number_format(cart.getTotalPrice()) }} ₫</span>
@@ -7,7 +7,7 @@
     <ul class="dropdown-menu product_list_widget product__list">
         {% for item in cart.getContent() %}
             <li>
-                <div class="product-mini tr">
+                <div class="product-mini tr wigget-cart">
                     <input type="hidden" class="rowId" value="{{ item['rowId'] }}">
                     <div class="product-image">
                         <a href="shop-simple-product.html"> <img alt="{{ item['name'] }}" height="114" src="{{ item['avatar'] }}" width="90"> </a>
@@ -32,9 +32,9 @@
         <li>
             <p class="total"><strong>Tổng tiền:</strong> <span class="amount">{{ number_format(cart.getTotalPrice()) }} đ</span></p>
             <div class="buttons">
-                <a href="/shopping/cart">Xem giỏ hàng</a>
+                <a href="/gio-hang.html">Xem giỏ hàng</a>
                 {% if auth %}
-                    <a href="/shopping/order_info">Thanh toán</a>
+                    <a href="/dat-hang.html">Thanh toán</a>
                 {% else %}
                     <a href="/auth/pay">Thanh toán</a>
                 {% endif %}

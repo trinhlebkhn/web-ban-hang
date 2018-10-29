@@ -35,12 +35,11 @@
     <link rel="stylesheet" href="/assets_frontend/css/menu.css">
     <link rel="stylesheet" href="/assets_frontend/css/style.css">
     <link rel="stylesheet" href="/assets_frontend/css/cart.css">
+    <link rel="stylesheet" href="/assets_frontend/css/bank.css">
     <link rel="stylesheet" href="/assets_frontend/css/article.css">
-    <script>
-        const STATUS_SUCCESS = 1;
-        const STATUS_ERROR = 0;
-        const STATUS_WARNING = 2;
-    </script>
+    <script type="text/javascript" src="/assets_frontend/assets/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/assets_frontend/assets/js/shopping.js"></script>
+    <script type="text/javascript" src="/assets_frontend/assets/js/custom.js"></script>
     <script>
         (function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
@@ -93,7 +92,6 @@
     };
 </script>
 <script type="text/javascript" src="/assets_frontend/assets/js/jquery.validate.min.js"></script>
-<script type="text/javascript" src="/assets_frontend/assets/js/jquery-3.3.1.min.js"></script>
 <script src="/assets_frontend/vendor/js/theme.min.js"></script>
 <script src="/assets_frontend/vendor/js/slick.min.js"></script>
 <div class="hidden" id="loading">
@@ -124,6 +122,7 @@
         #snackbar {
             visibility: hidden; /* Hidden by default. Visible on click */
             min-width: 250px; /* Set a default minimum width */
+            max-width: 300px;
             margin-left: -125px; /* Divide value of min-width by 2 */
             background-color: #007b76; /* Black background color */
             color: #fff; /* White text color */
@@ -131,9 +130,10 @@
             border-radius: 2px; /* Rounded borders */
             padding: 16px; /* Padding */
             position: fixed; /* Sit on top of the screen */
-            z-index: 1000; /* Add a z-index if needed */
+            z-index: 11111; /* Add a z-index if needed */
             right: 30px; /* Center the snackbar */
             top: 215px; /* 30px from the bottom */
+            color: #fff !important;
         }
 
         /* Show the snackbar when clicking on a button (class added with JavaScript) */

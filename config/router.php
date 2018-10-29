@@ -253,6 +253,21 @@ $router->add("/quan-tri/xoa-thuong-hieu", [
     'type' => '3'
 ]);
 
+
+/* Module bài viết */
+$router->add("/quan-tri/quan-ly-bai-viet", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'article',
+    'action' => 'index',
+]);
+
+$router->add("/quan-tri/them-bai-viet", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'article',
+    'action' => 'add',
+]);
 /* END BACKEND */
 
 
@@ -331,6 +346,19 @@ $router->add("/chi-tiet-don-hang-p{id:[0-9]+}.html", [
     'action' => 'order_detail',
 ]);
 
+$router->add("/dat-hang.html", [
+    'module' => 'frontend',
+    'namespace' => 'Graduate\Frontend\Controllers',
+    'controller' => 'shopping',
+    'action' => 'order_info',
+]);
+
+$router->add("/gio-hang.html", [
+    'module' => 'frontend',
+    'namespace' => 'Graduate\Frontend\Controllers',
+    'controller' => 'shopping',
+    'action' => 'cart',
+]);
 
 
 /* END FRONTEND */

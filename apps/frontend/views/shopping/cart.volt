@@ -35,12 +35,15 @@
                                             <tbody>
                                             {% for item in cart.getContent() %}
                                                 <tr class="cart_item tr">
-                                                    <input type="hidden" class="rowId" value="{{ item['rowId'] }}">
+                                                    <input type="hidden" class="rowId" value="{{ item['id'] }}">
                                                     <td class="product-remove">
-                                                        <a href="#" class="remove" title="Remove this item">×</a>
+                                                        <a href="#" class="remove product__delete btn-delete" title="Remove this item">×</a>
                                                     </td>
                                                     <td class="product-thumbnail">
-                                                        <a href="shop-simple-product.html"> <img alt="{{ item['name'] }}" height="114" src="{{ tag.image_url(item['avatar']) }}" width="90"> </a>
+                                                        <a href="shop-simple-product.html"> <img
+                                                                    alt="{{ item['name'] }}" height="114"
+                                                                    src="{{ item['avatar'] }}"
+                                                                    width="90"> </a>
                                                     </td>
                                                     <td class="product-name">
                                                         <a href="shop-simple-product.html">
@@ -50,15 +53,22 @@
                                                             {% endfor %}
                                                         </a>
                                                     </td>
-                                                    <td class="product-price"><span class="amount product__price__regular" price="{{ item['price_sell'] }}">{{ number_format(item['price_sell']) }} đ</span></td>
+                                                    <td class="product-price"><span
+                                                                class="amount product__price__regular"
+                                                                price="{{ item['price_sell'] }}">{{ number_format(item['price_sell']) }}
+                                                            đ</span></td>
                                                     <td class="product-quantity">
                                                         <div class="quantity">
-                                                            <input type="button" value="-" class="minus btn-minus btn">
-                                                            <input class="input-text qty input-number text" min="1" name="qty" step="1" title="Qty" type="number" value="{{ item['quantity'] }}">
-                                                            <input type="button" value="+" class="plus btn-plus btn">
+                                                            <input type="button" value="-" class="minus btn-minus btn update-cart">
+                                                            <input class="input-text qty input-number text update-cart" min="1"
+                                                                   name="qty" step="1" title="Qty" type="number"
+                                                                   value="{{ item['quantity'] }}">
+                                                            <input type="button" value="+" class="plus btn-plus btn update-cart">
                                                         </div>
                                                     </td>
-                                                    <td class="product-subtotal"><span class="amount total_price_item">{{ number_format(item['price_sell'] * item['quantity']) }} đ</span></td>
+                                                    <td class="product-subtotal"><span
+                                                                class="amount total_price_item">{{ number_format(item['price_sell'] * item['quantity']) }}
+                                                            đ</span></td>
                                                 </tr>
                                             {% endfor %}
                                             </tbody>
@@ -66,7 +76,11 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-3 element-bottom-20" style="float: right;">
-                                            <a class="btn btn-success btn-block" href="/shopping/order_info">
+                                            <div class="row form-group">
+                                                <span class="col-md-6">Tổng tiền</span>
+                                                <span class="col-md-6 total_price">{{ number_format(cart.getTotalPrice()) }} đ</span>
+                                            </div>
+                                            <a class="btn btn-success btn-block" href="/dat-hang.html">
                                                 Tiến hành thanh toán
                                                 <i class="fa fa-shopping-cart"></i>
                                             </a>
@@ -74,29 +88,6 @@
                                     </div>
                                 </form>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6"></div>
-                            <div class="col-md-6">
-                                <div class="cart_totals">
-                                    <table cellspacing="0" class="table">
-                                        <thead>
-                                        <tr>
-                                            <th class="text-center" colspan="2">Tổng hàng</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr class="order-total success">
-                                            <th>Tổng tiền</th>
-                                            <td><strong><span class="amount total">{{ cart.getTotal() }} ₫</span></strong></td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row element-top-20">
-                            <div class="col-md-12"></div>
                         </div>
                     </div>
                 </section>
@@ -108,7 +99,8 @@
             <div class="container">
                 <div class="logo pull-left">
                     <a class="image">
-                        <img src="{{ websiteConfig.logo_file|length ? websiteConfig.logo_file : '/app/img/web_logo.png' }}" alt="logo">
+                        <img src="{{ websiteConfig.logo_file|length ? websiteConfig.logo_file : '/app/img/web_logo.png' }}"
+                             alt="logo">
                     </a>
                     <h1 class="name hidden">đặc sản vùng miền</h1>
                 </div>
