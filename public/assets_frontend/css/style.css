@@ -391,3 +391,15 @@ input.error{
     width: 100% !important;
     height: 400px !important;
 }
+
+.text-white {
+    color: #fff;
+}
+
+.bg-f0 {
+    background: #F0F0F0;
+}
+
+.mg-0 {
+    margin: 0;
+}

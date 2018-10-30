@@ -25,6 +25,8 @@ class ShoppingController extends ControllerBase {
 
         if($this->request->isPost()) {
             $data = $this->request->getPost('info_payment');
+            $auth = $this->session->get('auth');
+            $data['email'] = $auth['email'];
             if($data['payment']  == 2 ) {
                 $this->session->set('info_order', $data);
                 $this->response->redirect(base_uri() . '/shopping/nlCheckout');
@@ -34,9 +36,10 @@ class ShoppingController extends ControllerBase {
 
     public function nlCheckoutAction(){
         $info = $this->session->get('info_order');
-//        d($info);
         $cart_data = $this->session->get('cart');
         $money = $this->cart->getTotalPrice() / 2;
+
+        $nlcheckout = $this->nl_api;
 
         $this->view->setVars([
             'user_info' => $info,

@@ -19,6 +19,7 @@
       <path value="D:/Workspace/phalcon-devtools-master" />
       <path value="D:/Workspace/phalcon-devtools-master-ini" />
       <path value="$PROJECT_DIR$/vendor/phalcon/ide-stubs" />
+      <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
     </include_path>
   </component>
 </project>

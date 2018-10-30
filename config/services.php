@@ -116,6 +116,12 @@ $di->setShared('cart', function () {
     return $obj;
 });
 
+/** Ngân Lượng API */
+$di->setShared('nl_api', function () {
+    $nl_api = new NL_CheckOutV3($_ENV['NL_MERCHANT_ID'], $_ENV['NL_MERCHANT_PASS'], $_ENV['NL_RECEIVER'], $_ENV['NL_API']);
+    return $nl_api;
+});
+
 /**
  * @return Dispatcher
  */

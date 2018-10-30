@@ -43,3 +43,7 @@ $("#payment_online").on("click", function () {
         $(".choose_payment").addClass('display-none');
     }
 });
+
+$('form').submit(function () {
+    $('[disabled]').removeAttr('disabled');
+});

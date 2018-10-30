@@ -163,16 +163,17 @@ ul.cardList li {
     width: 90px;
 }
 
-.checkout{
-    margin: 0px auto;
+.checkout {
+    width: 768px;
+    margin: 50px auto;
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
     border: 1px solid #999;
-    border: 1px solid rgba(0,0,0,.2);
+    border: 1px solid rgba(0, 0, 0, .2);
     border-radius: 6px;
     outline: 0;
-    -webkit-box-shadow: 0 3px 9px rgba(0,0,0,.5);
-    box-shadow: 0 3px 9px rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
     padding-bottom: 20px;
 }
 
@@ -184,7 +185,8 @@ ul.cardList li {
     width: 80px;
     text-align: center;
 }
-.imgFlip img{
+
+.imgFlip img {
     height: 60px;
 }
 
@@ -194,9 +196,11 @@ ul.cardList li {
     position: relative;
     background: #e7e7e7 url(/assets_frontend/images/bghttt.192f5b7bc2d602c98691866f8b7c66c5.jpg?) repeat-x;
 }
-.display-none{
+
+.display-none {
     display: none;
 }
+
 .arraw {
     background: url(/assets_frontend/images/moreHttt.18062a4d2c14147bdd0e767e28f3076e.png?) no-repeat center center;
     width: 60px;
@@ -206,6 +210,7 @@ ul.cardList li {
     right: 10px;
     z-index: 10;
 }
+
 .arraw.tickArrow {
     background: url(/assets_frontend/images/tick.3341ae8cb6a74ffb0cf1e98ba9ac4f28.png?) no-repeat center center;
     width: 60px;
@@ -215,13 +220,16 @@ ul.cardList li {
     right: 10px;
     z-index: 1;
 }
-.choose_payment label{
+
+.choose_payment label {
     font-weight: 100;
 }
-.choose_payment{
+
+.choose_payment {
     padding-top: 10px;
     padding-bottom: 20px;
 }
-.choose_payment .pay{
+
+.choose_payment .pay {
     padding-left: 40px;
 }
