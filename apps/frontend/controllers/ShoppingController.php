@@ -7,43 +7,120 @@
  */
 
 namespace Graduate\Frontend\Controllers;
-class ShoppingController extends ControllerBase {
-    public function cartAction(){
+class ShoppingController extends ControllerBase
+{
+    public function cartAction()
+    {
 //        d($this->cart->getContent());
     }
 
-    public function order_infoAction(){
+    public function order_infoAction()
+    {
         $total_product = $this->cart->getTotalProduct();
-        if($total_product == 0){
+        if ($total_product == 0) {
             $this->response->redirect(base_uri() . '/');
         }
         $cityObj = new \City();
         $rsCities = $cityObj->getListObj();
         $this->view->setVars([
-           'listCity' => $rsCities->data
+            'listCity' => $rsCities->data
         ]);
 
-        if($this->request->isPost()) {
+        if ($this->request->isPost()) {
             $data = $this->request->getPost('info_payment');
             $auth = $this->session->get('auth');
             $data['email'] = $auth['email'];
-            if($data['payment']  == 2 ) {
+            if ($data['payment'] == 2) {
                 $this->session->set('info_order', $data);
-                $this->response->redirect(base_uri() . '/shopping/nlCheckout');
+                $order_code = "HD_" . time();
+                $this->response->redirect(base_uri() . '/shopping/nlCheckout?order_id=' . $order_code);
             }
         }
     }
 
-    public function nlCheckoutAction(){
+    public function nlCheckoutAction()
+    {
         $info = $this->session->get('info_order');
         $cart_data = $this->session->get('cart');
         $money = $this->cart->getTotalPrice() / 2;
+        $order_id = $this->request->get('order_id');
 
-        $nlcheckout = $this->nl_api;
+        if ($this->request->isPost()) {
+            $nlcheckout = $this->nl_api;
+            $total_amount = $_POST['total_amount'];
+            $array_items[0] = array(
+                'item_name1' => 'Đơn hàng ngân lượng',
+                'item_quantity1' => 1,
+                'item_amount1' => $total_amount,
+                'item_url1' => 'http://nganluong.vn/'
+            );
+
+            $array_items = array();
+            $payment_method = $_POST['option_payment'];
+            $bank_code = @$_POST['bankcode'];
+            $order_code = $_POST['order_id'];
+
+            $payment_type = 1;
+            $discount_amount = 0;
+            $order_description = '';
+            $tax_amount = 0;
+            $fee_shipping = 0;
+            $return_url = base_uri() . '/shopping/paymentSuccess';
+            $cancel_url = urlencode(base_uri() . '/shopping/nlCheckout?order_id=' . $order_code);
+
+            $buyer_fullname = $_POST['buyer_fullname'];
+            $buyer_email = $_POST['buyer_email'];
+            $buyer_mobile = $_POST['buyer_mobile'];
+
+            $buyer_address = '';
+            if ($payment_method != '' && $buyer_email != "" && $buyer_mobile != "" && $buyer_fullname != "" && filter_var($buyer_email, FILTER_VALIDATE_EMAIL)) {
+                if ($payment_method == "VISA") {
+
+                    $nl_result = $nlcheckout->VisaCheckout($order_code, $total_amount, $payment_type, $order_description, $tax_amount,
+                        $fee_shipping, $discount_amount, $return_url, $cancel_url, $buyer_fullname, $buyer_email, $buyer_mobile,
+                        $buyer_address, $array_items, $bank_code);
+
+                } elseif ($payment_method == "NL") {
+                    $nl_result = $nlcheckout->NLCheckout($order_code, $total_amount, $payment_type, $order_description, $tax_amount,
+                        $fee_shipping, $discount_amount, $return_url, $cancel_url, $buyer_fullname, $buyer_email, $buyer_mobile,
+                        $buyer_address, $array_items);
+
+                } elseif ($payment_method == "ATM_ONLINE" && $bank_code != '') {
+                    $nl_result = $nlcheckout->BankCheckout($order_code, $total_amount, $bank_code, $payment_type, $order_description, $tax_amount,
+                        $fee_shipping, $discount_amount, $return_url, $cancel_url, $buyer_fullname, $buyer_email, $buyer_mobile,
+                        $buyer_address, $array_items);
+                } elseif ($payment_method == "NH_OFFLINE") {
+                    $nl_result = $nlcheckout->officeBankCheckout($order_code, $total_amount, $bank_code, $payment_type, $order_description, $tax_amount, $fee_shipping, $discount_amount, $return_url, $cancel_url, $buyer_fullname, $buyer_email, $buyer_mobile, $buyer_address, $array_items);
+                } elseif ($payment_method == "ATM_OFFLINE") {
+                    $nl_result = $nlcheckout->BankOfflineCheckout($order_code, $total_amount, $bank_code, $payment_type, $order_description, $tax_amount, $fee_shipping, $discount_amount, $return_url, $cancel_url, $buyer_fullname, $buyer_email, $buyer_mobile, $buyer_address, $array_items);
+
+                } elseif ($payment_method == "IB_ONLINE") {
+                    $nl_result = $nlcheckout->IBCheckout($order_code, $total_amount, $bank_code, $payment_type, $order_description, $tax_amount, $fee_shipping, $discount_amount, $return_url, $cancel_url, $buyer_fullname, $buyer_email, $buyer_mobile, $buyer_address, $array_items);
+                } elseif ($payment_method == "CREDIT_CARD_PREPAID") {
+
+                    $nl_result = $nlcheckout->PrepaidVisaCheckout($order_code, $total_amount, $payment_type, $order_description, $tax_amount, $fee_shipping, $discount_amount, $return_url, $cancel_url, $buyer_fullname, $buyer_email, $buyer_mobile, $buyer_address, $array_items, $bank_code);
+                }
+
+                if ($nl_result->error_code == '00') {
+                    $this->response->redirect($nl_result->checkout_url, true);
+                } else {
+                    $this->flash->error($nl_result->error_message);
+                }
+
+            } else {
+                $this->flash->error("Thông tin đơn hàng không đầy đủ");
+            }
+        }
 
         $this->view->setVars([
             'user_info' => $info,
-            'money' => $money
+            'money' => $money,
+            'order_id' => $order_id,
         ]);
+    }
+
+    public function paymentSuccessAction()
+    {
+        d(1);
     }
 }

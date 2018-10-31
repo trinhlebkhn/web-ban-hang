@@ -9,8 +9,8 @@
                 {{ flash.output() }}
             </div>
             <div class="payment-form">
-                <form name="NLpayBank" action="/service/nlCheckout" method="post">
-                    <input type="hidden" name="total_amount" value="{{ package_option['price'] }}">
+                <form name="NLpayBank" action="/shopping/nlCheckout" method="post">
+                    <input type="hidden" name="total_amount" value="{{ money }}">
                     <input type="hidden" name="buyer_fullname" value="{{ user_info['fullname'] }}">
                     <input type="hidden" name="buyer_email" value="{{ user_info['email'] }}">
                     <input type="hidden" name="buyer_mobile" value="{{ user_info['phone'] }}">

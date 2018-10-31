@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7282ae4a-8215-4ede-8761-43fe8af4a01f" name="Default" comment="update">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/my-project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/my-project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/frontend/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/config/config.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/frontend/controllers/ShoppingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/controllers/ShoppingController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/frontend/views/shopping/nlCheckout.volt" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/views/shopping/nlCheckout.volt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets_frontend/css/bank.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets_frontend/css/bank.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets_frontend/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets_frontend/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets_frontend/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets_frontend/js/custom.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -38,27 +30,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nlCheckout.volt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="nlCheckout.volt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/frontend/views/shopping/nlCheckout.volt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="60" column="47" selection-start-line="60" selection-start-column="41" selection-end-line="60" selection-end-column="47" />
-              <folding>
-                <element signature="e#3160#3183#0#HTML" expanded="true" />
-                <element signature="e#3873#4758#0#HTML" />
-              </folding>
+            <state relative-caret-position="231">
+              <caret line="20" column="55" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="55" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShoppingController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ShoppingController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/frontend/controllers/ShoppingController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+            <state relative-caret-position="263">
+              <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
               <folding>
                 <element signature="e#6#88#0#PHP" expanded="true" />
-                <element signature="e#266#929#0#PHP" />
               </folding>
             </state>
           </provider>
@@ -78,9 +65,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>number</find>
-      <find>getTotal</find>
-      <find>THÔNG TIN TÀI KHOẢN</find>
       <find>Tạm tính</find>
       <find>ao-moi-danh-muc</find>
       <find>dat-hang.html</find>
@@ -108,6 +92,9 @@
       <find>confi</find>
       <find>d()</find>
       <find>config</find>
+      <find>bankcode</find>
+      <find>$total_amount</find>
+      <find>total_amount</find>
     </findStrings>
     <replaceStrings>
       <replace>public</replace>
@@ -172,11 +159,11 @@
         <option value="$PROJECT_DIR$/public/assets_frontend/css/style.css" />
         <option value="$PROJECT_DIR$/public/assets_frontend/css/bank.css" />
         <option value="$PROJECT_DIR$/public/assets_frontend/js/custom.js" />
-        <option value="$PROJECT_DIR$/apps/frontend/views/shopping/nlCheckout.volt" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/apps/frontend/config/config.php" />
         <option value="$PROJECT_DIR$/config/buitin.php" />
         <option value="$PROJECT_DIR$/config/services.php" />
+        <option value="$PROJECT_DIR$/apps/frontend/views/shopping/nlCheckout.volt" />
         <option value="$PROJECT_DIR$/apps/frontend/controllers/ShoppingController.php" />
       </list>
     </option>
@@ -520,7 +507,8 @@
       <workItem from="1540572277568" duration="609000" />
       <workItem from="1540826965779" duration="994000" />
       <workItem from="1540827977024" duration="8586000" />
-      <workItem from="1540920407730" duration="5816000" />
+      <workItem from="1540920407730" duration="5947000" />
+      <workItem from="1541001437219" duration="3402000" />
     </task>
     <task id="LOCAL-00001" summary="updat">
       <created>1523011072130</created>
@@ -631,7 +619,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="404775000" />
+    <option name="totallyTimeSpent" value="408308000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -646,16 +634,17 @@
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49386504" visible="true" weight="0.2753404" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32894737" />
-      <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50075644" side_tool="true" weight="0.39448053" />
-      <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.49924356" weight="0.39448053" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4969743" weight="0.32467532" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49386504" visible="true" weight="0.27987897" />
+      <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32894737" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.506135" side_tool="true" weight="0.23303168" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -665,7 +654,6 @@
       <window_info anchor="bottom" id="Messages" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32894737" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -721,13 +709,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apps/backend/views/product/index.volt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/views/customer/index.volt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -1001,13 +982,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/views/shopping/order_info.volt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="60" column="97" selection-start-line="60" selection-start-column="85" selection-end-line="60" selection-end-column="97" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1050,24 +1024,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/controllers/ShoppingController.php">
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/superglobals/_superglobals.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
-          <folding>
-            <element signature="e#6#88#0#PHP" expanded="true" />
-            <element signature="e#266#929#0#PHP" />
-          </folding>
+        <state relative-caret-position="197">
+          <caret line="82" selection-start-line="82" selection-end-line="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/views/shopping/order_info.volt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="60" column="97" selection-start-line="60" selection-start-column="85" selection-end-line="60" selection-end-column="97" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/views/shopping/nlCheckout.volt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="60" column="47" selection-start-line="60" selection-start-column="41" selection-end-line="60" selection-end-column="47" />
+        <state relative-caret-position="231">
+          <caret line="20" column="55" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/controllers/ShoppingController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
           <folding>
-            <element signature="e#3160#3183#0#HTML" expanded="true" />
-            <element signature="e#3873#4758#0#HTML" />
+            <element signature="e#6#88#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
