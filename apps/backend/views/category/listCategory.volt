@@ -20,6 +20,7 @@
                             <th>Tên danh mục</th>
                             <th>Đường dẫn</th>
                             <th>Trạng thái</th>
+                            <th>Đồng bộ</th>
                             <th>Thao tác</th>
                         </tr>
                         </thead>
@@ -35,6 +36,9 @@
                                     {% elseif item['status'] == 2 %}
                                         <button type="button" class="btn btn-danger pointer">Không hoạt động</button>
                                     {% endif %}
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-primary pointer synchronized-zalo" data-cat='{{ item | json_encode | escape_attr }}'>Đồng bộ với zalo</button>
                                 </td>
                                 <td>
                                     <a href="/quan-tri/chinh-sua-danh-muc?id={{ item['id'] }}"><span class="icon-manipulation pointer" id="edit-cat" title="Chỉnh sửa danh mục"><i class="fa fa-list"></i></span></a>

@@ -294,4 +294,10 @@ class ApiClientController extends AuthorizedControllerBase {
         ];
         return $this->response->setJsonContent($last_result);
     }
+
+    public function synchronizedCategoryForZaloAction(){
+        $data = $this->request->getPost('data');
+        $data = json_decode($data);
+        d($data);
+    }
 }

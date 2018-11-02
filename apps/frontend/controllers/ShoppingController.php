@@ -112,6 +112,11 @@ class ShoppingController extends ControllerBase
             }
         }
 
+        if ($this->request->isPost()) {
+
+        }
+
+
         $this->view->setVars([
             'user_info' => $info,
             'money' => $money,

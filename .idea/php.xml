@@ -20,6 +20,7 @@
       <path value="D:/Workspace/phalcon-devtools-master-ini" />
       <path value="$PROJECT_DIR$/vendor/phalcon/ide-stubs" />
       <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/vendor/zaloplatform/zalo-php-sdk" />
     </include_path>
   </component>
 </project>

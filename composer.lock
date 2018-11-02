@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1b4fc6bd79ba93647315033ba744be76",
+    "content-hash": "0f43ee62e9e25c0534105b8abb76ceb8",
     "packages": [
         {
             "name": "facebook/graph-sdk",
@@ -796,6 +796,51 @@
                 "environment"
             ],
             "time": "2018-07-29T20:33:41+00:00"
+        },
+        {
+            "name": "zaloplatform/zalo-php-sdk",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zaloplatform/zalo-php-sdk.git",
+                "reference": "3a7ed1ccf136f0c747d587eb6e798f7daf759e7b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zaloplatform/zalo-php-sdk/zipball/3a7ed1ccf136f0c747d587eb6e798f7daf759e7b",
+                "reference": "3a7ed1ccf136f0c747d587eb6e798f7daf759e7b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "5.2.*"
+            },
+            "type": "project",
+            "autoload": {
+                "psr-4": {
+                    "Zalo\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Zalo Platform"
+            ],
+            "authors": [
+                {
+                    "name": "zaloplatform",
+                    "email": "zaloplatform@gmail.com"
+                }
+            ],
+            "description": "sdk for zalo developers",
+            "keywords": [
+                "composer",
+                "sdk",
+                "zalo",
+                "zalosdk"
+            ],
+            "time": "2017-12-22T09:36:22+00:00"
         }
     ],
     "packages-dev": [

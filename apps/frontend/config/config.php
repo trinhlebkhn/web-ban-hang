@@ -14,10 +14,11 @@ $env->load();
 $config = [
     'database' => [
         'adapter'     => 'Mysql',
-        'host'        => 'localhost',
-        'username'    => 'root',
-        'password'    => 'dhbkhn657',
-        'dbname'      => 'graduate_project',
+        'host'        => $_ENV['DB_HOST'],
+        'port'        => $_ENV['DB_PORT'],
+        'username'    => $_ENV['DB_USERNAME'],
+        'password'    => $_ENV['DB_PASSWORD'],
+        'dbname'      => $_ENV['DB_DBNAME'],
         'charset'     => 'utf8',
     ],
     'nl_payment' => [

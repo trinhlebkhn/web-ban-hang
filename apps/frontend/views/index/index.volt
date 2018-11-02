@@ -2,11 +2,6 @@
 <!-- End menu -->
 
 {# Banner Popup quảng cáo #}
-<script>
-    $(document).ready(function () {
-        //        $("#popup").click();
-    });
-</script>
 <div id="content" role="main">
     <article>
         {% include "layouts/component/slider.volt" %}

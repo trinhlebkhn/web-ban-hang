@@ -12,11 +12,18 @@ defined('APP_PATH') || define('APP_PATH', BASE_PATH . '/apps');
 return new \Phalcon\Config([
     'database' => [
         'adapter'     => 'Mysql',
-        'host'        => 'localhost',
-        'username'    => 'root',
-        'password'    => 'dhbkhn657',
-        'dbname'      => 'graduate_project',
+        'host'        => $_ENV['DB_HOST'],
+        'port'        => $_ENV['DB_PORT'],
+        'username'    => $_ENV['DB_USERNAME'],
+        'password'    => $_ENV['DB_PASSWORD'],
+        'dbname'      => $_ENV['DB_DBNAME'],
         'charset'     => 'utf8',
+    ],
+    'zalo' => [
+        'app_id '        => $_ENV['ZALO_APP_ID_CFG '],
+        'app_key'        => $_ENV['ZALO_APP_SECRET_KEY_CFG '],
+        'oa_id'          => $_ENV['ZALO_OA_ID_CFG '],
+        'oa_key'         => $_ENV['ZALO_OA_SECRET_KEY_CFG '],
     ],
     'application' => [
         'appDir'         => APP_PATH . '/',
