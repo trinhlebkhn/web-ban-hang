@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="Phần mềm bán hàng, Phần mềm quản lý bán hàng, Phần mềm bán hàng đa kênh, Omni channel, Phần mềm chat facebook"/>
+    <meta content="BizChat là giải pháp chat trực tuyến cho phép bạn theo dõi và trò chuyện với khách truy cập website của bạn." name="description">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" id="viewport">
+    <meta content="index, follow" name="ROBOTS">
+
+    <style>
+        html,body,div,span,applet,object, iframe,h1, h2, h3, h4, h5,h6, p, blockquote, pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,
+        samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd, ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td {
+            margin: 0;
+            padding: 0;
+            outline: 0;
+            list-style: none;
+            font-size: 100%;
+            vertical-align: baseline;
+            background: transparent;
+            text-decoration: none;
+
+        }
+        img, iframe{
+            max-width: 100%;
+        }
+        body {
+            font-family: "Segoe UI",-apple-system,system-ui,BlinkMacSystemFont,Roboto,"Helvetica Neue",Arial,sans-serif;
+            font-size: 14px;
+            color: #333;
+        }
+        a{
+            color: #0066cc;
+        }
+        .red{
+            color:#cc0000;
+        }
+        .f15{
+            font-size: 15px;
+        }
+        .pull-left{
+            float: left;
+        }
+        .pull-right{
+            float: right;
+        }
+        .main-email{
+            max-width:815px;
+            margin:0 auto;
+            background: url("http://staging.crm.bizsale.vn/assets/email-marketing/email/bg-bt.jpg") center bottom no-repeat,url("http://staging.crm.bizsale.vn/assets/email-marketing/email/bg-top.jpg") center top no-repeat;
+            padding:100px 20px;
+            border:1px solid #ececec;
+            width: 100%;
+        }
+        .main-email td{
+            border: 0;
+            font-size: 16px;
+            padding:5px 0;
+        }
+        .main-email td p{
+            margin:5px 0;
+        }
+        .main-email .small{
+            font-size: 12px;
+            text-align: center;
+            color: #999;
+        }
+        .main-email .txt-top td{
+            padding-bottom: 20px;
+        }
+        .main-email .title-top{
+            text-align: center;
+        }
+        .main-email .title-top a{
+            color:#f59634;
+            text-align: center;
+            border-bottom: 1px solid #f59634;
+        }
+        .main-email .title-top td{
+            padding:10px;
+            text-transform: uppercase;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+        }
+        .main-email td .hi{
+            margin-top:20px;
+            margin-bottom: 20px;
+        }
+        .main-email .info p{
+            margin-bottom: 10px;
+        }
+        .main-email .info .inf-cus{
+            margin:20px 0;
+            font-size: 18px;
+        }
+        .main-email .box-guilde{
+            text-align: center;
+            font-weight: 600;
+            font-size:20px;
+        }
+        .main-email .link-active td{
+            padding:10px 0 20px 0;
+        }
+        .main-email .box-guilde td{
+            padding:20px 0;
+        }
+        .main-email  .btn-guilde {
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .main-email .btn-guilde a{
+            margin: 10px 0;
+            background: #f59634;
+            color: #fff;
+            padding:8px 15px;
+            display: inline-block;
+            border-radius: 20px;
+        }
+        .main-email  .btn-guilde a:hover,.main-email  .btn-guilde a:active, .main-email  .btn-guilde a:focus{
+            background: #d58431;
+        }
+        .main-email  .brand img{
+            height: 40px;
+        }
+        .main-email .table-bor{
+            padding:0 0 20px 0;
+        }
+        .main-email .table-bor td{
+            font-size: 15px;
+        }
+        .main-email .contact td{
+            padding:20px 0 10px 0;
+        }
+        .main-email .dt-contract{
+            width:100%;
+            background: #f1f1f1;
+            margin-bottom: 30px;
+        }
+        .main-email .dt-contract td{
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+        .main-email .dt-contract tr:first-child td{
+            background: #333;
+            color:#fff;
+            text-transform: uppercase;
+            font-weight: 600;
+            padding:10px;
+        }
+        .main-email .dt-contract tr:last-child td{
+            font-weight: 600;
+        }
+        .main-email .dt-contract tr td.price:last-child{
+            text-align: right;
+            padding-right:10px;
+        }
+        .main-email .dt-contract tr:last-child td{
+            text-align: right;
+            padding-right:10px;
+        }
+        .main-email .dt-contract td.price{
+            text-transform: uppercase;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 0;
+        }
+        .main-email .dt-contract td.price .small{
+            font-size: 15px;
+        }
+        @media(max-width: 768px){
+            .main-email{
+                padding:80px 15px;
+            }
+            .main-email .title-top{
+                text-align: center;
+            }
+            .main-email .title-top .pull-left, .main-email .title-top .pull-right{
+                display: inline-block;
+                width: 100%;
+            }
+            .main-email .title-top .pull-right a{
+                display: inline-block;
+                margin-top: 10px;
+            }
+            .main-email .dt-contract td{
+                font-size: 14px;
+            }
+        }
+        @media(max-width: 420px){
+            .main-email .dt-contract td{
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<table class="main-email" border="0">
+    <tr class="txt-top">
+        <td>
+            <p class="small">Cảm ơn bạn đã sử dụng sản phẩm của đồ gỗ ABC</p>
+        </td>
+    </tr>
+    <tr class="title-top">
+        <td>
+                <a href="">Thông tin đơn hàng </a>
+        </td>
+    </tr>
+    <tr class="info">
+        <td>
+            <p class="hi">Chào {customer_name} !</p>
+            <p>Bạn đã đã mua đơn hàng thành công với thông tin như sau:</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table class="table-bor">
+                <tr>
+                    <td><b>Họ và tên : </b></td>
+                    <td><b>{customer_name}</b></td>
+                </tr>
+                <tr>
+                    <td><b>Địa chỉ Email : </b></td>
+                    <td>{email}</td>
+                </tr>
+                <tr>
+                    <td><b>Số điện thoại : </b></td>
+                    <td>{phone}</td>
+                </tr>
+                <tr>
+                    <td><b>Địa chỉ : </b></td>
+                    <td>{address}</td>
+                </tr>
+                <tr>
+                    <td><b>Mã đơn hàng(tại cửa hàng) : </b></td>
+                    <td>{code_order}</td>
+                </tr>
+                <tr>
+                    <td><b>Mã vận đơn ViettelPost : </b></td>
+                    <td>{vtp_code}</td>
+                </tr>
+                <tr>
+                    <td><b>Link thanh toán Ngân lượng : </b></td>
+                    <td>{link_nl}</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table class="dt-contract">
+                <tr>
+                    <td colspan="6"> Chi tiết đơn hàng</td>
+                </tr>
+                <tr>
+                    <td>Tên hàng hóa</td>
+                    <td>Số lượng</td>
+                    <td>Đơn giá</td>
+                </tr>
+                {order_info}
+                <tr>
+                    <td rowspan="2">Tổng số</td>
+                    <td rowspan="2">{total_quantity}</td>
+                    <td>
+                        <label class="col-sm-5">Phí V/C:</label>
+                        <span class="col-sm-7">{vtp_fee}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <label class="col-sm-5">Tổng tiền:</label>
+                        <span class="col-sm-7">{total_money}</span></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="box-guilde">
+        <td>Cảm ơn bạn đã quan tâm và sử dụng sản phẩm của chúng tôi!
+        </td>
+    </tr>
+    <tr class="contact">
+        <td>
+            <p class="f15">Trân trọng!</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p class="pull-right f15">The ABC</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p class="small">This message was sent to <a href="">{email}</a><br/>
+                by ABC ,.JSC
+            </p>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

@@ -50,8 +50,10 @@
                                         <div class="label">Họ tên: <span style="color: red; font-size: 16px">*</span>
                                         </div>
                                         <input type="text" value="{{ auth ? auth['fullname'] : '' }}"
-                                               name="info_payment[fullname]" id="name" class="form-control"
+                                               name="info_payment[customer_name]" id="name" class="form-control"
                                                placeholder="Tên" required>
+                                        <input type="text" value="{{ auth ? auth['id'] : '' }}"
+                                               name="info_payment[customer_id]" id="name" class="form-control hidden" required>
                                     </div>
                                 </div>
                             </div>
@@ -131,51 +133,20 @@
                             {% endif %}
                             <div class="form-group">
                                 <div class="label">Ghi chú: <span style="color: red; font-size: 16px">*</span></div>
-                                <textarea name="info_payment[caption]" id="" cols="30" rows="10" class="form-control"
+                                <textarea name="info_payment[description]" id="" cols="30" rows="10" class="form-control"
                                           id="desc" placeholder="Nội dung"></textarea>
                             </div>
 
                             <div class="policy">
                                 <h3>Chính sách đặt đơn hàng:</h3>
                                 <div class="content">
-                                    <div class="pay-hand">
-                                        <h4>Thanh toán trực tiếp:</h4>
+                                    <div class="pay-online  ">
                                         <div class="box-content">
-                                            <p>Chỉ áp dụng cho những đơn hàng trong bán kính nhỏ hơn hoặc bằng 20Km. Sau
-                                                khi đặt đơn hàng người bán sẽ liên hệ trực tiếp với bạn qua số điện thoại và e-mail đặt
-                                                hàng của bạn.
+                                            <p>
+                                                Mọi đơn hàng phải được thanh toán trước một nửa tiền đặt hàng qua cổng thanh toán ngân lượng bằng cách truy cập
+                                                vào đường dẫn được gửi trong e-mail của khách hàng trong vòng 48 giờ. Sau 48 giờ nếu không được thanh toán thì
+                                                đơn hàng sẽ tự động hủy.
                                             </p>
-                                        </div>
-                                    </div>
-                                    <div class="pay-online">
-                                        <h4>Thanh toán qua ngân lượng:</h4>
-                                        <div class="box-content">
-                                            <p>Áp dụng cho mọi đơn hàng. Số tiền đặt cọc phải là một nửa tổng số tiền
-                                                của đơn hàng (Bao gồm cả phí vận chuyển).
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bank">
-                        <div class="box-user__info panel">
-                            <div class="title customer_info_title">Chọn hình thức thanh toán</div>
-                            <div class="content">
-                                <div class="row">
-                                    <div class="col-md-12 col-xs-12 col-sm-12">
-                                        <div class="form-group">
-                                            <div class="label">Phương thức thanh toán: <span
-                                                        style="color: red; font-size: 16px">*</span></div>
-                                            <select name="info_payment[payment]" id="payment"
-                                                    class="selectpicker form-control" required>
-                                                <option value="">--Chọn phương thức--</option>
-                                                <option value="1">Thanh toán trực tiếp</option>
-                                                <option value="2">Thanh toán qua ngân lượng</option>
-
-                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -244,7 +215,7 @@
                                 <div class="pull-right total_price"
                                      price="{{ cart.getTotalPrice() }}">{{ number_format(cart.getTotalPrice()) }} đ
                                 </div>
-                                <input type="text" value="{{ total_price }}" name="info_payment[total_price]"
+                                <input type="text" value="{{ cart.getTotalPrice() }}" name="info_payment[total_price]"
                                        class="form-control hidden" id="total_price" placeholder="">
                             </div>
                         </div>

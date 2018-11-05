@@ -7,6 +7,9 @@
  */
 
 namespace Graduate\Frontend\Controllers;
+
+use MailService;
+
 class ShoppingController extends ControllerBase
 {
     public function cartAction()
@@ -29,10 +32,34 @@ class ShoppingController extends ControllerBase
         if ($this->request->isPost()) {
             $data = $this->request->getPost('info_payment');
             $auth = $this->session->get('auth');
+            $cart = $this->session->get('cart');
             $data['email'] = $auth['email'];
-            if ($data['payment'] == 2) {
-                $this->session->set('info_order', $data);
-                $order_code = "HD_" . time();
+            $data['price'] = $data['total_price'];
+            $data['source_bill'] = 1;
+            $this->session->set('info_order', $data);
+
+            $billObj = new \Bill();
+            $rsCreateBill = $billObj->createObj($data);
+            if($rsCreateBill->status == 1) {
+
+                /* Tạo product-bill*/
+                foreach ($cart as &$value) {
+                    $dataProductBill = [
+                        'bill_id' => $rsCreateBill->data['id'],
+                        'product_id' => $value['id'],
+                        'product_name' => $value['name'],
+                        'quantity' => $value['quantity'],
+                        'price' => $value['price_sell'],
+                        'subtotal' => $value['total_price'],
+                    ];
+                    $productBillObj = new \ProductBill();
+                    $rsCreateProductBill = $productBillObj->createObj($dataProductBill);
+                    if(!$rsCreateProductBill->status) {
+                        return $this->flash->error($rsCreateProductBill->message);
+                    }
+                }
+
+                $order_code = $rsCreateBill->data['id'];
                 $this->response->redirect(base_uri() . '/shopping/nlCheckout?order_id=' . $order_code);
             }
         }
@@ -41,7 +68,6 @@ class ShoppingController extends ControllerBase
     public function nlCheckoutAction()
     {
         $info = $this->session->get('info_order');
-        $cart_data = $this->session->get('cart');
         $money = $this->cart->getTotalPrice() / 2;
         $order_id = $this->request->get('order_id');
 
@@ -71,11 +97,9 @@ class ShoppingController extends ControllerBase
             $buyer_fullname = $_POST['buyer_fullname'];
             $buyer_email = $_POST['buyer_email'];
             $buyer_mobile = $_POST['buyer_mobile'];
-
             $buyer_address = '';
             if ($payment_method != '' && $buyer_email != "" && $buyer_mobile != "" && $buyer_fullname != "" && filter_var($buyer_email, FILTER_VALIDATE_EMAIL)) {
                 if ($payment_method == "VISA") {
-
                     $nl_result = $nlcheckout->VisaCheckout($order_code, $total_amount, $payment_type, $order_description, $tax_amount,
                         $fee_shipping, $discount_amount, $return_url, $cancel_url, $buyer_fullname, $buyer_email, $buyer_mobile,
                         $buyer_address, $array_items, $bank_code);
@@ -102,7 +126,8 @@ class ShoppingController extends ControllerBase
                 }
 
                 if ($nl_result->error_code == '00') {
-                    $this->response->redirect($nl_result->checkout_url, true);
+                    $this->sendMail((string)$nl_result->checkout_url, $buyer_email);
+//                    $this->response->redirect($nl_result->checkout_url, true);
                 } else {
                     $this->flash->error($nl_result->error_message);
                 }
@@ -111,12 +136,6 @@ class ShoppingController extends ControllerBase
                 $this->flash->error("Thông tin đơn hàng không đầy đủ");
             }
         }
-
-        if ($this->request->isPost()) {
-
-        }
-
-
         $this->view->setVars([
             'user_info' => $info,
             'money' => $money,
@@ -126,6 +145,38 @@ class ShoppingController extends ControllerBase
 
     public function paymentSuccessAction()
     {
+        d(1);
+        $nlcheckout = $this->nl_api;
+        $nl_result = $nlcheckout->GetTransactionDetail($_GET['token']);
+        $nl_message = '';
+        $nl_status = 0;
+        if ($nl_result) {
+            $this->view->nl_result = $nl_result;
+
+            $nl_errorcode = (string)$nl_result->error_code;
+            $nl_transaction_status = (string)$nl_result->transaction_status;
+            if ($nl_errorcode == '00') {
+                if ($nl_transaction_status == '00') {
+                    $nl_status = 1;
+                    var_dump($nl_result);
+                    die;
+                }
+            } else {
+                $nl_message = $nlcheckout->GetErrorMessage($nl_errorcode);
+            }
+
+            $this->view->setVars([
+                'nl_status' => $nl_status,
+                'nl_result' => $nl_result,
+                'nl_message' => $nl_message,
+            ]);
+        }
+    }
+
+    public function sendMail($url, $buyer_email){
+        $mail = file_get_contents(__DIR__."/../../../public/template_email/order_info.html");
+        $mail = str_replace("{link_nl}", $url, $mail);
+        $this->sendMail($buyer_email,$mail);
         d(1);
     }
 }

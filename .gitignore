@@ -1,3 +1,4 @@
 vendor/
 .idea/
 apps/*/cache
+.env

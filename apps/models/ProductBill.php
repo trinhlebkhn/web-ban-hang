@@ -64,6 +64,21 @@ class ProductBill extends DbModel {
         return 'mod_product_bill';
     }
 
+    public function createObj($data)
+    {
+        try {
+            $rs = self::newInstance($data);
+            $rs->save();
+            if (!empty($rs->getMessages())) {
+                return $this->manipulationError([], 'Có lỗi xảy ra');
+            } else {
+                return $this->manipulationSuccess($rs->toArray(), 'Thao tác thành công');
+            }
+        } catch (Exception $e) {
+            return $this->manipulationError([], $e->getMessage());
+        }
+    }
+
     public function getListObj($bill_id){
         $rs = self::find([
            'conditions' => 'bill_id = :bind_id:',

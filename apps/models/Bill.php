@@ -5,9 +5,11 @@
  * Date: 5/30/2018
  * Time: 4:38 PM
  */
+
 use Phalcon\Paginator\Adapter\Model as PaginatorModel;
 
-class Bill extends DbModel {
+class Bill extends DbModel
+{
     /**
      *
      * @var integer
@@ -111,56 +113,64 @@ class Bill extends DbModel {
     /**
      * @return int
      */
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
     /**
      * @param int $id
      */
-    public function setId($id) {
+    public function setId($id)
+    {
         $this->id = $id;
     }
 
     /**
      * @return int
      */
-    public function getCustomerId() {
+    public function getCustomerId()
+    {
         return $this->customer_id;
     }
 
     /**
      * @param int $customer_id
      */
-    public function setCustomerId($customer_id) {
+    public function setCustomerId($customer_id)
+    {
         $this->customer_id = $customer_id;
     }
 
     /**
      * @return string
      */
-    public function getCustomerName() {
+    public function getCustomerName()
+    {
         return $this->customer_name;
     }
 
     /**
      * @param string $customer_name
      */
-    public function setCustomerName($customer_name) {
+    public function setCustomerName($customer_name)
+    {
         $this->customer_name = $customer_name;
     }
 
     /**
      * @return string
      */
-    public function getEmail() {
+    public function getEmail()
+    {
         return $this->email;
     }
 
     /**
      * @param string $email
      */
-    public function setEmail($email) {
+    public function setEmail($email)
+    {
         $this->email = $email;
     }
 
@@ -168,126 +178,144 @@ class Bill extends DbModel {
     /**
      * @return string
      */
-    public function getPhone() {
+    public function getPhone()
+    {
         return $this->phone;
     }
 
     /**
      * @param string $phone
      */
-    public function setPhone($phone) {
+    public function setPhone($phone)
+    {
         $this->phone = $phone;
     }
 
     /**
      * @return string
      */
-    public function getAddress() {
+    public function getAddress()
+    {
         return $this->address;
     }
 
     /**
      * @param string $address
      */
-    public function setAddress($address) {
+    public function setAddress($address)
+    {
         $this->address = $address;
     }
 
     /**
      * @return int
      */
-    public function getPrice() {
+    public function getPrice()
+    {
         return $this->price;
     }
 
     /**
      * @param int $price
      */
-    public function setPrice($price) {
+    public function setPrice($price)
+    {
         $this->price = $price;
     }
 
     /**
      * @return int
      */
-    public function getShipPrice() {
+    public function getShipPrice()
+    {
         return $this->ship_price;
     }
 
     /**
      * @param int $ship_price
      */
-    public function setShipPrice($ship_price) {
+    public function setShipPrice($ship_price)
+    {
         $this->ship_price = $ship_price;
     }
 
     /**
      * @return int
      */
-    public function getTotalPrice() {
+    public function getTotalPrice()
+    {
         return $this->total_price;
     }
 
     /**
      * @param int $total_price
      */
-    public function setTotalPrice($total_price) {
+    public function setTotalPrice($total_price)
+    {
         $this->total_price = $total_price;
     }
 
     /**
      * @return int
      */
-    public function getStatus() {
+    public function getStatus()
+    {
         return $this->status;
     }
 
     /**
      * @param int $status
      */
-    public function setStatus($status) {
+    public function setStatus($status)
+    {
         $this->status = $status;
     }
 
     /**
      * @return int
      */
-    public function getSourceBill() {
+    public function getSourceBill()
+    {
         return $this->source_bill;
     }
 
     /**
      * @param int $source_bill
      */
-    public function setSourceBill($source_bill) {
+    public function setSourceBill($source_bill)
+    {
         $this->source_bill = $source_bill;
     }
 
     /**
      * @return string
      */
-    public function getDescription() {
+    public function getDescription()
+    {
         return $this->description;
     }
 
     /**
      * @param string $description
      */
-    public function setDescription($description) {
+    public function setDescription($description)
+    {
         $this->description = $description;
     }
 
     /**
      * @return int
      */
-    public function getDateCreate() {
+    public function getDateCreate()
+    {
         return $this->date_create;
     }
 
     /**
      * @param int $date_create
      */
-    public function setDateCreate($date_create) {
+    public function setDateCreate($date_create)
+    {
         $this->date_create = $date_create;
     }
 
@@ -315,6 +343,23 @@ class Bill extends DbModel {
     public function getSource()
     {
         return 'mod_bill';
+    }
+
+    public function createObj($data)
+    {
+        try {
+            $data['date_create'] = time();
+            $data['status'] = 1;
+            $rs = self::newInstance($data);
+            $rs->save();
+            if (!empty($rs->getMessages())) {
+                return $this->manipulationError([], 'Có lỗi xảy ra');
+            } else {
+                return $this->manipulationSuccess($rs->toArray(), 'Thêm mới đơn hàng thành công!');
+            }
+        } catch (Exception $e) {
+            return $this->manipulationError([], $e->getMessage());
+        }
     }
 
     public function getListObj($optional = [])
@@ -377,7 +422,7 @@ class Bill extends DbModel {
                 $rs['date_create'] = date("d/m/Y H:i:s", intval($rs['date_create']));
                 $rs['date_payment'] = date("d/m/Y H:i:s", intval($rs['date_payment']));
                 $productBillObj = new ProductBill();
-                $listProduct  = $productBillObj->getListObj($rs['id']);
+                $listProduct = $productBillObj->getListObj($rs['id']);
                 $rs['list_product'] = $listProduct;
                 return $this->manipulationSuccess($rs, 'Thao tác thành công');
             } else {
@@ -401,9 +446,10 @@ class Bill extends DbModel {
         }
     }
 
-    public function updateStatusObj($obj){
-        $check = round((time() - $obj['date_create'])/86400);
-        if($check >= 1 && $obj['status'] == 1) {
+    public function updateStatusObj($obj)
+    {
+        $check = round((time() - $obj['date_create']) / 86400);
+        if ($check >= 1 && $obj['status'] == 1) {
             $obj['status'] = 6;
             $rs = $this->updateObj($obj);
             $obj = $rs->data;

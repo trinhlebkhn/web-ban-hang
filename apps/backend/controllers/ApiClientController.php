@@ -298,6 +298,27 @@ class ApiClientController extends AuthorizedControllerBase {
     public function synchronizedCategoryForZaloAction(){
         $data = $this->request->getPost('data');
         $data = json_decode($data);
-        d($data);
+        $data_zalo  = [
+            'name' => $data->name,
+            'desc' => '',
+            'photo' => $data->avatar,
+            'status' => $data->status == 1 ? 0 : 1 // 0 - show | 1 - hide
+        ];
+        $zaloObj = new \ZaloService();
+        $rs = $zaloObj->creatCategory($data_zalo);
+        if($rs['errorCode'] == 1) {
+            $last_result = [
+                'status' => $rs['errorCode'],
+                'message' => $rs['errorMsg']
+            ];
+        } else {
+            $last_result = [
+                'status' => 0,
+                'message' => ''
+            ];
+        }
+        $last_result = [
+            'status' => '1',
+        ];
     }
 }
