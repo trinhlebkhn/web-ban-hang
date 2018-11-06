@@ -321,4 +321,23 @@ class ApiClientController extends AuthorizedControllerBase {
             'status' => '1',
         ];
     }
+
+    public function synchronizedProductForZaloAction(){
+        $product = $this->request->getPost('data');
+        $product = json_decode($product);
+        d($product);
+        $data_zalo = [
+            'id' => $product->id,
+            'name' => $product->name,
+            'code' => 'SP' . $product->id,
+            'price' => $product->price_sell,
+            'photos' => $product->avatar,
+            'display' => 'show', // show | hide
+            'payment' => 2 // 2 - enable | 3 - disable
+        ];
+
+        $zaloServiceObj = new \ZaloService();
+        $rs = $zaloServiceObj->createProduct($data_zalo);
+        return $this->response->setJsonContent($rs);
+    }
 }

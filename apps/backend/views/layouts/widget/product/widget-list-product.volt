@@ -19,7 +19,7 @@
                     <div class="col-md-12">
                         {{ this.flash.output() }}
                     </div>
-                    <table id="data-table-customer" class="table table-bordered table-hover table-product">
+                    <table id="data-table-customer" class="table table-responsive table-bordered table-hover table-product">
                         <thead>
                         <tr>
                             <th width="5%">STT</th>
@@ -29,6 +29,7 @@
                             <th>Giá niêm yết</th>
                             <th>Giá bán </th>
                             <th>Trạng thái</th>
+                            <th>Đồng bộ</th>
                             <th>Thao tác</th>
                         </tr>
                         </thead>
@@ -47,6 +48,9 @@
                                     {% elseif item['status'] == 2 %}
                                         <button type="button" class="btn btn-danger pointer">Không hoạt động</button>
                                     {% endif %}
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-primary pointer product-synchronized-zalo" data-pro='{{ item | json_encode | escape_attr }}'>Đồng bộ với zalo</button>
                                 </td>
                                 <td>
                                     <a href="/quan-tri/chinh-sua-san-pham?id={{ item['id'] }}"><span class="icon-manipulation pointer" id="edit-cat" title="Chỉnh sửa sản phẩm"><i class="fa fa-list"></i></span></a>

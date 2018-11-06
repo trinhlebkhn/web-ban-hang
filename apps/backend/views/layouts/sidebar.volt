@@ -53,6 +53,29 @@
                     <span>Quản lý bài viết</span>
                 </a>
             </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-briefcase"></i>
+                    <span>Quản lý hóa đơn</span>
+                    <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                         </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li>
+                        <a href="/quan-tri/hoa-don">
+                            <i class="fa fa-briefcase"></i>
+                            <span>Hóa đơn nguồn website</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/quan-tri/hoa-don-zalo">
+                            <i class="fa fa-briefcase"></i>
+                            <span>Hóa đơn nguồn zalo</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
             <li>
                 <a href="/quan-tri/hoa-don">
                     <i class="fa fa-briefcase"></i>

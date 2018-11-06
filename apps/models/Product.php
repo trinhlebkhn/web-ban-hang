@@ -160,6 +160,29 @@ class Product extends DbModel
     public $del_lag;
 
     /**
+     *
+     * @var string
+     * @Column(type="string", length=50, nullable=true)
+     */
+    public $zalo_id;
+
+    /**
+     * @return string
+     */
+    public function getZaloId()
+    {
+        return $this->zalo_id;
+    }
+
+    /**
+     * @param string $zalo_id
+     */
+    public function setZaloId($zalo_id)
+    {
+        $this->zalo_id = $zalo_id;
+    }
+
+    /**
      * @return int
      */
     public function getId()
