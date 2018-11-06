@@ -11,15 +11,16 @@ trait MailService
 
     public function sendMail($to,$body)
     {
-        $transport = (new Swift_SmtpTransport('smtp.gmail.com', 465,'ssl'))
-            ->setUsername("hdb.a12k34@gmail.com")
-            ->setPassword("ngoctrinha12k34")
+        $transport = (new Swift_smtpTransport('smtp.gmail.com', 465,'ssl'))
+            ->setUsername('trinhln.it@gmail.com')
+            ->setPassword('dhbkhn657')
             ->setAuthMode('PLAIN');
         ;
+
         $mailer = new Swift_Mailer($transport);
 
         $message = (new Swift_Message('ABC đơn hàng'))
-            ->setFrom(['hdb.a12k34@gmail.com' => 'Admin'])
+            ->setFrom(['hdb.a12k34@gmail.com' => 'Lê Ngọc Trình'])
             ->setTo([$to])
             ->setContentType('text/html; charset=utf-8')
             ->setBody($body)

@@ -67,9 +67,9 @@
     {#//        Google Analytics Code#}
     {{ websiteConfig.google_analytics }}
 
-    {% if reCaptEnabled == true or (reCaptEnabled is not defined and loginAttempts > 2) %}
+    {#{% if reCaptEnabled == true or (reCaptEnabled is not defined and loginAttempts > 2) %}#}
         {# <script src="https://www.google.com/recaptcha/api.js" async defer></script> #}
-    {% endif %}
+    {#{% endif %}#}
 </head>
 
 <body class="pace-on pace-dot">

@@ -1,6 +1,5 @@
 {% include "layouts/header.volt" %}
 <!-- End menu -->
-
 {# Banner Popup quảng cáo #}
 <div id="content" role="main">
     <article>

@@ -8,10 +8,11 @@
 
 namespace Graduate\Frontend\Controllers;
 
-use MailService;
 
 class ShoppingController extends ControllerBase
 {
+    use \MailService;
+
     public function cartAction()
     {
 //        d($this->cart->getContent());
@@ -40,7 +41,7 @@ class ShoppingController extends ControllerBase
 
             $billObj = new \Bill();
             $rsCreateBill = $billObj->createObj($data);
-            if($rsCreateBill->status == 1) {
+            if ($rsCreateBill->status == 1) {
 
                 /* Tạo product-bill*/
                 foreach ($cart as &$value) {
@@ -54,7 +55,7 @@ class ShoppingController extends ControllerBase
                     ];
                     $productBillObj = new \ProductBill();
                     $rsCreateProductBill = $productBillObj->createObj($dataProductBill);
-                    if(!$rsCreateProductBill->status) {
+                    if (!$rsCreateProductBill->status) {
                         return $this->flash->error($rsCreateProductBill->message);
                     }
                 }
@@ -126,8 +127,12 @@ class ShoppingController extends ControllerBase
                 }
 
                 if ($nl_result->error_code == '00') {
-                    $this->sendMail((string)$nl_result->checkout_url, $buyer_email);
-//                    $this->response->redirect($nl_result->checkout_url, true);
+                    $rsSendEmail = $this->setUpSendMail((string)$nl_result->checkout_url, $buyer_email);
+                    if ($rsSendEmail !== 1) $this->flash->error('Có lỗi xảy ra khi thiết lập gửi mail!');
+                    else {
+                        $this->view->payed = 1;
+                        unset($_SESSION['cart']);
+                    }
                 } else {
                     $this->flash->error($nl_result->error_message);
                 }
@@ -145,21 +150,38 @@ class ShoppingController extends ControllerBase
 
     public function paymentSuccessAction()
     {
-        d(1);
         $nlcheckout = $this->nl_api;
         $nl_result = $nlcheckout->GetTransactionDetail($_GET['token']);
         $nl_message = '';
         $nl_status = 0;
         if ($nl_result) {
             $this->view->nl_result = $nl_result;
-
             $nl_errorcode = (string)$nl_result->error_code;
             $nl_transaction_status = (string)$nl_result->transaction_status;
             if ($nl_errorcode == '00') {
                 if ($nl_transaction_status == '00') {
                     $nl_status = 1;
-                    var_dump($nl_result);
-                    die;
+                    $bilObj = new \Bill();
+                    $dataUpdateBill = [
+                        'id' => (string)$nl_result->order_code,
+                        'status' => 2
+                    ];
+                    $rsUpdate = $bilObj->updateObj($dataUpdateBill);
+                    if ($rsUpdate->status) {
+                        $data = [
+                            'cus_name' => (string)$nl_result->buyer_fullname,
+                            'cus_email' => (string)$nl_result->buyer_email,
+                            'cus_phone' => (string)$nl_result->buyer_mobile,
+                            'total' => (string)$nl_result->total_amount,
+                            'time' => date("d/m/Y H:i:s", intval(time()))
+                        ];
+                        $this->view->setVars([
+                            'payment_success' => 1,
+                            'data' => $data
+                        ]);
+                    } else {
+                        $this->flash->error("Có lỗi xảy ra, Vui lòng liên hệ nhà quản trị!");
+                    }
                 }
             } else {
                 $nl_message = $nlcheckout->GetErrorMessage($nl_errorcode);
@@ -173,10 +195,16 @@ class ShoppingController extends ControllerBase
         }
     }
 
-    public function sendMail($url, $buyer_email){
-        $mail = file_get_contents(__DIR__."/../../../public/template_email/order_info.html");
+    public function testAction()
+    {
+
+    }
+
+    public function setUpSendMail($url, $buyer_email)
+    {
+        $mail = file_get_contents(__DIR__ . "/../../../public/template_email/order_info.html");
         $mail = str_replace("{link_nl}", $url, $mail);
-        $this->sendMail($buyer_email,$mail);
-        d(1);
+        $rs = $this->sendMail($buyer_email, $mail);
+        return $rs;
     }
 }

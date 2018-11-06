@@ -1,3 +1,4 @@
+
 {% for item in cat_home_data %}
     <section class="section">
         <div class="container container-vertical-middle">

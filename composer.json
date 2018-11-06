@@ -3,7 +3,8 @@
     "facebook/graph-sdk" : "~5.0",
     "google/apiclient": "^2.0",
     "vlucas/phpdotenv": "^2.5",
-    "zaloplatform/zalo-php-sdk": "^1.0"
+    "zaloplatform/zalo-php-sdk": "^1.0",
+    "swiftmailer/swiftmailer": "^5.4"
   },
 
   "require-dev": {

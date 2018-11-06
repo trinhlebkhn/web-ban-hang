@@ -170,3 +170,55 @@
     margin-top: 50px;
     margin-bottom: 50px;
 }
+
+.payment-success article {
+    font-size: 16px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.payment-success article p.message {
+    text-align: center;
+    color: #000;
+    background: #dcdbdb;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-top: 15px;
+}
+
+.payment-success article table tr td{
+    height: 40px;
+    width: 50%;
+    padding-left: 50px;
+    color: #000;
+}
+
+.payment-success article table tr td:first-child {
+    padding-right: 50px;
+    text-align: right;
+}
+
+.payment-success .header-payment-success i {
+    color: #0ab6a2;
+    font-size: 35px;
+}
+
+.payment-success .header-payment-success h3 {
+    font-size: 30px;
+}
+
+.checkout-nl p.message {
+    max-width: 1000px;
+    text-align: center;
+    padding: 40px 15px;;
+    margin:  15px auto;
+    font-size: 16px;
+    background: #0ab6a2;
+    color: #fff;
+}
+
+.checkout-nl p.message i {
+    color: #fff;
+    margin-right: 15px;
+    font-size: 20px;
+}
