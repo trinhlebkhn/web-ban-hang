@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"
+          id="viewport">
+    <meta content="index, follow" name="ROBOTS">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: 'Open Sans';
+            font-size: 14px;
+        }
+
+        .content {
+            margin: auto;
+            max-width: 815px;
+        }
+
+        .header, .footer {
+            background: #0ab6a2;
+            height: 60px;
+        }
+
+        .title {
+            margin-bottom: 25px;
+            text-align: center;
+            border-bottom: 2px solid #dadada;
+        }
+
+        .messages table tr td {
+            padding: 0 10px;
+        }
+
+        .messages .policy {
+            color: #777;
+        }
+
+        .messages table tr td:first-child {
+            border-right: 1px dashed #bbb;
+            width: 60%;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .c-a2 {
+            color: #0ab6a2;
+        }
+
+        .font-bold {
+            font-weight: bold;
+        }
+
+        .title-info {
+            margin-bottom: 30px;
+        }
+
+        .title-info h2 {
+            margin-bottom: 5px;
+            margin-top: 40px;
+        }
+
+        .box-content-info table.table-product {
+            /*padding: 0 10px;*/
+            width: 100%;
+        }
+
+        .box-content-info table.table-product tr th {
+            text-align: left;
+        }
+
+        .box-content-info table.table-product tr td.total-price {
+            text-align: right;
+        }
+
+        .box-content-info table.table-product tr {
+            height: 50px;
+        }
+
+        .box-content-info table.table-product tr td {
+            border-top: 1px solid #d8d8d8;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        table.total-pay {
+            background: #f1f1f1;
+        }
+
+        table.total-pay tr {
+            height: 35px !important;
+        }
+
+        .box-content-info table.table-product tr td:first-child, .box-content-info table.table-product tr td:last-child,
+        .box-content-info table.table-product tr th:first-child, .box-content-info table.table-product tr th:last-child {
+            padding: 0 20px;
+        }
+
+        table.total-pay {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        table.total-pay tr td {
+            border-top: none !important;
+        }
+
+        table.table-info-cus tr {
+            height: 40px;
+        }
+
+        .info-cus {
+            margin-top: 15px;
+            margin-bottom: 30px;
+        }
+
+        table.table-info-cus tr td:first-child {
+            width: 40%;
+        }
+    </style>
+</head>
+
+<body>
+<section class="content">
+    <div class="header"></div>
+    <div class="box-content">
+        <div class="title">
+            <h2>Thông tin đơn hàng</h2>
+        </div>
+        <div class="messages">
+            <table>
+                <tr>
+                    <td style="width: 60%">
+                        <h3 class="font-bold">
+                            Cảm ơn bạn đã tin tưởng vả sử dụng dịch vụ của chúng tôi!
+                        </h3>
+                        <p class="policy">
+                            Chúng tôi sẽ chuyển hàng tới bạn trong thời gian ngắn nhất. Bạn vui lòng bấm vào link đính
+                            kèm để thực hiện thanh toán
+                            trước 50% số tiền của đơn hàng. Số tiền còn lại sẽ được thanh toán khi bạn nhận hàng. Bạn
+                            vui lòng kiểm tra hàng trước
+                            khi nhận. Một lần nữa cảm ơn bạn!
+                        </p>
+                    </td>
+                    <td class="text-right">
+                        <h3>Hỏi đáp?</h3>
+                        <div>
+                            <label for="phone-admin" class="font-bold">Điện thoại: </label>
+                            <span id="phone-admin" class="c-a2">035.911.33.51</span>
+                        </div>
+                        <div>
+                            <label for="email-ad" class="font-bold">Email:</label>
+                            <span id="email-ad" class="c-a2">trinhln.it@gmail.com</span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="info">
+            <div class="title-info text-center">
+                <h2>Mã đơn hàng: <span class="font-bold">#HD100{order_code}</span></h2>
+                <div>
+                    <label for="time-create">Thời gian khởi tạo:</label>
+                    <span id="time-create">{time}</span>
+                </div>
+            </div>
+            <div class="box-content-info">
+                <table class="table-product">
+                    <thead>
+                    <tr>
+                        <th>Sản phẩm</th>
+                        <th>Giá bán(VNĐ)</th>
+                        <th style="text-align: center">Số lượng</th>
+                        <th style="text-align: right">Thành tiền(VNĐ)</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {info_product}
+                    <tr>
+                        <td colspan="4" class="text-right" style="border-top: none; padding: 0">
+                            <table class="total-pay" style="width: 100%;">
+                                <tbody>
+                                <tr>
+                                    <td>Tổng tiền:</td>
+                                    <td>{total} VNĐ</td>
+                                </tr>
+                                <tr>
+                                    <td>Phí vận chuyển:</td>
+                                    <td>0 VNĐ</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="font-bold">Tổng tiền thanh toán:</span></td>
+                                    <td><span class="font-bold">{subtotal} VNĐ</span></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="info-cus">
+                    <table class="table-info-cus">
+                        <tbody>
+                        <tr>
+                            <td><span class="font-bold">Họ và tên:</span></td>
+                            <td>{cus_name}</td>
+                        </tr>
+                        <tr>
+                            <td><span class="font-bold">Địa chỉ Email:</span></td>
+                            <td>{email}</td>
+                        </tr>
+                        <tr>
+                            <td><span class="font-bold">Số điện thoại:</span></td>
+                            <td>{phone}</td>
+                        </tr>
+                        <tr>
+                            <td><span class="font-bold">Địa chỉ:</span></td>
+                            <td>{address}</td>
+                        </tr>
+                        <!--<tr>-->
+                            <!--<td><span class="font-bold">Mã vận đơn ViettelPost:</span></td>-->
+                            <!--<td>{vtp_code}</td>-->
+                        <!--</tr>-->
+                        <tr>
+                            <td><span class="font-bold">Link thanh toán Ngân lượng:</span></td>
+                            <td>{link_nl}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer"></div>
+</section>
+</body>
+</html>

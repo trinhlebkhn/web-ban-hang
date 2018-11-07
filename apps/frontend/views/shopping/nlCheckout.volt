@@ -538,7 +538,7 @@
         </div>
     {% else %}
         <p class="message">
-            <i class="fa fa-info-circle" aria-hidden="true"></i> Một đường dẫn thanh toán đã được gửi đến email đăng kí mua hàng của bạn. Vui lòng thực hiện thanh toán theo đường dẫn đó để hoàn tất thủ tục đặt hàng. Nếu sau 48h đơn hàng chưa được thanh toán theo chính sách của
+            <i class="fa fa-info-circle" aria-hidden="true"></i> Một đường dẫn thanh toán đã được gửi đến email đăng kí mua hàng của bạn. Vui lòng thực hiện thanh toán theo đường dẫn đó để hoàn tất thủ tục đặt hàng. Nếu sau 24h đơn hàng chưa được thanh toán theo chính sách của
             cửa hàng đơn hàng sẽ tự hủy.
         </p>
     {% endif %}

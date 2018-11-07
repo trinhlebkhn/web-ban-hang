@@ -86,7 +86,6 @@ class ShoppingController extends ControllerBase
             $payment_method = $_POST['option_payment'];
             $bank_code = @$_POST['bankcode'];
             $order_code = $_POST['order_id'];
-
             $payment_type = 1;
             $discount_amount = 0;
             $order_description = '';
@@ -127,7 +126,7 @@ class ShoppingController extends ControllerBase
                 }
 
                 if ($nl_result->error_code == '00') {
-                    $rsSendEmail = $this->setUpSendMail((string)$nl_result->checkout_url, $buyer_email);
+                    $rsSendEmail = $this->setUpSendMail((string)$nl_result->checkout_url, $info, $order_code, $buyer_email);
                     if ($rsSendEmail !== 1) $this->flash->error('Có lỗi xảy ra khi thiết lập gửi mail!');
                     else {
                         $this->view->payed = 1;
@@ -195,15 +194,31 @@ class ShoppingController extends ControllerBase
         }
     }
 
-    public function testAction()
+    public function setUpSendMail($url, $info_order, $order_code, $buyer_email)
     {
-
-    }
-
-    public function setUpSendMail($url, $buyer_email)
-    {
-        $mail = file_get_contents(__DIR__ . "/../../../public/template_email/order_info.html");
+        $mail = file_get_contents(__DIR__ . "/../../../public/template_email/order.html");
         $mail = str_replace("{link_nl}", $url, $mail);
+        $mail = str_replace("{cus_name}", $info_order['customer_name'], $mail);
+        $mail = str_replace("{email}", $info_order['email'], $mail);
+        $mail = str_replace("{phone}", $info_order['phone'], $mail);
+        $mail = str_replace("{address}", $info_order['address'], $mail);
+        $mail = str_replace("{order_code}", $order_code, $mail);
+        $mail = str_replace("{time}", date("d/m/Y H:i:s", intval(time())), $mail);
+        $info_product = '';
+        $listProduct = $this->session->get('cart');
+        foreach ($listProduct as $product) {
+            $info_product .= '
+                     <tr>
+                        <td>' . $product['name'] . '</td>
+                        <td>' . number_format($product['price_sell']) . '</td>
+                        <td class="text-center">' . $product['quantity'] . '</td>
+                        <td class="total-price">' . number_format(($product['price_sell'] * $product['quantity'])) . '</td>
+                    </tr>
+            ';
+        }
+        $mail = str_replace("{info_product}", $info_product, $mail);
+        $mail = str_replace("{total}", number_format($info_order['price']), $mail);
+        $mail = str_replace("{subtotal}", number_format($info_order['total_price']), $mail);
         $rs = $this->sendMail($buyer_email, $mail);
         return $rs;
     }
