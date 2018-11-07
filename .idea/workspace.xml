@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7282ae4a-8215-4ede-8761-43fe8af4a01f" name="Default" comment="update">
-      <change afterPath="$PROJECT_DIR$/public/template_email/order.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/frontend/controllers/ShoppingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/controllers/ShoppingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/frontend/views/shopping/nlCheckout.volt" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/views/shopping/nlCheckout.volt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/template_email/order_info.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -89,16 +85,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ShoppingController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ShoppingController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/frontend/controllers/ShoppingController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="198" column="87" selection-start-line="198" selection-start-column="87" selection-end-line="198" selection-end-column="87" />
+            <state relative-caret-position="358">
+              <caret line="211" column="57" lean-forward="true" selection-start-line="211" selection-start-column="57" selection-end-line="211" selection-end-column="57" />
               <folding>
                 <element signature="e#6#88#0#PHP" expanded="true" />
                 <element signature="e#5880#6240#0#PHP" />
                 <element signature="e#7039#8989#0#PHP" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="105">
+                <caret line="5" column="16" lean-forward="true" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -214,7 +222,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/apps/frontend/views/layouts/widget/widget-top-website.volt" />
         <option value="$PROJECT_DIR$/apps/frontend/views/layouts/header.volt" />
         <option value="$PROJECT_DIR$/config/router.php" />
         <option value="$PROJECT_DIR$/apps/frontend/views/shopping/cart.volt" />
@@ -265,6 +272,7 @@
         <option value="$PROJECT_DIR$/public/template_email/order_test.html" />
         <option value="$PROJECT_DIR$/apps/frontend/views/shopping/nlCheckout.volt" />
         <option value="$PROJECT_DIR$/apps/frontend/controllers/ShoppingController.php" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -342,44 +350,6 @@
               <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
               <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="shopping" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="template_email" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -555,7 +525,7 @@
       <workItem from="1541120602001" duration="9483000" />
       <workItem from="1541379829461" duration="1234000" />
       <workItem from="1541443233412" duration="21528000" />
-      <workItem from="1541606137811" duration="10245000" />
+      <workItem from="1541606137811" duration="10484000" />
     </task>
     <task id="LOCAL-00001" summary="updat">
       <created>1523011072130</created>
@@ -666,7 +636,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="464832000" />
+    <option name="totallyTimeSpent" value="465071000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -751,13 +721,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/assets_backend/assets/js/custom.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1029">
-          <caret line="159" column="1" selection-start-line="159" selection-start-column="1" selection-end-line="159" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/cache/c__workspace_web-ban-hang_apps_frontend_views_index.volt.php" />
     <entry file="file://$PROJECT_DIR$/public/index.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -1245,13 +1208,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/controllers/ShoppingController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="198" column="87" selection-start-line="198" selection-start-column="87" selection-end-line="198" selection-end-column="87" />
+        <state relative-caret-position="358">
+          <caret line="211" column="57" lean-forward="true" selection-start-line="211" selection-start-column="57" selection-end-line="211" selection-end-column="57" />
           <folding>
             <element signature="e#6#88#0#PHP" expanded="true" />
             <element signature="e#5880#6240#0#PHP" />
             <element signature="e#7039#8989#0#PHP" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="105">
+            <caret line="5" column="16" lean-forward="true" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
