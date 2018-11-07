@@ -9,7 +9,8 @@ $('.synchronized-zalo').on('click', function () {
     }).fail(function (ui, status) {
         snackbar(2, 'Có lỗi  xảy ra!');
     }).done(function (data, status) {
-
+        if(status) snackbar(1, "Thao tác thành công!");
+        else snackbar(2, data.message);
     });
 });
 

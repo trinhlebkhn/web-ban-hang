@@ -7,8 +7,10 @@
  */
 
 namespace Graduate\Backend\Controllers;
-class ApiClientController extends AuthorizedControllerBase {
-    public function uploadImageAction() {
+class ApiClientController extends AuthorizedControllerBase
+{
+    public function uploadImageAction()
+    {
         $image = $this->request->getUploadedFiles()[0];
         if (!isset($image)) {
             $rs = [
@@ -37,7 +39,8 @@ class ApiClientController extends AuthorizedControllerBase {
         }
     }
 
-    public function uploadSlideProductAction() {
+    public function uploadSlideProductAction()
+    {
         $listImg = $this->session->get('listImg');
         if (empty($listImg)) {
             $id = $this->request->get('id');
@@ -60,7 +63,8 @@ class ApiClientController extends AuthorizedControllerBase {
         return $this->response->setJsonContent($last_result);
     }
 
-    public function removeImgProductAction() {
+    public function removeImgProductAction()
+    {
         $index = $this->request->get('index');
         $listImg = $this->session->get('listImg');
         unset($listImg[$index]);
@@ -73,7 +77,8 @@ class ApiClientController extends AuthorizedControllerBase {
         return $this->response->setJsonContent($last_result);
     }
 
-    public function getDetailAction() {
+    public function getDetailAction()
+    {
         $data = $this->request->getPost('data');
         $obj = new $data['model']();
         $dt = $obj->getDetail($data['id']);
@@ -89,7 +94,8 @@ class ApiClientController extends AuthorizedControllerBase {
         }
     }
 
-    public function getListMenuAction() {
+    public function getListMenuAction()
+    {
         $menu_block_id = $this->request->get('id');
         $menuObj = new \Menu();
         $rs = $menuObj->getListObj($menu_block_id);
@@ -108,7 +114,8 @@ class ApiClientController extends AuthorizedControllerBase {
         }
     }
 
-    public function addMenuAction() {
+    public function addMenuAction()
+    {
         $menu_block_id = $this->request->getPost('menu_block_id');
         $parent_id = $this->request->getPost('parent_id');
         $render = $this->render_template('menu', 'add_menu', [
@@ -119,13 +126,13 @@ class ApiClientController extends AuthorizedControllerBase {
         return $this->response->setJsonContent($data);
     }
 
-    public function creatMenuAction() {
+    public function creatMenuAction()
+    {
         $data = $this->request->getPost('data');
         $menuObj = new \Menu();
         if (empty($data['id'])) {
             $rs = $menuObj->createObj($data);
-        }
-        else {
+        } else {
             $rs = $menuObj->updateObj($data);
         }
         if ($rs->status) {
@@ -144,7 +151,8 @@ class ApiClientController extends AuthorizedControllerBase {
         }
     }
 
-    public function editMenuAction() {
+    public function editMenuAction()
+    {
         $id = $this->request->getPost('id');
         $menuObj = new \Menu();
         $rs = $menuObj->getDetail($id);
@@ -165,7 +173,8 @@ class ApiClientController extends AuthorizedControllerBase {
         }
     }
 
-    public function deleteMenuAction() {
+    public function deleteMenuAction()
+    {
         $id = $this->request->getPost('id');
         $menu_block_id = $this->request->getPost('menu_block_id');
         $menuObj = new \Menu();
@@ -186,7 +195,8 @@ class ApiClientController extends AuthorizedControllerBase {
         }
     }
 
-    public function ajaxCatHomePageAction() {
+    public function ajaxCatHomePageAction()
+    {
         $id = $this->request->getPost('id');
         $catObj = new \Category();
         $rs_detail = [];
@@ -207,7 +217,8 @@ class ApiClientController extends AuthorizedControllerBase {
         return $this->response->setJsonContent($rs);
     }
 
-    public function addCatHomeAction() {
+    public function addCatHomeAction()
+    {
         $data = $this->request->getPost('data');
         $data['position'] = 'home';
         $catObj = new \Category();
@@ -227,7 +238,8 @@ class ApiClientController extends AuthorizedControllerBase {
         }
     }
 
-    public function addAttrAction() {
+    public function addAttrAction()
+    {
         $render = $this->render_template('product', 'ajax_attr', []);
         $result = [
             'status' => 1,
@@ -237,13 +249,13 @@ class ApiClientController extends AuthorizedControllerBase {
         return $this->response->setJsonContent($result);
     }
 
-    public function createAttrAction() {
+    public function createAttrAction()
+    {
         $data = $this->request->getPost('data');
         $attrObj = new \Attribute();
         if (empty($data['id'])) {
             $rs = $attrObj->createObj($data);
-        }
-        else {
+        } else {
             $rs = $attrObj->updateAttr($data);
         }
         if ($rs->status) {
@@ -260,11 +272,12 @@ class ApiClientController extends AuthorizedControllerBase {
             ];
             return $this->response->setJsonContent($last_result);
         } else {
-            return $this->response->setJsonContent((array) $rs);
+            return $this->response->setJsonContent((array)$rs);
         }
     }
 
-    public function addAttrProductAction(){
+    public function addAttrProductAction()
+    {
         $attrObj = new \Attribute();
         $rsGetListData = $attrObj->getListObj();
         $render = $this->render_template('product', 'ajax_add_attr_product', [
@@ -279,7 +292,8 @@ class ApiClientController extends AuthorizedControllerBase {
         return $this->response->setJsonContent($last_result);
     }
 
-    public function disableAttrAction(){
+    public function disableAttrAction()
+    {
         $arrDisable = $this->request->getPost('arrDisable');
         $data = $this->request->getPost('data');
         $attrObj = new \Attribute();
@@ -295,10 +309,11 @@ class ApiClientController extends AuthorizedControllerBase {
         return $this->response->setJsonContent($last_result);
     }
 
-    public function synchronizedCategoryForZaloAction(){
+    public function synchronizedCategoryForZaloAction()
+    {
         $data = $this->request->getPost('data');
         $data = json_decode($data);
-        $data_zalo  = [
+        $data_zalo = [
             'name' => $data->name,
             'desc' => '',
             'photo' => $data->avatar,
@@ -306,23 +321,15 @@ class ApiClientController extends AuthorizedControllerBase {
         ];
         $zaloObj = new \ZaloService();
         $rs = $zaloObj->creatCategory($data_zalo);
-        if($rs['errorCode'] == 1) {
-            $last_result = [
-                'status' => $rs['errorCode'],
-                'message' => $rs['errorMsg']
-            ];
-        } else {
-            $last_result = [
-                'status' => 0,
-                'message' => ''
-            ];
-        }
         $last_result = [
-            'status' => '1',
+            'status' => $rs['errorCode'],
+            'message' => $rs['errorMsg']
         ];
+        return $this->response->setJsonContent($last_result);
     }
 
-    public function synchronizedProductForZaloAction(){
+    public function synchronizedProductForZaloAction()
+    {
         $product = $this->request->getPost('data');
         $product = json_decode($product);
         d($product);
