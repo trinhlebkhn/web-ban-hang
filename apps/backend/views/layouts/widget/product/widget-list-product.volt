@@ -15,11 +15,11 @@
                 </div>
 
                 <!-- /.box-header -->
-                <div class="box-body">
+                <div class="box-body table-responsive">
                     <div class="col-md-12">
                         {{ this.flash.output() }}
                     </div>
-                    <table id="data-table-customer" class="table table-responsive table-bordered table-hover table-product">
+                    <table id="data-table-customer" class="table table-bordered table-hover table-product">
                         <thead>
                         <tr>
                             <th width="5%">STT</th>

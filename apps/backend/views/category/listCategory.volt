@@ -38,7 +38,7 @@
                                     {% endif %}
                                 </td>
                                 <td>
-                                    <button type="button" class="btn btn-primary pointer synchronized-zalo" data-cat='{{ item | json_encode | escape_attr }}'>Đồng bộ với zalo</button>
+                                    <button type="button" class="btn {{ item['zalo_id'] !== null and item['zalo_id'] !== '' ? 'btn-warning' : 'btn-primary' }} pointer synchronized-zalo" data-cat='{{ item | json_encode | escape_attr }}'>{{ item['zalo_id'] !== null and item['zalo_id'] !== '' ? 'Cập nhật trên zalo' : 'Đồng bộ với zalo' }}</button>
                                 </td>
                                 <td>
                                     <a href="/quan-tri/chinh-sua-danh-muc?id={{ item['id'] }}"><span class="icon-manipulation pointer" id="edit-cat" title="Chỉnh sửa danh mục"><i class="fa fa-list"></i></span></a>

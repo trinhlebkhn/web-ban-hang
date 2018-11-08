@@ -313,18 +313,44 @@ class ApiClientController extends AuthorizedControllerBase
     {
         $data = $this->request->getPost('data');
         $data = json_decode($data);
-        $data_zalo = [
+        $dataZalo = [
             'name' => $data->name,
             'desc' => '',
             'photo' => $data->avatar,
             'status' => $data->status == 1 ? 0 : 1 // 0 - show | 1 - hide
         ];
         $zaloObj = new \ZaloService();
-        $rs = $zaloObj->creatCategory($data_zalo);
-        $last_result = [
-            'status' => $rs['errorCode'],
-            'message' => $rs['errorMsg']
-        ];
+        if(empty($data->zalo_id)) $rsZalo = $zaloObj->createCategory($dataZalo);
+        else {
+            $dataZalo['zalo_id'] = $data->zalo_id;
+            $rsZalo = $zaloObj->updateCategory($dataZalo);
+        }
+        $last_result = [];
+        if($rsZalo['errorCode'] == 1 && empty($data->zalo_id)) {
+            $catObj = new \Category();
+            $dataUpdate = [
+                'id' => $data->id,
+                'zalo_id' => $rsZalo['data']['categoryId']
+            ];
+            $rsUpdate = $catObj->updateCat($dataUpdate);
+            if($rsUpdate->status) {
+                $last_result = [
+                    'status' => $rsUpdate->status,
+                    'message' => $rsUpdate->message,
+                    'data' => $rsUpdate->data
+                ];
+            } else {
+                $last_result = [
+                    'status' => 0,
+                    'message' => 'Có lỗi khi cập nhật vào hệ thống!',
+                ];
+            }
+        } else {
+            $last_result = [
+                'status' => 0,
+                'message' => 'Có lỗi khi đồng bộ vào Zalo!',
+            ];
+        }
         return $this->response->setJsonContent($last_result);
     }
 
@@ -332,7 +358,6 @@ class ApiClientController extends AuthorizedControllerBase
     {
         $product = $this->request->getPost('data');
         $product = json_decode($product);
-        d($product);
         $data_zalo = [
             'id' => $product->id,
             'name' => $product->name,
