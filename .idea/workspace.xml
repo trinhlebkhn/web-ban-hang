@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7282ae4a-8215-4ede-8761-43fe8af4a01f" name="Default" comment="update">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/backend/controllers/ApiClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/controllers/ApiClientController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/backend/views/category/listCategory.volt" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/views/category/listCategory.volt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/backend/views/layouts/widget/product/widget-list-product.volt" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/views/layouts/widget/product/widget-list-product.volt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/apps/models/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/service/ZaloService.php" beforeDir="false" afterPath="$PROJECT_DIR$/apps/service/ZaloService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets_backend/assets/js/zalo.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets_backend/assets/js/zalo.js" afterDir="false" />
-    </list>
+    <list default="true" id="7282ae4a-8215-4ede-8761-43fe8af4a01f" name="Default" comment="update" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -641,7 +633,7 @@
       <workItem from="1541379829461" duration="1234000" />
       <workItem from="1541443233412" duration="21528000" />
       <workItem from="1541606137811" duration="11977000" />
-      <workItem from="1541685145991" duration="9950000" />
+      <workItem from="1541685145991" duration="10547000" />
     </task>
     <task id="LOCAL-00001" summary="updat">
       <created>1523011072130</created>
@@ -752,7 +744,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="476514000" />
+    <option name="totallyTimeSpent" value="477111000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
