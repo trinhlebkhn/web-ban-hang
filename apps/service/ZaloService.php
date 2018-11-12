@@ -60,7 +60,6 @@ class ZaloService
         return $result;
     }
 
-
     /* Đồng bộ sản phẩm */
     public function createProduct($product)
     {
@@ -181,6 +180,7 @@ class ZaloService
         $paramsGetAttr = ['data' => $queryGetAttr];
         $responseGetAttr = $zaloObj->get(ZaloEndpoint::API_OA_STORE_GET_SLICE_ATTRIBUTE, $paramsGetAttr);
         $rsGetAttr = $responseGetAttr->getDecodedBody();
+        d($rsGetAttr);
         $listAttrZalo = $rsGetAttr['data']['attributes'];
         $arrNameAttrZalo = array_column($listAttrZalo, 'name');
 
@@ -261,4 +261,24 @@ class ZaloService
         return $resultAddVariation;
     }
 
+    /* Nghiệp vụ đơn hàng */
+    public function getListOrder(){
+        $zaloObj = new Zalo(ZaloConfig::getInstance()->getConfig());
+        $data = array(
+            'offset' => 0,
+            'count' => 10,
+            'filter' => 0
+        );
+        $params = ['data' => $data];
+        $response = $zaloObj->get(ZaloEndpoint::API_OA_STORE_GET_SLICE_ORDER, $params);
+        $result = $response->getDecodedBody(); // result
+
+        if($result['errorCode'] == 1) {
+            foreach ($result['data']['orders'] as &$order) {
+                $order['createdTime'] = date('d/m/Y H:i:s', $order['createdTime']);
+                $order['updatedTime'] = date('d/m/Y H:i:s', $order['updatedTime']);
+            }
+        }
+        return $result;
+    }
 }

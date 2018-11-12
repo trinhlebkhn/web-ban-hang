@@ -9,8 +9,10 @@
 namespace Graduate\Backend\Controllers;
 
 
-class BillController extends AuthorizedControllerBase {
-    public function indexAction(){
+class BillController extends AuthorizedControllerBase
+{
+    public function indexAction()
+    {
 
         $strSeach = $this->request->get('q');
         $sttSeach = $this->request->get('stt');
@@ -32,13 +34,13 @@ class BillController extends AuthorizedControllerBase {
         if (!empty($strSeach) || !empty($sttSeach) || !empty($typeSeach)) {
             $filter = $this->checkQueryBill($strSeach, $sttSeach, $typeSeach);
         }
-        if(!empty($filter)){
+        if (!empty($filter)) {
             $optional['q'] = $filter['query'];
             $this->view->paramSearch = $filter['paramSearch'];
-            if(!empty($strSeach)) {
+            if (!empty($strSeach)) {
                 $this->view->StrSearch = $strSeach;
             }
-            if(!empty($sttSeach)) {
+            if (!empty($sttSeach)) {
                 $this->view->SttSearch = $sttSeach;
             }
         }
@@ -55,10 +57,11 @@ class BillController extends AuthorizedControllerBase {
         }
     }
 
-    public function detailAction($id){
+    public function detailAction($id)
+    {
         $billObj = new \Bill();
         $rs = $billObj->getDetail($id);
-        if ($this->request->isPost()){
+        if ($this->request->isPost()) {
             $data = $rs->data;
             $payment = $this->request->getPost('payment');
             $data['date_create'] = time($data['date_create']);
@@ -68,14 +71,15 @@ class BillController extends AuthorizedControllerBase {
             $billObj->updateObj($data);
             $rs = $billObj->getDetail($id);
         }
-        if(!$rs->status) {
+        if (!$rs->status) {
             $this->flash->error($rs->message);
             return;
         }
         $this->view->data = $rs->data;
     }
 
-    public function changeStatusAction($status, $id){
+    public function changeStatusAction($status, $id)
+    {
         $billObj = new \Bill();
         $data = [
             'id' => $id,
@@ -83,5 +87,20 @@ class BillController extends AuthorizedControllerBase {
         ];
         $billObj->updateObj($data);
         $this->response->redirect(base_uri() . '/quan-tri/hoa-don');
+    }
+
+    public function zaloAction()
+    {
+        $zaloService = new \ZaloService();
+        $resGetListOrder = $zaloService->getListOrder();
+        $listData = [];
+        if ($resGetListOrder['errorCode'] == 1) {
+            $listData = $resGetListOrder['data']['orders'];
+        } else return $this->flash->error($resGetListOrder['errorMsg']);
+
+//        d($listData);
+        $this->view->setVars([
+            'listBill' => $listData
+        ]);
     }
 }

@@ -64,23 +64,17 @@
                 <ul class="treeview-menu">
                     <li>
                         <a href="/quan-tri/hoa-don">
-                            <i class="fa fa-briefcase"></i>
+                            <i class="fa fa-first-order" aria-hidden="true"></i>
                             <span>Hóa đơn nguồn website</span>
                         </a>
                     </li>
                     <li>
                         <a href="/quan-tri/hoa-don-zalo">
-                            <i class="fa fa-briefcase"></i>
+                            <i class="fa fa-gg" aria-hidden="true"></i>
                             <span>Hóa đơn nguồn zalo</span>
                         </a>
                     </li>
                 </ul>
-            </li>
-            <li>
-                <a href="/quan-tri/hoa-don">
-                    <i class="fa fa-briefcase"></i>
-                    <span>Quản lý hóa đơn</span>
-                </a>
             </li>
             <li>
                 <a href="/quan-tri/cau-hinh-trang-chu">
