@@ -11,18 +11,20 @@ use Zalo\FileUpload\ZaloFile;
  * Date: 11/2/2018
  * Time: 2:05 PM
  */
-
 class ZaloService
 {
     public $zaloObj;
     public $zalohelper;
-    function initialize(){
+
+    function initialize()
+    {
         $this->zaloObj = new Zalo(ZaloConfig::  getInstance()->getConfig());
-        $this->zalohelper = $this->zalo -> getRedirectLoginHelper();
+        $this->zalohelper = $this->zalo->getRedirectLoginHelper();
     }
 
     /* Đồng bộ danh mục */
-    public function createCategory($data){
+    public function createCategory($data)
+    {
         $params = ['data' => $data];
         $zaloObj = new Zalo(ZaloConfig::getInstance()->getConfig());
         $zaloObj->getRedirectLoginHelper();
@@ -35,7 +37,8 @@ class ZaloService
         return $result;
     }
 
-    public function updateCategory($data){
+    public function updateCategory($data)
+    {
         /* Xử lý ảnh  */
         $pathFile = '../../public' . $data['photo'];
         $imageId = $this->uploadCategoryImage($pathFile);
@@ -58,71 +61,99 @@ class ZaloService
     }
 
 
-
-
     /* Đồng bộ sản phẩm */
-    public function createProduct($data){
+    public function createProduct($product)
+    {
         $zaloObj = new Zalo(ZaloConfig::getInstance()->getConfig());
         $zaloObj->getRedirectLoginHelper();
-        /* Xử lý ảnh  */
-        $pathFile = '../../public' . $data['photos'];
-        $paramsUploadAvatar = $this->uploadProductImage($pathFile);
-        $photo = [
-            'id' => $paramsUploadAvatar
-        ];
-        $data['photos'] = [$photo];
-
-        /* Xử lý thuộc tính sản phẩm */
-//        $queryAttr = array(
-//            'offset' => 0,
-//            'count' => 10
-//        );
-//        $paramsQueryAttr = ['data' => $queryAttr];
-//        $responseAttr = $zaloObj->get(ZaloEndpoint::API_OA_STORE_GET_SLICE_ATTRIBUTE, $paramsQueryAttr);
-//        $resultAttr = $responseAttr->getDecodedBody();
-//        d($resultAttr);
-
-        $dataAttr = array(
-            'name' => "màu vàng",
-            'type' => "34eb452b796e9030c97f" // get from end point -> ZaloEndpoint::API_OA_STORE_GET_SLICE_ATTRIBUTE_TYPE
-        );
-        $params = ['data' => $dataAttr];
-        $responseAttr = $zaloObj->post(ZaloEndpoint::API_OA_STORE_CREATE_ATTRIBUTE, $params);
-        $resultAttr = $responseAttr->getDecodedBody();
-        d($resultAttr);
-
-
-        $params = ['data' => $data];
-        $response = $zaloObj->post(ZaloEndpoint::API_OA_STORE_CREATE_PRODUCT, $params);
+        $rsCreateDataProduct = $this->createDataProduct($product);
+        $dataProduct = $rsCreateDataProduct['dataProduct'];
+        $paramsProduct = ['data' => $dataProduct];
+        $response = $zaloObj->post(ZaloEndpoint::API_OA_STORE_CREATE_PRODUCT, $paramsProduct);
         $result = $response->getDecodedBody();
-        if($result['errorCode'] == 1) {
+        if ($result['errorCode'] == 1) {
+
+            if (!empty($rsCreateDataProduct['arrayAttrZalo'])) {
+                $resultAddVariation = $this->handleVariation($result['data']['productId'], $product->price_sell, $rsCreateDataProduct['arrayAttrZalo']);
+                if ($resultAddVariation['errorCode'] != 1) {
+                    return (object)[
+                        'status' => 0,
+                        'message' => $resultAddVariation['errorMsg']
+                    ];
+                }
+            }
+
+            /* Cập nhật id sản phẩm  trên zalo vào db */
             $dataUpdate = [
-                'id' => $data['id'],
+                'id' => $product->id,
                 'zalo_id' => $result['data']['productId']
             ];
 
             $productObj = new Product();
             $rsUpdateProduct = $productObj->updateObj($dataUpdate);
-            if($rsUpdateProduct) {
-                return (object) [
+            if ($rsUpdateProduct) {
+                return (object)[
                     'status' => 1,
-                    'message' => 'Thao tác thành công! Vui lòng kiểm tra lại trên cửa hàng zalo của bạn.'
+                    'message' => 'Thao tác thành công! Vui lòng kiểm tra lại trên cửa hàng zalo của bạn.',
+                    'data' => $rsUpdateProduct->data
                 ];
             } else {
-                return (object) [
+                return (object)[
                     'status' => 0,
                     'message' => 'Có lỗi xảy ra khi cập nhật lại sản phẩm!'
                 ];
             }
         } else {
-            return (object) [
+            return (object)[
                 'status' => 0,
                 'message' => 'Có lỗi xảy ra khi đồng bộ sản phẩm!'
             ];
         }
     }
 
-    public function uploadCategoryImage($url){
+    public function updateProduct($product)
+    {
+        $zaloObj = new Zalo(ZaloConfig::getInstance()->getConfig());
+        $zaloObj->getRedirectLoginHelper();
+        $rsCreateDataProduct = $this->createDataProduct($product);
+        $dataProduct = [
+            'productid' => $product->zalo_id,
+            'product' => $rsCreateDataProduct['dataProduct']
+        ];
+        $paramsProduct = ['data' => $dataProduct];
+        $response = $zaloObj->post(ZaloEndpoint::API_OA_STORE_UPDATE_PRODUCT, $paramsProduct);
+        $result = $response->getDecodedBody();
+        if ($result['errorCode'] == 1) {
+            if (!empty($rsCreateDataProduct['arrayAttrZalo'])) {
+                $resultAddVariation = $this->handleVariation($product->zalo_id, $product->price_sell, $rsCreateDataProduct['arrayAttrZalo']);
+                if ($resultAddVariation['errorCode'] != 1) {
+                    return (object)[
+                        'status' => 0,
+                        'message' => $resultAddVariation['errorMsg']
+                    ];
+                }
+            }
+            return (object)[
+                'status' => 1,
+                'message' => 'Thao tác thành công! Vui lòng kiểm tra lại trên cửa hàng zalo của bạn.',
+            ];
+        } else {
+            return (object)[
+                'status' => 0,
+                'message' => 'Có lỗi xảy ra khi đồng bộ sản phẩm!'
+            ];
+        }
+    }
+
+    public function deleteProduct($id)
+    {
+        $zaloObj = new Zalo(ZaloConfig::getInstance()->getConfig());
+        $params = ['productid' => $id];
+        $response = $zaloObj->post(ZaloEndpoint::API_OA_STORE_REMOVE_PRODUCT, $params);
+    }
+
+    public function uploadCategoryImage($url)
+    {
         $zaloObj = new Zalo(ZaloConfig::getInstance()->getConfig());
         $params_upload_avatar = ['file' => new ZaloFile($url)];
         $qrAvatar = $zaloObj->post(ZaloEndpoint::API_OA_STORE_UPLOAD_CATEGORY_PHOTO, $params_upload_avatar);
@@ -130,11 +161,104 @@ class ZaloService
         return $rsAvatar['data']['imageId'];
     }
 
-    public function uploadProductImage($url){
+    public function uploadProductImage($url)
+    {
         $zaloObj = new Zalo(ZaloConfig::getInstance()->getConfig());
         $params_upload_avatar = ['file' => new ZaloFile($url)];
         $qrAvatar = $zaloObj->post(ZaloEndpoint::API_OA_STORE_UPLOAD_PRODUCT_PHOTO, $params_upload_avatar);
         $rsAvatar = $qrAvatar->getDecodedBody();
         return $rsAvatar['data']['imageId'];
     }
+
+    public function createDataProduct($product)
+    {
+        $zaloObj = new Zalo(ZaloConfig::getInstance()->getConfig());
+        $listAttrProduct = json_decode($product->attribute);
+        $queryGetAttr = array(
+            'offset' => 0,
+            'count' => 10,
+        );
+        $paramsGetAttr = ['data' => $queryGetAttr];
+        $responseGetAttr = $zaloObj->get(ZaloEndpoint::API_OA_STORE_GET_SLICE_ATTRIBUTE, $paramsGetAttr);
+        $rsGetAttr = $responseGetAttr->getDecodedBody();
+        $listAttrZalo = $rsGetAttr['data']['attributes'];
+        $arrNameAttrZalo = array_column($listAttrZalo, 'name');
+
+        /* Tạo thuộc tính mới trên Zalo */
+        $arrayAttrZalo = [];
+        foreach ($listAttrProduct as $attrObj) {
+            if (!empty($attrObj->variation_zalo)) {
+                if (!in_array($attrObj->value, $arrNameAttrZalo)) {
+                    $dataCreateAttr = array(
+                        'name' => $attrObj->value,
+                        'type' => $attrObj->variation_zalo
+                    );
+                    $paramsCreateAttr = ['data' => $dataCreateAttr];
+                    $resCreateAttr = $zaloObj->post(ZaloEndpoint::API_OA_STORE_CREATE_ATTRIBUTE, $paramsCreateAttr);
+                    $rsCreateAttr = $resCreateAttr->getDecodedBody();
+                    array_push($arrayAttrZalo, $rsCreateAttr['data']['attributeId']);
+                    continue;
+                }
+                foreach ($listAttrZalo as $value) {
+                    if ($value['name'] == $attrObj->value) {
+                        array_push($arrayAttrZalo, $value['id']);
+                    }
+                }
+            }
+        }
+
+
+        /* Xử lý ảnh  */
+        $pathFile = '../../public' . $product->avatar;
+        $paramsUploadAvatar = $this->uploadProductImage($pathFile);
+        $photo = [
+            'id' => $paramsUploadAvatar
+        ];
+        $photos = [$photo];
+        $dataProduct = array(
+            'name' => $product->name,
+            'price' => $product->price_sell,
+            'photos' => $photos,
+            'display' => 'show', // show | hide
+            'payment' => 2 // 2 - enable | 3 - disable
+        );
+
+        /* Danh mục sản phẩm */
+        $catObj = new Category();
+        $rsGetCat = $catObj->getDetail($product->category_id );
+
+        if(!empty($rsGetCat->data['zalo_id'])) {
+            $cate = array('cateid' => $rsGetCat->data['zalo_id']);
+            $cates = [$cate];
+            $dataProduct['cateids'] = $cates;
+        }
+
+        return [
+            'dataProduct' => $dataProduct,
+            'arrayAttrZalo' => $arrayAttrZalo
+        ];
+    }
+
+    public function handleVariation($productId, $price, $arrayAttrZalo)
+    {
+        /* Thêm variation vào sản phẩm trên zalo */
+        $variation = [
+//                'default' => 1, // 1 (enable), 2 (disable)
+            'price' => $price,
+            'name' => '',
+            'attributes' => $arrayAttrZalo
+        ];
+
+        $dataVariationProduct = [
+            'productid' => $productId,
+            'variations' => [$variation]
+        ];
+
+        $paramsVariationProduct = ['data' => $dataVariationProduct];
+        $zaloObj = new Zalo(ZaloConfig::getInstance()->getConfig());
+        $responseAddVariation = $zaloObj->post(ZaloEndpoint::API_OA_STORE_ADD_VARIATION, $paramsVariationProduct);
+        $resultAddVariation = $responseAddVariation->getDecodedBody();
+        return $resultAddVariation;
+    }
+
 }

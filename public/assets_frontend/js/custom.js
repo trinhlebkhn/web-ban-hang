@@ -23,7 +23,6 @@ $(document).ready(function () {
 })
 
 function check_idea_register() {
-    console.log(1111);
     var check = $("input#agree_idea")[0].checked;
     if (check) {
         $(".register.check__action").removeClass('error');

@@ -320,20 +320,20 @@ class ApiClientController extends AuthorizedControllerBase
             'status' => $data->status == 1 ? 0 : 1 // 0 - show | 1 - hide
         ];
         $zaloObj = new \ZaloService();
-        if(empty($data->zalo_id)) $rsZalo = $zaloObj->createCategory($dataZalo);
+        if (empty($data->zalo_id)) $rsZalo = $zaloObj->createCategory($dataZalo);
         else {
             $dataZalo['zalo_id'] = $data->zalo_id;
             $rsZalo = $zaloObj->updateCategory($dataZalo);
         }
         $last_result = [];
-        if($rsZalo['errorCode'] == 1 && empty($data->zalo_id)) {
+        if ($rsZalo['errorCode'] == 1 && empty($data->zalo_id)) {
             $catObj = new \Category();
             $dataUpdate = [
                 'id' => $data->id,
                 'zalo_id' => $rsZalo['data']['categoryId']
             ];
             $rsUpdate = $catObj->updateCat($dataUpdate);
-            if($rsUpdate->status) {
+            if ($rsUpdate->status) {
                 $last_result = [
                     'status' => $rsUpdate->status,
                     'message' => $rsUpdate->message,
@@ -358,18 +358,33 @@ class ApiClientController extends AuthorizedControllerBase
     {
         $product = $this->request->getPost('data');
         $product = json_decode($product);
-        $data_zalo = [
-            'id' => $product->id,
-            'name' => $product->name,
-            'code' => 'SP' . $product->id,
-            'price' => $product->price_sell,
-            'photos' => $product->avatar,
-            'display' => 'show', // show | hide
-            'payment' => 2 // 2 - enable | 3 - disable
-        ];
-
         $zaloServiceObj = new \ZaloService();
-        $rs = $zaloServiceObj->createProduct($data_zalo);
+        if (empty($product->zalo_id)) $rs = $zaloServiceObj->createProduct($product);
+        else $rs = $zaloServiceObj->updateProduct($product);
+        return $this->response->setJsonContent($rs);
+    }
+
+    public function removeSynchronizedProductForZaloAction()
+    {
+        $zaloId = $this->request->getPost('zalo_id');
+        $proId = $this->request->getPost('pro_id');
+        $zaloServiceObj = new \ZaloService();
+        $zaloServiceObj->deleteProduct($zaloId);
+        $productObj = new \Product();
+        $dataUpdateProduct = [
+            'id' => $proId,
+            'zalo_id' => ''
+        ];
+        $rsUpdateProduct = $productObj->updateObj($dataUpdateProduct);
+        if ($rsUpdateProduct->status)
+            $rs = [
+                'status' => 1,
+                'message' => 'Thao tác thành công!'
+            ];
+        else $rs = [
+            'status' => 0,
+            'message' => 'Có lỗi xảy ra khi cập nhật sản phẩm trên hệ thống Website!'
+        ];
         return $this->response->setJsonContent($rs);
     }
 }

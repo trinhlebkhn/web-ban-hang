@@ -34,9 +34,9 @@
                         </tr>
                         </thead>
                         <tbody>
-                        {% for item in listData %}
+                        {% for index, item in listData %}
                             <tr>
-                                <td>{{ item['id'] }}</td>
+                                <td>{{ index + 1 }}</td>
                                 <td><img src="{{ item['avatar']? item['avatar'] : '/assets_backend/upload/no-image.png' }}" alt=""></td>
                                 <td>{{ item['name'] }}</td>
                                 <td>{{ item['slug'] }}</td>
@@ -50,11 +50,14 @@
                                     {% endif %}
                                 </td>
                                 <td>
-                                    <button type="button" class="btn btn-primary pointer product-synchronized-zalo" data-pro='{{ item | json_encode | escape_attr }}'>Đồng bộ với zalo</button>
+                                    <button type="button" class="btn {{ item['zalo_id'] !== null and item['zalo_id'] !== '' ? 'btn-warning' : 'btn-primary' }} pointer product-synchronized-zalo" data-pro='{{ item | json_encode | escape_attr }}'>
+                                        {{ item['zalo_id'] !== null and item['zalo_id'] !== '' ? 'Cập nhật trên zalo' : 'Đồng bộ với zalo' }}
+                                    </button>
                                 </td>
                                 <td>
                                     <a href="/quan-tri/chinh-sua-san-pham?id={{ item['id'] }}"><span class="icon-manipulation pointer" id="edit-cat" title="Chỉnh sửa sản phẩm"><i class="fa fa-list"></i></span></a>
                                     <a href="/quan-tri/xoa-san-pham?id={{ item['id'] }}"><span class="icon-manipulation pointer delete-item"  id="trash-cat" title="Xóa sản phẩm" ><i class="fa fa-trash"></i></span></a>
+                                    <a class="{{ item['zalo_id'] is not empty ? '' : 'hidden' }}  remove-action" href="#"><span class="icon-manipulation pointer remove-synchronized-product"  title="Xóa đồng bộ zalo" zalo-id='{{ item['zalo_id'] }}' pro-id='{{ item['id'] }}'><i class="fa fa-times"></i></span></a>
                                 </td>
                             </tr>
                         {% endfor %}
