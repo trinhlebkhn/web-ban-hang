@@ -98,9 +98,18 @@ class BillController extends AuthorizedControllerBase
             $listData = $resGetListOrder['data']['orders'];
         } else return $this->flash->error($resGetListOrder['errorMsg']);
 
-//        d($listData);
         $this->view->setVars([
             'listBill' => $listData
         ]);
+    }
+
+    public function detailOrderZaloAction()
+    {
+        $id = $this->request->get('id');
+        $zaloService = new \ZaloService();
+        $resGetData = $zaloService->getDetailOrder($id);
+        if ($resGetData['errorCode'] !== 1) return $this->flash->error($resGetData['errorMsg']);
+        d($resGetData['data']);
+        $this->view->data = $resGetData['data'];
     }
 }

@@ -326,23 +326,30 @@ class ApiClientController extends AuthorizedControllerBase
             $rsZalo = $zaloObj->updateCategory($dataZalo);
         }
         $last_result = [];
-        if ($rsZalo['errorCode'] == 1 && empty($data->zalo_id)) {
-            $catObj = new \Category();
-            $dataUpdate = [
-                'id' => $data->id,
-                'zalo_id' => $rsZalo['data']['categoryId']
-            ];
-            $rsUpdate = $catObj->updateCat($dataUpdate);
-            if ($rsUpdate->status) {
-                $last_result = [
-                    'status' => $rsUpdate->status,
-                    'message' => $rsUpdate->message,
-                    'data' => $rsUpdate->data
+        if ($rsZalo['errorCode'] == 1) {
+            if(empty($data->zalo_id)) {
+                $catObj = new \Category();
+                $dataUpdate = [
+                    'id' => $data->id,
+                    'zalo_id' => $rsZalo['data']['categoryId']
                 ];
+                $rsUpdate = $catObj->updateCat($dataUpdate);
+                if ($rsUpdate->status) {
+                    $last_result = [
+                        'status' => $rsUpdate->status,
+                        'message' => $rsUpdate->message,
+                        'data' => $rsUpdate->data
+                    ];
+                } else {
+                    $last_result = [
+                        'status' => 0,
+                        'message' => 'Có lỗi khi cập nhật vào hệ thống!',
+                    ];
+                }
             } else {
                 $last_result = [
-                    'status' => 0,
-                    'message' => 'Có lỗi khi cập nhật vào hệ thống!',
+                    'status' => 1,
+                    'message' => 'Thao tác thành công!',
                 ];
             }
         } else {

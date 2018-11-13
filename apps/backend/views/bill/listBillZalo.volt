@@ -26,8 +26,7 @@
                         {% for item in listBill %}
                             <tr>
                                 <td class="code-bill" width="20%">
-                                    <div><a href="/quan-tri/chi-tiet-hoa-don-hd{{ item['id'] }}">HD{{ item['id'] }}</a>
-                                    </div>
+                                    <div>{{ item['orderCode'] }}</div>
                                     <div><i class="fa fa fa-clock-o color-gray-icon"></i> {{ item['createdTime'] }}
                                     </div>
                                 </td>

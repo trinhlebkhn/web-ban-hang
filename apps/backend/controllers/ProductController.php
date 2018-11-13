@@ -66,7 +66,7 @@ class ProductController extends AuthorizedControllerBase
                 return $this->flash->error($obj->message);
             }
             $data = $obj->data;
-            $data['category_id'] = explode(',', $data['category_id']);
+//            $data['category_id'] = explode(',', $data['category_id']);
             $data['image'] = json_decode( $data['image']);
             $data['attribute'] = json_decode($data['attribute']);
             $data['attribute_id'] = [];
@@ -115,15 +115,15 @@ class ProductController extends AuthorizedControllerBase
                 return;
             }
 
-            /* Xử lý danh mục */
-            if (!empty($data['category_id'])) {
-                $list_cat_id = '';
-                foreach ($data['category_id'] as $v => $item) {
-                    $list_cat_id .= $item . ',';
-                }
-                $list_cat_id = rtrim($list_cat_id, ',');
-                $data['category_id'] = $list_cat_id;
-            }
+//            /* Xử lý danh mục */
+//            if (!empty($data['category_id'])) {
+//                $list_cat_id = '';
+//                foreach ($data['category_id'] as $v => $item) {
+//                    $list_cat_id .= $item . ',';
+//                }
+//                $list_cat_id = rtrim($list_cat_id, ',');
+//                $data['category_id'] = $list_cat_id;
+//            }
 
             /* Xử lý đưa về dạng int  */
             $data['price'] = intval($data['price']);
@@ -143,7 +143,7 @@ class ProductController extends AuthorizedControllerBase
                 $this->response->redirect(base_uri() . '/quan-tri/san-pham');
                 $this->flash->success($rs->message);
             } else {
-                $data['category_id'] = explode(',', $data['category_id']);
+//                $data['category_id'] = explode(',', $data['category_id']);
                 $this->view->data = $data;
                 $this->flash->error($rs->message);
             }

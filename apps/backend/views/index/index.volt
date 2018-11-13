@@ -9,92 +9,51 @@
     <!-- Main content -->
     <section class="content">
         <div class="row">
-            <div class="col-lg-3 col-xs-6">
+            <div class="col-lg-4 col-xs-6">
                 <!-- small box -->
-                <div class="small-box bg-yellow">
+                <div class="small-box bg-yellow pointer">
                     <div class="inner">
-                        {#<h3>{{ DashboardInfo['total_customer'] ? DashboardInfo['total_customer'] : "0" }}</h3>#}
+                        <h3>{{ uiHelper.formatNumber(totalUsers) }}</h3>
 
                         <p>Khách hàng đăng ký</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-person-add"></i>
                     </div>
-                    <a href="/customer" class="small-box-footer">Xem thêm <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="/quan-tri/thanh-vien" class="small-box-footer">Xem thêm <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
+            <div class="col-lg-4 col-xs-6">
                 <!-- small box -->
-                <div class="small-box bg-aqua">
+                <div class="small-box bg-aqua pointer">
                     <div class="inner">
-                        {#<h3>{{ DashboardInfo['total_contract'] ? DashboardInfo['total_contract'] : "0" }}</h3>#}
+                        <h3>{{ uiHelper.formatNumber(totalBills) }}</h3>
 
-                        <p>Hợp đồng</p>
+                        <p>Tổng số hóa đơn</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-document-text"></i>
                     </div>
-                    <a href="/contract" class="small-box-footer">Xem thêm <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="/quan-tri/hoa-don" class="small-box-footer">Xem thêm <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
+            <div class="col-lg-4 col-xs-6">
                 <!-- small box -->
-                <div class="small-box bg-green">
+                <div class="small-box bg-green pointer">
                     <div class="inner">
-                        {#<h3>{{ uihelper.format_number(DashboardInfo['sum_contract_new']) }} VNĐ</h3>#}
+                        <h3>{{ uiHelper.formatNumber(totalRevenue) }} VNĐ</h3>
 
-                        <p>Doanh thu hợp đồng mới</p>
+                        <p>Tổng doanh thu</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-plus-round"></i>
                     </div>
-                    <a href="/contract?type=new" class="small-box-footer">Xem thêm <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="/quan-tri/hoa-don" class="small-box-footer">Xem thêm <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-                <!-- small box -->
-                <div class="small-box bg-red">
-                    <div class="inner">
-                        {#<h3>{{ uihelper.format_number(DashboardInfo['sum_contract_extend']) }} VNĐ</h3>#}
-
-                        <p>Doanh thu hợp đồng gia hạn thêm</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-ios-refresh-outline"></i>
-                    </div>
-                    <a href="/contract?type=extend" class="small-box-footer">Xem thêm <i class="fa fa-arrow-circle-right"></i></a>
-                </div>
-            </div>
-            <!-- ./col -->
         </div>
-
-        {#THỐNG KÊ KHÁCH HÀNG#}
-        {#<div class="row">
-            <div class="col-md-6">
-                <!-- BAR CHART -->
-                <div class="box box-success">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Thống kê khách hàng</h3>
-
-                        #}{#<div class="box-tools pull-right">
-                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                        </div>#}{#
-                    </div>
-                    <div class="box-body">
-                        <div class="chart">
-                            <canvas id="barChart_Customer" style="height:230px"></canvas>
-                        </div>
-                    </div>
-                    <!-- /.box-body -->
-                </div>
-                <!-- /.box -->
-
-            </div>
-        </div>#}
     </section>
     <!-- /.content -->
 </div>

@@ -270,7 +270,7 @@ span.icon-manipulation {
 }
 
 .content-wrapper {
-    min-height: auto !important;
+    min-height: 100vh;
 }
 
 .table-product tr td img {

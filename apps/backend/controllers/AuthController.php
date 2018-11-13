@@ -48,13 +48,13 @@ class AuthController extends ControllerBase {
         $userObj = new \User();
         $optional = [
             'p' => $page,
-            'limit' => 20
+            'limit' => 20,
         ];
         if ($this->request->getPost()) {
             $strSeach = $this->request->getPost('q');
         }
         if (!empty($strSeach)) {
-            $optional['q'] = 'email like "%' . $strSeach . '%" or fullname like "%' . $strSeach .'%"';
+            $optional['q'] .= 'email like "%' . $strSeach . '%" or fullname like "%' . $strSeach .'%"';
             $paramSearch = '&q=' . $strSeach;
             $this->view->paramSearch = $paramSearch;
             $this->view->StrSearch = $strSeach;

@@ -139,6 +139,13 @@ $router->add("/quan-tri/hoa-don-zalo", [
     'action' => 'zalo',
 ]);
 
+$router->add("/quan-tri/chi-tiet-hoa-don-zl", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'bill',
+    'action' => 'detailOrderZalo',
+]);
+
 
 /* Quản trị User */
 $router->add("/quan-tri/dang-nhap", [

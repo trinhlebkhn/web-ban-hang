@@ -7,7 +7,7 @@
         <div class="row" style="background: #ffffff; padding-bottom: 20px">
             <div class="col-xs-12">
                 <h2 class="page-header">
-                    Chi tiết đơn hàng DH1
+                    Chi tiết đơn hàng {{ data['id'] }}
                     <small class="pull-right">Ngày tạo đơn: {{ data['date_create'] }}</small>
                 </h2>
             </div>
@@ -15,14 +15,10 @@
             <div class="row invoice-info">
                 <div class="col-sm-4 invoice-col">
                     <address style="line-height: 26px;">
-                        <b>Tên khách hàng:</b> {{ data['customer_name'] }}<br>
-                        <b>Địa chỉ:</b> {{ data['address'] }}<br>
-                        <b>Điện thoại:</b> {{ data['phone'] }}<br>
-                        <b>Email:</b> {{ data['email'] }}
+                        <b>Tên khách hàng:</b> {{ data['customerName'] }}<br>
+                        <b>Địa chỉ:</b> {{ data['deliverAddress'] }}<br>
+                        <b>Điện thoại:</b> {{ data['customerPhone'] }}<br>
                     </address>
-                </div>
-                <div class="col-sm-4 invoice-col" style="line-height: 26px;">
-                    <b>Ngày chuyển tiền:</b> {{ data['date_payment'] }}<br>
                 </div>
             </div>
             <!-- /.row -->

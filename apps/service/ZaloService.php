@@ -173,6 +173,8 @@ class ZaloService
     {
         $zaloObj = new Zalo(ZaloConfig::getInstance()->getConfig());
         $listAttrProduct = json_decode($product->attribute);
+
+        /* Lấy danh sách thuộc tính sản phẩm trên zalo */
         $queryGetAttr = array(
             'offset' => 0,
             'count' => 10,
@@ -180,8 +182,22 @@ class ZaloService
         $paramsGetAttr = ['data' => $queryGetAttr];
         $responseGetAttr = $zaloObj->get(ZaloEndpoint::API_OA_STORE_GET_SLICE_ATTRIBUTE, $paramsGetAttr);
         $rsGetAttr = $responseGetAttr->getDecodedBody();
-        d($rsGetAttr);
         $listAttrZalo = $rsGetAttr['data']['attributes'];
+        if ($rsGetAttr['data']['total'] > $queryGetAttr['count']) {
+            $check = (int)($rsGetAttr['data']['total'] / $queryGetAttr['count']);
+            for ($i = 2; $i <= $check + 1; $i++) {
+                $offset = $queryGetAttr['count'] * ($i - 1);
+                $queryHandleGetAttr = [
+                    'offset' => $offset,
+                    'count' => 10,
+                ];
+                $paramsHandleGetAttr = ['data' => $queryHandleGetAttr];
+                $resHandleGetAttr = $zaloObj->get(ZaloEndpoint::API_OA_STORE_GET_SLICE_ATTRIBUTE, $paramsHandleGetAttr);
+                $rsHandleGetAttr = $resHandleGetAttr->getDecodedBody();
+                $listAttrZalo = array_merge($listAttrZalo, $rsHandleGetAttr['data']['attributes']);
+            }
+        }
+
         $arrNameAttrZalo = array_column($listAttrZalo, 'name');
 
         /* Tạo thuộc tính mới trên Zalo */
@@ -225,9 +241,9 @@ class ZaloService
 
         /* Danh mục sản phẩm */
         $catObj = new Category();
-        $rsGetCat = $catObj->getDetail($product->category_id );
+        $rsGetCat = $catObj->getDetail($product->category_id);
 
-        if(!empty($rsGetCat->data['zalo_id'])) {
+        if (!empty($rsGetCat->data['zalo_id'])) {
             $cate = array('cateid' => $rsGetCat->data['zalo_id']);
             $cates = [$cate];
             $dataProduct['cateids'] = $cates;
@@ -262,7 +278,8 @@ class ZaloService
     }
 
     /* Nghiệp vụ đơn hàng */
-    public function getListOrder(){
+    public function getListOrder()
+    {
         $zaloObj = new Zalo(ZaloConfig::getInstance()->getConfig());
         $data = array(
             'offset' => 0,
@@ -273,12 +290,23 @@ class ZaloService
         $response = $zaloObj->get(ZaloEndpoint::API_OA_STORE_GET_SLICE_ORDER, $params);
         $result = $response->getDecodedBody(); // result
 
-        if($result['errorCode'] == 1) {
+        if ($result['errorCode'] == 1) {
             foreach ($result['data']['orders'] as &$order) {
                 $order['createdTime'] = date('d/m/Y H:i:s', $order['createdTime']);
                 $order['updatedTime'] = date('d/m/Y H:i:s', $order['updatedTime']);
             }
         }
+        return $result;
+    }
+
+    public function getDetailOrder($id)
+    {
+        $zaloObj = new Zalo(ZaloConfig::getInstance()->getConfig());
+        $params = ['orderid' => $id];
+        $response = $zaloObj->get(ZaloEndpoint::API_OA_STORE_GET_ORDER, $params);
+        $result = $response->getDecodedBody(); // result
+        $result['data']['createdTime'] = date('d/m/Y H:i:s', $result['data']['createdTime']);
+        $result['data']['updatedTime'] = date('d/m/Y H:i:s', $result['data']['updatedTime']);
         return $result;
     }
 }
