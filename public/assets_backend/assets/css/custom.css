@@ -479,3 +479,16 @@ aside.control-sidebar.control-sidebar-dark {
 .pd-t-10 {
     margin-top: 10px;
 }
+
+.box-size {
+    display: flex;
+}
+
+.row.box-size input {
+    width: 30%;
+}
+
+.row.box-size input.weight {
+    margin-left: 23px;
+    margin-right: 23px;
+}

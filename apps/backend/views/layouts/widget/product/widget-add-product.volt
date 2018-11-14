@@ -59,6 +59,20 @@
                                            class="form-control" id="weight"
                                            placeholder="Cân nặng">
                                 </div>
+                                <div class="form-group">
+                                    <label>Kích thước</label>
+                                    <div class="row box-size">
+                                        <input type="text" name="product[length]" value="{{ data['weight'] }}"
+                                               class="form-control" id="length"
+                                               placeholder="Dài">
+                                        <input type="text" name="product[width]" value="{{ data['weight'] }}"
+                                               class="form-control weight" id="width"
+                                               placeholder="Rộng">
+                                        <input type="text" name="product[height]" value="{{ data['weight'] }}"
+                                               class="form-control" id="height"
+                                               placeholder="Cao">
+                                    </div>
+                                </div>
                                 <div class="form-group product-discount">
                                     <label>Giảm giá: </label>
                                     <label>

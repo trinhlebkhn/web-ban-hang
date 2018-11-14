@@ -21,7 +21,7 @@
                         <table class="table table-striped table-bordered table-contract">
                             <thead>
                             <tr>
-                                <th style="width: 5%">#</th>
+                                <th style="width: 5%">STT</th>
                                 <th>Ảnh đại diện</th>
                                 <th>Tên thành viên</th>
                                 <th>Email</th>
@@ -31,9 +31,9 @@
                             </tr>
                             </thead>
                             <tbody>
-                            {% for item in listData %}
+                            {% for index, item in listData %}
                                 <tr>
-                                    <td scope="row">{{ item['id'] }}</td>
+                                    <td scope="row">{{ index + 1 }}</td>
                                     <td class="img-user">
                                         {% if item['avatar'] | length > 0 %}
                                             <img src="{{ item['avatar'] }}" alt="{{ item['fullname'] }}">

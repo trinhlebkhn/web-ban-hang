@@ -49,6 +49,7 @@ class AuthController extends ControllerBase {
         $optional = [
             'p' => $page,
             'limit' => 20,
+            'q' => 'role != 1'
         ];
         if ($this->request->getPost()) {
             $strSeach = $this->request->getPost('q');
