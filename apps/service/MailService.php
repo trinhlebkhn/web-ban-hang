@@ -19,7 +19,7 @@ trait MailService
 
         $mailer = new Swift_Mailer($transport);
 
-        $message = (new Swift_Message('ABC đơn hàng'))
+        $message = (new Swift_Message('Đơn hàng Website đồng hồ online'))
             ->setFrom(['hdb.a12k34@gmail.com' => 'Lê Ngọc Trình'])
             ->setTo([$to])
             ->setContentType('text/html; charset=utf-8')

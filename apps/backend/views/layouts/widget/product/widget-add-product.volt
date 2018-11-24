@@ -73,38 +73,38 @@
                                                placeholder="Cao">
                                     </div>
                                 </div>
-                                <div class="form-group product-discount">
-                                    <label>Giảm giá: </label>
-                                    <label>
-                                        <input type="radio" name="discount" id="discount"
-                                               onclick="check_discount(1)" {{ data['type_discount'] != null ? 'checked' : '' }}
-                                               value="1">
-                                        <span>Có</span>
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="discount" id="discount"
-                                               onclick="check_discount(0)" {{ data['type_discount'] == null ? 'checked' : '' }}
-                                               value="0">
-                                        <span>Không</span>
-                                    </label>
-                                </div>
-                                <div class="form-group discount-type {{ data['type_discount'] != null ? '' : 'hidden' }}">
-                                    <label>Loại giảm giá: </label>
-                                    <select class="selectpicker show-tick form-control" name="product[type_discount]"
-                                            style="display: none !important;">
-                                        <option value="1" {{ data['type_discount'] == 1 ? 'selected' : '' }} >%</option>
-                                        <option value="2" {{ data['type_discount'] == 2 ? 'selected' : '' }}>VNĐ
-                                        </option>
-                                    </select>
-                                </div>
+                                {#<div class="form-group product-discount">#}
+                                    {#<label>Giảm giá: </label>#}
+                                    {#<label>#}
+                                        {#<input type="radio" name="discount" id="discount"#}
+                                               {#onclick="check_discount(1)" {{ data['type_discount'] != null ? 'checked' : '' }}#}
+                                               {#value="1">#}
+                                        {#<span>Có</span>#}
+                                    {#</label>#}
+                                    {#<label>#}
+                                        {#<input type="radio" name="discount" id="discount"#}
+                                               {#onclick="check_discount(0)" {{ data['type_discount'] == null ? 'checked' : '' }}#}
+                                               {#value="0">#}
+                                        {#<span>Không</span>#}
+                                    {#</label>#}
+                                {#</div>#}
+                                {#<div class="form-group discount-type {{ data['type_discount'] != null ? '' : 'hidden' }}">#}
+                                    {#<label>Loại giảm giá: </label>#}
+                                    {#<select class="selectpicker show-tick form-control" name="product[type_discount]"#}
+                                            {#style="display: none !important;">#}
+                                        {#<option value="1" {{ data['type_discount'] == 1 ? 'selected' : '' }} >%</option>#}
+                                        {#<option value="2" {{ data['type_discount'] == 2 ? 'selected' : '' }}>VNĐ#}
+                                        {#</option>#}
+                                    {#</select>#}
+                                {#</div>#}
                                 <div class="form-group product-status">
                                     <label>Trạng thái: </label>
                                     <label>
-                                        <input type="radio" name="product[status]" class="flat-red" value="1" checked>
+                                        <input type="radio" name="product[status]" class="flat-red" value="1" {{ data['status'] == null or data['status'] == 1 ? 'checked' : '' }}>
                                         <span>Hoạt động</span>
                                     </label>
                                     <label>
-                                        <input type="radio" name="product[status]" class="flat-red" value="2">
+                                        <input type="radio" name="product[status]" class="flat-red" {{ data['status'] == 2 ? 'checked' : '' }} value="2">
                                         <span>Không hoạt động</span>
                                     </label>
                                 </div>
@@ -173,7 +173,7 @@
                         </div>
                         <div class="list-attribute" id="list-attribute">
                             <input id="arr_attr_disable" type="text" class="hidden" value="[]">
-                            {% if data['id'] != null %}
+                            {% if data['id'] != null and data['attribute_id'] is not empty %}
                                 {% for index, item in data['attribute_id'] %}
                                     <div class="row item {{ index == 0 ? 'first-item' : '' }}">
                                         <div class="col-md-6">

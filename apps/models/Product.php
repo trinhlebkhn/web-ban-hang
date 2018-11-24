@@ -533,6 +533,7 @@ class Product extends DbModel
     {
         try {
             $data['datecreate'] = time();
+            $data['del_flag'] = 0;
             $rs = self::newInstance($data);
             $rs->save();
             if (!empty($rs->getMessages())) {
@@ -553,6 +554,7 @@ class Product extends DbModel
             $listObj = $this->modelsManager->createBuilder()
                 ->from(self::class)
                 ->where(isset($optional['q']) ? $optional['q'] : '1=1')
+                ->andwhere('del_flag != 1')
                 ->orderBy('id DESC')
                 ->getQuery()
                 ->execute();

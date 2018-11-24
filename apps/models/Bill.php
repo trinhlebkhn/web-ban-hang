@@ -370,6 +370,7 @@ class Bill extends DbModel
             $listObj = $this->modelsManager->createBuilder()
                 ->from(self::class)
                 ->where(isset($optional['q']) ? $optional['q'] : '1=1')
+                ->orderBy('id DESC')
                 ->getQuery()
 //                ->getSql();
                 ->execute();

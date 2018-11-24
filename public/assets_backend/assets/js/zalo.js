@@ -29,7 +29,7 @@ $('.product-synchronized-zalo').on('click', function () {
     var parent = btn.closest('tr');
     var data_pro = $(this).attr('data-pro');
     var productObj = JSON.parse(data_pro);
-    if (productObj.avatar !== null && productObj.avatar !== undefined) {
+    if (productObj.avatar !== null && productObj.avatar !== undefined && productObj.avatar.trim() !== '') {
         $.ajax({
             url: '/backend/api_client/synchronizedProductForZalo',
             method: 'post',

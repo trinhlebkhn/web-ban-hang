@@ -135,6 +135,7 @@ class ProductController extends AuthorizedControllerBase
                 $data['slug'] = $this->create_url_slug($data['name']);
                 $rs = $productObj->createObj($data);
             } else {
+                $data['id'] = $id;
                 $data['slug'] = $this->create_url_slug($data['name']);
                 $rs = $productObj->updateObj($data);
             }
