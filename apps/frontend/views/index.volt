@@ -98,9 +98,8 @@
     <img src="/app/img/loading.svg" alt="">
 </div>
 
-<script src="/app/js/shopping.js"></script>
 <script src="/assets_frontend/js/custom.js"></script>
-{% if websiteConfig.chatbox.isShow %}    {{ websiteConfig.chatbox.code }}{% endif %}
+<script src="/app/js/shopping.js"></script>
 <div id="fb-root"></div>
 <script>(function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];

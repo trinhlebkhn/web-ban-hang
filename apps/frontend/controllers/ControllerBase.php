@@ -8,15 +8,17 @@ class ControllerBase extends Controller
 {
     public function initialize()
     {
+        global $config;
         $this->session->start();
         $mainMenu = $this->getMainMenu();
         $auth = $this->getAuth();
-        $config = $this->getConfig();
+        $config_website = $this->getConfig();
         $this->view->setVars([
             'mainMenu' => $mainMenu,
             'auth' => $auth,
-            'websiteConfig' => $config
+            'websiteConfig' => $config_website
         ]);
+
     }
 
     public function getMainMenu()
@@ -85,6 +87,7 @@ class ControllerBase extends Controller
     {
         $cart = $this->session->get('cart');
 //        d($cart);
+        return $cart;
     }
 
     public function render_template($controller, $action, $data = null)

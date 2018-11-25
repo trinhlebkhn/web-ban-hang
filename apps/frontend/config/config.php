@@ -27,6 +27,11 @@ $config = [
         'nl_merchant_id'    => $_ENV['NL_MERCHANT_ID'],
         'nl_merchant_pass'  => $_ENV['NL_MERCHANT_PASS'],
     ],
+    'viettel_post' => [
+        'url_api'     => $_ENV['VTP_API'],
+        'email'       => $_ENV['VTP_EMAIL'],
+        'password'    => $_ENV['VTP_PASSWORD'],
+    ],
     'application' => [
         'appDir'         => APP_PATH . '/',
         'controllersDir' => APP_PATH . '/frontend/controllers/',

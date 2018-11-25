@@ -66,17 +66,23 @@ var shopping = {
     },
 
     update_product: function (id, qty) {
-        console.log(1111111);
+        var data = {id: id, qty: qty}
+        var ship_price = $('#ship_price').val();
+        if(ship_price > 0) {
+            data.ship_price = ship_price;
+        }
         $.ajax({
             url: shopping.url + 'updateProduct',
             method: 'post',
             dataType: 'json',
-            data: {id: id, qty: qty}
+            data: data
         }).fail(function (ui, status) {
             snackbar(2, 'Có lỗi  xảy ra!');
         }).done(function (data, status) {
             if (data.status) {
+                console.log(data);
                 $('.widget_shopping_cart_content .mini-cart-overview').html(data.content);
+                $('.subtotal').html(number_format(data.subtotal) + ' đ');
                 $('.total_price').html(number_format(data.total_price) + ' đ');
             }
         });

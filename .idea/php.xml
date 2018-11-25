@@ -22,6 +22,7 @@
       <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
       <path value="$PROJECT_DIR$/vendor/zaloplatform/zalo-php-sdk" />
       <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/vendor/phalcon/incubator" />
     </include_path>
   </component>
 </project>

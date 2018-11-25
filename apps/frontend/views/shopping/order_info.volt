@@ -13,24 +13,6 @@
     <div class="container">
         <div class="row">
             <form id="payment" name="NLpayBank" class="payment" action="" method="post">
-                {% if !auth %}
-                    <div class="col-sm-12">
-                        <p class="error" style="padding-left: 25px;">
-                            <i class="fa fa-caret-right"></i>Bạn đã có tài khoản?
-                            <a class="event_login" href="#"> Đăng Nhập </a>để Đặt Hàng.
-                        </p>
-                        <br>
-                    </div>
-                {% endif %}
-                {% if (validate|length) %}
-                    <div class="col-sm-12" style="color: red;">
-                        <div class="" style="padding-left: 25px;">
-                            {% for item in validate %}
-                                <p>{{ item }}</p>
-                            {% endfor %}
-                        </div>
-                    </div>
-                {% endif %}
                 <div class="sec__shopcart__info col-md-7 col-sm-7 col-xs-12">
                     <div class="box-user__info panel">
                         <div class="title customer_info_title">Thông tin thanh toán và nhận hàng</div>
@@ -103,7 +85,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {% if list_store_config|length > 0 %}
+                            {% if listStore|length > 0 %}
                                 <div class="row">
                                     <div class="col-md-6 col-xs-12 col-sm-6">
                                         <div class="form-group">
@@ -111,8 +93,8 @@
                                                         style="color: red; font-size: 16px">*</span></div>
                                             <select name="info_payment[service_value]" id="service_value"
                                                     class="selectpicker form-control" data-live-search="true" required>
-                                                {% for item in service_transport %}
-                                                    <option value="{{ item['value'] }}" {{ item['value'] == 'VTK' ? 'selected' : '' }}>{{ item['title'] }}</option>
+                                                {% for item in listService %}
+                                                    <option value="{{ item.SERVICE_CODE }}" {{ item.SERVICE_CODE == 'VTK' ? 'selected' : '' }}>{{ item.SERVICE_NAME }}</option>
                                                 {% endfor %}
                                             </select>
                                         </div>
@@ -123,8 +105,8 @@
                                                         style="color: red; font-size: 16px">*</span></div>
                                             <select name="info_payment[service_value]" id="storehouse"
                                                     class="selectpicker form-control" data-live-search="true" required>
-                                                {% for item in list_store_config %}
-                                                    <option value="{{ item|json_encode|escape_attr }}">{{ item.store_name }}</option>
+                                                {% for item in listStore %}
+                                                    <option value="{{ item|json_encode|escape_attr }}">{{ item.NAME }}</option>
                                                 {% endfor %}
                                             </select>
                                         </div>
@@ -143,8 +125,8 @@
                                     <div class="pay-online  ">
                                         <div class="box-content">
                                             <p>
-                                                Mọi đơn hàng phải được thanh toán trước một nửa tiền đặt hàng qua cổng thanh toán ngân lượng bằng cách truy cập
-                                                vào đường dẫn được gửi trong e-mail của khách hàng trong vòng 48 giờ. Sau 48 giờ nếu không được thanh toán thì
+                                                Mọi đơn hàng phải được thanh toán trước một nửa tiền đặt hàng kèm theo phí vận chuyển của đơn hàng qua cổng thanh toán ngân lượng bằng cách truy cập
+                                                vào đường dẫn được gửi trong e-mail của khách hàng trong vòng 24 giờ. Sau 24 giờ nếu không được thanh toán thì
                                                 đơn hàng sẽ tự động hủy.
                                             </p>
                                         </div>
@@ -199,10 +181,10 @@
                         <div class="">
                             <div class="price-provi">
                                 <div class="pull-left">Tạm tính :</div>
-                                <div class="pull-right total total_price">{{ number_format(cart.getTotalPrice()) }}đ
+                                <div class="pull-right total subtotal">{{ number_format(cart.getTotalPrice()) }}đ
                                 </div>
                             </div>
-                            {% if list_store_config|length > 0 %}
+                            {% if listStore|length > 0 %}
                                 <div class="price-provi">
                                     <div class="pull-left">Phí vận chuyển :</div>
                                     <div class="pull-right "><span class="total-fee-transport">0 đ</span></div>

@@ -11,7 +11,7 @@
                 </div>
                 <div class="payment-form">
                     <form name="NLpayBank" action="/shopping/nlCheckout" method="post">
-                        <input type="hidden" name="total_amount" value="{{ money }}">
+                        <input type="hidden" name="total_amount" value="{{ money + ship_price }}">
                         <input type="hidden" name="buyer_fullname" value="{{ user_info['customer_name'] }}">
                         <input type="hidden" name="buyer_email" value="{{ user_info['email'] }}">
                         <input type="hidden" name="buyer_mobile" value="{{ user_info['phone'] }}">
@@ -32,7 +32,7 @@
                                     <tbody>
                                     <tr>
                                         <th scope="row">Số tiền thanh toán:</th>
-                                        <td>{{ number_format(money) }} VNĐ</td>
+                                        <td>{{ number_format(money + ship_price) }} VNĐ</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Họ và tên:</th>

@@ -13,6 +13,14 @@ class ShoppingController extends ControllerBase
 {
     use \MailService;
 
+    public function initialize()
+    {
+        parent::initialize();
+        $viettelPostService = new \ViettelPostService();
+        $loginVTP = $viettelPostService->login();
+        $this->session->set('vtp_token', $loginVTP->TokenKey);
+    }
+
     public function cartAction()
     {
 //        d($this->cart->getContent());
@@ -26,7 +34,15 @@ class ShoppingController extends ControllerBase
         }
         $cityObj = new \City();
         $rsCities = $cityObj->getListObj();
+
+        /* get list store viettel post */
+        $viettelPostObj = new \ViettelPostService();
+        $vtpToken = $this->session->get('vtp_token');
+        $listStore = $viettelPostObj->getListStore($vtpToken);
+        $listService = $viettelPostObj->getListService();
         $this->view->setVars([
+            'listStore' => $listStore,
+            'listService' => $listService,
             'listCity' => $rsCities->data
         ]);
 
@@ -37,12 +53,12 @@ class ShoppingController extends ControllerBase
             $data['email'] = $auth['email'];
             $data['price'] = $data['total_price'];
             $data['source_bill'] = 1;
+            $data['ship_price'] = $this->session->get('ship_price');
             $this->session->set('info_order', $data);
 
             $billObj = new \Bill();
             $rsCreateBill = $billObj->createObj($data);
             if ($rsCreateBill->status == 1) {
-
                 /* Tạo product-bill*/
                 foreach ($cart as &$value) {
                     $dataProductBill = [
@@ -71,7 +87,7 @@ class ShoppingController extends ControllerBase
         $info = $this->session->get('info_order');
         $money = $this->cart->getTotalPrice() / 2;
         $order_id = $this->request->get('order_id');
-
+        $ship_price = $this->session->get('ship_price');
         if ($this->request->isPost()) {
             $nlcheckout = $this->nl_api;
             $total_amount = $_POST['total_amount'];
@@ -131,6 +147,7 @@ class ShoppingController extends ControllerBase
                     else {
                         $this->view->payed = 1;
                         unset($_SESSION['cart']);
+                        unset($_SESSION['ship_price']);
                     }
                 } else {
                     $this->flash->error($nl_result->error_message);
@@ -144,6 +161,7 @@ class ShoppingController extends ControllerBase
             'user_info' => $info,
             'money' => $money,
             'order_id' => $order_id,
+            'ship_price' => $ship_price,
         ]);
     }
 
@@ -217,8 +235,10 @@ class ShoppingController extends ControllerBase
             ';
         }
         $mail = str_replace("{info_product}", $info_product, $mail);
-        $mail = str_replace("{total}", number_format($info_order['price']), $mail);
+        $ship_price = $this->session->get('ship_price');
         $mail = str_replace("{subtotal}", number_format($info_order['total_price']), $mail);
+        $mail = str_replace("{ship_price}", number_format($ship_price), $mail);
+        $mail = str_replace("{total}", number_format($info_order['price'] + $ship_price), $mail);
         $rs = $this->sendMail($buyer_email, $mail);
         return $rs;
     }

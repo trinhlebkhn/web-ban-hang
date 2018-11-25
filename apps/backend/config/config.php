@@ -5,9 +5,13 @@
  * Date: 4/7/2018
  * Time: 9:35 AM
  */
+use Dotenv\Dotenv;
 defined('BASE_PATH') || define('BASE_PATH', getenv('BASE_PATH') ?: realpath(dirname(__FILE__) . '/../..'));
 defined('APP_PATH') || define('APP_PATH', BASE_PATH . '/apps');
 
+$env = new Dotenv(BASE_PATH);
+$env->load();
+//var_dump($_ENV['ZALO_APP_ID_CFG']); die;
 
 return new \Phalcon\Config([
     'database' => [
@@ -24,6 +28,7 @@ return new \Phalcon\Config([
         'app_key'        => $_ENV['ZALO_APP_SECRET_KEY_CFG '],
         'oa_id'          => $_ENV['ZALO_OA_ID_CFG '],
         'oa_key'         => $_ENV['ZALO_OA_SECRET_KEY_CFG '],
+        'oa_key_1'         => $_ENV['ZALO_OA_SECRET_KEY_CFG '],
     ],
     'application' => [
         'appDir'         => APP_PATH . '/',

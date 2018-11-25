@@ -8,6 +8,7 @@ class ControllerBase extends Controller
     public function initialize()
     {
 
+
     }
 
     public function render_template($controller, $action, $data = null)
