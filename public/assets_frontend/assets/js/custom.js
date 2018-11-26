@@ -1,7 +1,8 @@
 $(document).on('change', '#city', function (e) {
     $('#district').val();
     $('#ward').val();
-    var id = $(this).val();
+    var city_data = JSON.parse($(this).val());
+    var id = city_data.id;
     $.ajax({
         url: '/api_client/getDistricts',
         method: 'post',
@@ -18,7 +19,8 @@ $(document).on('change', '#city', function (e) {
 
 $(document).on('change', '#district', function (e) {
     $('#ward').val();
-    var id = $(this).val();
+    var district_data = JSON.parse($(this).val());
+    var id = district_data.id;
     $.ajax({
         url: '/api_client/getWards',
         method: 'post',
@@ -46,13 +48,13 @@ $(document).on('change', '#storehouse', function (e) {
 });
 
 function getShipPrice() {
-    var city_id = $('#city').val();
-    var district = $('#district').val();
-    var ward_id = $('#ward').val();
+    var city_data = JSON.parse($('#city').val());
+    var district_data = JSON.parse($('#district').val());
+    var ward_data = JSON.parse($('#ward').val());
     var address_receive = {
-        'city_id' : city_id,
-        'district' : district,
-        'ward_id' : ward_id
+        'city_id' : city_data.viettelpost_id,
+        'district' : district_data.viettelpost_id,
+        'ward_id' : ward_data.viettelpost_id
     };
     var service = $('#service_value').val();
     var storehouse = $('#storehouse').val();

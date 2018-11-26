@@ -59,7 +59,7 @@
                                                 class="selectpicker form-control" required>
                                             <option value="">--Chọn tỉnh thành--</option>
                                             {% for item in listCity %}
-                                                <option value="{{ item['id'] }}">{{ item['name'] }}</option>
+                                                <option value='{{ item | json_encode }}'>{{ item['name'] }}</option>
                                             {% endfor %}
                                         </select>
                                     </div>

@@ -84,8 +84,10 @@ class ApiClientController extends ControllerBase
     public function getDistrictsAction()
     {
         $city_id = $this->request->getPost('id');
-        $districtObj = new \District();
-        $rs = $districtObj->getListObj($city_id);
+
+        /* Get list District */
+        $locationObj = new \Location();
+        $rs = $locationObj->getListObj('district', $city_id);
         if ($rs->status) {
             $render = $this->render_template('shopping', 'district', [
                 'data' => $rs->data,
@@ -97,8 +99,9 @@ class ApiClientController extends ControllerBase
     public function getWardsAction()
     {
         $district_id = $this->request->getPost('id');
-        $wardObj = new \Ward();
-        $rs = $wardObj->getListObj($district_id);
+        /* Get list District */
+        $locationObj = new \Location();
+        $rs = $locationObj->getListObj('ward', $district_id);
         if ($rs->status) {
             $render = $this->render_template('shopping', 'ward', [
                 'data' => $rs->data,

@@ -32,8 +32,10 @@ class ShoppingController extends ControllerBase
         if ($total_product == 0) {
             $this->response->redirect(base_uri() . '/');
         }
-        $cityObj = new \City();
-        $rsCities = $cityObj->getListObj();
+
+        /* Get list City */
+        $locationObj = new \Location();
+        $rsCities = $locationObj->getListObj('city', 0);
 
         /* get list store viettel post */
         $viettelPostObj = new \ViettelPostService();
