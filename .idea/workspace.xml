@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7282ae4a-8215-4ede-8761-43fe8af4a01f" name="Default" comment="update">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/backend/controllers/AuthorizedControllerBase.php" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/controllers/AuthorizedControllerBase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/backend/controllers/BillController.php" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/controllers/BillController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/backend/controllers/ControllerBase.php" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/controllers/ControllerBase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/backend/views/bill/detail.volt" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/views/bill/detail.volt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/frontend/controllers/ApiClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/controllers/ApiClientController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/frontend/controllers/ShoppingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/controllers/ShoppingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/frontend/views/shopping/district.volt" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/views/shopping/district.volt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/frontend/views/shopping/order_info.volt" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/views/shopping/order_info.volt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/service/ViettelPostService.php" beforeDir="false" afterPath="$PROJECT_DIR$/apps/service/ViettelPostService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/router.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/router.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets_backend/assets/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets_backend/assets/css/custom.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets_frontend/assets/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets_frontend/assets/js/custom.js" afterDir="false" />
-    </list>
+    <list default="true" id="7282ae4a-8215-4ede-8761-43fe8af4a01f" name="Default" comment="update" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -148,8 +133,8 @@
       <file leaf-file-name="ViettelPostService.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/service/ViettelPostService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="56" column="43" lean-forward="true" selection-start-line="56" selection-start-column="43" selection-end-line="56" selection-end-column="43" />
+            <state relative-caret-position="252">
+              <caret line="61" column="14" lean-forward="true" selection-start-line="61" selection-start-column="14" selection-end-line="61" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -650,7 +635,7 @@
       <workItem from="1543152330516" duration="16087000" />
       <workItem from="1543247757483" duration="7007000" />
       <workItem from="1543416220440" duration="616000" />
-      <workItem from="1543502627450" duration="10167000" />
+      <workItem from="1543502627450" duration="10423000" />
     </task>
     <task id="LOCAL-00001" summary="updat">
       <created>1523011072130</created>
@@ -761,7 +746,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="560342000" />
+    <option name="totallyTimeSpent" value="560598000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -774,7 +759,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32894737" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50075644" side_tool="true" weight="0.39285713" />
@@ -1288,8 +1272,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/service/ViettelPostService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="56" column="43" lean-forward="true" selection-start-line="56" selection-start-column="43" selection-end-line="56" selection-end-column="43" />
+        <state relative-caret-position="252">
+          <caret line="61" column="14" lean-forward="true" selection-start-line="61" selection-start-column="14" selection-end-line="61" selection-end-column="14" />
         </state>
       </provider>
     </entry>
