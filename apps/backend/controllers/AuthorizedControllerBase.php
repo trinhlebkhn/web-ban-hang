@@ -12,6 +12,7 @@ use Phalcon\Mvc\Controller;
  */
 class AuthorizedControllerBase extends ControllerBase {
     function initialize() {
+        parent::initialize();
         if (!$this->isLogIn()) {
             $this->response->redirect(base_uri() . '/quan-tri/dang-nhap');
         }

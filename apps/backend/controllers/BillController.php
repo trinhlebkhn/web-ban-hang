@@ -11,6 +11,18 @@ namespace Graduate\Backend\Controllers;
 
 class BillController extends AuthorizedControllerBase
 {
+    public function initialize()
+    {
+        parent::initialize();
+        $viettelPostService = new \ViettelPostService();
+        $loginVTP = $viettelPostService->login();
+        if($loginVTP->status == 200) {
+            $this->session->set('vtp_data', json_encode($loginVTP->data));
+        } else {
+            $this->flash->error($loginVTP->message);
+        }
+    }
+
     public function indexAction()
     {
 
@@ -111,5 +123,14 @@ class BillController extends AuthorizedControllerBase
         if ($resGetData['errorCode'] !== 1) return $this->flash->error($resGetData['errorMsg']);
         d($resGetData['data']);
         $this->view->data = $resGetData['data'];
+    }
+
+    public function createOrderVtpAction($id){
+        $billObj = new \Bill();
+        $rs = $billObj->getDetail($id);
+        $order = $rs->data;
+        if($order['status'] != '2') $this->response->redirect(base_uri() . '/quan-tri/chi-tiet-hoa-don-hd' . $order['id']);
+
+        d($order);
     }
 }

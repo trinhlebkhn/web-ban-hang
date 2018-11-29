@@ -1,8 +1,7 @@
 $(document).on('change', '#city', function (e) {
     $('#district').val();
     $('#ward').val();
-    var city_data = JSON.parse($(this).val());
-    var id = city_data.id;
+    var id = $(this).val();
     $.ajax({
         url: '/api_client/getDistricts',
         method: 'post',
@@ -18,43 +17,23 @@ $(document).on('change', '#city', function (e) {
 });
 
 $(document).on('change', '#district', function (e) {
-    $('#ward').val();
-    var district_data = JSON.parse($(this).val());
-    var id = district_data.id;
-    $.ajax({
-        url: '/api_client/getWards',
-        method: 'post',
-        dataType: 'json',
-        data: {id: id}
-    }).fail(function (ui, status) {
-        snackbar(2, 'Có lỗi  xảy ra!');
-    }).done(function (data, status) {
-        if (data) {
-            $('#ward').html(data);
-        }
-    });
-});
-
-$(document).on('change', '#ward', function (e) {
     getShipPrice();
 });
-$(document).on('change', '#service_value', function (e) {
-    var ward_id = $('#ward').val();
-    if(ward_id > 0) getShipPrice();
+$(document).on('change', '#service', function (e) {
+    var district_id = $('#district').val();
+    if(district_id > 0) getShipPrice();
 });
 $(document).on('change', '#storehouse', function (e) {
-    var ward_id = $('#ward').val();
-    if(ward_id > 0) getShipPrice();
+    var district_id = $('#district').val();
+    if(district_id > 0) getShipPrice();
 });
 
 function getShipPrice() {
-    var city_data = JSON.parse($('#city').val());
-    var district_data = JSON.parse($('#district').val());
-    var ward_data = JSON.parse($('#ward').val());
+    var city_id = $('#city').val();
+    var district_id = $('#district').val();
     var address_receive = {
-        'city_id' : city_data.viettelpost_id,
-        'district' : district_data.viettelpost_id,
-        'ward_id' : ward_data.viettelpost_id
+        'city_id' : city_id,
+        'district' : district_id,
     };
     var service = $('#service_value').val();
     var storehouse = $('#storehouse').val();

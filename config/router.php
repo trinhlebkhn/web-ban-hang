@@ -131,6 +131,14 @@ $router->add("/doi-trang-thai-don-hang-b{status:[0-9]}{id:[0-9]+}", [
     'id' => 1,
 ]);
 
+$router->add("/quan-tri/tao-van-don-hd-{id:[0-9]+}", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'bill',
+    'action' => 'createOrderVtp',
+    'id' => 1,
+]);
+
 /* Đơn hàng Zalo */
 $router->add("/quan-tri/hoa-don-zalo", [
     'module' => 'backend',

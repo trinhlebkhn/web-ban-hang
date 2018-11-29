@@ -16,9 +16,10 @@ class ShoppingController extends ControllerBase
     public function initialize()
     {
         parent::initialize();
+
         $viettelPostService = new \ViettelPostService();
         $loginVTP = $viettelPostService->login();
-        $this->session->set('vtp_token', $loginVTP->TokenKey);
+        $this->session->set('vtp_token', $loginVTP->data->token);
     }
 
     public function cartAction()
@@ -34,17 +35,16 @@ class ShoppingController extends ControllerBase
         }
 
         /* Get list City */
-        $locationObj = new \Location();
-        $rsCities = $locationObj->getListObj('city', 0);
+        $vtpObj = new \ViettelPostService();
+        $rsCities = $vtpObj->getProvinces();
 
         /* get list store viettel post */
-        $viettelPostObj = new \ViettelPostService();
         $vtpToken = $this->session->get('vtp_token');
-        $listStore = $viettelPostObj->getListStore($vtpToken);
-        $listService = $viettelPostObj->getListService();
+        $listStore = $vtpObj->getListStore($vtpToken);
+        $listService = $vtpObj->getListService();
         $this->view->setVars([
-            'listStore' => $listStore,
-            'listService' => $listService,
+            'listStore' => $listStore->data,
+            'listService' => $listService->data,
             'listCity' => $rsCities->data
         ]);
 
@@ -183,6 +183,8 @@ class ShoppingController extends ControllerBase
                     $bilObj = new \Bill();
                     $dataUpdateBill = [
                         'id' => (string)$nl_result->order_code,
+                        'payment' => (string)$nl_result->total_amount,
+                        'date_payment' => time(),
                         'status' => 2
                     ];
                     $rsUpdate = $bilObj->updateObj($dataUpdateBill);

@@ -59,7 +59,7 @@
                                                 class="selectpicker form-control" required>
                                             <option value="">--Chọn tỉnh thành--</option>
                                             {% for item in listCity %}
-                                                <option value='{{ item | json_encode }}'>{{ item['name'] }}</option>
+                                                <option value='{{ item.PROVINCE_ID }}'>{{ item.PROVINCE_NAME }}</option>
                                             {% endfor %}
                                         </select>
                                     </div>
@@ -91,7 +91,7 @@
                                         <div class="form-group">
                                             <div class="label">Chọn hình thức vận chuyển: <span
                                                         style="color: red; font-size: 16px">*</span></div>
-                                            <select name="info_payment[service_value]" id="service_value"
+                                            <select name="info_payment[service_value]" id="service"
                                                     class="selectpicker form-control" data-live-search="true" required>
                                                 {% for item in listService %}
                                                     <option value="{{ item.SERVICE_CODE }}" {{ item.SERVICE_CODE == 'VTK' ? 'selected' : '' }}>{{ item.SERVICE_NAME }}</option>
@@ -106,7 +106,7 @@
                                             <select name="info_payment[service_value]" id="storehouse"
                                                     class="selectpicker form-control" data-live-search="true" required>
                                                 {% for item in listStore %}
-                                                    <option value="{{ item|json_encode|escape_attr }}">{{ item.NAME }}</option>
+                                                    <option value="{{ item|json_encode|escape_attr }}">{{ item.name }}</option>
                                                 {% endfor %}
                                             </select>
                                         </div>

@@ -86,24 +86,10 @@ class ApiClientController extends ControllerBase
         $city_id = $this->request->getPost('id');
 
         /* Get list District */
-        $locationObj = new \Location();
-        $rs = $locationObj->getListObj('district', $city_id);
+        $vtpObj = new \ViettelPostService();
+        $rs = $vtpObj->getDistricts($city_id);
         if ($rs->status) {
             $render = $this->render_template('shopping', 'district', [
-                'data' => $rs->data,
-            ]);
-            return $this->response->setJsonContent($render);
-        }
-    }
-
-    public function getWardsAction()
-    {
-        $district_id = $this->request->getPost('id');
-        /* Get list District */
-        $locationObj = new \Location();
-        $rs = $locationObj->getListObj('ward', $district_id);
-        if ($rs->status) {
-            $render = $this->render_template('shopping', 'ward', [
                 'data' => $rs->data,
             ]);
             return $this->response->setJsonContent($render);
@@ -123,8 +109,8 @@ class ApiClientController extends ControllerBase
         }
         $price = $this->cart->getTotalPrice();
         $body = [
-            "SENDER_PROVINCE" => $storehouse->PROVINCE_ID,
-            "SENDER_DISTRICT" => $storehouse->DISTRICT_ID,
+            "SENDER_PROVINCE" => $storehouse->provinceId ,
+            "SENDER_DISTRICT" => $storehouse->districtId ,
             "RECEIVER_PROVINCE" => $addressReceive['city_id'],
             "RECEIVER_DISTRICT" => $addressReceive['district'],
             "PRODUCT_TYPE" => "HH",

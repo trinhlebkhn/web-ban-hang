@@ -10,7 +10,7 @@ use Phalcon\Http\Client\Request;
 
 class ViettelPostService
 {
-    const url_api = 'https://api.viettelpost.vn/';
+    const url_api = 'https://partner.viettelpost.vn/v2/';
 
     public function login()
     {
@@ -21,9 +21,8 @@ class ViettelPostService
         $body = json_encode([
             "USERNAME" => $config['viettel_post']['email'],
             "PASSWORD" => $config['viettel_post']['password'],
-            "SOURCE" => 0
         ]);
-        $response = $provider->post('api/user/Login', $body);
+        $response = $provider->post('user/Login', $body);
         return json_decode($response->body);
     }
 
@@ -32,7 +31,7 @@ class ViettelPostService
         $provider = Request::getProvider();
         $provider->setBaseUri(STATIC::url_api);
         $provider->header->set('token', $token);
-        $response = $provider->post('api/setting/listInventory');
+        $response = $provider->get('user/listInventory');
         return json_decode($response->body);
     }
 
@@ -44,7 +43,7 @@ class ViettelPostService
         $body = [
             "TYPE" => 1
         ];
-        $response = $provider->post('api/setting/listService', json_encode($body));
+        $response = $provider->post('categories/listService', json_encode($body));
         return json_decode($response->body);
     }
 
@@ -54,9 +53,9 @@ class ViettelPostService
         $provider->setBaseUri(STATIC::url_api);
         $provider->header->set('Content-Type', 'application/json');
         $provider->header->set('Token', $token);
-        $response = $provider->post('api/tmdt/getPrice', json_encode($body));
+        $response = $provider->post('order/getPrice', json_encode($body));
         $rs = json_decode($response->body);
-        if(is_object($rs)) {
+        if ($rs->status != 200) {
             return [
                 'status' => 0,
                 'message' => $rs->message
@@ -66,7 +65,23 @@ class ViettelPostService
         return [
             'status' => 1,
             'message' => 'Thao tác thành công!',
-            'ship_price' => $rs[0]->PRICE
+            'ship_price' => $rs->data->MONEY_TOTAL
         ];
+    }
+
+    public function getProvinces()
+    {
+        $provider = Request::getProvider();
+        $provider->setBaseUri(STATIC::url_api);
+        $response = $provider->get('categories/listProvince');
+        return json_decode($response->body);
+    }
+
+    public function getDistricts($province_id)
+    {
+        $provider = Request::getProvider();
+        $provider->setBaseUri(STATIC::url_api);
+        $response = $provider->get('categories/listDistrict?provinceId=' . $province_id);
+        return json_decode($response->body);
     }
 }

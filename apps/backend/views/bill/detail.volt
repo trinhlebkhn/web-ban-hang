@@ -7,7 +7,7 @@
         <div class="row" style="background: #ffffff; padding-bottom: 20px">
             <div class="col-xs-12">
                 <h2 class="page-header">
-                    Chi tiết đơn hàng DH1
+                    Chi tiết đơn hàng ĐH{{ data['id'] }}
                     <small class="pull-right">Ngày tạo đơn: {{ data['date_create'] }}</small>
                 </h2>
             </div>
@@ -130,7 +130,7 @@
                                 <tr>
                                     <th>Còn lại:</th>
                                     <td>
-                                        {{ uiHelper.formatNumber(data['total_price'] - data['payment']) }}
+                                        {{ uiHelper.formatNumber(data['total_price'] + data['ship_price'] - data['payment']) }}
                                         <b>VNĐ</b>
                                     </td>
                                 </tr>
@@ -140,6 +140,15 @@
                 {% endif %}
                 <!-- /.col -->
             </div>
+            {% if data['status'] == 2 %}
+                <div class="row">
+                    <div class="btn-vtp-driver">
+                        <a href="/quan-tri/tao-van-don-hd-{{ data['id'] }}">
+                            <button class="form-control btn-primary">Tạo vận đơn</button>
+                        </a>
+                    </div>
+                </div>
+            {% endif %}
         </div>
     </section>
 </div>
