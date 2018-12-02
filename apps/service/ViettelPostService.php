@@ -11,6 +11,7 @@ use Phalcon\Http\Client\Request;
 class ViettelPostService
 {
     const url_api = 'https://partner.viettelpost.vn/v2/';
+    const url_api_old = 'https://api.viettelpost.vn/api/';
 
     public function login()
     {
@@ -82,6 +83,42 @@ class ViettelPostService
         $provider = Request::getProvider();
         $provider->setBaseUri(STATIC::url_api);
         $response = $provider->get('categories/listDistrict?provinceId=' . $province_id);
+        return json_decode($response->body);
+    }
+
+    public function getProvinceById($id)
+    {
+        $provider = Request::getProvider();
+        $provider->setBaseUri(STATIC::url_api);
+        $response = $provider->get('categories/provinceById?provinceById=' . $id);
+        return json_decode($response->body);
+    }
+
+    public function getDistrictByIdAndProvince($province_id, $district_id)
+    {
+        $provider = Request::getProvider();
+        $provider->setBaseUri(STATIC::url_api);
+        $response = $provider->get('categories/districtByIdAndProvince?provinceById=' . $province_id . '&districtId=' . $district_id);
+        return json_decode($response->body);
+    }
+
+    public function createOrder($token, $body)
+    {
+        $provider = Request::getProvider();
+        $provider->setBaseUri(STATIC::url_api);
+        $provider->header->set('Content-Type', 'application/json');
+        $provider->header->set('token', $token);
+        $response = $provider->post('order/createOrder', $body);
+        return json_decode($response->body);
+    }
+
+    public function getListOrderTracking($token, $order_id)
+    {
+        $provider = Request::getProvider();
+        $provider->setBaseUri(STATIC::url_api_old);
+        $provider->header->set('Content-Type', 'application/json');
+        $provider->header->set('token', $token);
+        $response = $provider->get('setting/listOrderTracking?OrderNumber=' . $order_id);
         return json_decode($response->body);
     }
 }

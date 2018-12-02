@@ -51,7 +51,7 @@
                                        placeholder="Địa chỉ" required>
                             </div>
                             <div class="row">
-                                <div class="col-md-4 col-xs-12 col-sm-4">
+                                <div class="col-md-6 col-xs-12 col-sm-6">
                                     <div class="form-group">
                                         <div class="label">Tỉnh thành: <span
                                                     style="color: red; font-size: 16px">*</span></div>
@@ -64,7 +64,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-4 col-xs-12 col-sm-4">
+                                <div class="col-md-6 col-xs-12 col-sm-6">
                                     <div class="form-group">
                                         <div class="label">Quận huyện: <span
                                                     style="color: red; font-size: 16px">*</span></div>
@@ -74,7 +74,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-4 col-xs-12 col-sm-4">
+                                <div class="col-md-4 col-xs-12 col-sm-4 hidden">
                                     <div class="form-group">
                                         <div class="label">Phường xã: <span style="color: red; font-size: 16px">*</span>
                                         </div>
@@ -92,7 +92,7 @@
                                             <div class="label">Chọn hình thức vận chuyển: <span
                                                         style="color: red; font-size: 16px">*</span></div>
                                             <select name="info_payment[service_value]" id="service"
-                                                    class="selectpicker form-control" data-live-search="true" required>
+                                                    class="selectpicker form-control" required>
                                                 {% for item in listService %}
                                                     <option value="{{ item.SERVICE_CODE }}" {{ item.SERVICE_CODE == 'VTK' ? 'selected' : '' }}>{{ item.SERVICE_NAME }}</option>
                                                 {% endfor %}

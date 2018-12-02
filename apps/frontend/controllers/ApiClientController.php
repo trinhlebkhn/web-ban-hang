@@ -109,15 +109,15 @@ class ApiClientController extends ControllerBase
         }
         $price = $this->cart->getTotalPrice();
         $body = [
+            "PRODUCT_WEIGHT" => $totalWeight,
+            "PRODUCT_PRICE" => $price/2,
+            "MONEY_COLLECTION" => 0,
+            "ORDER_SERVICE" => $service,
             "SENDER_PROVINCE" => $storehouse->provinceId ,
             "SENDER_DISTRICT" => $storehouse->districtId ,
             "RECEIVER_PROVINCE" => $addressReceive['city_id'],
             "RECEIVER_DISTRICT" => $addressReceive['district'],
             "PRODUCT_TYPE" => "HH",
-            "ORDER_SERVICE" => $service,
-            "PRODUCT_WEIGHT" => $totalWeight,
-            "PRODUCT_PRICE" => $price/2,
-            "MONEY_COLLECTION" => 0,
             "PRODUCT_QUANTITY" => 1,
             "NATIONAL_TYPE" => 1
         ];

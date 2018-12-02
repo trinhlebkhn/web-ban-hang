@@ -111,6 +111,48 @@ class Bill extends DbModel
     public $date_create;
 
     /**
+     *
+     * @var integer
+     * @Column(type="integer", length=11, nullable=false)
+     */
+    public $date_payment;
+
+    /**
+     *
+     * @var integer
+     * @Column(type="integer", length=11, nullable=false)
+     */
+    public $vtp_warsehouse;
+
+    /**
+     *
+     * @var integer
+     * @Column(type="integer", length=11, nullable=false)
+     */
+    public $province_id;
+
+    /**
+     *
+     * @var integer
+     * @Column(type="integer", length=11, nullable=false)
+     */
+    public $district_id;
+
+    /**
+     *
+     * @var string
+     * @Column(type="string", length=3, nullable=false)
+     */
+    public $service_transport;
+
+    /**
+     *
+     * @var integer
+     * @Column(type="integer", length=15, nullable=false)
+     */
+    public $order_number_vtp;
+
+    /**
      * @return int
      */
     public function getId()
@@ -334,6 +376,98 @@ class Bill extends DbModel
     {
         $this->payment = $payment;
     }
+
+    /**
+     * @return int
+     */
+    public function getDatePayment()
+    {
+        return $this->date_payment;
+    }
+
+    /**
+     * @param int $date_payment
+     */
+    public function setDatePayment($date_payment)
+    {
+        $this->date_payment = $date_payment;
+    }
+
+    /**
+     * @return int
+     */
+    public function getVtpWarsehouse()
+    {
+        return $this->vtp_warsehouse;
+    }
+
+    /**
+     * @param int $vtp_warsehouse
+     */
+    public function setVtpWarsehouse($vtp_warsehouse)
+    {
+        $this->vtp_warsehouse = $vtp_warsehouse;
+    }
+
+    /**
+     * @return int
+     */
+    public function getProvinceId()
+    {
+        return $this->province_id;
+    }
+
+    /**
+     * @param int $province_id
+     */
+    public function setProvinceId($province_id)
+    {
+        $this->province_id = $province_id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getDistrictId()
+    {
+        return $this->district_id;
+    }
+
+    /**
+     * @param int $district_id
+     */
+    public function setDistrictId($district_id)
+    {
+        $this->district_id = $district_id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getServiceTransport()
+    {
+        return $this->service_transport;
+    }
+
+    /**
+     * @param string $service_transport
+     */
+    public function setServiceTransport($service_transport)
+    {
+        $this->service_transport = $service_transport;
+    }
+
+    /**
+     * @return int
+     */
+    public function getOrderNumberVtp()
+    {
+        return $this->order_number_vtp;
+    }
+
+
+
+
 
     /**
      * Returns table name mapped in the model.

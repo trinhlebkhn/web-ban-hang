@@ -35,7 +35,8 @@ function getShipPrice() {
         'city_id' : city_id,
         'district' : district_id,
     };
-    var service = $('#service_value').val();
+    var service = $('#service').val();
+    console.log(service);
     var storehouse = $('#storehouse').val();
     $.ajax({
         url: '/api_client/getFeeTransport',

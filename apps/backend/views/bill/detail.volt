@@ -150,6 +150,30 @@
                 </div>
             {% endif %}
         </div>
+        {% if listOrderTracking is not empty %}
+            <div class="row" style="background: #ffffff; padding-bottom: 20px">
+                <div class="col-xs-12">
+                    <h2 class="page-header">
+                        Lịch sử vận đơn:
+                    </h2>
+                </div>
+                <!-- info row -->
+                <div class="row invoice-info">
+                    <div class="col-sm-4 invoice-col">
+                        <address style="line-height: 26px;">
+                            <b>Tên khách hàng:</b> {{ data['customer_name'] }}<br>
+                            <b>Địa chỉ:</b> {{ data['address'] }}<br>
+                            <b>Điện thoại:</b> {{ data['phone'] }}<br>
+                            <b>Email:</b> {{ data['email'] }}
+                        </address>
+                    </div>
+                    <div class="col-sm-4 invoice-col" style="line-height: 26px;">
+                        <b>Ngày chuyển tiền:</b> {{ data['date_payment'] }}<br>
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div>
+        {% endif %}
     </section>
 </div>
 <!-- /.content-wrapper -->
