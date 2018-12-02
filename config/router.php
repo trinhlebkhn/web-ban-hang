@@ -194,6 +194,14 @@ $router->add("/quan-tri/cau-hinh-trang-chu", [
     'action' => 'index',
 ]);
 
+$router->add("/quan-tri/xoa-danh-muc-trang-chu{id:[0-9]+}", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'confighome',
+    'action' => 'delete',
+    'id' => 1,
+]);
+
 /* Thông tin trang chủ */
 $router->add("/quan-tri/thong-tin-trang-chu", [
     'module' => 'backend',
@@ -201,6 +209,8 @@ $router->add("/quan-tri/thong-tin-trang-chu", [
     'controller' => 'config',
     'action' => 'info',
 ]);
+
+
 
 /* slider*/
 $router->add("/quan-tri/slider", [

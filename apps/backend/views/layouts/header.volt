@@ -1,6 +1,6 @@
 <header class="main-header">
     <!-- Logo -->
-    <a class="logo pointer">
+    <a class="logo pointer" href="/quan-tri">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>AD</b></span>
         <!-- logo for regular state and mobile devices -->

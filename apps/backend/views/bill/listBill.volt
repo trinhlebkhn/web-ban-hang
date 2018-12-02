@@ -81,25 +81,11 @@
                                             </button>
                                         </a>
                                         <a href="/doi-trang-thai-don-hang-b5{{ item['id'] }}">
-                                            <button class="pointer bg-yellow" title="Gọi lại"><i
-                                                        class="fa fa-phone"></i></button>
-                                        </a>
-                                    {% endif %}
-                                    {% if item['status'] == 6 %}
-                                        <a href="/doi-trang-thai-don-hang-b2{{ item['id'] }}">
-                                            <button class="pointer bg-green" title="Xác nhận"><i
-                                                        class="fa fa-check"></i></button>
-                                        </a>
-                                        <a href="/doi-trang-thai-don-hang-b5{{ item['id'] }}">
                                             <button class="pointer bg-amber" title="Gọi lại"><i
                                                         class="fa fa-phone"></i></button>
                                         </a>
-                                        <a href="/doi-trang-thai-don-hang-b1{{ item['id'] }}">
-                                            <button class="pointer bg-yellow" title="Mới"><i class="fa fa-angle-right"></i>
-                                            </button>
-                                        </a>
                                     {% endif %}
-                                    {% if item['status'] != 1 and item['status'] != 6 %}
+                                    {% if item['status'] != 1 and item['status'] != 6 and item['status'] != 4 %}
                                         {% if item['status'] != 3 %}
                                             <a href="/doi-trang-thai-don-hang-b3{{ item['id'] }}">
                                                 <button class="pointer bg-light-green" title="Đang chuyển"><i
@@ -108,7 +94,7 @@
                                         {% endif %}
                                         {% if item['status'] != 5 %}
                                             <a href="/doi-trang-thai-don-hang-b5{{ item['id'] }}">
-                                                <button class="pointer bg-yellow" title="Gọi lại"><i
+                                                <button class="pointer bg-amber" title="Gọi lại"><i
                                                             class="fa fa-phone"></i></button>
                                             </a>
                                         {% endif %}

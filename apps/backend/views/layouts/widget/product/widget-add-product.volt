@@ -1,7 +1,7 @@
 <section class="content">
     <div class="row">
         <div class="add">
-            <form role="form" method="post">
+            <form role="form" method="post" id="add_product">
                 <div style="overflow-y: auto; background-color: #fff;">
                     <div class="col-md-12">
                         {{ this.flash.output() }}
@@ -13,7 +13,7 @@
                             </div>
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label>Tên sản phẩm</label>
+                                    <label>Tên sản  <span class="error">*</span></label>
                                     <input type="text" name="product[name]" value="{{ data['name'] }}"
                                            class="form-control" id="name"
                                            placeholder="Tên sản phẩm">
@@ -25,7 +25,7 @@
                                               placeholder="Mô tả sản phẩm">{{ data['descript'] }}</textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label>Danh mục</label>
+                                    <label>Danh mục <span class="error">*</span></label>
                                     <select id="cat_product" name="product[category_id]"
                                             class="selectpicker form-control" data-live-search="true">
                                         <option disabled>Chọn danh mục</option>
@@ -42,60 +42,36 @@
                                            placeholder="Giá niêm yết">
                                 </div>
                                 <div class="form-group">
-                                    <label>Giá bán</label>
+                                    <label>Giá bán <span class="error">*</span></label>
                                     <input type="text" name="product[price_sell]" value="{{ data['price_sell'] }}"
                                            class="form-control" id="price_sell"
                                            placeholder="Giá bán">
                                 </div>
                                 <div class="form-group">
-                                    <label>Giá nhập</label>
+                                    <label>Giá nhập <span class="error">*</span></label>
                                     <input type="text" name="product[price_import]" value="{{ data['price_import'] }}"
                                            class="form-control" id="price_import"
                                            placeholder="Giá nhập">
                                 </div>
                                 <div class="form-group">
-                                    <label>Cân nặng</label>
+                                    <label>Cân nặng <span class="error">*</span></label>
                                     <input type="text" name="product[weight]" value="{{ data['weight'] }}"
                                            class="form-control" id="weight"
                                            placeholder="Cân nặng">
                                 </div>
-                                <div class="form-group">
-                                    <label>Kích thước</label>
-                                    <div class="row box-size">
-                                        <input type="text" name="product[length]" value="{{ data['weight'] }}"
-                                               class="form-control" id="length"
-                                               placeholder="Dài">
-                                        <input type="text" name="product[width]" value="{{ data['weight'] }}"
-                                               class="form-control weight" id="width"
-                                               placeholder="Rộng">
-                                        <input type="text" name="product[height]" value="{{ data['weight'] }}"
-                                               class="form-control" id="height"
-                                               placeholder="Cao">
-                                    </div>
-                                </div>
-                                {#<div class="form-group product-discount">#}
-                                    {#<label>Giảm giá: </label>#}
-                                    {#<label>#}
-                                        {#<input type="radio" name="discount" id="discount"#}
-                                               {#onclick="check_discount(1)" {{ data['type_discount'] != null ? 'checked' : '' }}#}
-                                               {#value="1">#}
-                                        {#<span>Có</span>#}
-                                    {#</label>#}
-                                    {#<label>#}
-                                        {#<input type="radio" name="discount" id="discount"#}
-                                               {#onclick="check_discount(0)" {{ data['type_discount'] == null ? 'checked' : '' }}#}
-                                               {#value="0">#}
-                                        {#<span>Không</span>#}
-                                    {#</label>#}
-                                {#</div>#}
-                                {#<div class="form-group discount-type {{ data['type_discount'] != null ? '' : 'hidden' }}">#}
-                                    {#<label>Loại giảm giá: </label>#}
-                                    {#<select class="selectpicker show-tick form-control" name="product[type_discount]"#}
-                                            {#style="display: none !important;">#}
-                                        {#<option value="1" {{ data['type_discount'] == 1 ? 'selected' : '' }} >%</option>#}
-                                        {#<option value="2" {{ data['type_discount'] == 2 ? 'selected' : '' }}>VNĐ#}
-                                        {#</option>#}
-                                    {#</select>#}
+                                {#<div class="form-group">#}
+                                    {#<label>Kích thước</label>#}
+                                    {#<div class="row box-size">#}
+                                        {#<input type="text" name="product[length]" value="{{ data['weight'] }}"#}
+                                               {#class="form-control" id="length"#}
+                                               {#placeholder="Dài">#}
+                                        {#<input type="text" name="product[width]" value="{{ data['weight'] }}"#}
+                                               {#class="form-control weight" id="width"#}
+                                               {#placeholder="Rộng">#}
+                                        {#<input type="text" name="product[height]" value="{{ data['weight'] }}"#}
+                                               {#class="form-control" id="height"#}
+                                               {#placeholder="Cao">#}
+                                    {#</div>#}
                                 {#</div>#}
                                 <div class="form-group product-status">
                                     <label>Trạng thái: </label>
@@ -241,7 +217,7 @@
                         <div class="product-description">
                             <div class="form-group">
                                 <label>Nội dung</label>
-                                <textarea type="text" name="product[content]" style="max-width: 100%; min-height: 100px"
+                                <textarea type="text" id="product_content" name="product[content]" style="max-width: 100%; min-height: 100px"
                                           class="form-control" id="product-content"
                                           placeholder="Mô tả sản phẩm">{{ data['content'] }}</textarea>
                             </div>
@@ -258,3 +234,56 @@
         </div>
     </div>
 </section>
+<script src="/ckeditor/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('product_content');
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#add_product').bootstrapValidator({
+            message: 'Vui lòng nhập giá trị',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                'product[name]': {
+                    validators: {
+                        notEmpty: {
+                            message: 'Vui nhập tên sản phẩm!'
+                        }
+                    }
+                },
+                'product[price_sell]': {
+                    validators: {
+                        notEmpty: {
+                            message: 'Vui lòng nhập giá bán!'
+                        }
+                    }
+                },
+                'product[price_import]': {
+                    validators: {
+                        notEmpty: {
+                            message: 'Vui lòng nhập nhập hàng!'
+                        }
+                    }
+                },
+                'product[weight]': {
+                    validators: {
+                        notEmpty: {
+                            message: 'Vui lòng nhập cân nặng!'
+                        }
+                    }
+                },
+                'product[category_id]': {
+                    validators: {
+                        notEmpty: {
+                            message: 'Vui lòng chọn danh mục!'
+                        }
+                    }
+                }
+            }
+        });
+    });
+</script>

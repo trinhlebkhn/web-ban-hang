@@ -42,19 +42,21 @@
                 <div class="col-md-6">
                     <div id="add" class="hidden">
                         <form role="form" method="post">
-                            <div class="form-group">
-                                <label style="font-size: 20px; padding-top: 5px; padding-bottom: 20px; font-weight: 100">Tên
-                                    khối Menu</label>
-                                <input type="text" name="data[name]" class="form-control" id="name"
-                                       placeholder="Tên khối Menu">
-                            </div>
-                            <div class="form-group">
-                                <input type="checkbox" class="minimal" name="data[is_main]" id="is_main" value="1"> Chọn
-                                làm menu chính
-                            </div>
-                            <div class="box-footer pull-right manipulation">
-                                <button type="submit" class="btn btn-primary btn-add">Tạo mới</button>
-                                <button class="btn btn-danger btn-cancel" onclick="removeFormAdd(event)">Hủy</button>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label style="font-size: 20px; padding-top: 5px; padding-bottom: 20px; font-weight: 100">Tên
+                                        khối Menu</label>
+                                    <input type="text" name="data[name]" class="form-control" id="name"
+                                           placeholder="Tên khối Menu">
+                                </div>
+                                <div class="form-group">
+                                    <input type="checkbox" class="minimal" name="data[is_main]" id="is_main" value="1"> Chọn
+                                    làm menu chính
+                                </div>
+                                <div class="box-footer pull-right manipulation">
+                                    <button type="submit" class="btn btn-primary btn-add">Tạo mới</button>
+                                    <button class="btn btn-danger btn-cancel" onclick="removeFormAdd(event)">Hủy</button>
+                                </div>
                             </div>
                         </form>
                     </div>

@@ -6,7 +6,7 @@
     <section id="add" class="content">
         <div class="row" style="background-color: #fff;">
             <div class="add">
-                <form role="form" method="post">
+                <form id="add_category" role="form" method="post">
                     <div style="background-color: #fff;">
                         <div class="col-md-12">
                             {{ this.flash.output() }}
@@ -86,6 +86,27 @@
         </div>
     </section>
 </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#add_category').bootstrapValidator({
+            message: 'Vui lòng nhập giá trị',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                'category[name]': {
+                    validators: {
+                        notEmpty: {
+                            message: 'Vui nhập tên danh mục.'
+                        }
+                    }
+                }
+            }
+        });
+    });
+</script>
 <!-- /.content-wrapper -->
 {% include "layouts/footer.volt" %}
 <!-- ./wrapper -->

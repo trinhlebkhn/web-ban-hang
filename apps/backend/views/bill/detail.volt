@@ -59,65 +59,25 @@
 
             <div class="row">
 
-                {% if data['status'] == 1 %}
-                    <div class="col-xs-6">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <tr>
-                                    <th style="width:50%">Tạm tính:</th>
-                                    <td>{{ uiHelper.formatNumber(data['price']) }} <b>VNĐ</b></td>
-                                </tr>
-                                <tr>
-                                    <th>Phí ship:</th>
-                                    <td>{{ uiHelper.formatNumber(data['ship_price']) }} <b>VNĐ</b></td>
-                                </tr>
-                                <tr>
-                                    <th>Tổng tiền:</th>
-                                    <td>{{ uiHelper.formatNumber(data['total_price']) }} <b>VNĐ</b></td>
-                                </tr>
-                            </table>
-                        </div>
+                <div class="col-xs-6">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tr>
+                                <th style="width:50%">Tạm tính:</th>
+                                <td>{{ uiHelper.formatNumber(data['price']) }} <b>VNĐ</b></td>
+                            </tr>
+                            <tr>
+                                <th>Phí ship:</th>
+                                <td>{{ uiHelper.formatNumber(data['ship_price']) }} <b>VNĐ</b></td>
+                            </tr>
+                            <tr>
+                                <th>Tổng tiền:</th>
+                                <td>{{ uiHelper.formatNumber(data['total_price']) }} <b>VNĐ</b></td>
+                            </tr>
+                        </table>
                     </div>
-                    <div class="col-xs-6">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <form method="post">
-                                    <tr>
-                                        <th>Số tiền đã thanh toán:</th>
-                                        <td>
-                                            <input class="form-control" name="payment" type="text">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td>
-                                            <button type="submit" class="form-control btn-primary">Cập nhật</button>
-                                        </td>
-                                    </tr>
-                                </form>
-                            </table>
-                        </div>
-                    </div>
-                {% endif %}
+                </div>
                 {% if data['status'] != 1 %}
-                    <div class="col-xs-6">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <tr>
-                                    <th style="width:50%">Tạm tính:</th>
-                                    <td>{{ uiHelper.formatNumber(data['price']) }} <b>VNĐ</b></td>
-                                </tr>
-                                <tr>
-                                    <th>Phí ship:</th>
-                                    <td>{{ uiHelper.formatNumber(data['ship_price']) }} <b>VNĐ</b></td>
-                                </tr>
-                                <tr>
-                                    <th>Tổng tiền:</th>
-                                    <td>{{ uiHelper.formatNumber(data['total_price']) }} <b>VNĐ</b></td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
                     <div class="col-xs-6">
                         <div class="table-responsive">
                             <table class="table">
@@ -151,25 +111,31 @@
             {% endif %}
         </div>
         {% if listOrderTracking is not empty %}
-            <div class="row" style="background: #ffffff; padding-bottom: 20px">
+            <div class="row history_order-tracking" style="background: #ffffff; padding-bottom: 20px; padding-top: 20px;
+    border-top: 1px dashed #bbb;">
                 <div class="col-xs-12">
                     <h2 class="page-header">
-                        Lịch sử vận đơn:
+                        Hành trình vận đơn:
                     </h2>
                 </div>
                 <!-- info row -->
-                <div class="row invoice-info">
-                    <div class="col-sm-4 invoice-col">
-                        <address style="line-height: 26px;">
-                            <b>Tên khách hàng:</b> {{ data['customer_name'] }}<br>
-                            <b>Địa chỉ:</b> {{ data['address'] }}<br>
-                            <b>Điện thoại:</b> {{ data['phone'] }}<br>
-                            <b>Email:</b> {{ data['email'] }}
-                        </address>
-                    </div>
-                    <div class="col-sm-4 invoice-col" style="line-height: 26px;">
-                        <b>Ngày chuyển tiền:</b> {{ data['date_payment'] }}<br>
-                    </div>
+                <div class="col-xs-12">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Thời gian</th>
+                            <th>Thông tin trạng thái</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for item in listOrderTracking %}
+                            <tr>
+                                <td>{{ item.ORDER_STATUSDATE }}</td>
+                                <td>{{ item.ORDER_NOTE }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
                 </div>
                 <!-- /.row -->
             </div>

@@ -498,3 +498,17 @@ aside.control-sidebar.control-sidebar-dark {
     margin-right: 17px;
     float: right;
 }
+
+.history_order-tracking table tr:last-child td {
+    font-weight: bold;
+}
+
+/* form config info*/
+#config_info .website-name i{
+    right: 15px;
+}
+
+/* form config img*/
+#config_img i {
+    right: 14px;
+}

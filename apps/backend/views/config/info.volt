@@ -4,7 +4,7 @@
 
 <div class="content-wrapper">
     <section class="content box-slider">
-        <form method="post">
+        <form method="post" id="config_info">
             <div class="row">
                 <div class="col-md-12">
                     <div class="box">
@@ -21,7 +21,7 @@
                                         <div class="col-md-3">
                                             <label>Tên website</label>
                                         </div>
-                                        <div class="col-md-9">
+                                        <div class="col-md-9 website-name">
                                             <input class="form-control" type="text" name="data[website_name]"
                                                    value="{{ data['website_name'] }}"
                                                    placeholder="">
@@ -197,6 +197,43 @@
         <!-- /.row -->
     </section>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#config_info').bootstrapValidator({
+            message: 'Vui lòng nhập giá trị',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                'data[website_name]': {
+                    validators: {
+                        notEmpty: {
+                            message: 'Vui nhập tên website!'
+                        }
+                    }
+                },
+                'data[list_block_menu_footer]': {
+                    validators: {
+                        notEmpty: {
+                            message: 'Vui lòng chọn khối menu chân trang!'
+                        }
+                    }
+                },
+                'data[block_menu_bottom_footer]': {
+                    validators: {
+                        notEmpty: {
+                            message: 'Vui lòng chọn menu chân trang!'
+                        }
+                    }
+                },
+            }
+        });
+    });
+</script>
+
 <!-- /.content-wrapper -->
 {% include "layouts/footer.volt" %}
 <!-- ./wrapper -->

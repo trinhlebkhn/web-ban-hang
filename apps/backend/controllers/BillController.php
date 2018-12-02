@@ -192,7 +192,7 @@ class BillController extends AuthorizedControllerBase
             "PRODUCT_NAME" => "Đồng hồ",
             "PRODUCT_DESCRIPTION" => "Đồng hồ chất lượng cao.",
             "PRODUCT_QUANTITY" => 1,
-            "PRODUCT_PRICE" => $order['price'] / 2,
+            "PRODUCT_PRICE" => $order['total_price'] + $order['ship_price'] - $order['payment'],
             "PRODUCT_WEIGHT" => $totalWeight,
             "PRODUCT_TYPE" => "HH",
             "ORDER_PAYMENT" => 3,

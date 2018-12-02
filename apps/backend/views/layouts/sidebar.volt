@@ -95,7 +95,7 @@
                             <i class="fa fa-angle-left pull-right"></i>
                          </span>
                 </a>
-                <ul class="treeview-menu">
+                <ul class="treeview-menu" style="display: none;">
                     <li>
                         <a href="/quan-tri/slider">
                             <i class="fa fa-arrows" aria-hidden="true"></i>

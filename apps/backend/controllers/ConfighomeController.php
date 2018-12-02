@@ -17,8 +17,7 @@ class ConfighomeController extends AuthorizedControllerBase {
         $this->view->listCat = $listCatHome->data;
     }
 
-    public function deleteAction(){
-        $id = $this->request->get('id');
+    public function deleteAction($id){
         $data = [
             'id' => $id,
             'position' => '',

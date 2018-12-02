@@ -8,47 +8,29 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="/assets_backend/source/bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/assets_backend/assets/css/bootstrapValidator.css">
     <link rel="stylesheet" href="/assets_backend/source/bower_components/bootstrap/dist/css/bootstrap-theme.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="/assets_backend/source/bower_components/font-awesome/css/font-awesome.min.css">
-    <!-- DataTables -->
-    <link rel="stylesheet"
-          href="/assets_backend/source/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="/assets_backend/source/bower_components/Ionicons/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/assets_backend/source/dist/css/AdminLTE.min.css">
     <!-- Custom CSS of Daily-Bizsale -->
     {#<link rel="stylesheet" href="/assets_backend/source/dist/css/custom.css">#}
     <link rel="stylesheet" href="/assets_backend/assets/css/custom.css">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="/assets_backend/source/dist/css/skins/_all-skins.min.css">
-    <link rel="stylesheet" href="/assets_backend/source/plugins/iCheck/all.css">
 
     <link rel="stylesheet" href="/assets_backend/assets/css/skin-bizsale.css">
-    <!-- Morris chart -->
-    <link rel="stylesheet" href="/assets_backend/source/bower_components/morris.js/morris.css">
-    <!-- jvectormap -->
-    <link rel="stylesheet" href="/assets_backend/source/bower_components/jvectormap/jquery-jvectormap.css">
-    <!-- Date Picker -->
-    <link rel="stylesheet"
-          href="/assets_backend/source/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
-    <!-- Daterange picker -->
-    <link rel="stylesheet" href="/assets_backend/source/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+
     <!-- bootstrap wysihtml5 - text editor -->
-    <link rel="stylesheet" href="/assets_backend/source/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
     <link rel="stylesheet" href="/selectpicker/bootstrap-select.css">
-
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-
-    <![endif]-->
 
     <!-- Google Font -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+    <!-- jQuery 3 -->
+    <script src="/assets_backend/source/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="/assets_backend/source/bower_components/jquery-ui/jquery-ui.min.js"></script>
 </head>
 <body class="hold-transition skin-bizsale sidebar-mini">
 <div class="wrapper">
@@ -65,87 +47,20 @@
     </div>
 </div>
 
-<!-- jQuery 3 -->
-<script src="/assets_backend/source/bower_components/jquery/dist/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="/assets_backend/source/bower_components/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
     $.widget.bridge('uibutton', $.ui.button);
 </script>
 <!-- Bootstrap 3.3.7 -->
 <script src="/assets_backend/source/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<!-- DataTables -->
-<script src="/assets_backend/source/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="/assets_backend/source/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<!-- Morris.js charts -->
-<script src="/assets_backend/source/bower_components/raphael/raphael.min.js"></script>
-<script src="/assets_backend/source/bower_components/morris.js/morris.min.js"></script>
-<!-- Sparkline -->
-<script src="/assets_backend/source/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
-<!-- jvectormap -->
-<script src="/assets_backend/source/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-<script src="/assets_backend/source/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-<!-- jQuery Knob Chart -->
-<script src="/assets_backend/source/bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
-<!-- FLOT CHARTS -->
-<script src="/assets_backend/source/bower_components/Flot/jquery.flot.js"></script>
-<!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
-<script src="/assets_backend/source/bower_components/Flot/jquery.flot.resize.js"></script>
-<!-- FLOT PIE PLUGIN - also used to draw donut charts -->
-<script src="/assets_backend/source/bower_components/Flot/jquery.flot.pie.js"></script>
-<!-- FLOT CATEGORIES PLUGIN - Used to draw bar charts -->
-<script src="/assets_backend/source/bower_components/Flot/jquery.flot.categories.js"></script>
-<!-- ChartJS -->
-<script src="/assets_backend/source/bower_components/Chart.js/Chart.js"></script>
-<!-- daterangepicker -->
-<script src="/assets_backend/source/bower_components/moment/min/moment.min.js"></script>
-<script src="/assets_backend/source/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
-<!-- datepicker -->
-<script src="/assets_backend/source/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-<!-- Bootstrap WYSIHTML5 -->
-<script src="/assets_backend/source/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
-<!-- Slimscroll -->
-<script src="/assets_backend/source/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<!-- FastClick -->
-<script src="/assets_backend/source/bower_components/fastclick/lib/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="/assets_backend/source/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="/assets_backend/source/dist/js/pages/dashboard.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="/assets_backend/source/dist/js/demo.js"></script>
+<script src="/assets_backend/assets/js/bootstrapValidator.js"></script>
 
 <!-- Custom JS of Daily-Bizsale -->
-<script src="/assets_backend/assets/js/jquery.validate.min.js"></script>
 <script src="/assets_backend/assets/js/custom.js"></script>
 <script src="/assets_backend/assets/js/zalo.js"></script>
 <script src="/assets_backend/assets/js/uploadImage.js"></script>
 <script src="/selectpicker/bootstrap-select.js"></script>
-<script src="/assets_backend/source/plugins/iCheck/icheck.min.js"></script>
-<script src="/ckeditor/ckeditor.js"></script>
-
-<script>
-    CKEDITOR.replace('product-content');
-
-    $('#daterange-btn').daterangepicker(
-        {
-            ranges: {
-                'Today': [moment(), moment()],
-                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-                'This Month': [moment().startOf('month'), moment().endOf('month')],
-                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-            },
-            startDate: moment().subtract(29, 'days'),
-            endDate: moment()
-        },
-        function (start, end) {
-            $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
-        }
-    )
-</script>
+{#<script src="/ckeditor/ckeditor.js"></script>#}
 <style>
     @media (min-width: 320px) {
         /* The snackbar - position it at the bottom and in the middle of the screen */
