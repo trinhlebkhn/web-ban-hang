@@ -512,3 +512,22 @@ aside.control-sidebar.control-sidebar-dark {
 #config_img i {
     right: 14px;
 }
+
+
+.small-box h3 {
+    white-space: normal;
+    word-break: break-all;
+}
+
+.box-data {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.pd-l-0 {
+    padding-left: 0;
+}
+
+.box-img {
+    padding-top: 15px;
+}

@@ -17,6 +17,7 @@
     <!-- Custom CSS of Daily-Bizsale -->
     {#<link rel="stylesheet" href="/assets_backend/source/dist/css/custom.css">#}
     <link rel="stylesheet" href="/assets_backend/assets/css/custom.css">
+    <link rel="stylesheet" href="/assets_backend/assets/css/res.css">
 
     <link rel="stylesheet" href="/assets_backend/assets/css/skin-bizsale.css">
 
@@ -59,6 +60,7 @@
 <script src="/assets_backend/assets/js/custom.js"></script>
 <script src="/assets_backend/assets/js/zalo.js"></script>
 <script src="/assets_backend/assets/js/uploadImage.js"></script>
+<script src="/assets_backend/source/dist/js/adminlte.min.js"></script>
 <script src="/selectpicker/bootstrap-select.js"></script>
 {#<script src="/ckeditor/ckeditor.js"></script>#}
 <style>

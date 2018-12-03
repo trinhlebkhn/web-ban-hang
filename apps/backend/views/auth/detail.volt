@@ -42,7 +42,7 @@
                                     <h3 class="box-title">Ảnh đại diện</h3>
                                     <small><i>Ảnh phải có định dạng *.jpg, *.png, *.bmp</i></small>
                                 </div>
-                                <div class="row">
+                                <div class="row box-img">
                                     <div class="col-md-5 col-sm-12">
                                         {% if data['avatar'] | length > 0 %}
                                             <img src="{{ data['avatar'] }}" alt="{{ data['fullname'] }}" style="width: 150px; height: 200px;">

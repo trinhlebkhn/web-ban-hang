@@ -25,9 +25,9 @@
                         </tr>
                         </thead>
                         <tbody>
-                        {% for item in listCat %}
+                        {% for index, item in listCat %}
                             <tr>
-                                <td scope="row">{{ item['id'] }}</td>
+                                <td scope="row">{{ index + 1 }}</td>
                                 <td>{{ item['name'] }}</td>
                                 <td>{{ item['slug'] }}</td>
                                 <td>

@@ -9,16 +9,6 @@ $(document).ready(function () {
             $(this).removeClass('error');
         }
     });
-
-    $('ul li.treeview').on('click', function () {
-        if($(this).hasClass('menu-open')) {
-            $(this).find('ul.treeview-menu').css('display', 'none');
-            $(this).removeClass('menu-open');
-        } else {
-            $(this).addClass('menu-open');
-            $(this).find('ul.treeview-menu').css('display', 'block');
-        }
-    });
 });
 
 function check_discount(value) {
