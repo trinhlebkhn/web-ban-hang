@@ -531,3 +531,22 @@ aside.control-sidebar.control-sidebar-dark {
 .box-img {
     padding-top: 15px;
 }
+
+.filter .item:first-child {
+    padding-left: 0;
+}
+.filter .item:last-child {
+    padding-right: 0;
+}
+
+.choose-radio {
+    padding-left: 100px;
+}
+
+.img-slide-product .item {
+    width: 30%;
+}
+
+.row .add-product {
+    min-width: 1200px
+}

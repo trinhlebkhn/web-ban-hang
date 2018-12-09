@@ -1,6 +1,6 @@
 <form method="post">
-    <div class="row">
-        <div class="col-md-4" style="padding-left: 0px">
+    <div class="row filter">
+        <div class="col-md-4 item" style="padding-left: 0px">
             <div class="form-group search ">
                 <select class="form-control" name="stt" id="stt" onchange="this.form.submit()">
                     <option value="">Chọn trạng thái</option>
@@ -13,7 +13,7 @@
                 </select>
             </div>
         </div>
-        <div class="col-md-8" style="padding-right: 0px">
+        <div class="col-md-8 item" style="padding-right: 0px">
             <div class="form-group search">
                 <input type="text" class="form-control" name="q" id="strSearch" placeholder="Nhập vào email khách hàng" value="{{ StrSearch | length > 0 ? StrSearch : '' }}">
                 <button style="border-radius: 0px; font-size: 15px;"

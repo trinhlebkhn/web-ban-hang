@@ -11,8 +11,6 @@ defined('APP_PATH') || define('APP_PATH', BASE_PATH . '/apps');
 
 $env = new Dotenv(BASE_PATH);
 $env->load();
-//var_dump($_ENV['ZALO_APP_ID_CFG']); die;
-
 return new \Phalcon\Config([
     'database' => [
         'adapter'     => 'Mysql',
@@ -47,4 +45,5 @@ return new \Phalcon\Config([
         'baseUri'        => preg_replace('/public([\/\\\\])index.php$/', '', $_SERVER["PHP_SELF"]),
     ]
 ]);
+
 

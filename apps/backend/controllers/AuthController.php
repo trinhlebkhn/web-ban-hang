@@ -16,6 +16,7 @@ class AuthController extends ControllerBase {
     }
 
     public function loginAction() {
+
         if ($this->isLogin()) {
             return $this->response->redirect(base_uri() . '/quan-tri');
         }

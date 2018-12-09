@@ -1,19 +1,19 @@
 <section class="content">
-    <div class="row">
-        <div class="add">
+    <div class="row table-responsive">
+        <div class="add add-product">
             <form role="form" method="post" id="add_product">
                 <div style="overflow-y: auto; background-color: #fff;">
                     <div class="col-md-12">
                         {{ this.flash.output() }}
                     </div>
                     <div class="row bd-bt-dashed">
-                        <div class="product-info col-md-6">
+                        <div class="product-info col-md-6 col-sm-5">
                             <div class="box-header with-border">
                                 <h3 class="box-title">Thêm mới sản phẩm</h3>
                             </div>
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label>Tên sản  <span class="error">*</span></label>
+                                    <label>Tên sản <span class="error">*</span></label>
                                     <input type="text" name="product[name]" value="{{ data['name'] }}"
                                            class="form-control" id="name"
                                            placeholder="Tên sản phẩm">
@@ -60,40 +60,44 @@
                                            placeholder="Cân nặng">
                                 </div>
                                 {#<div class="form-group">#}
-                                    {#<label>Kích thước</label>#}
-                                    {#<div class="row box-size">#}
-                                        {#<input type="text" name="product[length]" value="{{ data['weight'] }}"#}
-                                               {#class="form-control" id="length"#}
-                                               {#placeholder="Dài">#}
-                                        {#<input type="text" name="product[width]" value="{{ data['weight'] }}"#}
-                                               {#class="form-control weight" id="width"#}
-                                               {#placeholder="Rộng">#}
-                                        {#<input type="text" name="product[height]" value="{{ data['weight'] }}"#}
-                                               {#class="form-control" id="height"#}
-                                               {#placeholder="Cao">#}
-                                    {#</div>#}
+                                {#<label>Kích thước</label>#}
+                                {#<div class="row box-size">#}
+                                {#<input type="text" name="product[length]" value="{{ data['weight'] }}"#}
+                                {#class="form-control" id="length"#}
+                                {#placeholder="Dài">#}
+                                {#<input type="text" name="product[width]" value="{{ data['weight'] }}"#}
+                                {#class="form-control weight" id="width"#}
+                                {#placeholder="Rộng">#}
+                                {#<input type="text" name="product[height]" value="{{ data['weight'] }}"#}
+                                {#class="form-control" id="height"#}
+                                {#placeholder="Cao">#}
+                                {#</div>#}
                                 {#</div>#}
                                 <div class="form-group product-status">
                                     <label>Trạng thái: </label>
-                                    <label>
-                                        <input type="radio" name="product[status]" class="flat-red" value="1" {{ data['status'] == null or data['status'] == 1 ? 'checked' : '' }}>
-                                        <span>Hoạt động</span>
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="product[status]" class="flat-red" {{ data['status'] == 2 ? 'checked' : '' }} value="2">
-                                        <span>Không hoạt động</span>
-                                    </label>
+                                    <div class="choose-radio">
+                                        <label>
+                                            <input type="radio" name="product[status]" class="flat-red"
+                                                   value="1" {{ data['status'] == null or data['status'] == 1 ? 'checked' : '' }}>
+                                            <span>Hoạt động</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="product[status]"
+                                                   class="flat-red" {{ data['status'] == 2 ? 'checked' : '' }} value="2">
+                                            <span>Không hoạt động</span>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 col-sm-7">
                             <div class="product-image">
                                 <div class="box-header with-border">
                                     <h3 class="box-title">Ảnh đại diện</h3>
                                     <small><i>Ảnh phải có định dạng *.jpg, *.png, *.bmp</i></small>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-5 col-sm-12">
+                                    <div class="col-sm-5">
                                         <div class="{{ data['avatar'] == null  ? '' : 'hidden' }} blog-avatar boxborder text-center d-flex justify-content-center align-items-center pointer"
                                              onclick="avatar.click()">
                                             <div class="d-inline-block" style="margin: auto">
@@ -112,9 +116,9 @@
                                         <input class="hidden" name="product[avatar]" value="{{ data['avatar'] }}"
                                                id="src_avatar" type="text">
                                     </div>
-                                    <div class="col-md-7 col-sm-12 img-slide-product">
+                                    <div class="col-sm-7 img-slide-product">
                                         {% for index, item in data['image'] %}
-                                            <div class="col-md-4 col-sm-3 col-xs-6">
+                                            <div class="col-sm-4 col-xs-6">
                                                 <div class="img-product-single" style="position: relative">
                                                     <img id="blog_avatar" src="{{ item }}" alt=""
                                                          style="width: 100%; height: 100%;">
@@ -127,7 +131,7 @@
                                             </div>
                                         {% endfor %}
                                         {% if data['image'] | length < 9 %}
-                                            <div class="col-md-4 col-sm-3 col-xs-6">
+                                            <div class="col-sm-4 col-xs-6">
                                                 <div class="boxborder text-center d-flex justify-content-center align-items-center pointer img-product-single"
                                                      onclick="img_product.click()">
                                                     <div class="d-inline-block" style="margin: auto">
@@ -152,7 +156,7 @@
                             {% if data['id'] != null and data['attribute_id'] is not empty %}
                                 {% for index, item in data['attribute_id'] %}
                                     <div class="row item {{ index == 0 ? 'first-item' : '' }}">
-                                        <div class="col-md-6">
+                                        <div class="col-md-6 col-sm-6">
                                             <div id="item_0" class="attribute d-flex">
                                                 {#<select name="product[attribute_id]" class="form-control" onchange="disableAttr(event, this)">#}
                                                 <select name="product[attribute_id][]" class="form-control">
@@ -167,19 +171,21 @@
                                                             class="fa fa-plus"></i></button>
                                             </div>
                                         </div>
-                                        <div class="col-md-6 d-flex value-attribute">
-                                            <input type="text" class="form-control" placeholder=""
-                                                   name="product[attribute_value][]"
-                                                   value="{{ data['attribute_value'][index] }}">
-                                            <button type="button" class="btn btn-primary" onclick="addAttrProduct()"
-                                                    title="Thêm thuộc tính sản phẩm"><i
-                                                        class="fa fa-plus"></i></button>
-                                            {% if index != 0 %}
-                                                <button type="button" class="btn btn-danger delete-item"
-                                                        onclick="removeAttrProduct(this)"
-                                                        title="Xóa thuộc tính sản phẩm"><i
-                                                            class="fa fa-trash"></i></button>
-                                            {% endif %}
+                                        <div class="col-md-6 col-sm-6 d-flex value-attribute">
+                                            <div id="item_0" class="attribute d-flex">
+                                                <input type="text" class="form-control" placeholder=""
+                                                       name="product[attribute_value][]"
+                                                       value="{{ data['attribute_value'][index] }}">
+                                                <button type="button" class="btn btn-primary" onclick="addAttrProduct()"
+                                                        title="Thêm thuộc tính sản phẩm"><i
+                                                            class="fa fa-plus"></i></button>
+                                                {% if index != 0 %}
+                                                    <button type="button" class="btn btn-danger delete-item"
+                                                            onclick="removeAttrProduct(this)"
+                                                            title="Xóa thuộc tính sản phẩm"><i
+                                                                class="fa fa-trash"></i></button>
+                                                {% endif %}
+                                            </div>
                                         </div>
                                     </div>
                                 {% endfor %}
@@ -200,13 +206,15 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6 d-flex value-attribute">
-                                        <input type="text" class="form-control" placeholder=""
-                                               name="product[attribute_value][]">
-                                        <button type="button" class="btn btn-primary" onclick="addAttrProduct()"
-                                                title="Thêm thuộc tính sản phẩm"><i
-                                                    class="fa fa-plus"></i></button>
-                                        {#<button type="button" class="btn btn-danger delete-item" onclick="removeAttrProduct(this)" title="Xóa thuộc tính sản phẩm"><i#}
-                                        {#class="fa fa-trash"></i></button>#}
+                                        <div id="item_0" class="attribute d-flex">
+                                            <input type="text" class="form-control" placeholder=""
+                                                   name="product[attribute_value][]">
+                                            <button type="button" class="btn btn-primary" onclick="addAttrProduct()"
+                                                    title="Thêm thuộc tính sản phẩm"><i
+                                                        class="fa fa-plus"></i></button>
+                                            {#<button type="button" class="btn btn-danger delete-item" onclick="removeAttrProduct(this)" title="Xóa thuộc tính sản phẩm"><i#}
+                                            {#class="fa fa-trash"></i></button>#}
+                                        </div>
                                     </div>
                                 </div>
                             {% endif %}
@@ -217,7 +225,8 @@
                         <div class="product-description">
                             <div class="form-group">
                                 <label>Nội dung</label>
-                                <textarea type="text" id="product_content" name="product[content]" style="max-width: 100%; min-height: 100px"
+                                <textarea type="text" id="product_content" name="product[content]"
+                                          style="max-width: 100%; min-height: 100px"
                                           class="form-control" id="product-content"
                                           placeholder="Mô tả sản phẩm">{{ data['content'] }}</textarea>
                             </div>

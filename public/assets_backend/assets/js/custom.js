@@ -66,6 +66,7 @@ function showListMenu(menu_block_id) {
             console.log('content', data);
             $('div.add-menu div#menu').removeClass('hidden');
             $('div.add-menu div#menu').html(data.content);
+            console.log(data.content);
         }
         else {
             snackbar(2, 'Có lỗi hệ thống xảy ra!');

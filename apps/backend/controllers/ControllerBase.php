@@ -7,7 +7,6 @@ class ControllerBase extends Controller
     use \SessionExt;
     public function initialize()
     {
-
     }
 
     public function render_template($controller, $action, $data = null)

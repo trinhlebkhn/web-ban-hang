@@ -59,43 +59,39 @@
 
             <div class="row">
 
-                <div class="col-xs-6">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <tr>
-                                <th style="width:50%">Tạm tính:</th>
-                                <td>{{ uiHelper.formatNumber(data['price']) }} <b>VNĐ</b></td>
-                            </tr>
-                            <tr>
-                                <th>Phí ship:</th>
-                                <td>{{ uiHelper.formatNumber(data['ship_price']) }} <b>VNĐ</b></td>
-                            </tr>
-                            <tr>
-                                <th>Tổng tiền:</th>
-                                <td>{{ uiHelper.formatNumber(data['total_price']) }} <b>VNĐ</b></td>
-                            </tr>
-                        </table>
-                    </div>
+                <div class="col-sm-6 col-xs-12">
+                    <table class="table">
+                        <tr>
+                            <th style="width:50%">Tạm tính:</th>
+                            <td>{{ uiHelper.formatNumber(data['price']) }} <b>VNĐ</b></td>
+                        </tr>
+                        <tr>
+                            <th>Phí ship:</th>
+                            <td>{{ uiHelper.formatNumber(data['ship_price']) }} <b>VNĐ</b></td>
+                        </tr>
+                        <tr>
+                            <th>Tổng tiền:</th>
+                            <td>{{ uiHelper.formatNumber(data['total_price']) }} <b>VNĐ</b></td>
+                        </tr>
+                    </table>
                 </div>
                 {% if data['status'] != 1 %}
-                    <div class="col-xs-6">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <tr>
-                                    <th>Số tiền đã thanh toán:</th>
-                                    <td>
-                                        {{ uiHelper.formatNumber(data['payment']) }} <b>VNĐ</b>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>Còn lại:</th>
-                                    <td>
-                                        {{ uiHelper.formatNumber(data['total_price'] + data['ship_price'] - data['payment']) }}
-                                        <b>VNĐ</b>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
+                    <div class="col-sm-6 col-xs-12">
+                        <table class="table">
+                            <tr>
+                                <th>Số tiền đã thanh toán:</th>
+                                <td>
+                                    {{ uiHelper.formatNumber(data['payment']) }} <b>VNĐ</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Còn lại:</th>
+                                <td>
+                                    {{ uiHelper.formatNumber(data['total_price'] + data['ship_price'] - data['payment']) }}
+                                    <b>VNĐ</b>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 {% endif %}
                 <!-- /.col -->
@@ -119,7 +115,7 @@
                     </h2>
                 </div>
                 <!-- info row -->
-                <div class="col-xs-12">
+                <div class="col-xs-12 table-responsive">
                     <table class="table table-striped">
                         <thead>
                         <tr>

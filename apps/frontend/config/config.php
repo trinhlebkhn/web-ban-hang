@@ -10,7 +10,6 @@ defined('APP_PATH') || define('APP_PATH', BASE_PATH . '/apps');
 
 $env = new \Dotenv\Dotenv(BASE_PATH);
 $env->load();
-
 $config = [
     'database' => [
         'adapter'     => 'Mysql',

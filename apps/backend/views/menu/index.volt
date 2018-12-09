@@ -15,7 +15,7 @@
                         </div>
                     </div>
                     {{ this.flash.output() }}
-                    <div class="table-responsive">
+                    <div class="list-box-menu">
                         <table class="table" style="border: 1px solid #f3f3f3">
                             <tbody>
                             {% for item in listData %}
@@ -60,7 +60,9 @@
                             </div>
                         </form>
                     </div>
-                    <div id="menu"></div>
+                    <div class="table-responsive">
+                        <div id="menu"></div>
+                    </div>
                 </div>
             </div>
         </div>

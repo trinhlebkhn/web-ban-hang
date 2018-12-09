@@ -25,33 +25,46 @@
                                 <div class="form-group">
                                     <label>Danh mục cha</label>
                                     <select id="selectpicker" name="category[parent_id]"
-                                            class="selectpicker form-control" title="Chọn danh mục" data-live-search = 'true'>
+                                            class="selectpicker form-control" title="Chọn danh mục"
+                                            data-live-search='true'>
                                         {% for item in listCat %}
-                                            <option value="{{ item['id'] }}"  {{ data['parent_id'] == item['id'] ? 'selected' : ''  }}>{{ item['name'] }}</option>
+                                            <option value="{{ item['id'] }}" {{ data['parent_id'] == item['id'] ? 'selected' : '' }}>{{ item['name'] }}</option>
                                         {% endfor %}
                                     </select>
                                 </div>
                                 <div class="form-group product-status">
                                     <label>Loại danh mục: </label>
-                                    <label>
-                                        <input type="radio" name="category[type]" {{ data['type'] == 1 ? 'checked' : '' }} class="flat-red" value="1" checked>
-                                        <span>Hàng hóa</span>
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="category[type]" {{ data['type'] == 2 ? 'checked' : '' }} class="flat-red" value="2">
-                                        <span>Bài viết</span>
-                                    </label>
+                                    <div class="choose-radio">
+                                        <label>
+                                            <input type="radio"
+                                                   name="category[type]" {{ data['type'] == 1 ? 'checked' : '' }}
+                                                   class="flat-red" value="1" checked>
+                                            <span>Hàng hóa</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio"
+                                                   name="category[type]" {{ data['type'] == 2 ? 'checked' : '' }}
+                                                   class="flat-red" value="2">
+                                            <span>Bài viết</span>
+                                        </label>
+                                    </div>
                                 </div>
                                 <div class="form-group product-status">
                                     <label>Trạng thái: </label>
-                                    <label>
-                                        <input type="radio" name="category[status]" {{ data['status'] == 1 ? 'checked' : '' }} class="flat-red" value="1" checked>
-                                        <span>Hoạt động</span>
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="category[status]" {{ data['status'] == 2 ? 'checked' : '' }} class="flat-red" value="2">
-                                        <span>Không hoạt động</span>
-                                    </label>
+                                    <div class="choose-radio">
+                                        <label>
+                                            <input type="radio"
+                                                   name="category[status]" {{ data['status'] == 1 ? 'checked' : '' }}
+                                                   class="flat-red" value="1" checked>
+                                            <span>Hoạt động</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio"
+                                                   name="category[status]" {{ data['status'] == 2 ? 'checked' : '' }}
+                                                   class="flat-red" value="2">
+                                            <span>Không hoạt động</span>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -66,7 +79,8 @@
                                     <p>Ảnh đại diện</p>
                                 </div>
                             </div>
-                            <div class="img-avatar {{ data['avatar'] == null  ? 'hidden' : '' }}" style="position: relative">
+                            <div class="img-avatar {{ data['avatar'] == null  ? 'hidden' : '' }}"
+                                 style="position: relative">
                                 <img id="blog_avatar" src="{{ data['avatar'] }}" alt="">
                                 <i class="fa fa-trash text-danger pointer"
                                    style="position: absolute;top: 10px;right: 15px"
@@ -74,11 +88,13 @@
                             </div>
                             <input #avatar class="hidden" type="file" id="avatar"
                                    onchange="uploadImage(avatar,avatar.files[0])">
-                            <input class="hidden" name="category[avatar]" value="{{ data['avatar'] }}" id="src_avatar" type="text">
+                            <input class="hidden" name="category[avatar]" value="{{ data['avatar'] }}" id="src_avatar"
+                                   type="text">
                         </div>
                     </div>
                     <div class="box-footer pull-right manipulation">
-                        <button type="submit" class="btn btn-primary btn-add">{{ data ? 'Cập nhật' : 'Tạo mới' }}</button>
+                        <button type="submit"
+                                class="btn btn-primary btn-add">{{ data ? 'Cập nhật' : 'Tạo mới' }}</button>
                         <a href="/quan-tri/danh-muc" class="btn btn-danger btn-cancel">Quay lại</a>
                     </div>
                 </form>

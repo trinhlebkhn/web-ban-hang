@@ -7,7 +7,7 @@
     {#{{ partial('layouts/breadcrumb', ['PageInfo' : PageInfo]) }}#}
 
     <!-- Main content -->
-    <section class="content">
+    <section class="content box-index">
         <div class="row">
             <div class="col-lg-4 col-xs-6">
                 <!-- small box -->

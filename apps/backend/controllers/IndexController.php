@@ -4,6 +4,10 @@ namespace Graduate\Backend\Controllers;
 
 class IndexController extends AuthorizedControllerBase
 {
+    public function initialize()
+    {
+        parent::initialize();
+    }
 
     public function indexAction()
     {
@@ -45,7 +49,7 @@ class IndexController extends AuthorizedControllerBase
             'q' => 'status = 4'
         ];
         $resBills = $billObj->getListObj($optional);
-        $totalRevenue  = 0;
+        $totalRevenue = 0;
         foreach ($resBills->data as $order) {
             $totalRevenue += $order['price'];
         }
