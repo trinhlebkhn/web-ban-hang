@@ -302,28 +302,49 @@ function removeAttrProduct(item) {
 
 function disableAttr(e, attrItem) {
     var value = e.target.value;
+    console.log($('#arr_attr_disable').val());
     var arrAttrDisable = JSON.parse($('#arr_attr_disable').val());
+    var parent = attrItem.closest('.attribute');
+    var prev_value = $(parent).find('.prev_value');
     var index = arrAttrDisable.indexOf(parseInt(value));
+    var index_prev_value = arrAttrDisable.indexOf(parseInt($(prev_value).val()));
     if (index === -1) {
         arrAttrDisable.push(parseInt(value));
+        $(prev_value).val(value);
     } else {
-        arrAttrDisable.splice(index, 1);
+        snackbar(2, 'Thuộc tính đã tồn tại. Vui lòng chọn thuộc tính khác!');
+        arrAttrDisable.splice(index_prev_value, 1);
     }
-    $.ajax({
-        url: '/backend/api_client/disableAttr',
-        method: 'post',
-        dataType: 'json',
-        data: {arrDisable: arrAttrDisable}
-    }).fail(function (ui, status) {
-        snackbar(2, 'Có lỗi  xảy ra!');
-    }).done(function (data, status) {
-        if (data.status) {
-            $('#arr_attr_disable').val(JSON.stringify(arrAttrDisable));
-            $('div.list-attribute .item').each(function (i) {
-                var attribute = this.querySelector('select');
-                $(attribute).html(data.content);
-            });
-            $(attrItem).val(value);
-        }
-    });
+
+    $('#arr_attr_disable').val(JSON.stringify(arrAttrDisable));
+
+
+    // $.ajax({
+    //     url: '/backend/api_client/disableAttr',
+    //     method: 'post',
+    //     dataType: 'json',
+    //     data: {arrDisable: arrAttrDisable}
+    // }).fail(function (ui, status) {
+    //     snackbar(2, 'Có lỗi  xảy ra!');
+    // }).done(function (data, status) {
+    //     if (data.status) {
+    //         $('#arr_attr_disable').val(JSON.stringify(arrAttrDisable));
+    //         $('div.list-attribute .item').each(function (i) {
+    //             var attribute = this.querySelector('select');
+    //             $(attribute).html(data.content);
+    //         });
+    //         $(attrItem).val(value);
+    //     }
+    // });
+}
+
+function addSlider() {
+    event.preventDefault();
+    var img = $('#src_avatar').val();
+    if(img != '') {
+        $('#config_img').submit();
+    } else {
+        snackbar(2, 'Vui lòng chọn ảnh!');
+    }
+    console.log('123213213', img == '');
 }

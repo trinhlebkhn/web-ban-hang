@@ -28,17 +28,17 @@ class ProductController extends AuthorizedControllerBase
             $sttSeach = $this->request->getPost('stt');
         }
 
-        if(!empty($strSeach) || !empty($sttSeach)){
+        if (!empty($strSeach) || !empty($sttSeach)) {
             $filter = $this->checkQuery($strSeach, $sttSeach, null);
         }
 
-        if(!empty($filter)){
+        if (!empty($filter)) {
             $optional['q'] = $filter['query'];
             $this->view->paramSearch = $filter['paramSearch'];
-            if(!empty($strSeach)) {
+            if (!empty($strSeach)) {
                 $this->view->StrSearch = $strSeach;
             }
-            if(!empty($sttSeach)) {
+            if (!empty($sttSeach)) {
                 $this->view->SttSearch = $sttSeach;
             }
         }
@@ -67,12 +67,12 @@ class ProductController extends AuthorizedControllerBase
             }
             $data = $obj->data;
 //            $data['category_id'] = explode(',', $data['category_id']);
-            $data['image'] = json_decode( $data['image']);
+            $data['image'] = json_decode($data['image']);
             $data['attribute'] = json_decode($data['attribute']);
             $data['attribute_id'] = [];
             $data['attribute_value'] = [];
             foreach ($data['attribute'] as $key => $obj) {
-                array_push($data['attribute_id'], $obj->id);
+                array_push($data['attribute_id'], (int)$obj->id);
                 array_push($data['attribute_value'], $obj->value);
             }
             unset($data['attribute']);
@@ -92,11 +92,27 @@ class ProductController extends AuthorizedControllerBase
         /* Thuộc tính sản phẩm */
         $attrObj = new \Attribute();
         $rsGetListAttr = $attrObj->getListObj();
+//        d($data);
         $this->view->listAttr = $rsGetListAttr->data;
 
         if ($this->request->isPost()) {
             $data = $this->request->get('product');
             $data['image'] = json_encode($data['image']);
+
+            /* Kiểm tra giá sản phâm */
+            if ($data['price'] < $data['price_sell']) {
+                $this->view->data = $data;
+                return $this->flash->error('Gía niêm yết không được nhỏ hơn giá bán!');
+            }
+
+            // Kiểm tra sự trùng lặp thuộc tính
+            $check = array_count_values($data['attribute_id']);
+            foreach ($check as $value) {
+                if ($value > 1) {
+                    $this->view->data = $data;
+                    return $this->flash->error('Có sự trùng lặp thuộc tính sản phẩm. Vui lòng kiểm tra lại!');
+                }
+            }
 
             /* Thuộc tính sản phẩm */
             $data['attribute'] = [];
@@ -114,16 +130,6 @@ class ProductController extends AuthorizedControllerBase
                 $this->flash->error('Vui lòng điền đầy đủ các trường bắt buộc');
                 return;
             }
-
-//            /* Xử lý danh mục */
-//            if (!empty($data['category_id'])) {
-//                $list_cat_id = '';
-//                foreach ($data['category_id'] as $v => $item) {
-//                    $list_cat_id .= $item . ',';
-//                }
-//                $list_cat_id = rtrim($list_cat_id, ',');
-//                $data['category_id'] = $list_cat_id;
-//            }
 
             /* Xử lý đưa về dạng int  */
             $data['price'] = intval($data['price']);

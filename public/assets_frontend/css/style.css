@@ -1,3 +1,9 @@
+@font-face {
+    font-family: "Hirakakupro W3";
+    src: url("../fonts/glyphicons-halflings-regular.ttf");
+}
+
+
 .list ul li {
     word-wrap: break-word;
     list-style: none;
@@ -181,13 +187,10 @@ form.product__quantity{
 /* END LOGIN*/
 
 /* REGISTER */
-#form-register .modal-content {
-    width: 130%;
-}
 .account__input .form-control {
     box-shadow: none;
     padding: 8px;
-    height: 42px;
+    height: 48px;
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
     border-radius: 0px;
@@ -226,7 +229,7 @@ input[type=checkbox], input[type=radio] {
     box-sizing: border-box;
     padding: 0;
 }
-.pageBirthday-picker .select-wrap{
+#form-register .select-wrap{
     width: 30%;
     display: -webkit-inline-box;
 }
@@ -402,4 +405,28 @@ input.error{
 
 .mg-0 {
     margin: 0;
+}
+
+#form-login .modal-dialog {
+    width: 450px !important;
+}
+
+#form-register .modal-dialog {
+    width: 678px;
+}
+
+.register_birthday.has-error .help-block{
+    margin-left: 120px;
+}
+i.form-control-feedback {
+    display: none !important;
+}
+
+.form-group.has-success input {
+    border: 1px solid #ccc !important;
+}
+
+.has-success .form-control:focus, .has-error .form-control:focus {
+    border: 1px solid rgba(10,182,162,.64) !important;
+    box-shadow: none;
 }

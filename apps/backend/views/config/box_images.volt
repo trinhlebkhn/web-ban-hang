@@ -54,8 +54,8 @@
                                         <div class="col-md-3"></div>
                                         <div class="col-md-9">
                                             <div class="btn-add-slider">
-                                                <button type="submit"
-                                                        class="btn btn-primary pointer">{{ data['id'] is empty ? 'Thêm slider' : 'Chỉnh sửa' }}
+                                                <button type="submit" onclick="addSlider()"
+                                                        class="btn btn-primary pointer">{{ data['id'] is empty ? 'Thêm mới' : 'Chỉnh sửa' }}
                                                 </button>
                                             </div>
                                         </div>

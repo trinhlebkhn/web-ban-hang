@@ -29,6 +29,7 @@
     <meta property="og:description" content="{{ header.desc }}"/>
 
     <link rel="stylesheet" href="/assets_frontend/vendor/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets_frontend/assets/css/bootstrapValidator.css">
     <link rel="stylesheet" href="/assets_frontend/vendor/css/theme.min.css">
     <link rel="stylesheet" href="/assets_frontend/vendor/css/shop.min.css">
     <link rel="stylesheet" href="/assets_frontend/vendor/css/ap8.css">
@@ -37,7 +38,9 @@
     <link rel="stylesheet" href="/assets_frontend/css/cart.css">
     <link rel="stylesheet" href="/assets_frontend/css/bank.css">
     <link rel="stylesheet" href="/assets_frontend/css/article.css">
+    <link rel="stylesheet" href="/assets_frontend/css/res.css">
     <script type="text/javascript" src="/assets_frontend/assets/js/jquery-3.3.1.min.js"></script>
+
     <script type="text/javascript" src="/assets_frontend/assets/js/shopping.js"></script>
     <script type="text/javascript" src="/assets_frontend/assets/js/custom.js"></script>
     <script>
@@ -91,30 +94,14 @@
         siteLoader: 'on'
     };
 </script>
-<script type="text/javascript" src="/assets_frontend/assets/js/jquery.validate.min.js"></script>
 <script src="/assets_frontend/vendor/js/theme.min.js"></script>
 <script src="/assets_frontend/vendor/js/slick.min.js"></script>
 <div class="hidden" id="loading">
     <img src="/app/img/loading.svg" alt="">
 </div>
-
-<script src="/assets_frontend/js/custom.js"></script>
-<script src="/app/js/shopping.js"></script>
+<script type="text/javascript" src="/assets_frontend/assets/js/bootstrap.js"></script>
+<script type="text/javascript" src="/assets_frontend/assets/js/bootstrapValidator.js"></script>
 <div id="fb-root"></div>
-<script>(function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.10";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-</script>
-<script src="https://apis.google.com/js/platform.js" async defer>
-    {
-        lang: 'vi'
-    }
-</script>
 <style>
     @media (min-width: 320px) {
         /* The snackbar - position it at the bottom and in the middle of the screen */
@@ -134,6 +121,10 @@
             top: 215px; /* 30px from the bottom */
             color: #fff !important;
         }
+
+        #snackbar.error {
+            background: #f3c413;
+         }
 
         /* Show the snackbar when clicking on a button (class added with JavaScript) */
         #snackbar.show {

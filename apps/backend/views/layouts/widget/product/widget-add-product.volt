@@ -49,7 +49,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Giá nhập <span class="error">*</span></label>
-                                    <input type="text" name="product[price_import]" value="{{ data['price_import'] }}"
+                                    <input type="text" name="product[price_import_warehouse]" value="{{ data['price_import_warehouse'] }}"
                                            class="form-control" id="price_import"
                                            placeholder="Giá nhập">
                                 </div>
@@ -83,7 +83,8 @@
                                         </label>
                                         <label>
                                             <input type="radio" name="product[status]"
-                                                   class="flat-red" {{ data['status'] == 2 ? 'checked' : '' }} value="2">
+                                                   class="flat-red" {{ data['status'] == 2 ? 'checked' : '' }}
+                                                   value="2">
                                             <span>Không hoạt động</span>
                                         </label>
                                     </div>
@@ -149,17 +150,20 @@
                     </div>
                     <div class="col-md-12 bd-bt-dashed box-attr">
                         <div class="row title pd-bt-10">
-                            <h3 class="col-md-12 box-title" style="font-size: 18px">Thuộc tính sản phẩm</h3>
+                            <h3 class="col-md-12 box-title" style="font-size: 18px">Thuộc tính sản phẩm </h3>
                         </div>
                         <div class="list-attribute" id="list-attribute">
-                            <input id="arr_attr_disable" type="text" class="hidden" value="[]">
-                            {% if data['id'] != null and data['attribute_id'] is not empty %}
+                            <input id="arr_attr_disable" type="text" class="hidden"
+                                   value='{{ data['attribute_id'] is not empty ? data['attribute_id'] | json_encode : '[]' }}'>
+                            <input id="arr_attr" type="text" class="hidden" value="[]">
+                            {% if data['attribute_id'] is not empty %}
                                 {% for index, item in data['attribute_id'] %}
                                     <div class="row item {{ index == 0 ? 'first-item' : '' }}">
                                         <div class="col-md-6 col-sm-6">
                                             <div id="item_0" class="attribute d-flex">
-                                                {#<select name="product[attribute_id]" class="form-control" onchange="disableAttr(event, this)">#}
-                                                <select name="product[attribute_id][]" class="form-control">
+                                                <select name="product[attribute_id][]" class="form-control"
+                                                        onchange="disableAttr(event, this)">
+                                                    {#<select name="product[attribute_id][]" class="form-control">#}
                                                     <option disabled>Chọn thuộc tính</option>
                                                     {% for attr in listAttr %}
                                                         <option value="{{ attr['id'] }}" {{ attr['id'] == item ? 'selected' : '' }}>{{ attr['name'] }}</option>
@@ -193,9 +197,13 @@
                                 <div class="row item first-item">
                                     <div class="col-md-6">
                                         <div id="item_0" class="attribute d-flex">
-                                            {#<select name="product[attribute_id]" class="form-control" onchange="disableAttr(event, this)">#}
-                                            <select name="product[attribute_id][]" class="form-control">
-                                                <option disabled>Chọn thuộc tính</option>
+                                            <input type="text" class="form-control prev_value hidden" placeholder=""
+                                                   name="prev_value">
+                                            <select name="product[attribute_id][]" class="form-control"
+                                                    onchange="disableAttr(event, this)">
+                                                {#<select name="product[attribute_id][]" class="form-control">#}
+                                                <option>Chọn thuộc tính</option>
+                                                s
                                                 {% for attr in listAttr %}
                                                     <option value="{{ attr['id'] }}">{{ attr['name'] }}</option>
                                                 {% endfor %}
@@ -264,17 +272,36 @@
                         }
                     }
                 },
+                'product[price]': {
+                    validators: {
+                        notEmpty: {
+                            message: 'Vui nhập giá niêm yết sản phẩm!'
+                        },
+                        regexp: {
+                            regexp: /^[a-zA-Z0-9_\.]+$/,
+                            message: 'Giá niên yết phải là số!'
+                        }
+                    }
+                },
                 'product[price_sell]': {
                     validators: {
                         notEmpty: {
                             message: 'Vui lòng nhập giá bán!'
-                        }
+                        },
+                        regexp: {
+                            regexp: /^[a-zA-Z0-9_\.]+$/,
+                            message: 'Giá bán phải là số.'
+                        },
                     }
                 },
-                'product[price_import]': {
+                'product[price_import_warehouse]': {
                     validators: {
                         notEmpty: {
-                            message: 'Vui lòng nhập nhập hàng!'
+                            message: 'Vui lòng nhập giá nhập hàng!'
+                        },
+                        regexp: {
+                            regexp: /^[a-zA-Z0-9_\.]+$/,
+                            message: 'Giá nhập hàng phải là số.'
                         }
                     }
                 },
@@ -282,6 +309,10 @@
                     validators: {
                         notEmpty: {
                             message: 'Vui lòng nhập cân nặng!'
+                        },
+                        regexp: {
+                            regexp: /^[a-zA-Z0-9_\.]+$/,
+                            message: 'Cân nặng phải là chữ số!'
                         }
                     }
                 },
@@ -291,7 +322,7 @@
                             message: 'Vui lòng chọn danh mục!'
                         }
                     }
-                }
+                },
             }
         });
     });

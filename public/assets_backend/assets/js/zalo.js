@@ -57,6 +57,7 @@ $('.remove-synchronized-product').on('click', function () {
     var zalo_id = $(this).attr('zalo-id');
     var pro_id = $(this).attr('pro-id');
     var parent = $(this).closest('tr');
+    console.log("111111", parent);
     $.ajax({
         url: '/backend/api_client/removeSynchronizedProductForZalo',
         method: 'post',

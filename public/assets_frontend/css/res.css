@@ -1,0 +1,20 @@
+@media (max-width: 1024px) {
+
+}
+
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 450px) {
+    #form-register .modal-dialog, #form-login .modal-dialog{
+        max-width: 90%;
+    }
+    #form-register .select-wrap {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1024px) {
+
+}

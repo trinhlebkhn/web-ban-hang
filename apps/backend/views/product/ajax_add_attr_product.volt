@@ -2,9 +2,11 @@
 <div class="row item">
     <div class="col-md-6 col-sm-6">
         <div id="item_0" class="attribute d-flex">
-            {#<select name="product[attribute_id]" class="form-control" onchange="disableAttr(event, this)">#}
-            <select name="product[attribute_id][]" class="form-control">
-                <option disabled>Chọn thuộc tính</option>
+            <input type="text" class="form-control prev_value hidden" placeholder=""
+                   name="prev_value">
+            <select name="product[attribute_id][]" class="form-control" onchange="disableAttr(event, this)">
+            {#<select name="product[attribute_id][]" class="form-control">#}
+                <option>Chọn thuộc tính</option>
                 {% for attr in listAttr %}
                     <option value="{{ attr['id'] }}" >{{ attr['name'] }}</option>
                 {% endfor %}
