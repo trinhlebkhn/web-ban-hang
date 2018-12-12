@@ -1,7 +1,7 @@
 {% if listArticle|length>0 %}
     <section class="section_offset">
-        <h3>Bài viết liên quan</h3>
-        <ul class="list_of_entries">
+        <h3 class="box-sidebar-title">Bài viết liên quan</h3>
+        <ul class="list_of_entries list-article-relateds">
             {% for item in listArticle %}
                 <li>
                     <article class="entry">

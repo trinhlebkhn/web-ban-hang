@@ -27,30 +27,38 @@
                                     <th class="xdot"> Tổng tiền</th>
                                     <th>Trạng thái</th>
                                 </tr>
-                                {% if orderList is empty %}
+
+                                {% for order in listBills %}
                                     <tr>
-                                        <td class="text-center" colspan="4">Bạn chưa có đơn hàng!</td>
+                                        <td>
+                                            <div class="xdot code"><a href="/chi-tiet-don-hang/a185{{ order['id'] }}.html"
+                                                                      style="color: #00acea">{{ order['order_number_vtp'] }}</a>
+                                            </div>
+                                        </td>
+                                        <td>{{ order['date_create'] }}</td>
+                                        <td>
+                                            <div class="product__price xdot">{{ number_format(order['total_price']) }}
+                                                <span class="unit">đ</span></div>
+                                        </td>
+                                        <td>
+                                            <div class="status status-new text-center"
+                                                 style="background: {{ background_status[order['status'] + 1]['background'] }}">
+                                                <span class="status-order">{{ background_status[order['status'] + 1]['name'] }}</span>
+                                            </div>
+                                        </td>
                                     </tr>
-                                {% else %}
-                                    {% for order in orderList %}
-                                        <tr>
-                                            <td>
-                                                <div class="xdot code"><a href="{{ uihelper.makeLink_OrderDetail(order) }}" style="color: #00acea">{{ order.code }}</a></div>
-                                            </td>
-                                            <td>{{ order.datecreate }}</td>
-                                            <td>
-                                                <div class="product__price xdot">{{ cart.formatNumber(order.total) }} <span class="unit">đ</span></div>
-                                            </td>
-                                            <td>
-                                                <div class="status status-new text-center" style="background: {{ background_status[order.status] }}">{{ order.status_name }}</div>
-                                            </td>
-                                        </tr>
-                                    {% endfor %}
-                                {% endif %}
+                                {% endfor %}
                             </table>
                         </div>
                     </div>
                 </div>
+                <footer class="bottom_box on_the_sides">
+                    <div class="right_side">
+                        <ul class="pags">
+                            {% include "layouts/pagination.volt" %}
+                        </ul>
+                    </div>
+                </footer>
             </div>
         </div>
     </div>

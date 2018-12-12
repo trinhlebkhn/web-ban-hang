@@ -7,18 +7,21 @@
         text-align: left;
         margin-left: 15px;
     }
+
     .mini-cart-overview.dropdown .mini-cart-count {
         left: 32px;
     }
 }
 
 @media (max-width: 450px) {
-    #form-register .modal-dialog, #form-login .modal-dialog{
+    #form-register .modal-dialog, #form-login .modal-dialog {
         max-width: 90%;
     }
+
     #form-register .select-wrap {
         width: 100%;
     }
+
     /* Trang chủ */
     .slider .large-img {
         height: 225px;
@@ -53,6 +56,35 @@
 
     .woocommerce-ordering {
         margin-bottom: 5px;
+    }
+
+    .user_info {
+        margin-top: 25px;
+    }
+
+    #customer_info, #change_pass {
+        padding-top: 0;
+    }
+
+    .wrap__profile__info, .user-profile__wrap {
+        margin-top: 15px;
+    }
+
+    #customer_info .form-group .input__wrap, #change_pass .form-group .input__wrap{
+        width: 100%;
+    }
+
+    #customer_info .form-group .input__label .label, #change_pass .form-group .input__label .label{
+        padding-top: 5px;
+    }
+
+    #customer_info .help-block {
+        margin-left: 0;
+    }
+
+    .user-profile__wrap .title-profile, .wrap__profile__info .title-profile {
+        margin-bottom: 0;
+        margin-top: 5px;
     }
 }
 

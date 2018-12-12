@@ -338,6 +338,20 @@ $router->add("/{slug}-ac{id:[0-9]+}.html", [
     'id' => 1
 ]);
 
+$router->add("/quen-mat-khau.html", [
+    'module' => 'frontend',
+    'namespace' => 'Graduate\Frontend\Controllers',
+    'controller' => 'auth',
+    'action' => 'forgot_password'
+]);
+
+$router->add("/thay-doi-mat-khau", [
+    'module' => 'frontend',
+    'namespace' => 'Graduate\Frontend\Controllers',
+    'controller' => 'auth',
+    'action' => 'reset_pass'
+]);
+
 /* chi tiết sản phẩm */
 $router->add("/{slug}-p{id:[0-9]+}.html", [
     'module' => 'frontend',
@@ -411,6 +425,13 @@ $router->add("/gio-hang.html", [
     'action' => 'cart',
 ]);
 
+$router->add("/thanh-toan.html", [
+    'module' => 'frontend',
+    'namespace' => 'Graduate\Frontend\Controllers',
+    'controller' => 'auth',
+    'action' => 'pay',
+]);
+
 /* Bài viết */
 $router->add("/bai-viet.html", [
     'module' => 'frontend',
@@ -426,6 +447,16 @@ $router->add("/{slug}-a{id:[0-9]+}.html", [
     'action' => 'detail',
     'id' => 1
 ]);
+
+/* customer */
+$router->add("/chi-tiet-don-hang/a185{id:[0-9]+}.html", [
+    'module' => 'frontend',
+    'namespace' => 'Graduate\Frontend\Controllers',
+    'controller' => 'customer',
+    'action' => 'order_detail',
+    'id' => 1
+]);
+
 
 /* END FRONTEND */
 

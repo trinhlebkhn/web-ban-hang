@@ -149,7 +149,7 @@ if (!function_exists('array_from')) {
 if (!function_exists('base_uri')) {
     function base_uri()
     {
-        return "http://$_SERVER[HTTP_HOST]";
-//        return (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+//        return "http://$_SERVER[HTTP_HOST]";
+        return ($_SERVER['HTTPS'] == 'off' ? "http" : "https") . "://$_SERVER[HTTP_HOST]";
     }
 }

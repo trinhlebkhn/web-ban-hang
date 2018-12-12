@@ -17,7 +17,8 @@ class ControllerBase extends Controller
         $this->view->setVars([
             'mainMenu' => $mainMenu,
             'auth' => $auth,
-            'websiteConfig' => $config_website
+            'websiteConfig' => $config_website,
+            'url_link' => base_uri()
         ]);
 
     }

@@ -62,6 +62,13 @@ class Config extends DbModel
     /**
      *
      * @var string
+     * @Column(type="string", length=1000, nullable=true)
+     */
+    public $seo_description;
+
+    /**
+     *
+     * @var string
      * @Column(type="string", length=5000, nullable=true)
      */
     public $advances;
@@ -423,6 +430,24 @@ class Config extends DbModel
     {
         $this->block_menu_bottom_footer = $block_menu_bottom_footer;
     }
+
+    /**
+     * @return string
+     */
+    public function getSeoDescription()
+    {
+        return $this->seo_description;
+    }
+
+    /**
+     * @param string $seo_description
+     */
+    public function setSeoDescription($seo_description)
+    {
+        $this->seo_description = $seo_description;
+    }
+
+
 
     /**
      * Returns table name mapped in the model.

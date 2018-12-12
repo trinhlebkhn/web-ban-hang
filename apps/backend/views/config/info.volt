@@ -133,6 +133,16 @@
                                                    placeholder="Ví dụ: Đồng hồ đẹp, đồng hồ chính hãng,....">
                                         </div>
                                     </div>
+                                    <div class="row form-group">
+                                        <div class="col-md-3">
+                                            <label>Mô tả seo</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input class="form-control" type="text" name="data[seo_description]"
+                                                   value="{{ data['seo_description'] }}"
+                                                   placeholder="Ví dụ: Đồng hồ đẹp, đồng hồ chính hãng,....">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="bd-bt-dashed pd-bt-10">
                                     <div class="row title pd-bt-10">

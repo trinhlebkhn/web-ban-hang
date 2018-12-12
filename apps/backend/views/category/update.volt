@@ -66,6 +66,24 @@
                                         </label>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Tiêu đề seo</label>
+                                    <input type="text" name="category[seo_title]" value="{{ data['seo_title'] }}"
+                                           class="form-control" id="name"
+                                           placeholder="Đồng hồ chất lượng cao">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Từ khóa seo</label>
+                                    <input type="text" name="category[seo_key]" value="{{ data['seo_key'] }}"
+                                           class="form-control" id="name"
+                                           placeholder="Ví dụ: Đồng hồ đẹp, đồng hồ chính hãng,....">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Mô tả seo</label>
+                                    <input type="text" name="category[seo_description]" value="{{ data['seo_description'] }}"
+                                           class="form-control" id="name"
+                                           placeholder="Ví dụ: Đồng hồ đẹp, đồng hồ chính hãng,....">
+                                </div>
                             </div>
                         </div>
                         <div class="product-image col-md-6">

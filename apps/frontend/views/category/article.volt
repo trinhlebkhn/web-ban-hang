@@ -11,7 +11,7 @@
         </div>
     </div>
 </section>
-<section class="sec-page section__news">
+<section class="sec-page page-cat section__news">
     <div class="container">
         <div class="row">
             <div class="row">
@@ -19,6 +19,7 @@
                     {% include "layouts/sidebar/sidebar-article.volt" %}
                 </aside>
                 <main class="col-md-9 col-sm-8">
+                    <h3 class="box-sidebar-title">Danh sách bài viêt</h3>
                     <ul id="content" class="list_of_entries">
                         {% for item in listData %}
                             <li>

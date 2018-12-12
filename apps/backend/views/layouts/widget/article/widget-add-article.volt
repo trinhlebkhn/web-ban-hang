@@ -130,7 +130,7 @@
                 <div class="box-footer pull-right manipulation">
                     <button type="submit"
                             class="btn btn-primary btn-add">{{ data['id'] != null ? 'Cập nhật' : 'Tạo mới' }} </button>
-                    <a href="/quan-tri/san-pham" class="btn btn-danger btn-cancel">Hủy</a>
+                    <a href="/quan-tri/bai-viet" class="btn btn-danger btn-cancel">Hủy</a>
                 </div>
             </form>
         </div>

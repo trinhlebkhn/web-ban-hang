@@ -33,7 +33,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 col-sm-6  col-xs-12product__view__content detail_product_view productJson"
+        <div class="col-md-6 col-sm-6  col-xs-12 product__view__content detail_product_view productJson"
              data-product="{{ product|json_encode|escape_attr }}">
             <div class="summary entry-summary">
                 <h1 class="product-title bordered">{{ product['name'] }}</h1>
@@ -65,7 +65,7 @@
                                 <button type="button" class="single_add_to_cart_button button alt">Mua ngay</button>
                             </a>
                         {% else %}
-                            <a href="/auth/pay" class="product__view__button__cart_order  order_add"
+                            <a href="/thanh-toan.html" class="product__view__button__cart_order  order_add"
                                style="min-width: 200px;">
                                 <button type="button" class="single_add_to_cart_button button alt">Mua ngay</button>
                             </a>

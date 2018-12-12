@@ -27,25 +27,23 @@
                                     <th>Số lượng</th>
                                     <th class="xdot">Thành tiền</th>
                                 </tr>
-                                {% set count = 0 %}
-                                {% for item in detailOrder.order_product %}
+                                {% for item in data['list_product'] %}
                                     <tr>
                                         <td>
-                                            <div class="xdot code">{{ item.channel_product.name }}</div>
+                                            <div class="xdot code">{{ item['product_name'] }}</div>
                                         </td>
-                                        <td>{{ item.price }}</td>
-                                        <td>{{ item.quantity}}</td>
+                                        <td>{{ item['price'] }}</td>
+                                        <td>{{ item['quantity']}}</td>
                                         <td>
-                                            <div class="product__price xdot">{{ number_format(item.price*item.quantity) }} <span class="unit">đ</span></div>
+                                            <div class="product__price xdot">{{ number_format(item['subtotal']) }} <span class="unit">đ</span></div>
                                         </td>
                                     </tr>
-                                    {% set count = item.quantity + count %}
                                 {% endfor %}
                                 <tr>
                                     <td><b>Tổng</b></td>
                                     <td></td>
                                     <td>{{ count }}</td>
-                                    <td ><b>{{ number_format(detailOrder.total) }}</b></td>
+                                    <td ><b>{{ number_format(data['price']) }} VNĐ</b></td>
                                 </tr>
                             </table>
                         </div>

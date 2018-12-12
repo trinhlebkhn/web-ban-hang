@@ -102,3 +102,51 @@ a, button {
     -webkit-transition: color .7s ease, border-color .7s ease, background-color .7s ease;
     transition: color .7s ease, border-color .7s ease, background-color .7s ease;
 }
+
+.blog-item .news__cat__item .news__title a {
+    text-transform: none;
+    font-weight: 600;
+}
+
+.blog-item .news__cat__item .news__image img {
+    height: 250px;
+    width: 100%;
+}
+
+.detail-article .entry_title a {
+    color: initial;
+    font-size: 30px;
+    margin-bottom: 16px;
+    display: block;
+    font-weight: 700;
+    text-transform: none;
+}
+
+.detail-article .entry_meta {
+    margin-bottom: 0;
+}
+
+.detail-article .caption-article p {
+    color: initial;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.list-article-relateds li .entry .wrapper {
+    margin-top: 10px;
+}
+
+.list-article-relateds li .entry .entry_title {
+    font-size: 16px;
+    text-transform: none;
+    font-weight: 600;
+}
+
+.box-sidebar-title {
+    font-weight: 600;
+}
+
+.page-cat.section__news {
+    margin-left: 15px;
+    margin-right: 15px;
+}

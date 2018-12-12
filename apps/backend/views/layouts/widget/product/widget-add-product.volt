@@ -13,7 +13,7 @@
                             </div>
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label>Tên sản <span class="error">*</span></label>
+                                    <label>Tên sản phẩm <span class="error">*</span></label>
                                     <input type="text" name="product[name]" value="{{ data['name'] }}"
                                            class="form-control" id="name"
                                            placeholder="Tên sản phẩm">
@@ -59,20 +59,6 @@
                                            class="form-control" id="weight"
                                            placeholder="Cân nặng">
                                 </div>
-                                {#<div class="form-group">#}
-                                {#<label>Kích thước</label>#}
-                                {#<div class="row box-size">#}
-                                {#<input type="text" name="product[length]" value="{{ data['weight'] }}"#}
-                                {#class="form-control" id="length"#}
-                                {#placeholder="Dài">#}
-                                {#<input type="text" name="product[width]" value="{{ data['weight'] }}"#}
-                                {#class="form-control weight" id="width"#}
-                                {#placeholder="Rộng">#}
-                                {#<input type="text" name="product[height]" value="{{ data['weight'] }}"#}
-                                {#class="form-control" id="height"#}
-                                {#placeholder="Cao">#}
-                                {#</div>#}
-                                {#</div>#}
                                 <div class="form-group product-status">
                                     <label>Trạng thái: </label>
                                     <div class="choose-radio">
@@ -237,6 +223,32 @@
                                           style="max-width: 100%; min-height: 100px"
                                           class="form-control" id="product-content"
                                           placeholder="Mô tả sản phẩm">{{ data['content'] }}</textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 bd-bt-dashed box-attr">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Thiết lập seo</h3>
+                        </div>
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label>Tiêu đề seo</label>
+                                <input type="text" name="product[seo_title]" value="{{ data['seo_title'] }}"
+                                       class="form-control" id="name"
+                                       placeholder="Tên sản phẩm">
+                            </div>
+                            <div class="form-group">
+                                <label>Từ khóa seo</label>
+                                <input type="text" name="product[seo_key]" value="{{ data['seo_key'] }}"
+                                       class="form-control" id="name"
+                                       placeholder="Tên sản phẩm">
+                            </div>
+                            <div class="form-group">
+                                <label>Mô tả seo</label>
+                                <input type="text" name="product[seo_description]" value="{{ data['seo_description'] }}"
+                                       class="form-control" id="name"
+                                       placeholder="Tên sản phẩm">
                             </div>
                         </div>
                     </div>

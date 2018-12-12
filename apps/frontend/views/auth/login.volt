@@ -34,7 +34,7 @@
                                     <button type="submit" class="btn btn-submit">Đăng nhập</button>
                                 </div>
                                 <div class="forgot_password">
-                                    <a href="/auth/forgot_password"><span class="text1976D2" style="color: #1976D2;">Quên mật khẩu?</span></a>
+                                    <a href="/quen-mat-khau.html"><span class="text1976D2" style="color: #1976D2;">Quên mật khẩu?</span></a>
                                 </div>
                                 <div class="login__note">
                                     Bạn chưa có tài khoản? <a href="/dang-ki.html">Đăng ký ngay</a>

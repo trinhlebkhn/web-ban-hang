@@ -102,6 +102,27 @@ class Category extends DbModel
     public $zalo_id;
 
     /**
+     *
+     * @var string
+     * @Column(type="string", length=1000, nullable=true)
+     */
+    public $seo_title;
+
+    /**
+     *
+     * @var string
+     * @Column(type="string", length=1000, nullable=true)
+     */
+    public $seo_key;
+
+    /**
+     *
+     * @var string
+     * @Column(type="string", length=1000, nullable=true)
+     */
+    public $seo_description;
+
+    /**
      * @return string
      */
     public function getAvatar()
@@ -293,6 +314,56 @@ class Category extends DbModel
     {
         $this->zalo_id = $zalo_id;
     }
+
+    /**
+     * @return string
+     */
+    public function getSeoTitle()
+    {
+        return $this->seo_title;
+    }
+
+    /**
+     * @param string $seo_title
+     */
+    public function setSeoTitle($seo_title)
+    {
+        $this->seo_title = $seo_title;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSeoKey()
+    {
+        return $this->seo_key;
+    }
+
+    /**
+     * @param string $seo_key
+     */
+    public function setSeoKey($seo_key)
+    {
+        $this->seo_key = $seo_key;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSeoDescription()
+    {
+        return $this->seo_description;
+    }
+
+    /**
+     * @param string $seo_description
+     */
+    public function setSeoDescription($seo_description)
+    {
+        $this->seo_description = $seo_description;
+    }
+
+
 
     /**
      * Returns table name mapped in the model.

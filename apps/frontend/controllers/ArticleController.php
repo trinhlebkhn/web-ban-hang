@@ -39,9 +39,11 @@ class ArticleController extends ControllerBase
             'limit' => 4
         ];
         $articleRelateds = $articleObj->getListObj($optional);
-
+        $config_website = $this->getConfig();
+        $data = $rs->data;
+        $this->setHeader(new \Header($data['seo_title'], $data['seo_key'], $data['seo_description'], $config_website['avatar'], base_uri()));
         $this->view->setVars([
-            'detailArticle' => $rs->data,
+            'detailArticle' => $data,
             'listArticle' => $articleRelateds->data
         ]);
     }

@@ -16,23 +16,19 @@
                 {% include "layouts/sidebar/sidebar-detail-article.volt" %}
             </aside>
             <main class="col-md-9 col-sm-8">
-                <section class="section_offset">
+                <section class="section_offset detail-article">
                     <h1>{{ detailArticle['name ']}}</h1>
                     <article class="entry single">
+                        <h4 class="entry_title"><a href="#">{{ detailArticle['name']}}</a></h4>
                         <div class="entry_meta">
                             <div class="alignleft">
                                 <span><i class="fa fa-calendar"></i> {{ detailArticle['datecreate']}} |</span>
                                 <span><i class="fa fa-folder"></i> <a href="#">{{ detailArticle['category_name']}}</span>
                             </div>
                         </div>
-                        {% if detailArticle['avatar']|length > 0 %}
-                            <div class="entry_image">
-                                <img src="{{ detailArticle['avatar']}}" alt="">
-                            </div>
-                        {% endif %}
-
-                        <h4 class="entry_title"><a href="#">{{ detailArticle['name']}}</a></h4>
-
+                        <div class="caption-article">
+                            <p>{{ detailArticle['caption'] }}</p>
+                        </div>
                         <p>{{ detailArticle['content']}}</p>
                     </article>
                 </section>

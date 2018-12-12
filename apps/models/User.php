@@ -5,9 +5,11 @@
  * Date: 4/24/2018
  * Time: 4:39 PM
  */
+
 use Phalcon\Paginator\Adapter\Model as PaginatorModel;
 
-class User extends DbModel {
+class User extends DbModel
+{
     /**
      * @var integer
      * @Primary
@@ -72,170 +74,217 @@ class User extends DbModel {
     public $status;
 
     /**
+     * @var string
+     * @Column(type="string", length=1, nullable=true)
+     */
+    public $token;
+
+    /**
+     * @return string
+     */
+    public function getToken()
+    {
+        return $this->token;
+    }
+
+    /**
+     * @param string $token
+     */
+    public function setToken($token)
+    {
+        $this->token = $token;
+    }
+
+
+    /**
      * @return int
      */
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
     /**
      * @param int $id
      */
-    public function setId($id) {
+    public function setId($id)
+    {
         $this->id = $id;
     }
 
     /**
      * @return string
      */
-    public function getFullname() {
+    public function getFullname()
+    {
         return $this->fullname;
     }
 
     /**
      * @param string $fullname
      */
-    public function setFullname($fullname) {
+    public function setFullname($fullname)
+    {
         $this->fullname = $fullname;
     }
 
     /**
      * @return string
      */
-    public function getEmail() {
+    public function getEmail()
+    {
         return $this->email;
     }
 
     /**
      * @param string $email
      */
-    public function setEmail($email) {
+    public function setEmail($email)
+    {
         $this->email = $email;
     }
 
     /**
      * @return string
      */
-    public function getPassword() {
+    public function getPassword()
+    {
         return $this->password;
     }
 
     /**
      * @param string $password
      */
-    public function setPassword($password) {
+    public function setPassword($password)
+    {
         $this->password = $password;
     }
 
     /**
      * @return int
      */
-    public function getRole() {
+    public function getRole()
+    {
         return $this->role;
     }
 
     /**
      * @param int $role
      */
-    public function setRole($role) {
+    public function setRole($role)
+    {
         $this->role = $role;
     }
 
     /**
      * @return int
      */
-    public function getGender() {
+    public function getGender()
+    {
         return $this->gender;
     }
 
     /**
      * @param int $gender
      */
-    public function setGender($gender) {
+    public function setGender($gender)
+    {
         $this->gender = $gender;
     }
 
     /**
      * @return string
      */
-    public function getPhone() {
+    public function getPhone()
+    {
         return $this->phone;
     }
 
     /**
      * @param string $phone
      */
-    public function setPhone($phone) {
+    public function setPhone($phone)
+    {
         $this->phone = $phone;
     }
 
     /**
      * @return int
      */
-    public function getDob() {
+    public function getDob()
+    {
         return $this->dob;
     }
 
     /**
      * @param int $dob
      */
-    public function setDob($dob) {
+    public function setDob($dob)
+    {
         $this->dob = $dob;
     }
 
     /**
      * @return string
      */
-    public function getAddress() {
+    public function getAddress()
+    {
         return $this->address;
     }
 
     /**
      * @param string $address
      */
-    public function setAddress($address) {
+    public function setAddress($address)
+    {
         $this->address = $address;
     }
 
     /**
      * @return int
      */
-    public function getDatecreate() {
+    public function getDatecreate()
+    {
         return $this->datecreate;
     }
 
     /**
      * @param int $datecreate
      */
-    public function setDatecreate($datecreate) {
+    public function setDatecreate($datecreate)
+    {
         $this->datecreate = $datecreate;
     }
 
     /**
      * @return int
      */
-    public function getStatus() {
+    public function getStatus()
+    {
         return $this->status;
     }
 
     /**
      * @param int $status
      */
-    public function setStatus($status) {
+    public function setStatus($status)
+    {
         $this->status = $status;
     }
 
     /**
      * @return string
      */
-    public function getAvatar() {
+    public function getAvatar()
+    {
         return $this->avatar;
     }
 
     /**
      * @param string $avatar
      */
-    public function setAvatar($avatar) {
+    public function setAvatar($avatar)
+    {
         $this->avatar = $avatar;
     }
 
@@ -243,11 +292,13 @@ class User extends DbModel {
      * Returns table name mapped in the model.
      * @return string
      */
-    public function getSource() {
+    public function getSource()
+    {
         return 'mod_user';
     }
 
-    public function createObj($data) {
+    public function createObj($data)
+    {
         try {
             $obj = self::findFirst([
                 'conditions' => 'email = :email: or phone = :phone:',
@@ -265,17 +316,16 @@ class User extends DbModel {
                 $rs->save();
                 if (!empty($rs->getMessages())) {
                     return $this->manipulationError([], 'Có lỗi xảy ra');
-                }
-                else {
+                } else {
                     $obj = $rs->toArray();
                     $obj['password'] = $current_password;
                     $login = $this->checkLogin($obj);
-                    if(!$login->status) return $this->manipulationError([], 'Có lỗi xảy ra khi đăng nhập!');
+                    if (!$login->status) return $this->manipulationError([], 'Có lỗi xảy ra khi đăng nhập!');
                     return $login;
                 }
             } else {
                 $obj = $obj->toArray();
-                if($obj['email'] == $data['email']) {
+                if ($obj['email'] == $data['email']) {
                     return $this->manipulationError([], 'Email đã được sử dụng!');
                 } else {
                     return $this->manipulationError([], 'Số điện thoại đã được sử dụng!');
@@ -286,31 +336,33 @@ class User extends DbModel {
         }
     }
 
-    public function getListObj($optional = []) {
+    public function getListObj($optional = [])
+    {
         try {
             $arrObj = [];
             $o = [];
             $listObj = $this->modelsManager->createBuilder()->columns([
-                    'id',
-                    'fullname',
-                    'email',
-                    'avatar',
-                    'role',
-                    'gender',
-                    'phone',
-                    'dob',
-                    'address',
-                    'datecreate',
-                    'status'
-                ])->from(self::class)->where(isset($optional['q']) ? $optional['q'] : '1=1')->getQuery()//                ->getSql();
-                ->execute();
+                'id',
+                'fullname',
+                'email',
+                'avatar',
+                'role',
+                'gender',
+                'phone',
+                'dob',
+                'address',
+                'datecreate',
+                'status',
+                'token'
+            ])->from(self::class)->where(isset($optional['q']) ? $optional['q'] : '1=1')->getQuery()//                ->getSql();
+            ->execute();
             $page = $optional['p'] ? $optional['p'] : 1;
             if (!empty($optional['limit'])) {
                 $paginator = new PaginatorModel([
-                        "data" => $listObj,
-                        "limit" => $optional['limit'],
-                        "page" => $page
-                    ]);
+                    "data" => $listObj,
+                    "limit" => $optional['limit'],
+                    "page" => $page
+                ]);
                 $paginate = $paginator->getPaginate();
                 foreach ($paginate->items as &$item) {
                     $obj = $item->toArray();
@@ -322,8 +374,7 @@ class User extends DbModel {
                     'curent_page' => $paginate->current,
                     'total_page' => $paginate->total_pages
                 ];
-            }
-            else {
+            } else {
                 $arrObj = $listObj->toArray();
                 $o = [
                     'total_items' => sizeof($arrObj),
@@ -337,7 +388,8 @@ class User extends DbModel {
         }
     }
 
-    public function checkLogin($data) {
+    public function checkLogin($data)
+    {
         try {
             $obj = self::findFirst([
                 'conditions' => 'email like :email:',
@@ -353,12 +405,10 @@ class User extends DbModel {
                     unset($user['password']);
                     $user['dob'] = date("d/m/Y", intval($user['dob']));
                     return $this->manipulationSuccess($user, 'Thao tác thành công');
-                }
-                else {
+                } else {
                     return $this->manipulationError([], 'Sai mật khẩu!');
                 }
-            }
-            else {
+            } else {
                 return $this->manipulationError([], 'Tài khoản không tồn tại');
             }
         } catch (Exception $e) {
@@ -366,7 +416,8 @@ class User extends DbModel {
         }
     }
 
-    public function getDetail($id) {
+    public function getDetail($id)
+    {
         try {
             $obj = self::findFirst($id);
             if (!empty($obj->toArray())) {
@@ -374,8 +425,7 @@ class User extends DbModel {
                 $data['date_create'] = date("d/m/Y H:i:s", intval($data['date_create']));
                 $data['dob'] = date("d/m/Y H:i:s", intval($data['dob']));
                 return $this->manipulationSuccess($data, 'Thao tác thành công');
-            }
-            else {
+            } else {
                 return $this->manipulationError([], 'Có lỗi xảy ra. Vui lòng liên hệ nhà quản trị!');
             }
         } catch (Exception $e) {
@@ -394,7 +444,7 @@ class User extends DbModel {
                 ],
             ]);
             if (!$obj || ($obj->toArray()['id'] == $data['id'])) {
-                if(!empty($data['password'])) $data['password'] = md5($data['password']);
+                if (!empty($data['password'])) $data['password'] = md5($data['password']);
                 $data['dob'] = strtotime($data['dob']);
                 $objUpdate = self::findFirst($data['id']);
                 if ($objUpdate) {
@@ -408,8 +458,8 @@ class User extends DbModel {
                 }
             } else {
                 $dataObj = $obj->toArray();
-                if(!empty($data['password'])) {
-                    if(md5($data['current_password'] == $dataObj['password'])){
+                if (!empty($data['password'])) {
+                    if (md5($data['current_password']) == $dataObj['password']) {
                         $data['password'] = md5($data['password']);
                         $obj->update($data);
                         $dataObj['dob'] = date("d/m/Y", intval($dataObj['dob']));
@@ -418,7 +468,7 @@ class User extends DbModel {
                         return $this->manipulationError([], 'Mật khẩu hiện tại của bạn không đúng! Vui lòng nhập lại');
                     }
                 } else {
-                    if($dataObj['email'] == $data['email']) {
+                    if ($dataObj['email'] == $data['email']) {
                         return $this->manipulationError([], 'Email đã được sử dụng!');
                     } else {
                         return $this->manipulationError([], 'Số điện thoại đã được sử dụng!');

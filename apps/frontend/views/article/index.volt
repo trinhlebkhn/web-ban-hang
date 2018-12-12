@@ -16,6 +16,7 @@
                 {% include "layouts/sidebar/sidebar-article.volt" %}
             </aside>
             <main class="col-md-9 col-sm-8">
+                <h3 class="box-sidebar-title">Danh sách bài viêt</h3>
                 <ul id="content" class="list_of_entries">
                     {% for item in listData %}
                         <li>

@@ -28,23 +28,4 @@
         </section>
     </article>
 </div>
-<script>
-    $(document).ready(function () {
-        shopping.renderAttribute($(".ct-detail-pr").find('.productJson'));
-    })
-</script>
 {% include "layouts/footer.volt" %}
-<script>
-    function share_fb(url) {
-        window.open('https://www.facebook.com/sharer/sharer.php?u=' + url, 'facebook-share-dialog', "width=626, height=436")
-    }
-
-    function gPlus(url) {
-        window.open(
-            'https://plus.google.com/share?url=' + url,
-            'popupwindow',
-            'scrollbars=yes,width=800,height=400'
-        ).focus();
-        return false;
-    }
-</script>

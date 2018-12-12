@@ -415,7 +415,7 @@ input.error{
     width: 678px;
 }
 
-.register_birthday.has-error .help-block{
+.register_birthday.has-error .help-block, #customer_info .help-block{
     margin-left: 120px;
 }
 i.form-control-feedback {
@@ -454,7 +454,11 @@ i.form-control-feedback {
     margin-left: 0;
 }
 
-.blog-item .news__cat__item .news__image img {
-    height: 250px;
-    width: 100%;
+.status .status-new {
+    height: 35px;
+}
+
+.status-order{
+    line-height: 35px;
+    color: #fff;
 }

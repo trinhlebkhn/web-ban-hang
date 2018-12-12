@@ -40,7 +40,7 @@
                             {% if auth %}
                                 <a href="/dat-hang.html">Thanh toán</a>
                             {% else %}
-                                <a href="/auth/pay">Thanh toán</a>
+                                <a href="/thanh-toan.html">Thanh toán</a>
                             {% endif %}
                         </div>
                     </li>

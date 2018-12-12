@@ -35,12 +35,10 @@
                         </div>
                         <div class="form-group">
                             <div class="row">
-
                                 <div class="input__label">
                                     <div class="label">Họ Tên</div>
                                 </div>
                                 <div class="input__wrap">
-
                                     <input type="text" class="form-control" name="data[fullname]" placeholder="Họ Tên"
                                            value="{{ data['fullname']? data['fullname'] : auth['fullname'] }}">
                                 </div>
@@ -136,45 +134,54 @@
     </div>
 </div>
 
-{% include "layouts/footer.volt" %}
-
-<script>
-    function checkCheckbook(obj) {
-        $("#change_password_account").toggle();
-    }
-
+<script type="text/javascript">
     $(document).ready(function () {
-        $("#customer_info").validate({
-            rules : {
-                'fullname' : {
-                    required : true
-                },
-                'phone' : {
-                    required : true,
-                    digits: !0,
-                    maxlength: 13,
-                    minlength: 8,
-                },
-                'email':{
-                    required:true,
-                    regex: /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,3}))$/
-                }
+        $('#customer_info').bootstrapValidator({
+            message: 'Vui lòng nhập giá trị',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
             },
-            messages : {
-                'fullname' : {
-                    required : "Bạn vui lòng nhập họ tên."
+            fields: {
+                'data[email]': {
+                    validators: {
+                        notEmpty: {
+                            message: 'Vui nhập email!'
+                        },
+                        emailAddress: {
+                            message: 'Email không đúng định dạng!'
+                        }
+                    }
                 },
-                'phone' : {
-                    required : "Bạn vui lòng nhập số điện thoại.",
-                    digits: "Số điện thoại phải là số.",
-                    minlength: "Số điện thoại tối thiểu phải có 8 số.",
-                    maxlength: "Số điện thoại chỉ được 8 đến 14 số."
+                'data[fullname]': {
+                    validators: {
+                        notEmpty: {
+                            message: 'Vui nhập họ tên!'
+                        }
+                    }
                 },
-                'email':{
-                    required:"Bạn vui lòng nhập email.",
-                    email: "Email chưa đúng định dạng."
+                'data[phone]': {
+                    validators: {
+                        notEmpty: {
+                            message: 'Vui nhập số điện thoại!'
+                        },
+                        regexp: {
+                            regexp: /^[a-zA-Z0-9_\.]+$/,
+                            message: 'Số điện thoại phải là số!'
+                        }
+                    }
+                },
+                pageRegister_has :  {
+                    validators: {
+                        notEmpty: {
+                            message: 'Vui lòng xác nhận điêu khoản!'
+                        }
+                    }
                 }
             }
-        })
+        });
     });
 </script>
+
+{% include "layouts/footer.volt" %}

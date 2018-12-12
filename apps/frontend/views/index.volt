@@ -22,10 +22,9 @@
     <meta name="description" content="{{ header.desc }}"/>
     <meta name="keywords" content="{{ header.key }}"/>
     <meta property="og:title" content="{{ header.title }}"/>
-    <meta property="og:url" content="{{ mainMenu.link }}"/>
+    <meta property="og:url" content="{{ url_link }}"/>
     <meta property="og:image" content="{{ header.image }}"/>
     <meta property="og:site_name" content="{{ websiteConfig['website_name'] }}"/>
-    <meta property="fb:app_id" content="{{ config.facebook.app_id }}"/>
     <meta property="og:description" content="{{ header.desc }}"/>
 
     <link rel="stylesheet" href="/assets_frontend/vendor/css/bootstrap.min.css">
@@ -40,15 +39,15 @@
     <link rel="stylesheet" href="/assets_frontend/css/article.css">
     <link rel="stylesheet" href="/assets_frontend/css/res.css">
     <script type="text/javascript" src="/assets_frontend/assets/js/jquery-3.3.1.min.js"></script>
-
     <script type="text/javascript" src="/assets_frontend/assets/js/shopping.js"></script>
     <script type="text/javascript" src="/assets_frontend/assets/js/custom.js"></script>
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
 <body class="pace-on pace-dot">
 <div class="pace-overlay"></div>
 {{ content() }}
+
+<a class="go-top go-top-square" href="javascript:void(0)"> <i class="fa fa-angle-up"></i> </a>
 <script type="text/javascript">
     var oxyThemeData = {
         navbarHeight: 130,
@@ -66,6 +65,7 @@
     };
 </script>
 <script src="/assets_frontend/vendor/js/theme.min.js"></script>
+
 <script src="/assets_frontend/vendor/js/slick.min.js"></script>
 <div class="hidden" id="loading">
     <img src="/app/img/loading.svg" alt="">

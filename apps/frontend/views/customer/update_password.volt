@@ -62,41 +62,47 @@
         </div>
     </div>
 </div>
-
-{% include "layouts/footer.volt" %}
-
-<script>
-//    function checkCheckbook(obj) {
-//        $("#change_password_account").toggle();
-//    }
-
+<script type="text/javascript">
     $(document).ready(function () {
-        $("#change_pass").validate({
-            rules : {
-                'password[current_password]' : {
-                    required : true
-                },
-                'password[password]' : {
-                    required : true
-                },
-                'password[password_again]' : {
-                    equalTo: '#new_password',
-                    required : true
-                }
+        $('#change_pass').bootstrapValidator({
+            message: 'Vui lòng nhập giá trị',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
             },
-
-            messages: {
-                'password[current_password]' : {
-                    required : "Bạn chưa nhập mật khẩu hiện tại."
+            fields: {
+                'password[current_password]': {
+                    validators: {
+                        notEmpty: {
+                            message: 'Vui lòng nhập mật khẩu hiện tại!'
+                        },
+                    }
                 },
-                'password[password]' : {
-                    required : "Vui lòng nhập mật khẩu mới."
+                'password[password]': {
+                    validators: {
+                        notEmpty: {
+                            message: 'Vui lòng nhập mật khẩu mới!'
+                        },
+                        identical: {
+                            field: 'password[password_again]',
+                            message: 'Mật khẩu mới và mật khẩu xác nhận không trùng khớp!'
+                        }
+                    }
                 },
-                'password[current_password]' : {
-                    equalTo : "Mật khẩu nhập lại chưa khớp.",
-                    required : "Vui lòng nhập lại mật khẩu mới."
+                'password[password_again]': {
+                    validators: {
+                        notEmpty: {
+                            message: 'Vui lòng nhập mật khẩu xác nhận!'
+                        },
+                        identical: {
+                            field: 'password[password]',
+                            message: 'Mật khẩu mới và mật khẩu xác nhận không trùng khớp!'
+                        }
+                    }
                 }
             }
         });
     });
 </script>
+{% include "layouts/footer.volt" %}

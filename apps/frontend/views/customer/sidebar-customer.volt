@@ -1,8 +1,7 @@
 <div class="sidebar-profile">
     <div class="profiles">
         <div class="avatar" id="avatar_customer">
-            <a href="#image_cus"><img src="{{ userInfo.avatar|length > 0?userInfo.avatar: '/assets_frontend/vendor/images/no-image.png' }}" alt="userInfo.fullname" onclick="image_cus.click()"></a>
-            <input id="image_cus" #image_cus class="hidden" type="file" onchange="upload_customer_image.upload_img(image_cus.files[0])">
+           <img src="{{ userInfo.avatar|length > 0?userInfo.avatar: '/assets_frontend/vendor/images/no-image.png' }}" alt="userInfo.fullname">
             <input id="auth_token" value="{{ auth_token }}" class="hidden" type="text">
         </div>
         <div class="headline">Tài khoản của</div>
