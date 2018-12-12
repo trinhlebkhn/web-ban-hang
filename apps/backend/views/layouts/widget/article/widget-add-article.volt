@@ -1,15 +1,15 @@
 <section class="content">
     <div class="row">
         <div class="add">
-            <form role="form" method="post">
+            <form role="form" id="add_article" method="post">
                 <div style="overflow-y: auto; background-color: #fff;">
-                    <div class="col-md-12">
-                        {{ this.flash.output() }}
-                    </div>
                     <div class="row bd-bt-dashed">
                         <div class="product-info col-md-6">
                             <div class="box-header with-border">
                                 <h3 class="box-title">Thêm mới bài viết</h3>
+                            </div>
+                            <div class="col-md-12">
+                                {{ this.flash.output() }}
                             </div>
                             <div class="box-body">
                                 <div class="form-group">
@@ -28,23 +28,28 @@
                                     <label>Danh mục</label>
                                     <select id="cat_product" name="data[category_id]"
                                             class="selectpicker form-control" data-live-search="true">
-                                        <option>Chọn danh mục</option>
+                                        <option disabled>Chọn danh mục</option>
                                         {% for cat in listCats %}
                                             <option value="{{ cat['id'] }}"
                                                     {{ cat['id'] == data['category_id'] ? 'selected' : '' }} >{{ cat['name'] }}</option>
                                         {% endfor %}
                                     </select>
                                 </div>
-                                <div class="form-group product-status">
+                                <div class="form-group article-status">
                                     <label>Trạng thái: </label>
-                                    <label>
-                                        <input type="radio" name="data[status]" class="flat-red" value="1" checked>
-                                        <span>Hoạt động</span>
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="data[status]" class="flat-red" value="2">
-                                        <span>Không hoạt động</span>
-                                    </label>
+                                    <div class="choose-radio">
+                                        <label>
+                                            <input type="radio" name="data[status]" class="flat-red"
+                                                   value="1" {{ data['status'] == null or data['status'] == 1 ? 'checked' : '' }}>
+                                            <span>Hoạt động</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="data[status]"
+                                                   class="flat-red" {{ data['status'] == 2 ? 'checked' : '' }}
+                                                   value="2">
+                                            <span>Không hoạt động</span>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -82,7 +87,7 @@
                         <div class="product-description">
                             <div class="form-group">
                                 <label>Nội dung</label>
-                                <textarea type="text" name="data[content]" style="max-width: 100%; min-height: 100px"
+                                <textarea type="text" id="article_content" name="data[content]" style="max-width: 100%; min-height: 100px"
                                           class="form-control" id="product-content"
                                           placeholder="Mô tả bài viết">{{ data['content'] }}</textarea>
                             </div>
@@ -121,9 +126,7 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
-
                 <div class="box-footer pull-right manipulation">
                     <button type="submit"
                             class="btn btn-primary btn-add">{{ data['id'] != null ? 'Cập nhật' : 'Tạo mới' }} </button>
@@ -133,3 +136,44 @@
         </div>
     </div>
 </section>
+
+<script src="/ckeditor/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('article_content');
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#add_article').bootstrapValidator({
+            message: 'Vui lòng nhập giá trị',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                'data[name]': {
+                    validators: {
+                        notEmpty: {
+                            message: 'Vui nhập tên bài viết!'
+                        }
+                    }
+                },
+                'data[caption]': {
+                    validators: {
+                        notEmpty: {
+                            message: 'Vui nhập mô tả bài viết!'
+                        }
+                    }
+                },
+                'data[category_id]': {
+                    validators: {
+                        notEmpty: {
+                            message: 'Vui lòng chọn danh mục!'
+                        }
+                    }
+                }
+            }
+        });
+    });
+</script>

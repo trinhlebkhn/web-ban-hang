@@ -28,7 +28,7 @@
                 </a>
             </li>
             <li>
-                <a href="/quan-tri/quan-ly-bai-viet">
+                <a href="/quan-tri/bai-viet">
                     <i class="fa fa-edit"></i>
                     <span>Quản lý bài viết</span>
                 </a>

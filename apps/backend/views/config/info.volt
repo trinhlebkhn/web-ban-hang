@@ -184,6 +184,29 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="bd-bt-dashed pd-bt-10">
+                                    <div class="row title pd-bt-10">
+                                        <h3 class="col-md-12 box-title" style="margin-top: 15px;">Thời gian</h3>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-md-3">
+                                            <label>Giờ mở cửa</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input class="form-control" type="text" name="data[time_open]"
+                                                   value="{{ data['time_open'] }}" placeholder="Ví dụ: 8:00">
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-md-3">
+                                            <label>Giờ đóng cửa</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input class="form-control" type="text" name="data[time_close]"
+                                                   value="{{ data['time_close'] }}" placeholder="Ví dụ: 22:00">
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="box-footer pull-right manipulation">
                                     <button type="submit" class="btn btn-primary btn-add">Lưu</button>
                                 </div>

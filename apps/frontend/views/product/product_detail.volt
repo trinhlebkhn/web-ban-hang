@@ -3,7 +3,7 @@
         {% set images = product['image']|json_decode %}
         {% set price_sell = product['price_sell'] %}
         {% set price = product['price'] %}
-        <div class="product__view__image col-md-6">
+        <div class="product__view__image col-md-6 col-sm-6 col-xs-12">
             <div class="product-images">
                 {% if price > price_sell %}
                     <span class="onsale">Sale!</span>
@@ -33,7 +33,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 product__view__content detail_product_view productJson"
+        <div class="col-md-6 col-sm-6  col-xs-12product__view__content detail_product_view productJson"
              data-product="{{ product|json_encode|escape_attr }}">
             <div class="summary entry-summary">
                 <h1 class="product-title bordered">{{ product['name'] }}</h1>
@@ -56,19 +56,21 @@
                         <input type="button" value="+" class="plus btn-plus btn">
                     </div>
                     <input name="add-to-cart" type="hidden" value="60">
-                    <button type="button" class="single_add_to_cart_button button alt product__view__button__cart">Thêm vào giỏ hàng
-                    </button>
-                    {% if auth %}
-                        <a href="/dat-hang.html" class="product__view__button__cart_order order_add"
-                           style="min-width: 200px;">
-                            <button type="button" class="single_add_to_cart_button button alt">Mua ngay</button>
-                        </a>
-                    {% else %}
-                        <a href="/auth/pay" class="product__view__button__cart_order  order_add"
-                           style="min-width: 200px;">
-                            <button type="button" class="single_add_to_cart_button button alt">Mua ngay</button>
-                        </a>
-                    {% endif %}
+                    <div class="manipulation-product">
+                        <button type="button" class="single_add_to_cart_button button alt product__view__button__cart">Thêm vào giỏ hàng
+                        </button>
+                        {% if auth %}
+                            <a href="/dat-hang.html" class="product__view__button__cart_order order_add"
+                               style="min-width: 200px;">
+                                <button type="button" class="single_add_to_cart_button button alt">Mua ngay</button>
+                            </a>
+                        {% else %}
+                            <a href="/auth/pay" class="product__view__button__cart_order  order_add"
+                               style="min-width: 200px;">
+                                <button type="button" class="single_add_to_cart_button button alt">Mua ngay</button>
+                            </a>
+                        {% endif %}
+                    </div>
                 </form>
 
                 <div class="product_meta">

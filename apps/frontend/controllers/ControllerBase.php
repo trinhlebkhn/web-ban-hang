@@ -13,6 +13,7 @@ class ControllerBase extends Controller
         $mainMenu = $this->getMainMenu();
         $auth = $this->getAuth();
         $config_website = $this->getConfig();
+//        d($config_website);
         $this->view->setVars([
             'mainMenu' => $mainMenu,
             'auth' => $auth,
@@ -117,5 +118,10 @@ class ControllerBase extends Controller
     public function getPay()
     {
         return $this->session->get('pay');
+    }
+
+    public function setHeader($header)
+    {
+        $this->view->header = $header;
     }
 }

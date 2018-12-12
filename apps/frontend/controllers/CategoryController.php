@@ -11,7 +11,7 @@ namespace Graduate\Frontend\Controllers;
 
 class CategoryController extends ControllerBase
 {
-    public function productAction($slug, $id)
+    public function productAction($id)
     {
         $query = $this->request->getQuery();
         $page = $query['p'] ? $query['p'] : 1;
@@ -23,11 +23,22 @@ class CategoryController extends ControllerBase
             'q' => 'category_id = ' . $id
         ];
 
+        if ($this->request->isPost()) {
+            $query = $this->request->getPost('query');
+            if (!empty($query)) {
+                $optional['q'] .= ' and name like "' . $query . '%"';
+            }
+        }
+
+//        d($optional);
+
         $rs = $productObj->getListObj($optional);
         if (!$rs->status) {
             $this->flash->error($rs->message);
             return;
         }
+
+        if (!empty($query)) $this->view->query = $query;
         $catObj = new \Category();
         $catData = $catObj->getDetail($id);
         $this->view->setVars([
@@ -40,7 +51,28 @@ class CategoryController extends ControllerBase
 
     public function articleAction($id)
     {
-        d(2);
+        $query = $this->request->getQuery();
+        $page = $query['p'] ? $query['p'] : 1;
+
+        $articleObj = new \Article();
+        $optional = [
+            'limit' => 10,
+            'p' => $page,
+            'q' => 'category_id = ' . $id
+        ];
+        $rs = $articleObj->getListObj($optional);
+        if (!$rs->status) {
+            $this->flash->error($rs->message);
+            return;
+        }
+        $catObj = new \Category();
+        $catData = $catObj->getDetail($id);
+        $this->view->setVars([
+            'catInfo' => $catData->data,
+            'listData' => $rs->data,
+            'Paginginfo' => $rs->optional,
+            'Current_link' => $query['_url']
+        ]);
     }
 
 }

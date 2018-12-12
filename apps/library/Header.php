@@ -1,11 +1,5 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: admin
- * Date: 17/01/2018
- * Time: 11:59 SA
- */
 class Header
 {
     public $title;

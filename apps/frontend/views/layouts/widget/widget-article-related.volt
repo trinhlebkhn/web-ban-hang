@@ -5,13 +5,13 @@
             {% for item in listArticle %}
                 <li>
                     <article class="entry">
-                        <a href="{{ uihelper.makeLink_Article(item) }}" class="entry_thumb">
-                            <img src="{{ item.avatar }}" alt="">
+                        <a href="{{ uiHelper.makeLinkArticle(item) }}" class="entry_thumb">
+                            <img src="{{ item['avatar'] }}" alt="">
                         </a>
                         <div class="wrapper">
-                            <h6 class="entry_title"><a href="{{ uihelper.makeLink_Article(item) }}">{{ item.name }}</a></h6>
+                            <h6 class="entry_title"><a href="{{ uiHelper.makeLinkArticle(item) }}">{{ item['name'] }}</a></h6>
                             <div class="entry_meta">
-                                <span><i class="fa fa-calendar"></i> {{ item.datecreate }}</span>
+                                <span><i class="fa fa-calendar"></i> {{ item['datecreate'] }}</span>
                             </div>
                         </div>
                     </article>

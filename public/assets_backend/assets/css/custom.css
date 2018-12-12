@@ -504,7 +504,7 @@ aside.control-sidebar.control-sidebar-dark {
 }
 
 /* form config info*/
-#config_info .website-name i{
+#config_info .website-name i {
     right: 15px;
 }
 
@@ -512,7 +512,6 @@ aside.control-sidebar.control-sidebar-dark {
 #config_img i {
     right: 14px;
 }
-
 
 .small-box h3 {
     white-space: normal;
@@ -535,6 +534,7 @@ aside.control-sidebar.control-sidebar-dark {
 .filter .item:first-child {
     padding-left: 0;
 }
+
 .filter .item:last-child {
     padding-right: 0;
 }
@@ -553,4 +553,16 @@ aside.control-sidebar.control-sidebar-dark {
 
 .text-white {
     color: #fff;
+}
+
+.article-status .choose-radio label:last-child {
+    margin-left: 15px;
+}
+
+.alert-danger {
+    background-image: linear-gradient(to bottom, #ff4545 0%, #ff1212 100%);
+}
+
+.alert-success {
+    background-image: linear-gradient(to bottom, #5cb338 0%, #4be20d 100%);
 }

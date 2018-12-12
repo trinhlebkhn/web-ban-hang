@@ -1,8 +1,8 @@
 {% set link = uiHelper.makeLinkProduct(product) %}
 {% set images = product['image']|json_decode %}
-<li class="product col-md-3 product__price__view productJson" data-product="{{ product|json_encode|escape_attr }}">
+<li class="product col-md-3 col-sm-4 product__price__view productJson" data-product="{{ product|json_encode|escape_attr }}">
     <div class="w">
-        <a href="{{ link }}">
+        <a class="link-product" href="{{ link }}">
             {% if (product['price']> product['price_sel']) %}
                 <span class="onsale">Sale!</span>
             {% endif %}

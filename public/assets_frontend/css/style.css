@@ -430,3 +430,31 @@ i.form-control-feedback {
     border: 1px solid rgba(10,182,162,.64) !important;
     box-shadow: none;
 }
+
+.slider .large-img {
+    height: 420px;
+}
+
+.slider .small-img {
+    height: 195px;
+}
+
+.slider .figure a {
+    height: 100%;
+}
+.slider .figure a img {
+    height: 100%;
+}
+
+.manipulation-product {
+    margin-top: 15px;
+}
+
+.manipulation-product .single_add_to_cart_button {
+    margin-left: 0;
+}
+
+.blog-item .news__cat__item .news__image img {
+    height: 250px;
+    width: 100%;
+}

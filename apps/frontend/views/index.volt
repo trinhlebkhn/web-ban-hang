@@ -24,7 +24,7 @@
     <meta property="og:title" content="{{ header.title }}"/>
     <meta property="og:url" content="{{ mainMenu.link }}"/>
     <meta property="og:image" content="{{ header.image }}"/>
-    <meta property="og:site_name" content="{{ websiteInfo.name }}"/>
+    <meta property="og:site_name" content="{{ websiteConfig['website_name'] }}"/>
     <meta property="fb:app_id" content="{{ config.facebook.app_id }}"/>
     <meta property="og:description" content="{{ header.desc }}"/>
 
@@ -43,36 +43,7 @@
 
     <script type="text/javascript" src="/assets_frontend/assets/js/shopping.js"></script>
     <script type="text/javascript" src="/assets_frontend/assets/js/custom.js"></script>
-    <script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-        ga('create', 'UA-106650013-1', 'auto');
-        ga('send', 'pageview');
-
-    </script>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "ca-pub-7093211495135765",
-            enable_page_level_ads: true
-        });
-    </script>
-    {#//        Google Analytics Code#}
-    {{ websiteConfig.google_analytics }}
-
-    {#{% if reCaptEnabled == true or (reCaptEnabled is not defined and loginAttempts > 2) %}#}
-        {# <script src="https://www.google.com/recaptcha/api.js" async defer></script> #}
-    {#{% endif %}#}
 </head>
 
 <body class="pace-on pace-dot">

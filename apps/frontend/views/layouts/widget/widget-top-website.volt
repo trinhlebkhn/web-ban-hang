@@ -1,8 +1,8 @@
 <div class="top-bar">
     <div class="container">
-        {% if websiteConfig.location[0].openhours is not empty %}
+        {% if websiteConfig['time_open'] is not empty or websiteConfig['time_close'] is not empty %}
             <div class="top top-left">
-                <div class="sidebar-widget text-left small-screen-center widget_text"> Giờ mở cửa: {{ websiteConfig.location[0].openhours }} </div>
+                <div class="sidebar-widget text-left small-screen-center widget_text"> Giờ mở cửa: {{ websiteConfig['time_open'] }} - {{ websiteConfig['time_close'] }} </div>
             </div>
         {% endif %}
         <div class="top top-right">

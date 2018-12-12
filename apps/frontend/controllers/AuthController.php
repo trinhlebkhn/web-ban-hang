@@ -18,8 +18,7 @@ class AuthController extends ControllerBase {
                 $check_redirect = $this->session->get('pay');
                 if($check_redirect == 1) {
                     $this->response->redirect(base_uri() . '/dat-hang.html');
-                }
-                $this->response->redirect(base_uri() . '/');
+                } else $this->response->redirect(base_uri() . '/');
             } else {
                 $this->view->data = $data;
                 $this->flash->error($rs->message);

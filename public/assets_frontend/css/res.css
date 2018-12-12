@@ -3,7 +3,13 @@
 }
 
 @media (max-width: 768px) {
-
+    .mini-cart-overview.dropdown {
+        text-align: left;
+        margin-left: 15px;
+    }
+    .mini-cart-overview.dropdown .mini-cart-count {
+        left: 32px;
+    }
 }
 
 @media (max-width: 450px) {
@@ -12,6 +18,41 @@
     }
     #form-register .select-wrap {
         width: 100%;
+    }
+    /* Trang chủ */
+    .slider .large-img {
+        height: 225px;
+    }
+
+    .product {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .breadcrumb {
+        margin-left: 15px;
+    }
+
+    .link-product .onsale {
+        position: absolute;
+        right: 25px;
+    }
+
+    .link-product .product-image-front {
+        text-align: center;
+    }
+
+    .cat-home-products .link-product .product-image-front img {
+        height: 320px;
+        width: 320px;
+    }
+
+    .cat-home-products .product-info .add-to-cart-button {
+        margin-left: 30px;
+    }
+
+    .woocommerce-ordering {
+        margin-bottom: 5px;
     }
 }
 

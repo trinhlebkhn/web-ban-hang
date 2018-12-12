@@ -289,7 +289,7 @@ $router->add("/quan-tri/xoa-thuong-hieu", [
 
 
 /* Module bài viết */
-$router->add("/quan-tri/quan-ly-bai-viet", [
+$router->add("/quan-tri/bai-viet", [
     'module' => 'backend',
     'namespace' => 'Graduate\Backend\Controllers',
     'controller' => 'article',
@@ -302,6 +302,20 @@ $router->add("/quan-tri/them-bai-viet", [
     'controller' => 'article',
     'action' => 'add',
 ]);
+
+$router->add("/quan-tri/chinh-sua-bai-viet", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'article',
+    'action' => 'add',
+]);
+
+$router->add("/quan-tri/xoa-bai-viet", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'article',
+    'action' => 'delete',
+]);
 /* END BACKEND */
 
 
@@ -313,6 +327,7 @@ $router->add("/{slug}-pc{id:[0-9]+}.html", [
     'namespace' => 'Graduate\Frontend\Controllers',
     'controller' => 'category',
     'action' => 'product',
+    'id' => 1
 ]);
 
 $router->add("/{slug}-ac{id:[0-9]+}.html", [
@@ -320,6 +335,7 @@ $router->add("/{slug}-ac{id:[0-9]+}.html", [
     'namespace' => 'Graduate\Frontend\Controllers',
     'controller' => 'category',
     'action' => 'article',
+    'id' => 1
 ]);
 
 /* chi tiết sản phẩm */
@@ -328,6 +344,7 @@ $router->add("/{slug}-p{id:[0-9]+}.html", [
     'namespace' => 'Graduate\Frontend\Controllers',
     'controller' => 'product',
     'action' => 'detail',
+    'id' => 1
 ]);
 
 /* Khách hàng*/
@@ -394,6 +411,21 @@ $router->add("/gio-hang.html", [
     'action' => 'cart',
 ]);
 
+/* Bài viết */
+$router->add("/bai-viet.html", [
+    'module' => 'frontend',
+    'namespace' => 'Graduate\Frontend\Controllers',
+    'controller' => 'article',
+    'action' => 'index',
+]);
+
+$router->add("/{slug}-a{id:[0-9]+}.html", [
+    'module' => 'frontend',
+    'namespace' => 'Graduate\Frontend\Controllers',
+    'controller' => 'article',
+    'action' => 'detail',
+    'id' => 1
+]);
 
 /* END FRONTEND */
 

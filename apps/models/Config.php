@@ -1,4 +1,3 @@
-
 <?php
 /**
  * Created by PhpStorm.
@@ -122,6 +121,52 @@ class Config extends DbModel
      * @Column(type="integer", length=11, nullable=true)
      */
     public $block_menu_bottom_footer;
+
+    /**
+     *
+     * @var string
+     * @Column(type="string", length=1000, nullable=true)
+     */
+    public $time_open;
+
+    /**
+     *
+     * @var string
+     * @Column(type="string", length=1000, nullable=true)
+     */
+    public $time_close;
+
+    /**
+     * @return string
+     */
+    public function getTimeOpen()
+    {
+        return $this->time_open;
+    }
+
+    /**
+     * @param string $time_open
+     */
+    public function setTimeOpen($time_open)
+    {
+        $this->time_open = $time_open;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTimeClose()
+    {
+        return $this->time_close;
+    }
+
+    /**
+     * @param string $time_close
+     */
+    public function setTimeClose($time_close)
+    {
+        $this->time_close = $time_close;
+    }
 
     /**
      * @return int
@@ -404,7 +449,8 @@ class Config extends DbModel
         }
     }
 
-    public function getConfig($id){
+    public function getConfig($id)
+    {
         {
             try {
                 $obj = self::findFirst($id);

@@ -26,7 +26,7 @@
                     </div>
                     <div class="woocommerce columns-4">
                         <div class="row">
-                            <ul class="products">
+                            <ul class="products cat-home-products">
                                 {% set arrayListProduct = array_chunk(item.product, 4) %}
                                 {% for product in arrayListProduct[0] %}
                                     {{ partial('layouts/template-part/product-item', ['product': product]) }}

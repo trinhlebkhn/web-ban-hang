@@ -40,11 +40,39 @@ class UIHelper extends Component {
     }
 
     public function makeLinkCategory($item) {
-        if ($item->type == 1) return base_uri() . "/$item->slug-pc" . $item->id . '.html';
-        if ($item->type == 2) return base_uri() . "/$item->slug-ac" . $item->id . '.html';
+        if ($item->type == 1) return base_uri() . "$item->slug-pc" . $item->id . '.html';
+        if ($item->type == 2) return base_uri() . "$item->slug-ac" . $item->id . '.html';
     }
 
     public function makeLinkProduct($item) {
-        return base_uri() . "/" . $item['slug'] . '-p' . $item['id'] . '.html';
+        return base_uri() . $item['slug'] . '-p' . $item['id'] . '.html';
+    }
+
+    public function makeLinkArticle($item) {
+        return base_uri() . $item['slug'] . '-a' . $item['id'] . '.html';
+    }
+
+    public function getArticleCategoryList(){
+        $catObj = new \Category();
+        $query_cat = [
+            'q' => 'type = 2'
+        ];
+        $listCats = $catObj->getListObj($query_cat);
+        foreach ($listCats->data as &$item) {
+            $item = (object) $item;
+        }
+        return $listCats->data;
+    }
+
+    public function recursiveCat($data, $parent_id = 0, &$array, $char = '')
+    {
+        foreach ($data as $key => $item) {
+            if ($item['parent_id'] == $parent_id) {
+                $item['name'] = $char .'|-- '.  $item['name'];
+                $array[] = $item;
+                unset($data[$key]);
+                $this->recursiveCat($data, $item['id'], $array, $char.'&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp');
+            }
+        }
     }
 }

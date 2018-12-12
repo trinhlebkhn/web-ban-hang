@@ -166,7 +166,7 @@ class ProductController extends AuthorizedControllerBase
         $obj['del_flag'] = 1;
         $rs = $product->updateObj($obj);
         if ($rs->status) {
-            $this->flash->success($rs->message);
+            $this->flash->success('Thao tác thành công!');
         } else {
             $this->flash->error($rs->message);
         }
