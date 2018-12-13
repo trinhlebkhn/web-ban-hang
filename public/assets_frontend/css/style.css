@@ -462,3 +462,39 @@ i.form-control-feedback {
     line-height: 35px;
     color: #fff;
 }
+
+.logo-navbar .navbar-header .pull-left {
+    width: 30%;
+}
+
+.logo-navbar .navbar-header .pull-right {
+    width: 70%;
+}
+
+.container-logo .widget_search {
+    width: 70%;
+}
+
+#masthead .widget_search form {
+    display: block;
+}
+
+.mini-cart-overview {
+    line-height: 35px;
+}
+
+.container-logo .widget_search .input-group input {
+    height: 36px !important;
+}
+
+.sidebar-widget.widget_shopping_cart {
+    margin-left: 35px !important;
+}
+
+.box-menu .menu-sidebar {
+    display: none;
+}
+
+span.posted_in {
+    font-weight: 600;
+}

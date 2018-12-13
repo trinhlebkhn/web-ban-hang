@@ -23,6 +23,7 @@
       <path value="$PROJECT_DIR$/vendor/zaloplatform/zalo-php-sdk" />
       <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
       <path value="$PROJECT_DIR$/vendor/phalcon/incubator" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
     </include_path>
   </component>
 </project>

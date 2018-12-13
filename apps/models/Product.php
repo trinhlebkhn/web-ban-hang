@@ -555,7 +555,7 @@ class Product extends DbModel
                 ->from(self::class)
                 ->where(isset($optional['q']) ? $optional['q'] : '1=1')
                 ->andwhere('del_flag != 1')
-                ->orderBy('id DESC')
+                ->orderBy(isset($optional['order_by']) ? $optional['order_by'] : 'id DESC')
                 ->getQuery()
                 ->execute();
             $page = $optional['p'] ? $optional['p'] : 1;
@@ -597,7 +597,22 @@ class Product extends DbModel
         try {
             $obj = self::findFirst($id);
             if (!empty($obj->toArray())) {
-                return $this->manipulationSuccess($obj->toArray(), 'Thao tác thành công');
+                $data = $obj->toArray();
+                $data['attribute'] = json_decode($data['attribute']);
+
+                /* Xử lý thuộc tính sản phẩm */
+                $attrObj = new Attribute();
+                $listAttr = $attrObj->getListObj()->data;
+                foreach ($data['attribute'] as &$val) {
+                    foreach ($listAttr as $attr) {
+                        if($attr['id'] == $val->id) {
+                            $val->name = $attr['name'];
+                            break;
+                        }
+                    }
+                }
+                $data['attribute'] = json_encode($data['attribute']);
+                return $this->manipulationSuccess($data, 'Thao tác thành công');
             } else {
                 return $this->manipulationError([], 'Có lỗi xảy ra. Vui lòng liên hệ nhà quản trị!');
             }

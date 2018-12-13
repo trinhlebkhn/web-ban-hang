@@ -11,8 +11,15 @@ class AuthController extends ControllerBase
 {
     use \MailService;
 
+    public function initialize(){
+        parent::initialize();
+    }
+
     public function loginAction()
     {
+        $auth = $this->getAuth();
+        if(!empty($auth)) return $this->response->redirect(base_uri());
+
         if ($this->request->isPost()) {
             $data = $this->request->getPost('data');
             $userObj = new \User();
@@ -32,6 +39,8 @@ class AuthController extends ControllerBase
 
     public function registerAction()
     {
+        $auth = $this->getAuth();
+        if(empty($auth)) return $this->response->redirect(base_uri());
         if ($this->request->isPost()) {
             $data = $this->request->getPost('pageRegister');
             $dataDob = $this->request->getPost('pageRegister_birth');

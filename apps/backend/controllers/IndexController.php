@@ -14,7 +14,6 @@ class IndexController extends AuthorizedControllerBase
         $totalUsers = $this->getTotalUser();
         $totalBills = $this->getTotalBill();
         $totalRevenue = $this->getTotalRevenue();
-
         $this->view->setVars([
             'totalUsers' => $totalUsers,
             'totalBills' => $totalBills,

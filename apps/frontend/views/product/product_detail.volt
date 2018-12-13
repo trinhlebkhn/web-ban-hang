@@ -76,7 +76,7 @@
                 <div class="product_meta">
                     {% for attr in product['attribute'] %}
                         <span class="posted_in">
-                            {{ attr.name }}: <a href="shop-mens-category.html" rel="tag">{{ attr.value }}</a>,
+                            {{ attr.name }}: <a href="#" rel="tag">{{ attr.value }}</a>,
                         </span>
                     {% endfor %}
                 </div>

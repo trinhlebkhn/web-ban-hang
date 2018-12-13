@@ -14,6 +14,8 @@ class CategoryController extends ControllerBase
     public function productAction($id)
     {
         $query = $this->request->getQuery();
+        $strSearch = $this->request->get('strSearch');
+        $orderBy = $this->request->get('order_by');
         $page = $query['p'] ? $query['p'] : 1;
 
         $productObj = new \Product();
@@ -24,13 +26,22 @@ class CategoryController extends ControllerBase
         ];
 
         if ($this->request->isPost()) {
-            $query = $this->request->getPost('query');
-            if (!empty($query)) {
-                $optional['q'] .= ' and name like "' . $query . '%"';
-            }
+            $strSearch = $this->request->getPost('strSearch');
+            $orderBy = $this->request->getPost('order_by');
+        }
+        $paramSearch = '';
+
+        if (!empty($strSearch)) {
+            $optional['q'] .= ' and name like "%' . $strSearch . '%"';
+            $paramSearch .= '&strSearch="' . $strSearch.'"';
+            $this->view->strSearch = $strSearch;
         }
 
-//        d($optional);
+        if (!empty($orderBy)) {
+            $optional['order_by'] .= 'price_sell ' . $orderBy;
+            $paramSearch .= '&order_by=' . $orderBy;
+            $this->view->orderBy = $orderBy;
+        }
 
         $rs = $productObj->getListObj($optional);
         if (!$rs->status) {
@@ -38,14 +49,15 @@ class CategoryController extends ControllerBase
             return;
         }
 
-        if (!empty($query)) $this->view->query = $query;
         $catObj = new \Category();
         $catData = $catObj->getDetail($id);
+
         $this->view->setVars([
             'catInfo' => $catData->data,
             'listData' => $rs->data,
             'Paginginfo' => $rs->optional,
-            'Current_link' => $query['_url']
+            'Current_link' => $query['_url'],
+            'paramSearch' => $paramSearch
         ]);
     }
 

@@ -9,6 +9,11 @@
 namespace Graduate\Frontend\Controllers;
 class CustomerController extends ControllerBase
 {
+    public function initialize(){
+        parent::initialize();
+        $auth = $this->getAuth();
+        if(empty($auth)) return $this->response->redirect(base_uri() . '/dang-nhap.html');
+    }
 
     public function indexAction()
     {

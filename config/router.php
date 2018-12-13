@@ -457,6 +457,14 @@ $router->add("/chi-tiet-don-hang/a185{id:[0-9]+}.html", [
     'id' => 1
 ]);
 
+/* Trang tìm kiếm */
+$router->add("/tim-kiem.html", [
+    'module' => 'frontend',
+    'namespace' => 'Graduate\Frontend\Controllers',
+    'controller' => 'search',
+    'action' => 'index',
+]);
+
 
 /* END FRONTEND */
 
