@@ -39,8 +39,6 @@ class AuthController extends ControllerBase
 
     public function registerAction()
     {
-        $auth = $this->getAuth();
-        if(empty($auth)) return $this->response->redirect(base_uri());
         if ($this->request->isPost()) {
             $data = $this->request->getPost('pageRegister');
             $dataDob = $this->request->getPost('pageRegister_birth');

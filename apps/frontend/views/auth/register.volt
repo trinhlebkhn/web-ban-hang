@@ -132,9 +132,11 @@
                                     </div>
                                 </div>
                                 <div class="form-group login__action">
-                                    <button type="submit" id="pageRegister_btn" class="btn btn-submit">Đăng Ký</button>
+                                    <button type="submit" id="pageRegister_btn" class="btn btn-submit" style="width: 220px; margin: auto;">
+                                        Đăng Ký
+                                    </button>
                                 </div>
-                                <div class="login__note">
+                                <div class="login__note text-center">
                                     Bạn đã có tài khoản? <a href="/dang-nhap.html">Đăng nhập</a>
                                 </div>
                             </div>
@@ -207,7 +209,7 @@
                         }
                     }
                 },
-                pageRegister_has :  {
+                pageRegister_has: {
                     validators: {
                         notEmpty: {
                             message: 'Vui lòng xác nhận điêu khoản!'
