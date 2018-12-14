@@ -24,6 +24,7 @@ class ViettelPostService
             "PASSWORD" => $config['viettel_post']['password'],
         ]);
         $response = $provider->post('user/Login', $body);
+        d(1);
         return json_decode($response->body);
     }
 

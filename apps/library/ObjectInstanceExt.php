@@ -39,14 +39,6 @@ trait ObjectInstanceExt
         if (is_object($arr)) {
             $arr = get_object_vars($arr);
         }
-        /*foreach ($this->toArray() as $key => $item) {
-            if (isset($arr[$key])) {
-                if (!empty($arr[$key])) {
-                $arr[$key] = trim($arr[$key]);
-                }
-                $this->{$key} = $arr[$key];
-            }
-        }*/
         foreach ($arr as $key => $val) {
             if (property_exists($this, $key)) {
                 $this->{$key} = $val;
