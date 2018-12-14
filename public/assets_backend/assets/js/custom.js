@@ -89,10 +89,32 @@ function addMenu(menu_block_id, parent_id) {
 }
 
 function checkTypeLinkMenu() {
-    if ($('#type_link').val() != 4) {
-        $('div.link_menu').addClass('hidden');
+    console.log($('#type_link').val() == 1);
+    if ($('#type_link').val() == 1){
+        $('div.link_menu_category').addClass('hidden');
+        $('#flexible_link').removeClass('hidden');
+    }
+    else if ($('#type_link').val() == '') {
+        $('div.link_menu_category').addClass('hidden');
     } else {
-        $('div.link_menu').removeClass('hidden');
+        $('div.link_menu_category').removeClass('hidden');
+        $('#flexible_link').addClass('hidden');
+        var type_link = $('#type_link').val();
+        $.ajax({
+            url: '/backend/api_client/getMenuLink',
+            method: 'post',
+            dataType: 'json',
+            data: {type: type_link}
+        }).fail(function (ui, status) {
+            snackbar(2, 'Có lỗi  xảy ra!');
+        }).done(function (data, status) {
+            if (data.status == 1) {
+                $('#choose_cat').html(data.content);
+            }
+            else {
+                snackbar(2, 'Có lỗi hệ thống xảy ra!');
+            }
+        });
     }
 }
 
@@ -111,6 +133,7 @@ function ajaxAddMenu() {
     var target = $('#target').val();
     var sort = $('#sort').val();
     var type_link = $('#type_link').val();
+    var cat_id = $('#choose_cat').val();
     var link = $('#link').val();
     if (name == '') {
         snackbar(2, 'Vui lòng điền tên menu!');
@@ -125,6 +148,7 @@ function ajaxAddMenu() {
     data['sort'] = sort;
     data['type_link'] = type_link;
     data['link'] = link;
+    data['cat_id'] = cat_id;
     $.ajax({
         url: '/backend/api_client/creatMenu',
         method: 'post',
@@ -136,7 +160,7 @@ function ajaxAddMenu() {
         $('#QuickView').modal('hide');
         if (data.status) {
             $('div.add-menu div#menu').html(data.content);
-            snackbar(2, 'Thao tác thành công!');
+            snackbar(1, 'Thao tác thành công!');
         }
         else {
             snackbar(2, 'Có lỗi hệ thống xảy ra!');
@@ -171,7 +195,7 @@ function deleteMenu(menu_id, menu_block_id) {
         }).done(function (data, status) {
             if (data.status) {
                 $('div.add-menu div#menu').html(data.content);
-                snackbar(2, 'Thao tác thành công!');
+                snackbar(1, 'Thao tác thành công!');
             }
             else {
                 snackbar(2, 'Có lỗi hệ thống xảy ra!');
@@ -272,7 +296,7 @@ function ajaxAddAttribute() {
     }).done(function (data, status) {
         if (data.status) {
             $('#attribute').html(data.content);
-            snackbar(2, 'Thao tác thành công!');
+            snackbar(1, 'Thao tác thành công!');
             $('#QuickView').modal('hide');
         }
         else return snackbar(2, data.message);

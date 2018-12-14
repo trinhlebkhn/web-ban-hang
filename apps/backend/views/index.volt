@@ -84,6 +84,10 @@
             color: #fff !important;
         }
 
+        #snackbar.error {
+            background: #f3c413;
+        }
+
         /* Show the snackbar when clicking on a button (class added with JavaScript) */
         #snackbar.show {
             visibility: visible; /* Show the snackbar */

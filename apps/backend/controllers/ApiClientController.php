@@ -114,6 +114,24 @@ class ApiClientController extends AuthorizedControllerBase
         }
     }
 
+    public function getMenuLinkAction()
+    {
+        $type_link = $this->request->getPost('type');
+        if ($type_link == 3) $type_cat = 1;
+        else $type_cat = 2;
+        $catObj = new \Category();
+        $optional = [
+            'q' => 'type = ' . $type_cat
+        ];
+        $rsListCat = $catObj->getListObj($optional);
+        $render = $this->render_template('menu', 'ajax_list_cat', [
+            'list_cat' => $rsListCat->data,
+        ]);
+        $data['content'] = $render;
+        $data['status'] = $rsListCat->status;
+        return $this->response->setJsonContent($data);
+    }
+
     public function addMenuAction()
     {
         $menu_block_id = $this->request->getPost('menu_block_id');
@@ -129,6 +147,15 @@ class ApiClientController extends AuthorizedControllerBase
     public function creatMenuAction()
     {
         $data = $this->request->getPost('data');
+        if ($data['type_link'] == 3) $type_cat = 1;
+        else if ($data['type_link'] == 2) $type_cat = 2;
+
+        if (!empty($type_cat)) {
+            $catObj = new \Category();
+            $dataCat = $catObj->getDetail($data['cat_id'])->data;
+            $str = $type_cat == 1 ? '-pc' : '-ac';
+            $data['link'] = $dataCat['slug'] . $str . $dataCat['id'] . '.html';
+        }
         $menuObj = new \Menu();
         if (empty($data['id'])) {
             $rs = $menuObj->createObj($data);
@@ -158,10 +185,21 @@ class ApiClientController extends AuthorizedControllerBase
         $rs = $menuObj->getDetail($id);
         if ($rs->status) {
             $obj = $rs->data;
+            $menuData = $rs->data;
+            $catObj = new \Category();
+            if ($menuData['type_link'] == 3) $type_cat = 1;
+            else if ($menuData['type_link'] == 2) $type_cat = 2;
+            if (!empty($type_cat)) {
+                $optional = [
+                    'q' => 'type = ' . $type_cat
+                ];
+                $rsListCat = $catObj->getListObj($optional);
+            }
             $render = $this->render_template('menu', 'add_menu', [
                 'menu_block_id' => $obj['menu_block_id'],
                 'parent_id' => $obj['parent_id'],
-                'data' => $obj
+                'data' => $obj,
+                'list_cat' => !empty($rsListCat->data) ? $rsListCat->data : [],
             ]);
             $last_result = [
                 'status' => $rs->status,
@@ -327,7 +365,7 @@ class ApiClientController extends AuthorizedControllerBase
         }
         $last_result = [];
         if ($rsZalo['errorCode'] == 1) {
-            if(empty($data->zalo_id)) {
+            if (empty($data->zalo_id)) {
                 $catObj = new \Category();
                 $dataUpdate = [
                     'id' => $data->id,

@@ -48,19 +48,19 @@ var shopping = {
         }).done(function (data, status) {
             if (data.status) {
                 $('.widget_shopping_cart_content .mini-cart-overview').html(data.content);
-                if(par.hasClass('wigget-cart')){
+                if (par.hasClass('wigget-cart')) {
                     $('.rowId').each(function (index) {
-                       if($(this).val() == id) {
-                           var del = $(this).closest('.tr');
-                           del.remove();
-                       }
+                        if ($(this).val() == id) {
+                            var del = $(this).closest('.tr');
+                            del.remove();
+                        }
                     });
                 } else {
                     par.remove();
                 }
                 $('.total_price').html(number_format(data.total_price));
                 snackbar(2, data.message);
-                if(data.total_product == 0) window.location.replace('/');
+                if (data.total_product == 0) window.location.replace('/');
             }
         });
     },
@@ -68,7 +68,7 @@ var shopping = {
     update_product: function (id, qty) {
         var data = {id: id, qty: qty}
         var ship_price = $('#ship_price').val();
-        if(ship_price > 0) {
+        if (ship_price > 0) {
             data.ship_price = ship_price;
         }
         $.ajax({
@@ -94,7 +94,7 @@ $(document).on('click', '.btn-plus', function (e) {
     var par = $(this).closest('.tr');
     var val = par.find('.input-number').val();
     par.find('.input-number').val(parseInt(val) + 1);
-    if($(this).hasClass('update-cart')) {
+    if ($(this).hasClass('update-cart')) {
         var id = par.find('.rowId').val();
         var qty = par.find('.input-number').val();
         shopping.update_product(id, qty);
@@ -105,9 +105,9 @@ $(document).on('click', '.btn-plus', function (e) {
 $(document).on('click', '.btn-minus', function (e) {
     var par = $(this).closest('.tr');
     var val = par.find('.input-number').val();
-    if ((parseInt(val) - 1) > 0)  {
+    if ((parseInt(val) - 1) > 0) {
         par.find('.input-number').val(parseInt(val) - 1);
-        if($(this).hasClass('update-cart')) {
+        if ($(this).hasClass('update-cart')) {
             var id = par.find('.rowId').val();
             var qty = par.find('.input-number').val();
             shopping.update_product(id, qty);
@@ -119,7 +119,7 @@ $(document).on('click', '.btn-minus', function (e) {
 
 $(document).on('change', '.input-number', function (e) {
     var par = $(this).closest('.tr');
-    if($(this).hasClass('update-cart')) {
+    if ($(this).hasClass('update-cart')) {
         var id = par.find('.rowId').val();
         var qty = $(this).val();
         shopping.update_product(id, qty);
@@ -164,6 +164,9 @@ function snackbar(type, message) {
     }
     if (type == '2') {
         $("#snackbar").addClass('error');
+    }
+    else {
+        $("#snackbar").removeClass('error');
     }
     $("#snackbar").html(message);
     $("#snackbar").removeClass('show');

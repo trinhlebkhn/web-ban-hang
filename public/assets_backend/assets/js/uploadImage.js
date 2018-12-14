@@ -170,6 +170,8 @@ function snackbar(type, message) {
     }
     if (type == '2') {
         $("#snackbar").addClass('error');
+    } else {
+        $("#snackbar").removeClass('error');
     }
     $("#snackbar").html(message);
     $("#snackbar").removeClass('show');

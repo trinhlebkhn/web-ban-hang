@@ -68,6 +68,30 @@ class Menu extends DbModel
     public $sort;
 
     /**
+     *
+     * @var integer
+     * @Column(type="integer", length=11, nullable=true)
+     */
+    public $cat_id;
+
+    /**
+     * @return int
+     */
+    public function getCatId()
+    {
+        return $this->cat_id;
+    }
+
+    /**
+     * @param int $cat_id
+     */
+    public function setCatId($cat_id)
+    {
+        $this->cat_id = $cat_id;
+    }
+
+
+    /**
      * @return int
      */
     public function getId()
@@ -208,13 +232,6 @@ class Menu extends DbModel
     public function createObj($data)
     {
         try {
-            if ($data['type_link'] == 1) {
-                $data['link'] = '/san-pham';
-            } else if ($data['type_link'] == 2) {
-                $data['link'] = '/tin-tuc';
-            } else if ($data['type_link'] == 3) {
-                $data['link'] = '/lien-he';
-            }
             $rs = self::newInstance($data);
             $rs->save();
             if (!empty($rs->getMessages())) {
@@ -235,6 +252,7 @@ class Menu extends DbModel
                 'bind' => [
                     'menu_block_id' => $menu_block_id
                 ],
+                'order' => 'sort ASC'
             ]);
             if (empty($listData->getMessages())) {
                 $arrayData = $listData->toArray();
