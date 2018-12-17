@@ -12,7 +12,8 @@
         <input type="text" class="form-control hidden" id="menu_id" value="{{ data['id'] }}">
         <div class="form-group col-md-2 col-sm-6 col-xs-12">
             <label style="font-size: 20px; padding-top: 5px; font-weight: 100">Tên menu</label>
-            <input type="text" name="data[name]" class="form-control" id="name_menu" value="{{ data['name'] }}" placeholder="Tên Menu" onchange="$(this).removeClass('error')">
+            <input type="text" name="data[name]" class="form-control" id="name_menu" value="{{ data['name'] }}"
+                   placeholder="Tên Menu" onchange="$(this).removeClass('error')">
         </div>
         <div class="form-group col-md-2 col-sm-6 col-xs-12">
             <label style="font-size: 20px; padding-top: 5px; font-weight: 100">Hành động</label>
@@ -23,7 +24,8 @@
         </div>
         <div class="form-group col-md-2 col-sm-6 col-xs-12">
             <label style="font-size: 20px; padding-top: 5px; font-weight: 100">Vị trí </label>
-            <input type="text" name="data[sort]" class="form-control" id="sort" value="{{ data['sort'] }}" placeholder="Vị trí">
+            <input type="text" name="data[sort]" class="form-control" id="sort" value="{{ data['sort'] }}"
+                   placeholder="Vị trí">
         </div>
         <div class="form-group col-md-3 col-sm-6 col-xs-12">
             <label style="font-size: 20px; padding-top: 5px; font-weight: 100">Liên kết </label>
@@ -35,23 +37,24 @@
             </select>
         </div>
         <div class="form-group col-md-3 col-sm-6 col-xs-12 link_menu_category {{ data['type_link'] == 1 or data['type_link'] == '' or  listCat | length == 0? 'hidden' : '' }}">
-            <div class="form-group col-md-3 col-sm-6 col-xs-12 link_menu_category">
-                <label style="font-size: 20px; padding-top: 5px; font-weight: 100">Chọn danh mục </label>
-                <select name="data[cat_id]" class="form-control" id="choose_cat">
-                    <option value="">Chọn danh mục</option>
-                    {% for item in listCat %}
-                        <option value="{{ item['id'] }}" {{ data['cat_id'] == item['id'] ? 'selected' : '' }} >{{ item['name'] }}</option>
-                    {% endfor %}
-                </select>
-            </div>
+            <label style="font-size: 20px; padding-top: 5px; font-weight: 100">Chọn danh mục </label>
+            <select name="data[cat_id]" class="form-control" id="choose_cat">
+                <option value="">Chọn danh mục</option>
+                {% for item in listCat %}
+                    <option value="{{ item['id'] }}" {{ data['cat_id'] == item['id'] ? 'selected' : '' }} >{{ item['name'] }}</option>
+                {% endfor %}
+            </select>
         </div>
-        <div class="form-group col-md-3 col-sm-6 col-xs-12 {{ data['type_link'] == 1 ? '' : 'hidden' }}" id="flexible_link">
+        <div class="form-group col-md-3 col-sm-6 col-xs-12 {{ data['type_link'] == 1 ? '' : 'hidden' }}"
+             id="flexible_link">
             <label style="font-size: 20px; padding-top: 5px; font-weight: 100">Đường dẫn</label>
-            <input type="text" name="data[link]" class="form-control" value="{{ data['link'] }}" placeholder="Đường dẫn" id="link">
+            <input type="text" name="data[link]" class="form-control" value="{{ data['link'] }}" placeholder="Đường dẫn"
+                   id="link">
         </div>
     </div>
     <div class="box-footer pull-right manipulation">
-        <button type="submit" class="btn btn-primary btn-add" onclick="ajaxAddMenu()">{{ data['id'] ? 'Cập nhật' : 'Tạo mới' }}</button>
+        <button type="submit" class="btn btn-primary btn-add"
+                onclick="ajaxAddMenu()">{{ data['id'] ? 'Cập nhật' : 'Tạo mới' }}</button>
         <button class="btn btn-danger btn-cancel" onclick="$('#QuickView').modal('hide')">Hủy</button>
     </div>
 </div>

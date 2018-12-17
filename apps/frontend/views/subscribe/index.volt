@@ -1,9 +1,1 @@
-<div class="sub">
-    <form id="register_subcribe" onsubmit="return custom.registersucribe()">
-        <p><i>Nhập email của bạn để nhận bản tin</i></p>
-        <input type="text" maxlength="40" id="subcribeEmail" class="form-control" placeholder="Email của bạn">
-
-        <button class="btn btn-regs__frm" onclick="return custom.registersucribe()" type="button">gửi</button>
-    </form>
-</div>
-<div id="message-error" class="error"></div>
+ Vì vậy, em đã thực hiện đồ án “ XÂY DỰNG WEBSITE BÁN HÀNG QUA MẠNG” cho một shop bán đồng hồ WATCH STORES. Người chủ cửa hàng đưa các sản phẩm đó lên website của mình và quản lý bằng website đó. Khách hàng có thể đặt mua hàng trên website mà không cần đến cửa hàng. Chủ cửa hàng sẽ gửi sản phẩm cho khách hàng khi nhận được tiền.
