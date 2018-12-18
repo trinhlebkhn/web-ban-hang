@@ -40,6 +40,7 @@ class UIHelper extends Component {
     }
 
     public function makeLinkCategory($item) {
+        if(is_array($item)) $item = (object) $item;
         if ($item->type == 1) return base_uri() . "$item->slug-pc" . $item->id . '.html';
         if ($item->type == 2) return base_uri() . "$item->slug-ac" . $item->id . '.html';
     }

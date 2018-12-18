@@ -43,9 +43,9 @@
                 <!-- small box -->
                 <div class="small-box bg-green pointer">
                     <div class="inner">
-                        <h3>{{ uiHelper.formatNumber(totalRevenue) }} VNĐ</h3>
+                        <h3>{{ uiHelper.formatNumber(totalRevenue) }} {{ totalRevenue > 0 ? ' VNĐ' : '' }}</h3>
 
-                        <p>Tổng doanh thu</p>
+                        <p>Tổng tiền hóa đơn</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-plus-round"></i>

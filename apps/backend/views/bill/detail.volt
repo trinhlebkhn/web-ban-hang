@@ -66,7 +66,7 @@
                             <td>{{ uiHelper.formatNumber(data['price']) }} <b>VNĐ</b></td>
                         </tr>
                         <tr>
-                            <th>Phí ship:</th>
+                            <th>Phí vận chuyển:</th>
                             <td>{{ uiHelper.formatNumber(data['ship_price']) }} <b>VNĐ</b></td>
                         </tr>
                         <tr>

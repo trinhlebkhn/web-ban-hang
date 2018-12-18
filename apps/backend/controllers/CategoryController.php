@@ -24,7 +24,7 @@ class CategoryController extends AuthorizedControllerBase
         $catObj = new \Category();
         $optional = [
             'p' => $page,
-            'limit' => 10
+            'limit' => 10,
         ];
 
         if ($this->request->getPost()) {

@@ -13,9 +13,11 @@ class ControllerBase extends Controller
         $mainMenu = $this->getMainMenu();
         $auth = $this->getAuth();
         $config_website = $this->getConfig();
-//        d($config_website);
+        $listCategory = $this->getListCat();
+//        d($listCategory);
         $this->view->setVars([
             'mainMenu' => $mainMenu,
+            'menuCat' => $listCategory,
             'auth' => $auth,
             'websiteConfig' => $config_website,
             'url_link' => base_uri()
@@ -83,6 +85,37 @@ class ControllerBase extends Controller
         $menuObj = new \Menu();
         $rs = $menuObj->getListObj($block_menu_bottom_footer);
         return $rs->data;
+    }
+
+    public function getListCat(){
+        $catObj = new \Category();
+        $optional['q'] = 'type = 1';
+        $rs = $catObj->getListObj($optional);
+        $listCat = [];
+        $this->recursive($rs->data, 0, $listCat);
+        return $listCat;
+    }
+
+    public function recursive($data, $parent_id = 0, &$array)
+    {
+        foreach ($data as $key => $item) {
+            if ($item['parent_id'] == $parent_id) {
+                if ($item['parent_id'] == 0) {
+                    $array[] = $item;
+                }
+                foreach ($array as $v => $value) {
+                    if ($array[$v]['id'] == $parent_id) {
+                        if (empty($array[$v]['child'])) {
+                            $array[$v]['child'] = [];
+                        }
+                        array_push($array[$v]['child'], $item);
+                        $this->recursive($data, $item['id'], $array[$v]['child']);
+                    }
+                }
+                unset($data[$key]);
+                $this->recursive($data, $item['id'], $array);
+            }
+        }
     }
 
     public function getCart()

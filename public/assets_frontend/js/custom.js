@@ -21,28 +21,3 @@ $(document).ready(function () {
     });
 
 })
-
-function check_idea_register() {
-    var check = $("input#agree_idea")[0].checked;
-    if (check) {
-        $(".register.check__action").removeClass('error');
-    } else {
-        $(".register.check__action").addClass('error');
-    }
-}
-
-$("#payment_online").on("click", function () {
-    var show_payment = $(".choose_payment").hasClass("display-none");
-    if (show_payment) {
-        $(".arraw").addClass('tickArrow');
-        $(".choose_payment").removeClass('display-none');
-    }
-    else {
-        $(".arraw").removeClass('tickArrow');
-        $(".choose_payment").addClass('display-none');
-    }
-});
-
-$('form').submit(function () {
-    $('[disabled]').removeAttr('disabled');
-});

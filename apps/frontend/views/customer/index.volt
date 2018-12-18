@@ -26,11 +26,6 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-sm-12">{{ this.flash.output() }}</div>
-                                <div class="col-sm-12 error">
-                                    {% for item in validate %}
-                                        <p>{{ item }}</p>
-                                    {% endfor %}
-                                </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -58,26 +53,50 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="input__label">
-                                    <div class="label">Giới tính:</div>
+                                    <div class="label">Giới tính: {{ data['gender'] }}</div>
                                 </div>
                                 <div class="input__wrap">
                                     <div class="row">
-                                        <div class="col-xs-4">
-                                            <div class="check__action -radio">
-                                                <input type="radio" {{ auth['gender'] == 1 ? 'checked="checked"':'' }}
-                                                       class="checkbox" name="data[gender]" value="1">
-                                                <span class="icon"></span>
-                                                Nam
+                                        {% if data['gender'] is empty %}
+                                            <div class="col-xs-4">
+                                                <div class="check__action -radio">
+                                                    <input type="radio"
+                                                           {{ auth['gender'] == 1 ? 'checked':'' }}
+                                                           class="checkbox" name="data[gender]" value="1">
+                                                    <span class="icon"></span>
+                                                    Nam
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-xs-4">
-                                            <div class="check__action -radio">
-                                                <input type="radio" {{ auth['gender'] == 2 ? 'checked="checked"':'' }}
-                                                       class="checkbox" name="data[gender]" value="2">
-                                                <span class="icon"></span>
-                                                Nữ
+                                            <div class="col-xs-4">
+                                                <div class="check__action -radio">
+                                                    <input type="radio"
+                                                           {{ auth['gender'] == 2 ? 'checked':'' }}
+                                                           class="checkbox" name="data[gender]" value="2">
+                                                    <span class="icon"></span>
+                                                    Nữ
+                                                </div>
                                             </div>
-                                        </div>
+                                        {% else %}
+                                            <div class="col-xs-4">
+                                                <div class="check__action -radio">
+                                                    <input type="radio"
+                                                           {{ data['gender'] == 1 ? 'checked':'' }}
+                                                           class="checkbox" name="data[gender]" value="1">
+                                                    <span class="icon"></span>
+                                                    Nam
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <div class="check__action -radio">
+                                                    <input type="radio"
+                                                           {{ data['gender'] == 2 ? 'checked':'' }}
+                                                           class="checkbox" name="data[gender]" value="2">
+                                                    <span class="icon"></span>
+                                                    Nữ
+                                                </div>
+                                            </div>
+                                        {% endif %}
+
                                     </div>
                                 </div>
                             </div>
@@ -91,7 +110,7 @@
                                 <div class="input__wrap birthday-picker">
                                     <select class="birth-day form-control" name="dob[day]">
                                         {% for i in 1..31 %}
-                                            <option {{ date == i ? 'selected':'' }}
+                                            <option {{ day == i ? 'selected':'' }}
                                                     value="{{ i }}">{{ i }}</option>
                                         {% endfor %}
                                     </select>
@@ -109,7 +128,9 @@
                                                     value="{{ i }}">{{ i }}</option>
                                         {% endfor %}
                                     </select>
-                                    <div style="display: none" id="update_notification_date" class="help-block">Ngày sinh không hợp lệ</div>
+                                    <div style="display: none" id="update_notification_date" class="help-block">Ngày
+                                        sinh không hợp lệ
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -119,8 +140,21 @@
                                     <div class="label">Số điện thoại</div>
                                 </div>
                                 <div class="input__wrap">
-                                    <input type="text" name="data[phone]" class="form-control" placeholder="Số điện thoại..."
-                                           value="{{ data['phone']? data['phone'] : auth['phone'] }}" >
+                                    <input type="text" name="data[phone]" class="form-control"
+                                           placeholder="Số điện thoại..."
+                                           value="{{ data['phone']? data['phone'] : auth['phone'] }}" maxlength="10">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="input__label">
+                                    <div class="label">Địa chỉ</div>
+                                </div>
+                                <div class="input__wrap">
+                                    <input type="text" name="data[address]" class="form-control"
+                                           placeholder="Địa chỉ"
+                                           value="{{ data['address']? data['address'] : auth['address'] }}">
                                 </div>
                             </div>
                         </div>
@@ -167,12 +201,12 @@
                             message: 'Vui nhập số điện thoại!'
                         },
                         regexp: {
-                            regexp: /^[a-zA-Z0-9_\.]+$/,
+                            regexp: /^([0-9])/,
                             message: 'Số điện thoại phải là số!'
                         }
                     }
                 },
-                pageRegister_has :  {
+                pageRegister_has: {
                     validators: {
                         notEmpty: {
                             message: 'Vui lòng xác nhận điêu khoản!'

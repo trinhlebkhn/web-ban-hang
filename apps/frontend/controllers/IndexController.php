@@ -21,6 +21,7 @@ class IndexController extends ControllerBase
         $catObj = new \Category();
         $rsDataHome = $catObj->getDataListCatPageHome();
         if($rsDataHome->status) return $rsDataHome->data;
+
     }
 
 }

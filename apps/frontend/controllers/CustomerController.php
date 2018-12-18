@@ -33,6 +33,7 @@ class CustomerController extends ControllerBase
                 $this->flash->error($rs->message);
             }
             $dob = explode('/', $data['dob']);
+//            d($data);
             $this->view->data = $data;
         }
         $this->view->setVars([

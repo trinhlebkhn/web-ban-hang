@@ -157,7 +157,7 @@ class Product extends DbModel
      * @var integer
      * @Column(type="int", length=1, nullable=true)
      */
-    public $del_lag;
+    public $del_flag;
 
     /**
      *
@@ -489,18 +489,20 @@ class Product extends DbModel
     /**
      * @return int
      */
-    public function getDelLag()
+    public function getDelFlag()
     {
-        return $this->del_lag;
+        return $this->del_flag;
     }
 
     /**
-     * @param int $del_lag
+     * @param int $del_flag
      */
-    public function setDelLag($del_lag)
+    public function setDelFlag($del_flag)
     {
-        $this->del_lag = $del_lag;
+        $this->del_flag = $del_flag;
     }
+
+
 
     /**
      * @return string

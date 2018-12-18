@@ -74,16 +74,6 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-4 col-xs-12 col-sm-4 hidden">
-                                    <div class="form-group">
-                                        <div class="label">Phường xã: <span style="color: red; font-size: 16px">*</span>
-                                        </div>
-                                        <select name="info_payment[ward_id]" id="ward" class="selectpicker form-control"
-                                                data-live-search="true" required>
-                                            <option value="">--Chọn Phường/Xã--</option>
-                                        </select>
-                                    </div>
-                                </div>
                             </div>
                             {% if listStore|length > 0 %}
                                 <div class="row">

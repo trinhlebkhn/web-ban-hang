@@ -52,9 +52,25 @@ function getShipPrice() {
             $('.total-fee-transport').html(number_format(data.ship_price) + ' đ');
             $('.total_price').html(number_format(data.total_price) + ' đ');
             $('.total_price').attr('price', data.total_price);
-            $('#total_price').vale(data.total_price);
+            $('#total_price').val(data.total_price);
         } else {
             snackbar(2, data.message);
         }
     });
 }
+
+function showPayment(){
+    var show_payment = $(".choose_payment").hasClass("display-none");
+    if (show_payment) {
+        $(".arraw").addClass('tickArrow');
+        $(".choose_payment").removeClass('display-none');
+    }
+    else {
+        $(".arraw").removeClass('tickArrow');
+        $(".choose_payment").addClass('display-none');
+    }
+}
+
+$('form').submit(function () {
+    $('[disabled]').removeAttr('disabled');
+});

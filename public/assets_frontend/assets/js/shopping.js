@@ -32,7 +32,7 @@ var shopping = {
         }).done(function (data, status) {
             if (data.status) {
                 $('.widget_shopping_cart_content .mini-cart-overview').html(data.content);
-                snackbar(2, data.message)
+                snackbar(1, data.message)
             }
         });
     },
@@ -59,7 +59,7 @@ var shopping = {
                     par.remove();
                 }
                 $('.total_price').html(number_format(data.total_price));
-                snackbar(2, data.message);
+                snackbar(1, data.message);
                 if (data.total_product == 0) window.location.replace('/');
             }
         });

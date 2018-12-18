@@ -311,11 +311,13 @@ class User extends DbModel
                 $current_password = $data['password'];
                 $data['password'] = md5($data['password']);
                 $data['dob'] = strtotime($data['dob']);
+                $data['role'] = 2;
                 $data['datecreate'] = time();
+                $data['status'] = 1;
                 $rs = self::newInstance($data);
                 $rs->save();
                 if (!empty($rs->getMessages())) {
-                    return $this->manipulationError([], 'Có lỗi xảy ra');
+                    return $this->manipulationError([], $rs->getMessages());
                 } else {
                     $obj = $rs->toArray();
                     $obj['password'] = $current_password;
@@ -436,6 +438,12 @@ class User extends DbModel
     public function updateObj($data)
     {
         try {
+            $data['fullname'] = trim($data['fullname']);
+            $data['email'] = trim($data['email']);
+            $data['phone'] = trim($data['phone']);
+            $check_phone = (int) $data['phone'];
+            if(strlen($check_phone) < strlen($data['phone'])) return $this->manipulationError([], 'Số điện thoại phải là chữ số!');
+
             $obj = self::findFirst([
                 'conditions' => 'email = :email: or phone = :phone:',
                 'bind' => [

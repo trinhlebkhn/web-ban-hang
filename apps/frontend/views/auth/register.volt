@@ -60,20 +60,20 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="input__label">
-                                            <div class="label">Giới tính:</div>
+                                            <div class="label">Giới tính: {{ data['gender'] }}</div>
                                         </div>
                                         <div class="input__wrap">
                                             <div class="row">
                                                 <div class="col-xs-4">
                                                     <div class="check__action -radio">
-                                                        <input type="radio" checked="checked" value="1" class="checkbox" name="pageRegister[gender]">
+                                                        <input type="radio" {{ data['gender'] == 1 ? 'checked' : '' }} {{ data['gender'] is empty ? 'checked' : '' }} value="1" class="checkbox" name="pageRegister[gender]"  >
                                                         <span class="icon"></span>
                                                         Nam
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-4">
                                                     <div class="check__action -radio">
-                                                        <input type="radio" class="checkbox" value="2" name="pageRegister[gender]">
+                                                        <input type="radio" {{ data['gender'] == 2 ? 'checked' : '' }} class="checkbox" value="2" name="pageRegister[gender]"  >
                                                         <span class="icon"></span>
                                                         Nữ
                                                     </div>
@@ -89,6 +89,16 @@
                                         </div>
                                         <div class="input__wrap form-group">
                                             <input name="pageRegister[phone]" type="text" value="{{ data['phone'] }}" class="form-control" placeholder="Nhập số điện thoại" maxlength="11">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="input__label">
+                                            <div class="label">Địa chỉ:</div>
+                                        </div>
+                                        <div class="input__wrap form-group">
+                                            <input name="pageRegister[address]" type="text" value="{{ data['address'] }}" class="form-control" placeholder="Nhập địa chỉ">
                                         </div>
                                     </div>
                                 </div>
@@ -125,7 +135,7 @@
                                 <div class="form-group">
                                     <div class="register check__action">
                                         <div class="checkbox">
-                                            <label onclick="check_idea_register()">
+                                            <label>
                                                 <input name="pageRegister_has" id="agree_idea" class="input-checkbox checkbox pageRegister_has" type="checkbox"> Tôi đồng ý mọi điều khoản của Website
                                             </label>
                                         </div>
@@ -204,7 +214,7 @@
                             message: 'Vui nhập số điện thoại!'
                         },
                         regexp: {
-                            regexp: /^[a-zA-Z0-9_\.]+$/,
+                            regexp: /^([0-9])/,
                             message: 'Số điện thoại phải là số!'
                         }
                     }

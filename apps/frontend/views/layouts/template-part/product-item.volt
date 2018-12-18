@@ -3,7 +3,7 @@
 <li class="product col-md-3 col-sm-4 product__price__view productJson" data-product="{{ product|json_encode|escape_attr }}">
     <div class="w">
         <a class="link-product" href="{{ link }}">
-            {% if (product['price']> product['price_sel']) %}
+            {% if (product['price'] > product['price_sell']) %}
                 <span class="onsale">Sale!</span>
             {% endif %}
             <div class="product-image">

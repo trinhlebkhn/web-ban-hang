@@ -50,7 +50,7 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="flip clearfix active pointer" id="payment_online">
+                        <div class="flip clearfix active pointer" id="payment_online" onclick="showPayment()">
                             <div class="imgFlip">
                                 <img alt="" src="/assets_frontend/images/nganluong.jpg">
                             </div>
