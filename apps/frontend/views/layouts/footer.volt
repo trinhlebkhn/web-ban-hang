@@ -8,7 +8,9 @@
                         <h3 class="sidebar-header">Thông tin liên hệ</h3>
                         <div class="textwidget">
                             <address>
-                                <b>Địa chỉ: </b>{{ websiteConfig['address'] }}
+                                {#<b>Địa chỉ: </b>{{ websiteConfig['address'] }}#}
+                                <b>Showrooms 1:</b> 100 Thái Hà, Trung Liệt, Đống Đa, Hà Nội <br>
+                                <b>Showrooms 2:</b> 292 Cầu Giấy, Đường Cầu Giấy, Hà Nội
                             </address>
                         </div>
                     </div>

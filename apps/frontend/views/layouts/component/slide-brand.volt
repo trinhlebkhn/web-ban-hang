@@ -9,7 +9,7 @@
                     <ul class="slides">
                         {% for item in websiteConfig['branch'] %}
                             <li>
-                                <a href="{{ item.link }}"><figure> <img alt="{{ item.link }}" class="attachment-full wp-post-image" height="200" src="{{ item.avatar }}" width="200"> </figure></a>
+                                <a href="/"><figure> <img alt="{{ item.link }}" class="attachment-full wp-post-image" height="200" src="{{ item.avatar }}" width="200"> </figure></a>
                             </li>
                         {% endfor %}
                     </ul>

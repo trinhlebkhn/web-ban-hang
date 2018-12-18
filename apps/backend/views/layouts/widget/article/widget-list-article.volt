@@ -4,7 +4,7 @@
             <div class="box">
                 <div class="box-header">
                     <div class="row title">
-                        <h3 class="box-title">Danh sách sản phẩm</h3>
+                        <h3 class="box-title">Danh sách bài viết</h3>
                         <div class="pull-right">
                             <a href="/quan-tri/them-bai-viet">
                                 <button type="button" class="btn btn-primary pointer">Thêm mới bài viết</button>

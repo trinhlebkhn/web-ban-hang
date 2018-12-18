@@ -3,7 +3,7 @@
     <div class="news__cat__item">
         <div class="news__image">
             <a href="{{ article_link }}">
-                <img src="{{  article['avatar']|length > 0? article['avatar']:resourcePath~'uploads/no-image.png'  }}" alt="{{ article['name'] }}">
+                <img src="{{  article['avatar']|length > 0? article['avatar']:resourcePath~'/assets_backend/upload/no-image.png'  }}" alt="{{ article['name'] }}">
             </a>
         </div>
         <h4 class="news__title">
