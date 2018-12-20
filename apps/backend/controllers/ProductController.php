@@ -117,10 +117,12 @@ class ProductController extends AuthorizedControllerBase
             /* Thuộc tính sản phẩm */
             $data['attribute'] = [];
             foreach ($data['attribute_id'] as $key => $value) {
-                $obj = [];
-                $obj['id'] = $value;
-                $obj['value'] = $data['attribute_value'][$key];
-                array_push($data['attribute'], $obj);
+                if($value > 0) {
+                    $obj = [];
+                    $obj['id'] = $value;
+                    $obj['value'] = $data['attribute_value'][$key];
+                    array_push($data['attribute'], $obj);
+                }
             }
             unset($data['attribute_id']);
             unset($data['attribute_value']);

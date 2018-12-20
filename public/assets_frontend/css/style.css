@@ -652,3 +652,24 @@ span.posted_in {
 .img-cat-home, .img-cat-home img {
     width: 100%;
 }
+
+.sidebar-widget.widget_text ul li {
+    line-height: 30px;
+}
+
+.product-title, .product-title a u{
+    font-weight: inherit;
+    text-transform: none;
+}
+
+u {
+    text-transform: none;
+}
+
+.product-title a {
+    font-size: medium;
+}
+
+.info-contact li i {
+    margin-right: 5px !important;
+}

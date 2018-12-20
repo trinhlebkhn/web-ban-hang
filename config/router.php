@@ -316,6 +316,14 @@ $router->add("/quan-tri/xoa-bai-viet", [
     'controller' => 'article',
     'action' => 'delete',
 ]);
+
+/* Module liên hệ */
+$router->add("/quan-tri/lien-he", [
+    'module' => 'backend',
+    'namespace' => 'Graduate\Backend\Controllers',
+    'controller' => 'contact',
+    'action' => 'index',
+]);
 /* END BACKEND */
 
 
@@ -462,6 +470,14 @@ $router->add("/tim-kiem.html", [
     'module' => 'frontend',
     'namespace' => 'Graduate\Frontend\Controllers',
     'controller' => 'search',
+    'action' => 'index',
+]);
+
+/* Trang liên hệ */
+$router->add("/lien-he.html", [
+    'module' => 'frontend',
+    'namespace' => 'Graduate\Frontend\Controllers',
+    'controller' => 'contact',
     'action' => 'index',
 ]);
 

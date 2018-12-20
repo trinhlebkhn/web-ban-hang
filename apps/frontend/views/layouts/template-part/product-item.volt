@@ -1,6 +1,6 @@
 {% set link = uiHelper.makeLinkProduct(product) %}
 {% set images = product['image']|json_decode %}
-<li class="product col-md-3 col-sm-4 product__price__view productJson" data-product="{{ product|json_encode|escape_attr }}">
+<li class="product col-md-3 col-sm-3 product__price__view productJson" data-product="{{ product|json_encode|escape_attr }}">
     <div class="w">
         <a class="link-product" href="{{ link }}">
             {% if (product['price'] > product['price_sell']) %}
@@ -24,9 +24,9 @@
                 {% set price_sell = product['price_sell']%}
                 {% set price = product['price']%}
                 <del class="{{ price == 0 or price <= price_sell   ? 'hidden' : '' }}">
-                    <span class="amount">&#36;{{ number_format(price) }}</span>
+                    <span class="amount">{{ number_format(price) }} <u>đ</u></span>
                 </del>
-                &nbsp;&nbsp;<ins><span class="amount">&#36;{{ number_format(price_sell) }}</span></ins>
+                &nbsp;&nbsp;<ins><b class="amount">{{ number_format(price_sell) }} <u>đ</u></b></ins>
             </h3>
             <input type="text" class="input-number" style="display: none" value="1">
             <a class="add-to-cart-button product__view__button__cart" href="#" rel="nofollow" title="Thêm vào giỏ hàng"> <i class="icon-bag"></i> </a>

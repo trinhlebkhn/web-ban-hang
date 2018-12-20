@@ -33,6 +33,12 @@
                     <span>Quản lý bài viết</span>
                 </a>
             </li>
+            <li>
+                <a href="/quan-tri/lien-he">
+                    <i class="fa fa-address-book-o" aria-hidden="true"></i>
+                    <span>Quản lý liên hệ</span>
+                </a>
+            </li>
             {#<li class="treeview">#}
                 {#<a href="#">#}
                     {#<i class="fa fa-briefcase"></i>#}
@@ -86,12 +92,6 @@
                         <a href="/quan-tri/thong-tin-trang-chu">
                             <i class="fa fa-cog" aria-hidden="true"></i>
                             <span>Thông tin website</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/quan-tri/banner-quang-cao">
-                            <i class="fa fa-line-chart" aria-hidden="true"></i>
-                            <span>Cấu hình banner quảng cáo</span>
                         </a>
                     </li>
                     <li>

@@ -468,9 +468,10 @@ class Category extends DbModel
         try {
             $listObj = $this->modelsManager->createBuilder()
                 ->from(self::class)
-                ->where('Category.position like "home"')
-                ->orderby('sort')
                 ->join(Product::class)
+                ->where('Category.position like "home"')
+                ->andwhere('Product.status = 1 and Product.del_flag = 0')
+                ->orderby('sort')
                 ->andwhere('Category.id = Product.category_id')
                 ->columns(['Category.id', 'Category.avatar', 'Category.name', 'Category.slug', 'Category.parent_id', 'Category.type', 'Category.position', 'Category.sort', 'Product.*'])
                 ->getQuery()

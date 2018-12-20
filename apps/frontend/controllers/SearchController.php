@@ -14,7 +14,6 @@ class SearchController extends ControllerBase
     public function indexAction()
     {
         $strSearch = $this->request->get('strSearch');
-//        d($strSearch);
         $orderBy = $this->request->get('order_by');
         $query = $this->request->getQuery();
         $page = $query['p'] ? $query['p'] : 1;
@@ -22,7 +21,7 @@ class SearchController extends ControllerBase
         $optional = [
             'limit' => 16,
             'p' => $page,
-            'q' => 'name like "%' . $strSearch . '%"'
+            'q' => 'status = 1 and del_flag = 0'
         ];
 
         if ($this->request->isPost()) {
@@ -32,7 +31,7 @@ class SearchController extends ControllerBase
         $paramSearch = '';
         if (!empty($strSearch)) {
             $optional['q'] .= ' and name like "%' . $strSearch . '%"';
-            $paramSearch .= '&strSearch="' . $strSearch.'"';
+            $paramSearch .= "&strSearch=" . $strSearch;
             $this->view->strSearch = $strSearch;
         }
 
@@ -41,14 +40,11 @@ class SearchController extends ControllerBase
             $paramSearch .= '&order_by=' . $orderBy;
             $this->view->orderBy = $orderBy;
         }
-
         $rs = $productObj->getListObj($optional);
         if (!$rs->status) {
             $this->flash->error($rs->message);
             return;
         }
-
-//        d($paramSearch);
 
         if (!empty($query)) $this->view->query = $query;
         $this->view->setVars([

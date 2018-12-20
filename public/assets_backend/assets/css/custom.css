@@ -566,3 +566,7 @@ aside.control-sidebar.control-sidebar-dark {
 .alert-success {
     background-image: linear-gradient(to bottom, #5cb338 0%, #4be20d 100%);
 }
+
+.table-contact td:last-child {
+    width: 50%;
+}

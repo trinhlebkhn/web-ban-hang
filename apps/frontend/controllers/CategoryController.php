@@ -22,7 +22,7 @@ class CategoryController extends ControllerBase
         $optional = [
             'limit' => 16,
             'p' => $page,
-            'q' => 'category_id = ' . $id
+            'q' => 'status = 1 and del_flag = 0 and category_id = ' . $id
         ];
 
         if ($this->request->isPost()) {
@@ -33,7 +33,7 @@ class CategoryController extends ControllerBase
 
         if (!empty($strSearch)) {
             $optional['q'] .= ' and name like "%' . $strSearch . '%"';
-            $paramSearch .= '&strSearch="' . $strSearch.'"';
+            $paramSearch .= '&strSearch=' . $strSearch;
             $this->view->strSearch = $strSearch;
         }
 
@@ -70,7 +70,7 @@ class CategoryController extends ControllerBase
         $optional = [
             'limit' => 10,
             'p' => $page,
-            'q' => 'category_id = ' . $id
+            'q' => 'status = 1 and del_flag = 0 and category_id = ' . $id
         ];
         $rs = $articleObj->getListObj($optional);
         if (!$rs->status) {

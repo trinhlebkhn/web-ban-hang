@@ -51,6 +51,7 @@
                                 <div class="menu-container">
                                     <ul class="nav navbar-nav" id="menu-main">
                                         {{ uiHelper.drawRecursiveMenu('layouts/recursive/main-menu', mainMenu) }}
+                                        <li class="menu-item"><a href="/lien-he.html">Liên hệ</a></li>
                                     </ul>
                                 </div>
                                 <div class="menu-sidebar">

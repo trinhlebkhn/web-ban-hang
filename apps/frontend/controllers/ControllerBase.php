@@ -89,7 +89,7 @@ class ControllerBase extends Controller
 
     public function getListCat(){
         $catObj = new \Category();
-        $optional['q'] = 'type = 1';
+        $optional['q'] = 'type = 1 and status = 1 and del_flag = 0';
         $rs = $catObj->getListObj($optional);
         $listCat = [];
         $this->recursive($rs->data, 0, $listCat);
