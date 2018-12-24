@@ -48,8 +48,12 @@ class ProductController extends AuthorizedControllerBase
             $this->flash->error($rs->message);
             return;
         }
+        $data = $rs->data;
+        foreach ($data as &$item) {
+            $item['slug'] = $this->uiHelper->makeLinkProduct($item);
+        }
         $this->view->setVars([
-            'listData' => $rs->data,
+            'listData' => $data,
             'Paginginfo' => $rs->optional,
             'Current_link' => $query['_url']
         ]);

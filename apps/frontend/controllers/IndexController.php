@@ -20,6 +20,7 @@ class IndexController extends ControllerBase
     public function getCatHome(){
         $catObj = new \Category();
         $rsDataHome = $catObj->getDataListCatPageHome();
+//        d($rsDataHome->data[2]->product);
         if($rsDataHome->status) return $rsDataHome->data;
 
     }

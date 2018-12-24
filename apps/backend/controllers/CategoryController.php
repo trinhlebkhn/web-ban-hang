@@ -36,23 +36,28 @@ class CategoryController extends AuthorizedControllerBase
         if (!empty($strSeach) || !empty($sttSeach) || !empty($typeSeach)) {
             $filter = $this->checkQuery($strSeach, $sttSeach, $typeSeach);
         }
-        if(!empty($filter)){
+        if (!empty($filter)) {
             $optional['q'] = $filter['query'];
             $this->view->paramSearch = $filter['paramSearch'];
-            if(!empty($strSeach)) {
+            if (!empty($strSeach)) {
                 $this->view->StrSearch = $strSeach;
             }
-            if(!empty($sttSeach)) {
+            if (!empty($sttSeach)) {
                 $this->view->SttSearch = $sttSeach;
             }
-            if(!empty($typeSeach)) {
+            if (!empty($typeSeach)) {
                 $this->view->TypeSearch = $typeSeach;
             }
         }
         $rs = $catObj->getListObj($optional);
+
         if ($rs->status) {
+            $data = $rs->data;
+            foreach ($data as &$item) {
+                $item['slug'] = $this->uiHelper->makeLinkCategory($item);
+            }
             $this->view->setVars([
-                'listCat' => $rs->data,
+                'listCat' => $data,
                 'Paginginfo' => $rs->optional,
                 'Current_link' => $query['_url']
             ]);
@@ -60,7 +65,6 @@ class CategoryController extends AuthorizedControllerBase
             return $this->flash->error('Có lỗi hệ thống xảy ra!');
         }
     }
-
 
     public function updateAction()
     {

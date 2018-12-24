@@ -87,7 +87,7 @@ class Product extends DbModel
      * @var double
      * @Column(type="double", length=15, nullable=false)
      */
-    public $price_import;
+    public $price_import_warehouse;
 
     /**
      *
@@ -329,18 +329,20 @@ class Product extends DbModel
     /**
      * @return float
      */
-    public function getPriceImport()
+    public function getPriceImportWarehouse()
     {
-        return $this->price_import;
+        return $this->price_import_warehouse;
     }
 
     /**
-     * @param float $price_import
+     * @param float $price_import_warehouse
      */
-    public function setPriceImport($price_import)
+    public function setPriceImportWarehouse($price_import_warehouse)
     {
-        $this->price_import = $price_import;
+        $this->price_import_warehouse = $price_import_warehouse;
     }
+
+
 
     /**
      * @return int
@@ -534,6 +536,7 @@ class Product extends DbModel
     public function createObj($data)
     {
         try {
+//            d($data);
             $data['datecreate'] = time();
             $data['del_flag'] = 0;
             $rs = self::newInstance($data);

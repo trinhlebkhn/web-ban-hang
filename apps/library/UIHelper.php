@@ -56,7 +56,7 @@ class UIHelper extends Component {
     public function getArticleCategoryList(){
         $catObj = new \Category();
         $query_cat = [
-            'q' => 'type = 2'
+            'q' => 'type = 2 and status = 1 and del_flag = 0',
         ];
         $listCats = $catObj->getListObj($query_cat);
         foreach ($listCats->data as &$item) {

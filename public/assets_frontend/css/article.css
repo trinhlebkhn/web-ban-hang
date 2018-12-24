@@ -43,6 +43,10 @@ ul, ol {
     line-height: 18px;
     margin-bottom: 7px;
 }
+
+.detail-article .entry_title {
+    line-height: 40px;
+}
 .entry_meta {
     overflow: hidden;
     font-size: 13px;
