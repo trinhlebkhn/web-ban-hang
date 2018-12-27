@@ -81,7 +81,7 @@
                                         <div class="form-group">
                                             <div class="label">Chọn hình thức vận chuyển: <span
                                                         style="color: red; font-size: 16px">*</span></div>
-                                            <select name="info_payment[service_value]" id="service"
+                                            <select name="info_payment[service_transport]" id="service"
                                                     class="selectpicker form-control" required>
                                                 {% for item in listService %}
                                                     <option value="{{ item.SERVICE_CODE }}" {{ item.SERVICE_CODE == 'VTK' ? 'selected' : '' }}>{{ item.SERVICE_NAME }}</option>
@@ -93,7 +93,7 @@
                                         <div class="form-group">
                                             <div class="label">Chọn kho: <span
                                                         style="color: red; font-size: 16px">*</span></div>
-                                            <select name="info_payment[service_value]" id="storehouse"
+                                            <select name="info_payment[storehouse]" id="storehouse"
                                                     class="selectpicker form-control" data-live-search="true" required>
                                                 {% for item in listStore %}
                                                     <option value="{{ item|json_encode|escape_attr }}">{{ item.name }}</option>
@@ -116,8 +116,7 @@
                                         <div class="box-content">
                                             <p>
                                                 Mọi đơn hàng phải được thanh toán trước một nửa tiền đặt hàng kèm theo phí vận chuyển của đơn hàng qua cổng thanh toán ngân lượng bằng cách truy cập
-                                                vào đường dẫn được gửi trong e-mail của khách hàng trong vòng 24 giờ. Sau 24 giờ nếu không được thanh toán thì
-                                                đơn hàng sẽ tự động hủy.
+                                                vào đường dẫn được gửi trong e-mail của khách hàng.
                                             </p>
                                         </div>
                                     </div>
@@ -172,6 +171,8 @@
                             <div class="price-provi">
                                 <div class="pull-left">Tạm tính :</div>
                                 <div class="pull-right total subtotal">{{ number_format(cart.getTotalPrice()) }}đ
+                                    <input type="text" value="{{ cart.getTotalPrice() }}" name="info_payment[price]"
+                                           class="form-control hidden" id="subtotal" placeholder="">
                                 </div>
                             </div>
                             {% if listStore|length > 0 %}

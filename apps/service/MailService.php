@@ -12,8 +12,8 @@ trait MailService
     public function sendMail($to,$body)
     {
         $transport = (new Swift_smtpTransport('smtp.gmail.com', 465,'ssl'))
-            ->setUsername('trinhln.it@gmail.com')
-            ->setPassword('dhbkhn657')
+            ->setUsername('donghoonlinebk@gmail.com')
+            ->setPassword('admin123#')
             ->setAuthMode('PLAIN');
         ;
 

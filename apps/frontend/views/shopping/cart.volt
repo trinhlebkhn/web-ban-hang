@@ -80,7 +80,7 @@
                                                 <span class="col-md-6">Tổng tiền</span>
                                                 <span class="col-md-6 total_price">{{ number_format(cart.getTotalPrice()) }} đ</span>
                                             </div>
-                                            <a class="btn btn-success btn-block" href="/dat-hang.html">
+                                            <a class="btn btn-success btn-block" href="{{ auth ? '/dat-hang.html' : '/thanh-toan.html' }}">
                                                 Tiến hành thanh toán
                                                 <i class="fa fa-shopping-cart"></i>
                                             </a>
@@ -95,18 +95,6 @@
         </div>
     </div>
     {% else %}
-        <div class="header__second">
-            <div class="container">
-                <div class="logo pull-left">
-                    <a class="image">
-                        <img src="{{ websiteConfig.logo_file|length ? websiteConfig.logo_file : '/app/img/web_logo.png' }}"
-                             alt="logo">
-                    </a>
-                    <h1 class="name hidden">đặc sản vùng miền</h1>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
         <div class="sec sec__shopcart">
             <div class="container">
                 <div class="nav-steps">

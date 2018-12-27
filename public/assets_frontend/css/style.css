@@ -673,3 +673,8 @@ u {
 .info-contact li i {
     margin-right: 5px !important;
 }
+
+.widget_shopping_cart_content .product__shopcart ul li img {
+    width: 50px;
+    height: 50px;
+}

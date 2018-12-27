@@ -51,15 +51,27 @@ class ShoppingController extends ControllerBase
         if ($this->request->isPost()) {
             $data = $this->request->getPost('info_payment');
             $auth = $this->session->get('auth');
-            $cart = $this->session->get('cart');
+//            $cart = $this->session->get('cart');
             $data['email'] = $auth['email'];
-            $data['price'] = $data['total_price'];
             $data['source_bill'] = 1;
             $data['ship_price'] = $this->session->get('ship_price');
+            $storehouse = json_decode($data['storehouse']);
+            $data['vtp_warsehouse'] = $storehouse->groupaddressId;
             $this->session->set('info_order', $data);
+            $this->response->redirect(base_uri() . '/shopping/nlCheckout');
+        }
+    }
 
+    public function nlCheckoutAction()
+    {
+        $cart = $this->session->get('cart');
+        $info = $this->session->get('info_order');
+        $money = $this->cart->getTotalPrice() / 2;
+        $ship_price = $this->session->get('ship_price');
+        if ($this->request->isPost()) {
+            /* Thực hiện tạo đơn hàng */
             $billObj = new \Bill();
-            $rsCreateBill = $billObj->createObj($data);
+            $rsCreateBill = $billObj->createObj($info);
             if ($rsCreateBill->status == 1) {
                 /* Tạo product-bill*/
                 foreach ($cart as &$value) {
@@ -77,20 +89,9 @@ class ShoppingController extends ControllerBase
                         return $this->flash->error($rsCreateProductBill->message);
                     }
                 }
+            } else return $this->flash->error($rsCreateBill->message);
 
-                $order_code = $rsCreateBill->data['id'];
-                $this->response->redirect(base_uri() . '/shopping/nlCheckout?order_id=' . $order_code);
-            }
-        }
-    }
-
-    public function nlCheckoutAction()
-    {
-        $info = $this->session->get('info_order');
-        $money = $this->cart->getTotalPrice() / 2;
-        $order_id = $this->request->get('order_id');
-        $ship_price = $this->session->get('ship_price');
-        if ($this->request->isPost()) {
+            /* Thực hiện gửi link thanh toán */
             $nlcheckout = $this->nl_api;
             $total_amount = $_POST['total_amount'];
             $array_items[0] = array(
@@ -103,7 +104,7 @@ class ShoppingController extends ControllerBase
             $array_items = array();
             $payment_method = $_POST['option_payment'];
             $bank_code = @$_POST['bankcode'];
-            $order_code = $_POST['order_id'];
+            $order_code = $rsCreateBill->data['id'];
             $payment_type = 1;
             $discount_amount = 0;
             $order_description = '';
@@ -152,6 +153,7 @@ class ShoppingController extends ControllerBase
                         unset($_SESSION['ship_price']);
                     }
                 } else {
+                    d($nl_result->error_message);
                     $this->flash->error($nl_result->error_message);
                 }
 
@@ -162,7 +164,6 @@ class ShoppingController extends ControllerBase
         $this->view->setVars([
             'user_info' => $info,
             'money' => $money,
-            'order_id' => $order_id,
             'ship_price' => $ship_price,
         ]);
     }
@@ -240,7 +241,7 @@ class ShoppingController extends ControllerBase
         }
         $mail = str_replace("{info_product}", $info_product, $mail);
         $ship_price = $this->session->get('ship_price');
-        $mail = str_replace("{subtotal}", number_format($info_order['total_price']), $mail);
+        $mail = str_replace("{subtotal}", number_format($info_order['price']), $mail);
         $mail = str_replace("{ship_price}", number_format($ship_price), $mail);
         $mail = str_replace("{total}", number_format($info_order['price'] + $ship_price), $mail);
         $rs = $this->sendMail($buyer_email, $mail);

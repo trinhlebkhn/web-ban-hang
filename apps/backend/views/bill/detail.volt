@@ -87,7 +87,7 @@
                             <tr>
                                 <th>Còn lại:</th>
                                 <td>
-                                    {{ uiHelper.formatNumber(data['total_price'] + data['ship_price'] - data['payment']) }}
+                                    {{ uiHelper.formatNumber(data['total_price'] - data['payment']) }}
                                     <b>VNĐ</b>
                                 </td>
                             </tr>

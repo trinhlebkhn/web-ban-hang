@@ -19,7 +19,6 @@
                         <input type="hidden" name="package_name"
                                value="{{ package_service['name'] }} - {{ package_option['package_name'] }}">
                         <input type="hidden" name="package_option_price" value="{{ package_option['price'] }}">
-                        <input type="hidden" name="order_id" value="{{ order_id }}">
 
                         <div class="row mg-0">
                             <div class="col-12 text-center" style="display: flex;">
