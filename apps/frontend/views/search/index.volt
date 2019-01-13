@@ -20,7 +20,7 @@
 
                     </div>
                     <div class="col-md-8 col-sm-6 text-right">
-                        <p class="woocommerce-result-count"> Có tất cả {{ Paginginfo['total_items'] }} kêt quả </p> {{ paramSearch }}
+                        <p class="woocommerce-result-count"> Có tất cả {{ Paginginfo['total_items'] }} kêt quả
                         <form class="woocommerce-ordering" method="post">
                             <select name="order_by" class="orderby" onchange="this.form.submit()">
                                 <option value="" selected='selected'>Mặc định</option>

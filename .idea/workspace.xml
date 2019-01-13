@@ -2,15 +2,718 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7282ae4a-8215-4ede-8761-43fe8af4a01f" name="Default" comment="update">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/backend/views/bill/detail.volt" beforeDir="false" afterPath="$PROJECT_DIR$/apps/backend/views/bill/detail.volt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/frontend/controllers/ShoppingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/controllers/ShoppingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/frontend/views/shopping/cart.volt" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/views/shopping/cart.volt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/frontend/views/shopping/nlCheckout.volt" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/views/shopping/nlCheckout.volt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/frontend/views/shopping/order_info.volt" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/views/shopping/order_info.volt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/service/MailService.php" beforeDir="false" afterPath="$PROJECT_DIR$/apps/service/MailService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets_frontend/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets_frontend/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/frontend/views/search/index.volt" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/views/search/index.volt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/router.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/router.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/assets/js/uploadImage.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets_backend/assets/js/uploadImage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/OneNote Table Of Contents.onetoc2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/accordion.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/all.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/autocomplete.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/base.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/button.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/core.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/datepicker.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/dialog.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/draggable.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/images/ui-bg_flat_75_ffffff_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/images/ui-bg_glass_55_fbf9ee_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/images/ui-bg_glass_65_ffffff_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/images/ui-bg_glass_75_dadada_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/images/ui-bg_glass_95_fef1ec_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/images/ui-icons_222222_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/images/ui-icons_2e83ff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/images/ui-icons_444444_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/images/ui-icons_454545_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/images/ui-icons_555555_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/images/ui-icons_777620_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/images/ui-icons_777777_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/images/ui-icons_888888_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/images/ui-icons_cc0000_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/images/ui-icons_cd0a0a_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/images/ui-icons_ffffff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/menu.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/progressbar.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/resizable.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/selectable.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/selectmenu.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/slider.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/sortable.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/spinner.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/tabs.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/base/tooltip.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/black-tie/images/animated-overlay.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/black-tie/images/ui-bg_diagonals-thick_8_333333_40x40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/black-tie/images/ui-bg_flat_65_ffffff_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/black-tie/images/ui-bg_glass_40_111111_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/black-tie/images/ui-bg_glass_55_1c1c1c_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/black-tie/images/ui-bg_highlight-hard_100_f9f9f9_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/black-tie/images/ui-bg_highlight-hard_40_aaaaaa_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/black-tie/images/ui-bg_highlight-soft_50_aaaaaa_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/black-tie/images/ui-bg_inset-hard_45_cd0a0a_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/black-tie/images/ui-bg_inset-hard_55_ffeb80_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/black-tie/images/ui-icons_222222_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/black-tie/images/ui-icons_4ca300_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/black-tie/images/ui-icons_bbbbbb_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/black-tie/images/ui-icons_ededed_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/black-tie/images/ui-icons_ffcf29_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/black-tie/images/ui-icons_ffffff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/black-tie/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/black-tie/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/black-tie/theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/blitzer/images/animated-overlay.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/blitzer/images/ui-bg_diagonals-thick_75_f3d8d8_40x40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/blitzer/images/ui-bg_dots-small_65_a6a6a6_2x2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/blitzer/images/ui-bg_flat_0_333333_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/blitzer/images/ui-bg_flat_65_ffffff_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/blitzer/images/ui-bg_flat_75_ffffff_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/blitzer/images/ui-bg_glass_55_fbf8ee_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/blitzer/images/ui-bg_highlight-hard_100_eeeeee_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/blitzer/images/ui-bg_highlight-hard_100_f6f6f6_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/blitzer/images/ui-bg_highlight-soft_15_cc0000_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/blitzer/images/ui-icons_004276_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/blitzer/images/ui-icons_cc0000_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/blitzer/images/ui-icons_ffffff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/blitzer/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/blitzer/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/blitzer/theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/cupertino/images/animated-overlay.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/cupertino/images/ui-bg_diagonals-thick_90_eeeeee_40x40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/cupertino/images/ui-bg_flat_15_cd0a0a_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/cupertino/images/ui-bg_glass_100_e4f1fb_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/cupertino/images/ui-bg_glass_50_3baae3_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/cupertino/images/ui-bg_glass_80_d7ebf9_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/cupertino/images/ui-bg_highlight-hard_100_f2f5f7_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/cupertino/images/ui-bg_highlight-hard_70_000000_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/cupertino/images/ui-bg_highlight-soft_100_deedf7_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/cupertino/images/ui-bg_highlight-soft_25_ffef8f_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/cupertino/images/ui-icons_2694e8_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/cupertino/images/ui-icons_2e83ff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/cupertino/images/ui-icons_3d80b3_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/cupertino/images/ui-icons_72a7cf_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/cupertino/images/ui-icons_ffffff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/cupertino/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/cupertino/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/cupertino/theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/dark-hive/images/animated-overlay.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/dark-hive/images/ui-bg_flat_30_cccccc_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/dark-hive/images/ui-bg_flat_50_5c5c5c_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/dark-hive/images/ui-bg_glass_40_ffc73d_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/dark-hive/images/ui-bg_highlight-hard_20_0972a5_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/dark-hive/images/ui-bg_highlight-soft_33_003147_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/dark-hive/images/ui-bg_highlight-soft_35_222222_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/dark-hive/images/ui-bg_highlight-soft_44_444444_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/dark-hive/images/ui-bg_highlight-soft_80_eeeeee_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/dark-hive/images/ui-bg_loop_25_000000_21x21.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/dark-hive/images/ui-icons_222222_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/dark-hive/images/ui-icons_4b8e0b_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/dark-hive/images/ui-icons_a83300_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/dark-hive/images/ui-icons_cccccc_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/dark-hive/images/ui-icons_ffffff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/dark-hive/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/dark-hive/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/dark-hive/theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/dot-luv/images/animated-overlay.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/dot-luv/images/ui-bg_diagonals-thick_15_0b3e6f_40x40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/dot-luv/images/ui-bg_dots-medium_30_0b58a2_4x4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/dot-luv/images/ui-bg_dots-small_20_333333_2x2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/dot-luv/images/ui-bg_dots-small_30_a32d00_2x2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/dot-luv/images/ui-bg_dots-small_40_00498f_2x2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/dot-luv/images/ui-bg_flat_0_aaaaaa_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/dot-luv/images/ui-bg_flat_40_292929_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/dot-luv/images/ui-bg_gloss-wave_20_111111_500x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/dot-luv/images/ui-icons_00498f_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/dot-luv/images/ui-icons_98d2fb_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/dot-luv/images/ui-icons_9ccdfc_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/dot-luv/images/ui-icons_ffffff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/dot-luv/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/dot-luv/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/dot-luv/theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/eggplant/images/animated-overlay.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/eggplant/images/ui-bg_flat_0_aaaaaa_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/eggplant/images/ui-bg_flat_0_eeeeee_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/eggplant/images/ui-bg_flat_55_994d53_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/eggplant/images/ui-bg_flat_55_fafafa_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/eggplant/images/ui-bg_gloss-wave_30_3d3644_500x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/eggplant/images/ui-bg_highlight-soft_100_dcd9de_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/eggplant/images/ui-bg_highlight-soft_100_eae6ea_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/eggplant/images/ui-bg_highlight-soft_25_30273a_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/eggplant/images/ui-bg_highlight-soft_45_5f5964_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/eggplant/images/ui-icons_454545_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/eggplant/images/ui-icons_734d99_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/eggplant/images/ui-icons_8d78a5_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/eggplant/images/ui-icons_a8a3ae_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/eggplant/images/ui-icons_ebccce_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/eggplant/images/ui-icons_ffffff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/eggplant/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/eggplant/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/eggplant/theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/excite-bike/images/animated-overlay.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/excite-bike/images/ui-bg_diagonals-small_25_c5ddfc_40x40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/excite-bike/images/ui-bg_diagonals-thick_20_e69700_40x40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/excite-bike/images/ui-bg_diagonals-thick_22_1484e6_40x40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/excite-bike/images/ui-bg_diagonals-thick_26_2293f7_40x40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/excite-bike/images/ui-bg_flat_0_e69700_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/excite-bike/images/ui-bg_flat_0_e6b900_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/excite-bike/images/ui-bg_highlight-soft_100_f9f9f9_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/excite-bike/images/ui-bg_inset-hard_100_eeeeee_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/excite-bike/images/ui-icons_0a82eb_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/excite-bike/images/ui-icons_0b54d5_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/excite-bike/images/ui-icons_5fa5e3_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/excite-bike/images/ui-icons_fcdd4a_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/excite-bike/images/ui-icons_ffffff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/excite-bike/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/excite-bike/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/excite-bike/theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/flick/images/animated-overlay.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/flick/images/ui-bg_flat_0_aaaaaa_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/flick/images/ui-bg_flat_0_eeeeee_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/flick/images/ui-bg_flat_55_ffffff_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/flick/images/ui-bg_flat_75_ffffff_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/flick/images/ui-bg_glass_65_ffffff_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/flick/images/ui-bg_highlight-soft_100_f6f6f6_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/flick/images/ui-bg_highlight-soft_25_0073ea_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/flick/images/ui-bg_highlight-soft_50_dddddd_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/flick/images/ui-icons_0073ea_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/flick/images/ui-icons_454545_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/flick/images/ui-icons_666666_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/flick/images/ui-icons_ff0084_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/flick/images/ui-icons_ffffff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/flick/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/flick/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/flick/theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/hot-sneaks/images/animated-overlay.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/hot-sneaks/images/ui-bg_diagonals-small_40_db4865_40x40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/hot-sneaks/images/ui-bg_diagonals-small_50_93c3cd_40x40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/hot-sneaks/images/ui-bg_diagonals-small_50_ff3853_40x40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/hot-sneaks/images/ui-bg_diagonals-small_75_ccd232_40x40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/hot-sneaks/images/ui-bg_dots-medium_80_ffff38_4x4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/hot-sneaks/images/ui-bg_dots-small_35_35414f_2x2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/hot-sneaks/images/ui-bg_flat_75_ba9217_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/hot-sneaks/images/ui-bg_flat_75_ffffff_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/hot-sneaks/images/ui-bg_white-lines_85_f7f7ba_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/hot-sneaks/images/ui-icons_454545_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/hot-sneaks/images/ui-icons_88a206_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/hot-sneaks/images/ui-icons_c02669_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/hot-sneaks/images/ui-icons_e1e463_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/hot-sneaks/images/ui-icons_ffeb33_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/hot-sneaks/images/ui-icons_ffffff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/hot-sneaks/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/hot-sneaks/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/hot-sneaks/theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/humanity/images/animated-overlay.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/humanity/images/ui-bg_flat_75_aaaaaa_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/humanity/images/ui-bg_glass_100_f5f0e5_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/humanity/images/ui-bg_glass_25_cb842e_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/humanity/images/ui-bg_glass_70_ede4d4_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/humanity/images/ui-bg_highlight-hard_100_f4f0ec_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/humanity/images/ui-bg_highlight-hard_65_fee4bd_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/humanity/images/ui-bg_highlight-hard_75_f5f5b5_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/humanity/images/ui-bg_inset-soft_100_f4f0ec_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/humanity/images/ui-icons_c47a23_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/humanity/images/ui-icons_cb672b_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/humanity/images/ui-icons_f08000_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/humanity/images/ui-icons_f35f07_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/humanity/images/ui-icons_ff7519_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/humanity/images/ui-icons_ffffff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/humanity/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/humanity/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/humanity/theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/le-frog/images/animated-overlay.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/le-frog/images/ui-bg_diagonals-small_0_aaaaaa_40x40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/le-frog/images/ui-bg_diagonals-thick_15_444444_40x40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/le-frog/images/ui-bg_diagonals-thick_95_ffdc2e_40x40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/le-frog/images/ui-bg_glass_55_fbf5d0_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/le-frog/images/ui-bg_highlight-hard_30_285c00_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/le-frog/images/ui-bg_highlight-soft_33_3a8104_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/le-frog/images/ui-bg_highlight-soft_50_4eb305_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/le-frog/images/ui-bg_highlight-soft_60_4ca20b_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/le-frog/images/ui-bg_inset-soft_10_285c00_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/le-frog/images/ui-icons_4eb305_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/le-frog/images/ui-icons_72b42d_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/le-frog/images/ui-icons_cd0a0a_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/le-frog/images/ui-icons_ffffff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/le-frog/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/le-frog/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/le-frog/theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/mint-choc/images/animated-overlay.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/mint-choc/images/ui-bg_flat_0_aaaaaa_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/mint-choc/images/ui-bg_glass_15_5f391b_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/mint-choc/images/ui-bg_gloss-wave_20_1c160d_500x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/mint-choc/images/ui-bg_gloss-wave_25_453326_500x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/mint-choc/images/ui-bg_gloss-wave_30_44372c_500x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/mint-choc/images/ui-bg_highlight-soft_20_201913_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/mint-choc/images/ui-bg_highlight-soft_20_619226_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/mint-choc/images/ui-bg_inset-soft_10_201913_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/mint-choc/images/ui-icons_222222_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/mint-choc/images/ui-icons_9bcc60_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/mint-choc/images/ui-icons_add978_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/mint-choc/images/ui-icons_e3ddc9_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/mint-choc/images/ui-icons_f1fd86_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/mint-choc/images/ui-icons_ffffff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/mint-choc/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/mint-choc/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/mint-choc/theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/overcast/images/animated-overlay.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/overcast/images/ui-bg_flat_0_aaaaaa_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/overcast/images/ui-bg_flat_0_eeeeee_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/overcast/images/ui-bg_flat_55_c0402a_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/overcast/images/ui-bg_flat_55_eeeeee_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/overcast/images/ui-bg_glass_100_f8f8f8_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/overcast/images/ui-bg_glass_35_dddddd_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/overcast/images/ui-bg_glass_60_eeeeee_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/overcast/images/ui-bg_inset-hard_75_999999_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/overcast/images/ui-bg_inset-soft_50_c9c9c9_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/overcast/images/ui-icons_3383bb_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/overcast/images/ui-icons_454545_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/overcast/images/ui-icons_70b2e1_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/overcast/images/ui-icons_999999_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/overcast/images/ui-icons_fbc856_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/overcast/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/overcast/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/overcast/theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/pepper-grinder/images/animated-overlay.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/pepper-grinder/images/ui-bg_diagonal-maze_20_6e4f1c_10x10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/pepper-grinder/images/ui-bg_diagonal-maze_40_000000_10x10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/pepper-grinder/images/ui-bg_fine-grain_10_eceadf_60x60.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/pepper-grinder/images/ui-bg_fine-grain_10_f8f7f6_60x60.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/pepper-grinder/images/ui-bg_fine-grain_15_eceadf_60x60.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/pepper-grinder/images/ui-bg_fine-grain_15_f7f3de_60x60.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/pepper-grinder/images/ui-bg_fine-grain_15_ffffff_60x60.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/pepper-grinder/images/ui-bg_fine-grain_65_654b24_60x60.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/pepper-grinder/images/ui-bg_fine-grain_68_b83400_60x60.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/pepper-grinder/images/ui-icons_222222_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/pepper-grinder/images/ui-icons_3572ac_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/pepper-grinder/images/ui-icons_8c291d_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/pepper-grinder/images/ui-icons_b83400_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/pepper-grinder/images/ui-icons_fbdb93_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/pepper-grinder/images/ui-icons_ffffff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/pepper-grinder/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/pepper-grinder/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/pepper-grinder/theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/redmond/images/animated-overlay.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/redmond/images/ui-bg_flat_0_aaaaaa_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/redmond/images/ui-bg_flat_55_fbec88_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/redmond/images/ui-bg_glass_75_d0e5f5_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/redmond/images/ui-bg_glass_85_dfeffc_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/redmond/images/ui-bg_glass_95_fef1ec_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/redmond/images/ui-bg_gloss-wave_55_5c9ccc_500x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/redmond/images/ui-bg_inset-hard_100_f5f8f9_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/redmond/images/ui-bg_inset-hard_100_fcfdfd_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/redmond/images/ui-icons_217bc0_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/redmond/images/ui-icons_2e83ff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/redmond/images/ui-icons_469bdd_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/redmond/images/ui-icons_6da8d5_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/redmond/images/ui-icons_cd0a0a_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/redmond/images/ui-icons_d8e7f3_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/redmond/images/ui-icons_f9bd01_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/redmond/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/redmond/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/redmond/theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/smoothness/images/animated-overlay.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/smoothness/images/ui-bg_flat_0_aaaaaa_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/smoothness/images/ui-bg_flat_75_ffffff_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/smoothness/images/ui-bg_glass_55_fbf9ee_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/smoothness/images/ui-bg_glass_65_ffffff_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/smoothness/images/ui-bg_glass_75_dadada_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/smoothness/images/ui-bg_glass_75_e6e6e6_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/smoothness/images/ui-bg_glass_95_fef1ec_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/smoothness/images/ui-bg_highlight-soft_75_cccccc_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/smoothness/images/ui-icons_222222_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/smoothness/images/ui-icons_2e83ff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/smoothness/images/ui-icons_454545_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/smoothness/images/ui-icons_888888_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/smoothness/images/ui-icons_cd0a0a_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/smoothness/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/smoothness/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/smoothness/theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/south-street/images/animated-overlay.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/south-street/images/ui-bg_glass_55_fcf0ba_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/south-street/images/ui-bg_gloss-wave_100_ece8da_500x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/south-street/images/ui-bg_highlight-hard_100_f5f3e5_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/south-street/images/ui-bg_highlight-hard_100_fafaf4_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/south-street/images/ui-bg_highlight-hard_15_459e00_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/south-street/images/ui-bg_highlight-hard_95_cccccc_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/south-street/images/ui-bg_highlight-soft_25_67b021_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/south-street/images/ui-bg_highlight-soft_95_ffedad_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/south-street/images/ui-bg_inset-soft_15_2b2922_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/south-street/images/ui-icons_808080_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/south-street/images/ui-icons_847e71_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/south-street/images/ui-icons_8DC262_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/south-street/images/ui-icons_cd0a0a_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/south-street/images/ui-icons_eeeeee_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/south-street/images/ui-icons_ffffff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/south-street/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/south-street/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/south-street/theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/start/images/animated-overlay.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/start/images/ui-bg_flat_55_999999_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/start/images/ui-bg_flat_75_aaaaaa_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/start/images/ui-bg_glass_45_0078ae_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/start/images/ui-bg_glass_55_f8da4e_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/start/images/ui-bg_glass_75_79c9ec_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/start/images/ui-bg_gloss-wave_45_e14f1c_500x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/start/images/ui-bg_gloss-wave_50_6eac2c_500x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/start/images/ui-bg_gloss-wave_75_2191c0_500x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/start/images/ui-bg_inset-hard_100_fcfdfd_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/start/images/ui-icons_0078ae_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/start/images/ui-icons_056b93_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/start/images/ui-icons_d8e7f3_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/start/images/ui-icons_e0fdff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/start/images/ui-icons_f5e175_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/start/images/ui-icons_f7a50d_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/start/images/ui-icons_fcd113_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/start/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/start/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/start/theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/sunny/images/animated-overlay.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/sunny/images/ui-bg_diagonals-medium_20_d34d17_40x40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/sunny/images/ui-bg_flat_30_cccccc_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/sunny/images/ui-bg_flat_50_5c5c5c_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/sunny/images/ui-bg_gloss-wave_45_817865_500x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/sunny/images/ui-bg_gloss-wave_60_fece2f_500x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/sunny/images/ui-bg_gloss-wave_70_ffdd57_500x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/sunny/images/ui-bg_gloss-wave_90_fff9e5_500x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/sunny/images/ui-bg_highlight-soft_100_feeebd_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/sunny/images/ui-bg_inset-soft_30_ffffff_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/sunny/images/ui-icons_3d3d3d_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/sunny/images/ui-icons_bd7b00_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/sunny/images/ui-icons_d19405_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/sunny/images/ui-icons_eb990f_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/sunny/images/ui-icons_ed9f26_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/sunny/images/ui-icons_fadc7a_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/sunny/images/ui-icons_ffe180_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/sunny/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/sunny/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/sunny/theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/swanky-purse/images/animated-overlay.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/swanky-purse/images/ui-bg_diamond_10_4f4221_10x8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/swanky-purse/images/ui-bg_diamond_20_372806_10x8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/swanky-purse/images/ui-bg_diamond_25_675423_10x8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/swanky-purse/images/ui-bg_diamond_25_d5ac5d_10x8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/swanky-purse/images/ui-bg_diamond_8_261803_10x8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/swanky-purse/images/ui-bg_diamond_8_443113_10x8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/swanky-purse/images/ui-bg_flat_75_ddd4b0_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/swanky-purse/images/ui-bg_highlight-hard_65_fee4bd_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/swanky-purse/images/ui-icons_070603_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/swanky-purse/images/ui-icons_e8e2b5_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/swanky-purse/images/ui-icons_e9cd86_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/swanky-purse/images/ui-icons_efec9f_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/swanky-purse/images/ui-icons_f2ec64_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/swanky-purse/images/ui-icons_f9f2bd_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/swanky-purse/images/ui-icons_ff7519_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/swanky-purse/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/swanky-purse/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/swanky-purse/theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/trontastic/images/animated-overlay.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/trontastic/images/ui-bg_diagonals-small_50_262626_40x40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/trontastic/images/ui-bg_flat_0_303030_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/trontastic/images/ui-bg_flat_0_4c4c4c_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/trontastic/images/ui-bg_glass_40_0a0a0a_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/trontastic/images/ui-bg_glass_55_f1fbe5_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/trontastic/images/ui-bg_glass_60_000000_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/trontastic/images/ui-bg_gloss-wave_55_000000_500x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/trontastic/images/ui-bg_gloss-wave_85_9fda58_500x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/trontastic/images/ui-bg_gloss-wave_95_f6ecd5_500x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/trontastic/images/ui-icons_000000_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/trontastic/images/ui-icons_1f1f1f_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/trontastic/images/ui-icons_9fda58_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/trontastic/images/ui-icons_b8ec79_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/trontastic/images/ui-icons_cd0a0a_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/trontastic/images/ui-icons_ffffff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/trontastic/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/trontastic/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/trontastic/theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-darkness/images/animated-overlay.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-darkness/images/ui-bg_flat_30_cccccc_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-darkness/images/ui-bg_flat_50_5c5c5c_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-darkness/images/ui-bg_glass_20_555555_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-darkness/images/ui-bg_glass_40_0078a3_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-darkness/images/ui-bg_glass_40_ffc73d_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-darkness/images/ui-bg_gloss-wave_25_333333_500x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-darkness/images/ui-bg_highlight-soft_80_eeeeee_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-darkness/images/ui-bg_inset-soft_25_000000_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-darkness/images/ui-bg_inset-soft_30_f58400_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-darkness/images/ui-icons_222222_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-darkness/images/ui-icons_4b8e0b_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-darkness/images/ui-icons_a83300_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-darkness/images/ui-icons_cccccc_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-darkness/images/ui-icons_ffffff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-darkness/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-darkness/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-darkness/theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-lightness/images/animated-overlay.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-lightness/images/ui-bg_diagonals-thick_18_b81900_40x40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-lightness/images/ui-bg_diagonals-thick_20_666666_40x40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-lightness/images/ui-bg_flat_10_000000_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-lightness/images/ui-bg_glass_100_f6f6f6_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-lightness/images/ui-bg_glass_100_fdf5ce_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-lightness/images/ui-bg_glass_65_ffffff_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-lightness/images/ui-bg_gloss-wave_35_f6a828_500x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-lightness/images/ui-bg_highlight-soft_100_eeeeee_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-lightness/images/ui-bg_highlight-soft_75_ffe45c_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-lightness/images/ui-icons_222222_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-lightness/images/ui-icons_228ef1_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-lightness/images/ui-icons_ef8c08_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-lightness/images/ui-icons_ffd27a_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-lightness/images/ui-icons_ffffff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-lightness/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-lightness/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/ui-lightness/theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/vader/images/animated-overlay.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/vader/images/ui-bg_flat_0_aaaaaa_40x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/vader/images/ui-bg_glass_95_fef1ec_1x400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/vader/images/ui-bg_gloss-wave_16_121212_500x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/vader/images/ui-bg_highlight-hard_15_888888_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/vader/images/ui-bg_highlight-hard_55_555555_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/vader/images/ui-bg_highlight-soft_35_adadad_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/vader/images/ui-bg_highlight-soft_60_dddddd_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/vader/images/ui-bg_inset-soft_15_121212_1x100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/vader/images/ui-icons_666666_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/vader/images/ui-icons_aaaaaa_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/vader/images/ui-icons_bbbbbb_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/vader/images/ui-icons_c98000_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/vader/images/ui-icons_cccccc_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/vader/images/ui-icons_cd0a0a_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/vader/images/ui-icons_f29a00_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/vader/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/vader/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/themes/vader/theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/.jshintrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/OneNote Table Of Contents.onetoc2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/accordion.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/autocomplete.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/button.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/core.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/datepicker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/dialog.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/draggable.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/droppable.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/effect-blind.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/effect-bounce.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/effect-clip.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/effect-drop.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/effect-explode.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/effect-fade.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/effect-fold.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/effect-highlight.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/effect-puff.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/effect-pulsate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/effect-scale.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/effect-shake.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/effect-size.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/effect-slide.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/effect-transfer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/effect.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/OneNote Table Of Contents.onetoc2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-af.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-ar-DZ.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-ar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-az.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-be.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-bg.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-bs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-ca.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-cs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-cy-GB.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-da.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-de.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-el.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-en-AU.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-en-GB.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-en-NZ.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-eo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-es.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-et.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-eu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-fa.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-fi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-fo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-fr-CA.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-fr-CH.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-fr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-gl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-he.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-hi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-hr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-hu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-hy.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-id.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-is.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-it-CH.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-it.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-ja.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-ka.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-kk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-km.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-ko.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-ky.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-lb.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-lt.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-lv.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-mk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-ml.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-ms.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-nb.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-nl-BE.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-nl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-nn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-no.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-pl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-pt-BR.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-pt.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-rm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-ro.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-ru.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-sk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-sl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-sq.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-sr-SR.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-sr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-sv.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-ta.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-th.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-tj.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-tr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-uk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-vi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-zh-CN.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-zh-HK.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/i18n/datepicker-zh-TW.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/menu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/OneNote Table Of Contents.onetoc2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/accordion.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/autocomplete.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/button.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/core.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/datepicker.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/dialog.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/draggable.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/droppable.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/effect-blind.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/effect-bounce.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/effect-clip.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/effect-drop.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/effect-explode.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/effect-fade.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/effect-fold.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/effect-highlight.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/effect-puff.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/effect-pulsate.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/effect-scale.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/effect-shake.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/effect-size.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/effect-slide.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/effect-transfer.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/effect.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-af.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-ar-DZ.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-ar.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-az.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-be.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-bg.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-bs.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-ca.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-cs.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-cy-GB.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-da.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-de.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-el.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-en-AU.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-en-GB.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-en-NZ.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-eo.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-es.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-et.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-eu.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-fa.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-fi.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-fo.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-fr-CA.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-fr-CH.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-fr.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-gl.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-he.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-hi.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-hr.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-hu.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-hy.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-id.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-is.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-it-CH.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-it.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-ja.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-ka.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-kk.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-km.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-ko.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-ky.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-lb.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-lt.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-lv.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-mk.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-ml.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-ms.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-nb.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-nl-BE.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-nl.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-nn.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-no.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-pl.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-pt-BR.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-pt.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-rm.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-ro.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-ru.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-sk.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-sl.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-sq.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-sr-SR.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-sr.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-sv.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-ta.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-th.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-tj.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-tr.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-uk.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-vi.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-zh-CN.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-zh-HK.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/i18n/datepicker-zh-TW.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/menu.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/mouse.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/position.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/progressbar.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/resizable.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/selectable.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/selectmenu.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/slider.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/sortable.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/spinner.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/tabs.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/tooltip.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/minified/widget.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/mouse.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/position.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/progressbar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/resizable.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/selectable.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/selectmenu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/slider.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/sortable.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/spinner.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/tabs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/tooltip.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/ui/widget.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/template_email/OneNote Table Of Contents.onetoc2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/template_email/order.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/template_email/order.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -93,24 +796,81 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ShoppingController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/frontend/controllers/ShoppingController.php">
+      <file leaf-file-name="ConfigController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/backend/controllers/ConfigController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="155" column="49" lean-forward="true" selection-start-line="155" selection-start-column="49" selection-end-line="155" selection-end-column="49" />
+            <state relative-caret-position="252">
+              <caret line="119" column="32" selection-start-line="119" selection-start-column="32" selection-end-line="119" selection-end-column="32" />
               <folding>
-                <element signature="e#210#454#0#PHP" />
-                <element signature="e#460#540#0#PHP" />
+                <element signature="e#195#2407#0#PHP" />
+                <element signature="e#2413#3811#0#PHP" />
+                <element signature="e#3817#4827#0#PHP" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".env" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.env">
+      <file leaf-file-name="ShoppingController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/frontend/controllers/ShoppingController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="9" column="20" lean-forward="true" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+            <state relative-caret-position="92">
+              <caret line="220" column="89" selection-start-line="220" selection-start-column="89" selection-end-line="220" selection-end-column="89" />
+              <folding>
+                <element signature="e#210#454#0#PHP" />
+                <element signature="e#460#540#0#PHP" />
+                <element signature="e#2396#3167#0#PHP" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="forgotpass.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/template_email/forgotpass.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="126" column="7" selection-start-line="126" selection-start-column="7" selection-end-line="126" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="order.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/template_email/order.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="197">
+              <caret line="152" column="29" selection-start-line="152" selection-start-column="29" selection-end-line="152" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ViettelPostService.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/service/ViettelPostService.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="302">
+              <caret line="117" column="51" selection-start-line="117" selection-start-column="51" selection-end-line="117" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ZaloService.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/service/ZaloService.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+              <folding>
+                <element signature="e#7#21#0#PHP" expanded="true" />
+                <element signature="n#createCategory#0;n#ZaloService#0;n#!!top" />
+                <element signature="n#updateCategory#0;n#ZaloService#0;n#!!top" />
+                <element signature="n#createProduct#0;n#ZaloService#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="composer.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/composer.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="5" column="37" lean-forward="true" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -120,15 +880,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="189">
               <caret line="14" column="41" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="nlCheckout.volt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/frontend/views/shopping/nlCheckout.volt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="23" column="83" selection-start-line="23" selection-start-column="83" selection-end-line="23" selection-end-column="83" />
             </state>
           </provider>
         </entry>
@@ -148,12 +899,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>img_product.click()</find>
-      <find>Thao tac</find>
-      <find>info_payment[ward_id]</find>
-      <find>payment_online</find>
-      <find>service</find>
-      <find>snack</find>
       <find>ship</find>
       <find>xoa-danh-muc-trang-chu</find>
       <find>&lt;ul class=&quot;products cat-home-products&quot;&gt;s&lt;/ul&gt;</find>
@@ -178,6 +923,12 @@
       <find>storehouse</find>
       <find>ORDER_SERVICE</find>
       <find>trinhln.</find>
+      <find>src_favicon</find>
+      <find>favicon</find>
+      <find>shortcut icon</find>
+      <find>registerAutoloaders</find>
+      <find>=&gt; &quot;Graduate\Frontend\Module&quot;</find>
+      <find>SetExpressCheckout</find>
     </findStrings>
     <replaceStrings>
       <replace>public</replace>
@@ -200,11 +951,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/apps/frontend/views/auth/register.volt" />
-        <option value="$PROJECT_DIR$/public/assets_frontend/js/custom.js" />
-        <option value="$PROJECT_DIR$/public/assets_frontend/assets/js/custom.js" />
-        <option value="$PROJECT_DIR$/apps/backend/views/index/index.volt" />
-        <option value="$PROJECT_DIR$/apps/backend/controllers/ConfighomeController.php" />
         <option value="$PROJECT_DIR$/apps/backend/views/layouts/widget/article/widget-list-article.volt" />
         <option value="$PROJECT_DIR$/apps/frontend/views/layouts/footer.volt" />
         <option value="$PROJECT_DIR$/apps/frontend/views/layouts/component/slide-brand.volt" />
@@ -217,17 +963,12 @@
         <option value="$PROJECT_DIR$/apps/frontend/controllers/ContactController.php" />
         <option value="$PROJECT_DIR$/apps/frontend/views/contact/index.volt" />
         <option value="$PROJECT_DIR$/apps/backend/views/contact/index.volt" />
-        <option value="$PROJECT_DIR$/config/router.php" />
         <option value="$PROJECT_DIR$/apps/backend/controllers/ContactController.php" />
         <option value="$PROJECT_DIR$/apps/backend/views/contact/listContact.volt" />
         <option value="$PROJECT_DIR$/public/assets_backend/assets/css/custom.css" />
-        <option value="$PROJECT_DIR$/apps/frontend/views/index.volt" />
         <option value="$PROJECT_DIR$/apps/frontend/views/layouts/header.volt" />
         <option value="$PROJECT_DIR$/apps/frontend/controllers/ControllerBase.php" />
         <option value="$PROJECT_DIR$/apps/models/Category.php" />
-        <option value="$PROJECT_DIR$/apps/frontend/views/search/index.volt" />
-        <option value="$PROJECT_DIR$/apps/frontend/controllers/SearchController.php" />
-        <option value="$PROJECT_DIR$/apps/frontend/controllers/CategoryController.php" />
         <option value="$PROJECT_DIR$/apps/backend/views/layouts/sidebar.volt" />
         <option value="$PROJECT_DIR$/public/ckfinder/config.php" />
         <option value="$PROJECT_DIR$/apps/library/UIHelper.php" />
@@ -249,8 +990,18 @@
         <option value="$PROJECT_DIR$/apps/service/MailService.php" />
         <option value="$PROJECT_DIR$/apps/frontend/views/shopping/cart.volt" />
         <option value="$PROJECT_DIR$/apps/frontend/views/shopping/order_info.volt" />
-        <option value="$PROJECT_DIR$/apps/frontend/controllers/ShoppingController.php" />
+        <option value="$PROJECT_DIR$/apps/backend/views/config/info.volt" />
+        <option value="$PROJECT_DIR$/public/assets_backend/assets/js/uploadImage.js" />
+        <option value="$PROJECT_DIR$/apps/frontend/views/index.volt" />
+        <option value="$PROJECT_DIR$/apps/frontend/views/search/index.volt" />
+        <option value="$PROJECT_DIR$/apps/frontend/controllers/CategoryController.php" />
+        <option value="$PROJECT_DIR$/apps/frontend/controllers/SearchController.php" />
+        <option value="$PROJECT_DIR$/apps/backend/Module.php" />
+        <option value="$PROJECT_DIR$/config/router.php" />
+        <option value="$PROJECT_DIR$/apps/backend/controllers/ConfigController.php" />
         <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/apps/frontend/controllers/ShoppingController.php" />
+        <option value="$PROJECT_DIR$/public/template_email/order.html" />
       </list>
     </option>
   </component>
@@ -294,7 +1045,7 @@
       <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="width" value="1377" />
     <option name="height" value="735" />
@@ -323,6 +1074,12 @@
               <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
               <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -336,50 +1093,28 @@
               <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
               <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-              <item name="widget" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="shopping" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
               <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="template_email" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="web-ban-hang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web-ban-hang" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -392,7 +1127,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SearchEverywhereHistoryKey" value="ser&#9;FILE&#9;file://D:/DATN/Code/web-ban-hang/config/services.php&#10;introspection&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../test_phalcon/check_phalcon" />
+    <property name="last_opened_file_path" value="E:/DATN/deloy/php-getting-started" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -595,7 +1330,11 @@
       <workItem from="1545753875042" duration="2890000" />
       <workItem from="1545840906941" duration="1907000" />
       <workItem from="1545850428352" duration="2717000" />
-      <workItem from="1545914582212" duration="2946000" />
+      <workItem from="1545914582212" duration="7238000" />
+      <workItem from="1546441653804" duration="3075000" />
+      <workItem from="1546619436396" duration="32000" />
+      <workItem from="1547365738851" duration="831000" />
+      <workItem from="1547397402099" duration="6280000" />
     </task>
     <task id="LOCAL-00001" summary="updat">
       <created>1523011072130</created>
@@ -713,7 +1452,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="739310000" />
+    <option name="totallyTimeSpent" value="753820000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -725,7 +1464,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32894737" />
@@ -734,7 +1473,7 @@
       <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.49924356" weight="0.6201299" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4969743" weight="0.32467532" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49386504" visible="true" weight="0.3214826" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49386504" visible="true" weight="0.2685325" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32894737" />
@@ -805,168 +1544,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apps/backend/views/contact/index.volt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/backend/controllers/ContactController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets_backend/assets/css/custom.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="571" column="1" selection-start-line="571" selection-start-column="1" selection-end-line="571" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/views/layouts/recursive/left-menu.volt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/views/layouts/recursive/main-menu.volt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/views/index.volt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="54" column="33" selection-start-line="54" selection-start-column="33" selection-end-line="54" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/views/layouts/header.volt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="53" column="60" selection-start-line="53" selection-start-column="60" selection-end-line="53" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/controllers/ContactController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/backend/views/contact/listContact.volt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="82" selection-start-line="11" selection-start-column="69" selection-end-line="11" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/views/layouts/pagination.volt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="194" selection-start-line="10" selection-start-column="183" selection-end-line="10" selection-end-column="194" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/views/search/index.volt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="22" column="130" selection-start-line="22" selection-start-column="130" selection-end-line="22" selection-end-column="130" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/models/Category.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8337">
-          <caret line="472" column="67" selection-start-line="472" selection-start-column="67" selection-end-line="472" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/backend/controllers/AuthorizedControllerBase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="24" column="54" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/backend/controllers/ControllerBase.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/controllers/SearchController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="861">
-          <caret line="46" column="9" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/backend/views/layouts/header.volt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/backend/views/layouts/sidebar.volt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1995">
-          <caret line="95" column="25" selection-start-line="95" selection-start-column="25" selection-end-line="95" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/ckfinder/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="92" column="34" selection-start-line="92" selection-start-column="34" selection-end-line="92" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/controllers/ArticleController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="21" column="49" lean-forward="true" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/views/layouts/sidebar/sidebar-article.volt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/views/layouts/widget/widget-article-category.volt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="56" selection-start-column="34" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets_frontend/css/bank.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/views/article/detail.volt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="18" column="61" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets_frontend/css/article.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="44" column="1" lean-forward="true" selection-start-line="44" selection-start-column="1" selection-end-line="44" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/views/layouts/widget/widget-product-related.volt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/library/UIHelper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="51" column="35" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/backend/controllers/ArticleController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -1030,16 +1607,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/router.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2898">
-          <caret line="138" column="14" selection-start-line="138" selection-start-column="14" selection-end-line="138" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/services.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/assets_frontend/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="14217">
@@ -1047,24 +1614,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/controllers/CategoryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="79" column="34" selection-start-line="79" selection-start-column="34" selection-end-line="79" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/assets_frontend/assets/js/custom.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="819">
           <caret line="39" column="18" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/template_email/order.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="158" column="61" lean-forward="true" selection-start-line="158" selection-start-column="61" selection-end-line="158" selection-end-column="70" />
         </state>
       </provider>
     </entry>
@@ -1079,35 +1632,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
           <caret line="198" column="56" selection-start-line="198" selection-start-column="39" selection-end-line="198" selection-end-column="56" />
-          <folding>
-            <element signature="e#227#599#0#PHP" />
-            <element signature="e#407#593#0#PHP" />
-            <element signature="e#524#593#0#PHP" />
-            <element signature="e#605#2092#0#PHP" />
-            <element signature="e#931#994#0#PHP" />
-            <element signature="e#1005#1157#0#PHP" />
-            <element signature="e#1188#1344#0#PHP" />
-            <element signature="e#1353#1701#0#PHP" />
-            <element signature="e#1498#1588#0#PHP" />
-            <element signature="e#1601#1691#0#PHP" />
-            <element signature="e#1786#2086#0#PHP" />
-            <element signature="e#1817#1991#0#PHP" />
-            <element signature="e#1838#1990#1#PHP" />
-            <element signature="e#2003#2086#0#PHP" />
-            <element signature="e#2098#3163#0#PHP" />
-            <element signature="e#2245#2520#0#PHP" />
-            <element signature="e#2530#2926#0#PHP" />
-            <element signature="e#2935#3031#0#PHP" />
-            <element signature="e#3040#3156#0#PHP" />
-            <element signature="e#3061#3155#1#PHP" />
-            <element signature="e#3169#3452#0#PHP" />
-            <element signature="e#3272#3340#0#PHP" />
-            <element signature="e#3458#3885#0#PHP" />
-            <element signature="e#3625#3799#0#PHP" />
-            <element signature="e#3809#3878#0#PHP" />
-            <element signature="e#3830#3877#1#PHP" />
-            <element signature="e#3891#4261#0#PHP" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1136,30 +1660,241 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="115" column="44" selection-start-line="115" selection-start-column="33" selection-end-line="115" selection-end-column="44" />
-          <folding>
-            <element signature="e#186#1121#0#PHP" />
-            <element signature="e#287#354#0#PHP" />
-            <element signature="e#466#787#0#PHP" />
-            <element signature="e#723#787#0#PHP" />
-            <element signature="e#929#1052#0#PHP" />
-            <element signature="e#1127#1850#0#PHP" />
-            <element signature="e#1548#1781#0#PHP" />
-            <element signature="e#1856#2908#0#PHP" />
-            <element signature="e#2101#2344#0#PHP" />
-            <element signature="e#2151#2334#0#PHP" />
-            <element signature="e#2485#2663#0#PHP" />
-            <element signature="e#2914#3359#0#PHP" />
-            <element signature="e#3140#3353#0#PHP" />
-            <element signature="e#3181#3281#0#PHP" />
-            <element signature="e#3228#3280#0#PHP" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/frontend/views/shopping/nlCheckout.volt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
+        <state relative-caret-position="483">
           <caret line="23" column="83" selection-start-line="23" selection-start-column="83" selection-end-line="23" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/backend/config/config.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/jquery-ui.min.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets_backend/source/bower_components/jquery-ui/jquery-ui.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/backend/views/index.volt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="34" column="63" selection-start-line="34" selection-start-column="57" selection-end-line="34" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/zaloplatform/zalo-php-sdk/src/ZaloConfig.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/backend/views/config/info.volt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1575">
+          <caret line="75" column="62" selection-start-line="75" selection-start-column="51" selection-end-line="75" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets_backend/assets/js/uploadImage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3297">
+          <caret line="157" column="26" selection-start-line="157" selection-start-column="26" selection-end-line="157" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/views/search/index.volt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="22" column="110" selection-start-line="22" selection-start-column="110" selection-end-line="22" selection-end-column="110" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/views/layouts/pagination.volt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="32" selection-start-column="32" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/views/index.volt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-760">
+          <caret line="46" column="32" lean-forward="true" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/phalcon/ide-stubs/src/Phalcon/Application.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="79" column="20" selection-start-line="79" selection-start-column="20" selection-end-line="79" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/controllers/SearchController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/controllers/CategoryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
+          <folding>
+            <element signature="e#1753#2533#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/phalcon/ide-stubs/src/Phalcon/mvc/Application.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-209">
+          <caret line="49" column="6" selection-start-line="49" selection-start-column="6" selection-end-line="49" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/backend/Module.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="526">
+          <caret line="62" column="47" selection-start-line="62" selection-start-column="43" selection-end-line="62" selection-end-column="47" />
+          <folding>
+            <element signature="e#119#152#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/modules.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/router.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9429">
+          <caret line="503" column="59" selection-start-line="503" selection-start-column="53" selection-end-line="503" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/loader.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/swiftmailer/swiftmailer/lib/classes/Swift/SmtpTransport.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="32" lean-forward="true" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/library/NL_Checkoutv3.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-108">
+          <caret line="251" column="70" selection-start-line="251" selection-start-column="52" selection-end-line="251" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/services.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="120" column="25" selection-start-line="120" selection-start-column="25" selection-end-line="120" selection-end-column="25" />
+          <folding>
+            <element signature="e#430#469#0#PHP" />
+            <element signature="e#495#668#1#PHP" />
+            <element signature="e#672#677#0#PHP" />
+            <element signature="e#953#993#0#PHP" />
+            <element signature="e#1037#1859#1#PHP" />
+            <element signature="e#1963#2536#0#PHP" />
+            <element signature="e#1984#2535#1#PHP" />
+            <element signature="e#2117#2371#0#PHP" />
+            <element signature="e#2378#2468#0#PHP" />
+            <element signature="e#2539#2619#0#PHP" />
+            <element signature="e#2620#2856#0#PHP" />
+            <element signature="e#2638#2855#1#PHP" />
+            <element signature="e#2673#2851#1#PHP" />
+            <element signature="e#2859#2945#0#PHP" />
+            <element signature="e#2946#3070#0#PHP" />
+            <element signature="e#2972#3069#1#PHP" />
+            <element signature="e#3073#3160#0#PHP" />
+            <element signature="e#3100#3159#1#PHP" />
+            <element signature="e#3163#3249#0#PHP" />
+            <element signature="e#3186#3248#1#PHP" />
+            <element signature="e#3462#3491#0#PHP" />
+            <element signature="e#3512#4008#1#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/buitin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="22" lean-forward="true" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="23" column="37" lean-forward="true" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/backend/controllers/ConfigController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="119" column="32" selection-start-line="119" selection-start-column="32" selection-end-line="119" selection-end-column="32" />
+          <folding>
+            <element signature="e#195#2407#0#PHP" />
+            <element signature="e#2413#3811#0#PHP" />
+            <element signature="e#3817#4827#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/frontend/controllers/ShoppingController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="220" column="89" selection-start-line="220" selection-start-column="89" selection-end-line="220" selection-end-column="89" />
+          <folding>
+            <element signature="e#210#454#0#PHP" />
+            <element signature="e#460#540#0#PHP" />
+            <element signature="e#2396#3167#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/template_email/forgotpass.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="126" column="7" selection-start-line="126" selection-start-column="7" selection-end-line="126" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/template_email/order.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="152" column="29" selection-start-line="152" selection-start-column="29" selection-end-line="152" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -1170,21 +1905,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/frontend/controllers/ShoppingController.php">
+    <entry file="file://$PROJECT_DIR$/apps/service/ViettelPostService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="155" column="49" lean-forward="true" selection-start-line="155" selection-start-column="49" selection-end-line="155" selection-end-column="49" />
+        <state relative-caret-position="302">
+          <caret line="117" column="51" selection-start-line="117" selection-start-column="51" selection-end-line="117" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/zaloplatform/zalo-php-sdk/src/Zalo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="71">
+          <caret line="116" column="20" selection-start-line="116" selection-start-column="20" selection-end-line="116" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/service/ZaloService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
           <folding>
-            <element signature="e#210#454#0#PHP" />
-            <element signature="e#460#540#0#PHP" />
+            <element signature="e#7#21#0#PHP" expanded="true" />
+            <element signature="n#createCategory#0;n#ZaloService#0;n#!!top" />
+            <element signature="n#updateCategory#0;n#ZaloService#0;n#!!top" />
+            <element signature="n#createProduct#0;n#ZaloService#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
+    <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="20" lean-forward="true" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+        <state relative-caret-position="105">
+          <caret line="5" column="37" lean-forward="true" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
         </state>
       </provider>
     </entry>

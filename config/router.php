@@ -484,10 +484,9 @@ $router->add("/lien-he.html", [
 
 /* END FRONTEND */
 
-
 foreach ($application->getModules() as $key => $module) {
     $namespace = str_replace('Module', 'Controllers', $module ["className"]);
-//    d($namespace, $key, $module);
+
     $router->add('/' . $key . '/:params', [
         'namespace' => $namespace,
         'module' => $key,

@@ -153,7 +153,6 @@ class ShoppingController extends ControllerBase
                         unset($_SESSION['ship_price']);
                     }
                 } else {
-                    d($nl_result->error_message);
                     $this->flash->error($nl_result->error_message);
                 }
 

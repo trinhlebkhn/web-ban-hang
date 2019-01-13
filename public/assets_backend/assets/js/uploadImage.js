@@ -156,7 +156,7 @@ function removeImage() {
 }
 
 function removeFavicon() {
-    $('input#src_favicon').value = '';
+    $('input#src_favicon').val(null);
     $('div.img-favicon').addClass('hidden');
     $('div.blog-favicon').removeClass('hidden');
 }
